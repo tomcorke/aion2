@@ -23,7 +23,7 @@ export function Layout() {
         <Outlet />
       </main>
       <footer className="site-footer">
-        Global (EU) · Season 1 · Every claim is sourced; see{" "}
+        Global (EU) · Season 1 · Best-effort player notes; see{" "}
         <Link to="/sources">Sources</Link>.
       </footer>
       <ScrollRestoration />

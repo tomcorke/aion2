@@ -1,12 +1,12 @@
 # Agent notes
 
-This app presents the AION 2 knowledge base at `E:/working/aion2-knowledge` (repo `tomcorke/aion2-knowledge`) as a static React site at https://aion.corke.dev/.
+This app is a player-run AION 2 information site at https://aion.corke.dev/, built as a static React site. Its content draws on the owner's personal notes in `E:/working/aion2-knowledge` (repo `tomcorke/aion2-knowledge`) and the guides those notes cite.
 
-## Game facts come from the knowledge base
+## Game content
 
-- Before writing or changing any game claim (numbers, schedules, sources, evidence labels), find it in the knowledge base. Follow `E:/working/aion2-knowledge/AGENTS.md`; its notes and evidence labels outrank remembered AION 2 knowledge and older artifact copies.
-- A claim missing from the knowledge base goes there first, through that repo's research workflow, and then into the app. The knowledge base is the single source of truth; the app is a view of it.
-- Keep each claim's evidence label and source link next to it in the UI, using the knowledge base's label names.
+- Before writing or changing game facts (numbers, schedules, drops), check the notes repo, following `E:/working/aion2-knowledge/AGENTS.md`. Its notes outrank remembered AION 2 knowledge and older artifact copies.
+- Record a new finding in the notes repo through its research workflow, then add it to the app, so the two agree.
+- Write content as best-effort player notes: plain statements, free of evidence labels and inline source references. Each page ends with a footer naming its sources and its last reviewed date; the Sources page holds the full list and image credits.
 
 ## Scope
 

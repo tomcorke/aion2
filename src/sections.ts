@@ -13,7 +13,7 @@ export const sections: Section[] = [
     path: "progression",
     title: "Progression",
     summary:
-      "Item-level route from a fresh level 45 to 2,800: what unlocks when, what to spend, and what to save.",
+      "Item-level gates from a fresh level 45 to 2,800: what unlocks when, what to spend, and what to save.",
     source: "Artifact: AION 2 Progression Route",
   },
   {
@@ -59,7 +59,7 @@ export const sections: Section[] = [
   {
     path: "sources",
     title: "Sources",
-    summary: "Evidence labels, source catalog, and open questions.",
+    summary: "Where these notes come from, image credits, and open questions.",
     source: "Knowledge base: sources/catalog.md, research/open-questions.md",
   },
 ];

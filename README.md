@@ -1,6 +1,6 @@
 # AION 2 Field Notes
 
-A sourced, navigable companion site for AION 2 (Global), served at https://aion.corke.dev/. It presents the [aion2-knowledge](https://github.com/tomcorke/aion2-knowledge) base as linkable pages: progression, gear, Daevanion routes, boss timers, routines, alts and events. Every claim keeps its evidence label and source.
+A player-run information site for AION 2 (Global), served at https://aion.corke.dev/. Best-effort notes on progression, gear, Daevanion boards, boss timers, routines, alts and events, drawn from the owner's [aion2-knowledge](https://github.com/tomcorke/aion2-knowledge) notes and the guides they cite. Each page lists its sources in its footer.
 
 ## Run locally
 

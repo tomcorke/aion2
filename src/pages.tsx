@@ -18,9 +18,8 @@ export function Home() {
         <p className="eyebrow">AION 2 · Global (EU) · Season 1</p>
         <h1>Field notes</h1>
         <p className="lede">
-          Sourced guides for progression, gear, Daevanion boards, timers and
-          events. Every claim is tagged by where it comes from, so you can tell
-          game data from player experience.
+          Player notes on progression, gear, Daevanion boards, timers and
+          events. Best effort: check anything important in game.
         </p>
       </header>
       <ul className="cards">
