@@ -35,9 +35,9 @@ ESLint, Stylelint and `test/structure.test.ts` enforce most of this; the lint er
 
 ## Development
 
-- Client-only SPA. React Router owns URLs; every page and tab a user might share gets its own path.
+- Client-only SPA with hash routing (`/#/timers`). React Router owns URLs; every page and tab a user might share gets its own path. Use router links and paths, never hand-written `#` URLs.
 - `src/data/sections.ts` drives the router, the header nav, and the home page. Add a section there.
-- GitHub Pages has no SPA rewrites, so `pnpm build` copies `index.html` to `404.html`. Deep links work but return HTTP 404.
+- Hash routing exists because GitHub Pages has no SPA rewrites: a path URL like `/timers` would return 404. `public/404.html` redirects such links to their hash route. In-page anchors cannot use the URL hash; scroll to sections in code instead.
 - Run `pnpm test`, `pnpm lint`, `pnpm typecheck`, `pnpm format:check`, and `pnpm build` before handoff.
 
 ## Publishing

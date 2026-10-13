@@ -1,6 +1,6 @@
 import { StrictMode, type ReactElement } from "react";
 import { createRoot } from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router";
+import { createHashRouter, RouterProvider } from "react-router";
 import "./styles/tokens.css";
 import "./styles/global.css";
 import { Layout } from "./components/shell/Layout/Layout.tsx";
@@ -18,7 +18,8 @@ const builtPages: Record<string, ReactElement> = {
   sources: <Sources />,
 };
 
-const router = createBrowserRouter([
+// Hash URLs (/#/timers): GitHub Pages has no SPA rewrites, so path URLs would 404.
+const router = createHashRouter([
   {
     element: <Layout />,
     children: [

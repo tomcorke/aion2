@@ -45,7 +45,7 @@ The shell already routes these paths. Names and grouping are open for discussion
 | `/festival`    | Shugo Festival data and simulator                 | Shugo Festival Datasheet                          |
 | `/sources`     | Source list, image credits, open questions        | Notes repo catalog and open questions             |
 
-Deep-link candidates: `/daevanion/:class/:board`, `/timers/abyss`, `/gear#enhancement`, `/festival/simulator`.
+Deep-link candidates (hash routes, so `/#/gear/enhancement` in the address bar): `/daevanion/:class/:board`, `/timers/abyss`, `/gear/enhancement`, `/festival/simulator`.
 
 ## Open decisions
 
