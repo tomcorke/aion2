@@ -40,6 +40,8 @@ The shell already routes these paths. Names and grouping are open for discussion
 | `/timers`      | Boss and event timers                             | Level 45 Companion timers tab                     |
 | `/routine`     | Daily and weekly checklist                        | Gearing and Progression routine sections          |
 | `/alts`        | What carries over between characters              | Main vs Alts                                      |
+| `/growth`      | Growth materials: what each grows and where from  | Notes repo gear, stones and currency topics       |
+| `/skins`       | Skin sets checklist with sources and search       | Notes repo skin sources and Festival prices       |
 | `/festival`    | Shugo Festival data and simulator                 | Shugo Festival Datasheet                          |
 | `/sources`     | Source list, image credits, open questions        | Notes repo catalog and open questions             |
 

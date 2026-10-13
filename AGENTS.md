@@ -5,8 +5,16 @@ This app is a player-run AION 2 information site at https://aion.corke.dev/, bui
 ## Game content
 
 - Before writing or changing game facts (numbers, schedules, drops), check the notes repo, following `E:/working/aion2-knowledge/AGENTS.md`. Its notes outrank remembered AION 2 knowledge and older artifact copies.
-- Record a new finding in the notes repo through its research workflow, then add it to the app, so the two agree.
+- Every fact the app shows lives in the notes repo first. When filling a gap needs research, record the findings in the notes repo through its own research workflow and rules, then add them to the app, so the two agree.
 - Write content as best-effort player notes: plain statements, free of evidence labels and inline source references. Each page ends with a footer naming its sources and its last reviewed date; the Sources page holds the full list and image credits.
+
+## Workflow
+
+Until the initial MVP ships, commit directly to `main`: no feature branches or worktrees for this repo. This overrides the sandbox's branch-and-worktree default.
+
+## Design
+
+Before building or changing any UI, read [docs/design.md](docs/design.md) and follow it. Build pages from the shared components in `src/components/`, so the header, footer and controls stay identical on every page.
 
 ## Scope
 
