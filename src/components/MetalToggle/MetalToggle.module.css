@@ -1,0 +1,32 @@
+/* Deliberately smaller than the theme button: 24px, the one tap target under 40px. */
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 24px;
+  padding: 0 6px;
+  border: 0;
+  border-radius: 12px;
+  background: var(--raised);
+}
+
+.gold,
+.silver {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  opacity: 0.55;
+
+  &[data-on="true"] {
+    opacity: 1;
+    box-shadow: 0 0 0 2px var(--track);
+  }
+}
+
+.gold {
+  background: var(--swatch-gold);
+}
+
+.silver {
+  background: var(--swatch-silver);
+}

@@ -1,0 +1,38 @@
+.spine {
+  --dial-size: 220px;
+
+  display: grid;
+  gap: 8px;
+}
+
+.timers {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  /* The spine runs through the marker column, down from the dial. */
+  &::before {
+    content: "";
+    position: absolute;
+    left: 23px;
+    top: 0;
+    bottom: 24px;
+    border-left: 1px solid var(--accent);
+    opacity: 0.6;
+  }
+}
+
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  align-items: center;
+  min-height: 56px;
+  border-bottom: 1px solid var(--line);
+}
+
+.marker {
+  display: grid;
+  place-items: center;
+}

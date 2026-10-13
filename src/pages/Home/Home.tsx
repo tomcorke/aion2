@@ -1,6 +1,11 @@
 import { Link } from "react-router";
-import { PageHead } from "../../components/PageHead/PageHead.tsx";
+import hero from "../../assets/hero.jpg";
+import { Diamond } from "../../components/Diamond/Diamond.tsx";
+import { Rule } from "../../components/Rule/Rule.tsx";
+import { SiteFooter } from "../../components/SiteFooter/SiteFooter.tsx";
+import { TimerBoard } from "../../components/TimerBoard/TimerBoard.tsx";
 import { sections } from "../../sections.ts";
+import { timerSources } from "../../timers.ts";
 import { useTitle } from "../../useTitle.ts";
 import STYLES from "./Home.module.css";
 
@@ -9,22 +14,29 @@ export function Home() {
 
   return (
     <>
-      <PageHead
-        eyebrow="AION 2 · Global (EU) · Season 1"
-        title="Field notes"
-        lede="Player notes on progression, gear, Daevanion boards, timers and events. Best effort: check anything important in game."
-      />
+      <div className={STYLES.top}>
+        <img src={hero} alt="" className={STYLES.backdrop} />
+        <h1 className={STYLES.heading}>AION 2 player notes</h1>
+        <TimerBoard />
+      </div>
 
-      <ul className={STYLES.cards}>
+      <div className={STYLES.rule}>
+        <Rule gem />
+      </div>
+
+      <nav aria-label="All sections" className={STYLES.index}>
         {sections.map(({ path, title, summary }) => (
-          <li key={path}>
-            <Link to={`/${path}`} className={STYLES.card}>
-              <h2>{title}</h2>
-              <p>{summary}</p>
-            </Link>
-          </li>
+          <Link key={path} to={`/${path}`} className={STYLES.section}>
+            <span className={STYLES.title}>
+              <Diamond />
+              {title}
+            </span>
+            <span className={STYLES.summary}>{summary}</span>
+          </Link>
         ))}
-      </ul>
+      </nav>
+
+      <SiteFooter sources={timerSources} reviewed="2026-10-14" />
     </>
   );
 }

@@ -1,0 +1,35 @@
+.body {
+  display: grid;
+  gap: 32px;
+  padding: 24px var(--gutter) 0;
+}
+
+.section {
+  display: grid;
+  gap: 8px;
+
+  & h2 {
+    font-size: 1.4rem;
+  }
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.item {
+  display: grid;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+
+  & a {
+    color: var(--accent);
+  }
+}
+
+.covers {
+  font-size: 0.875rem;
+  color: var(--muted);
+}

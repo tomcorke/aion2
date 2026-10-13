@@ -100,7 +100,7 @@ Build every page from shared components in `src/components/`; never copy header,
 | `Rule`, `Diamond`, `Orb`, `ProgressBar`    | Trim and markers                                                          |
 | `TimerDial`, `TimerWings`, `TimerSpine`    | Home and timers                                                           |
 
-Hold reader preferences (theme, metal, zone, region, faction, timer setup) in one context backed by `localStorage`, read once at start-up.
+Hold site-wide reader preferences (theme, metal per theme, zone, faction) in one context backed by `localStorage`. State that belongs to one feature, such as the timer setup and marked kills, uses `useStoredState` in that feature's component.
 
 ## Content and images
 

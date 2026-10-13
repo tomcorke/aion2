@@ -1,35 +1,72 @@
-.cards {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr));
-  gap: 16px;
+.top {
+  position: relative;
 }
 
-.card {
-  height: 100%;
+.backdrop {
+  position: absolute;
+  inset: 0 0 auto;
+  width: 100%;
+  height: 560px;
+  object-fit: cover;
+  object-position: 50% 30%;
+  opacity: 0.5;
+  mask-image:
+    linear-gradient(180deg, currentcolor 40%, transparent),
+    linear-gradient(
+      90deg,
+      transparent,
+      currentcolor 20%,
+      currentcolor 80%,
+      transparent
+    );
+  mask-composite: intersect;
+}
+
+/* The dial carries the page; the heading is for screen readers and outlines. */
+.heading {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+
+.rule {
+  padding: 40px 120px 0;
+
+  @media (width <= 700px) {
+    padding: 32px var(--gutter) 0;
+  }
+}
+
+.index {
   display: grid;
-  gap: 8px;
-  align-content: start;
-  padding: 18px 20px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  color: var(--ink);
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 0 40px;
+  padding: 24px var(--gutter) 0;
+}
+
+.section {
+  display: grid;
+  gap: 2px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
   text-decoration: none;
-  transition: border-color 0.15s;
+}
 
-  &:hover {
-    border-color: var(--accent);
-  }
+.title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font: 1.25rem var(--f-display);
 
-  & h2 {
-    font-size: 1.35rem;
+  .section:hover & {
+    color: var(--accent);
   }
+}
 
-  & p {
-    color: var(--muted);
-    font-size: 0.95rem;
-  }
+.summary {
+  padding-left: 16px;
+  font-size: 0.875rem;
+  color: var(--muted);
 }

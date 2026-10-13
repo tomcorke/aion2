@@ -1,0 +1,22 @@
+.orb,
+.ring {
+  display: block;
+  flex-shrink: 0;
+  border-radius: 50%;
+}
+
+.orb {
+  background: var(--orb);
+  box-shadow:
+    0 0 0 3px var(--ground),
+    0 4px 12px var(--shadow);
+
+  &[data-dim="true"] {
+    opacity: 0.6;
+  }
+}
+
+.ring {
+  border: 1.5px solid var(--accent);
+  background: var(--ground);
+}

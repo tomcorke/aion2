@@ -1,0 +1,44 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1.25;
+
+  &[data-align="end"] {
+    align-items: flex-end;
+    text-align: right;
+  }
+}
+
+.name {
+  font: 15px var(--f-display);
+  white-space: nowrap;
+}
+
+.time {
+  font: 500 0.8rem var(--f-mono);
+  color: var(--accent);
+}
+
+.at {
+  color: var(--muted);
+}
+
+.action {
+  margin-top: 2px;
+  padding: 2px 10px;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  background: transparent;
+  font-size: 0.75rem;
+}
+
+.clear {
+  margin-left: 6px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: 0.75rem var(--f-body);
+  text-decoration: underline;
+}

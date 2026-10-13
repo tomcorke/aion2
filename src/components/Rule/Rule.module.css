@@ -1,0 +1,26 @@
+.rule {
+  height: 1px;
+  margin: 0;
+  border: 0;
+  position: relative;
+  overflow: visible;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--rule) 22%,
+    var(--rule) 78%,
+    transparent
+  );
+}
+
+.gem::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  margin-left: -3.5px;
+  transform: rotate(45deg);
+  background: var(--accent);
+}

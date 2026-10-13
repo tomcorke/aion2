@@ -1,26 +1,76 @@
+/* Design tokens. Night/day comes from data-theme, gold/silver from data-metal (see docs/design.md). */
 :root {
-  --bg: #f3f4f7;
-  --surface: #fff;
-  --ink: #1b1f2a;
-  --muted: #596074;
-  --line: #dcdfe7;
-  --accent: #9a6b12;
-  --link: #2f4fa8;
+  --f-wordmark: "Cinzel", "Trajan Pro", georgia, serif;
   --f-display: "Marcellus", "Trajan Pro", georgia, serif;
   --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
   --f-mono: "JetBrains Mono", ui-monospace, consolas, monospace;
 
-  color-scheme: light;
+  --gutter: 56px;
 
-  @media (prefers-color-scheme: dark) {
-    --bg: #12151d;
-    --surface: #1a1e29;
-    --ink: #e6e8ef;
-    --muted: #a2a9ba;
-    --line: #2c3242;
-    --accent: #e0b25a;
-    --link: #93abff;
+  @media (width <= 700px) {
+    --gutter: 16px;
+  }
 
-    color-scheme: dark;
+  --swatch-gold: linear-gradient(135deg, #fff0b8, #d4a440 55%, #8f6418);
+  --swatch-silver: linear-gradient(135deg, #fff, #b6bfcb 55%, #6b7584);
+
+  /* Night, gold. */
+  --ground: #0c1018;
+  --ink: #ece9e1;
+  --muted: #a3aab9;
+  --line: rgb(255 255 255 / 9%);
+  --raised: rgb(255 255 255 / 14%);
+  --disc: rgb(12 16 24 / 78%);
+  --track: rgb(255 255 255 / 20%);
+  --veil: rgb(12 16 24 / 45%);
+  --shadow: rgb(0 0 0 / 35%);
+  --accent: #e6bb5c;
+  --gilt: linear-gradient(
+    180deg,
+    #fff3cc 0%,
+    #f0cd72 45%,
+    #d29d36 62%,
+    #f6dc93 100%
+  );
+  --rule: rgb(232 190 95 / 70%);
+  --orb: radial-gradient(circle at 35% 30%, #fff3c4, #d4a440 55%, #7a5313);
+
+  color-scheme: dark;
+
+  &[data-metal="silver"] {
+    --accent: #d5dbe4;
+    --gilt: linear-gradient(
+      180deg,
+      #fff 0%,
+      #dde2e9 45%,
+      #a3adba 62%,
+      #f1f4f7 100%
+    );
+    --rule: rgb(200 208 220 / 60%);
+    --orb: radial-gradient(circle at 35% 30%, #fff, #b6bfcb 55%, #59636f);
+  }
+
+  /* Day, silver. */
+  &[data-theme="day"] {
+    --ground: #f5f6f8;
+    --ink: #1c2230;
+    --muted: #545d6d;
+    --line: rgb(20 30 50 / 10%);
+    --raised: #fff;
+    --disc: rgb(255 255 255 / 88%);
+    --track: rgb(20 30 50 / 18%);
+    --veil: rgb(245 246 248 / 40%);
+    --shadow: rgb(20 30 50 / 20%);
+    --accent: #465061;
+    --gilt: linear-gradient(180deg, #667183 0%, #343d4a 55%, #727e90 100%);
+    --rule: rgb(110 120 136 / 55%);
+
+    color-scheme: light;
+  }
+
+  &[data-theme="day"][data-metal="gold"] {
+    --accent: #8a610f;
+    --gilt: linear-gradient(180deg, #b3832a 0%, #86600f 55%, #c09235 100%);
+    --rule: rgb(170 124 38 / 60%);
   }
 }

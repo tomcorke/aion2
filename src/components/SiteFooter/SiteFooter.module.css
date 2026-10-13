@@ -1,7 +1,17 @@
 .footer {
-  border-top: 1px solid var(--line);
-  padding: 16px;
-  text-align: center;
-  font-size: 0.85rem;
+  margin-top: auto;
+  padding: 48px var(--gutter) 24px;
+  display: grid;
+  gap: 12px;
+}
+
+.text {
+  max-width: 90ch;
+  font-size: 0.8rem;
+  line-height: 1.5;
   color: var(--muted);
+}
+
+.link {
+  color: var(--accent);
 }

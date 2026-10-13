@@ -4,26 +4,37 @@
 
 body {
   margin: 0;
-  background: var(--bg);
+  background: var(--ground);
   color: var(--ink);
-  font: 16px/1.6 var(--f-body);
+  font: 16px/1.5 var(--f-body);
   -webkit-font-smoothing: antialiased;
 }
 
 #root {
-  min-height: 100vh;
+  min-height: 100dvh;
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  grid-template-rows: auto 1fr;
 }
 
 a {
-  color: var(--link);
-  text-underline-offset: 2px;
+  color: inherit;
+  text-underline-offset: 3px;
 
   &:focus-visible {
     outline: 2px solid var(--accent);
     outline-offset: 2px;
     border-radius: 3px;
+  }
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
   }
 }
 

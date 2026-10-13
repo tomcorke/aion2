@@ -1,0 +1,16 @@
+.toggle {
+  width: 36px;
+  height: 36px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--raised);
+  color: var(--accent);
+  display: grid;
+  place-items: center;
+
+  & svg {
+    fill: none;
+    stroke: currentcolor;
+    stroke-width: 1.8;
+  }
+}

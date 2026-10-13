@@ -1,6 +1,6 @@
 # Scope
 
-Draft for iteration. Nothing below is built yet beyond the shell: header, navigation, home page, placeholder pages, and a 404 page.
+Draft for iteration. Built so far: the shared header and footer, theme and metal preferences, the home page and `/timers` (the timer dial), `/sources`, stand-in pages for the other sections, and a 404 page.
 
 ## Goal
 

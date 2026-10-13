@@ -1,0 +1,65 @@
+.dial {
+  position: relative;
+  width: var(--dial-size, 300px);
+  aspect-ratio: 1;
+  display: grid;
+  place-items: center;
+  font-size: calc(var(--dial-size, 300px) / 300 * 16px);
+}
+
+.face {
+  position: absolute;
+  inset: 0;
+}
+
+.disc {
+  fill: var(--disc);
+  stroke: var(--track);
+  stroke-width: 2;
+}
+
+.arc {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.ticks {
+  fill: none;
+  stroke: var(--track);
+  stroke-dasharray: 2 9;
+}
+
+.readout {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25em;
+  text-align: center;
+}
+
+.caption {
+  font-size: 0.72em;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.countdown {
+  font: 2.75em/1.1 var(--f-display);
+  background: var(--gilt);
+  background-clip: text;
+  color: transparent;
+}
+
+.at {
+  font-size: 0.875em;
+  color: var(--muted);
+}
+
+.clock {
+  margin-top: 0.6em;
+  font: 500 0.94em var(--f-mono);
+}

@@ -22,7 +22,12 @@
     },
     "declaration-no-important": true,
     "selector-max-compound-selectors": 3,
-    "selector-no-qualifying-type": [true, { "ignore": ["attribute"] }],
+    "selector-no-qualifying-type": [
+      true,
+      {
+        "ignore": ["attribute"]
+      }
+    ],
     "max-nesting-depth": 2,
     "unit-allowed-list": [
       "px",
@@ -37,7 +42,8 @@
       "s",
       "ms",
       "deg"
-    ]
+    ],
+    "custom-property-empty-line-before": null
   },
   "overrides": [
     {
@@ -45,7 +51,9 @@
       "rules": {
         "selector-class-pattern": [
           "^[a-z][a-zA-Z0-9]*$",
-          { "message": "Use camelCase module class names, read as styles.name" }
+          {
+            "message": "Use camelCase module class names, read as styles.name"
+          }
         ]
       }
     },

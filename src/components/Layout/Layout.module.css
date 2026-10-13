@@ -2,8 +2,6 @@
   width: 100%;
   max-width: 1180px;
   margin: 0 auto;
-  padding: 40px 16px 64px;
-  display: grid;
-  gap: 32px;
-  align-content: start;
+  display: flex;
+  flex-direction: column;
 }

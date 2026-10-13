@@ -1,0 +1,43 @@
+.board {
+  position: relative;
+  margin: 0 auto;
+}
+
+.spokes {
+  position: absolute;
+  inset: 0;
+
+  & line {
+    stroke: var(--accent);
+    stroke-width: 1;
+    opacity: 0.6;
+
+    &[data-untracked="true"] {
+      stroke-dasharray: 4 4;
+    }
+  }
+}
+
+.dial {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.timers {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.marker,
+.label {
+  position: absolute;
+}
+
+/* Labels centre on their marker. */
+.label {
+  width: 230px;
+  transform: translateY(-50%);
+}

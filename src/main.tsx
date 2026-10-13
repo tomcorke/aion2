@@ -1,13 +1,22 @@
-import { StrictMode } from "react";
+import { StrictMode, type ReactElement } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
 import "./tokens.css";
 import "./index.css";
 import { Layout } from "./components/Layout/Layout.tsx";
+import { PreferencesProvider } from "./components/PreferencesProvider/PreferencesProvider.tsx";
 import { Home } from "./pages/Home/Home.tsx";
 import { NotFound } from "./pages/NotFound/NotFound.tsx";
 import { SectionPage } from "./pages/SectionPage/SectionPage.tsx";
+import { Sources } from "./pages/Sources/Sources.tsx";
+import { Timers } from "./pages/Timers/Timers.tsx";
 import { sections } from "./sections.ts";
+
+// Sections with a built page; the rest show a stand-in.
+const builtPages: Record<string, ReactElement> = {
+  timers: <Timers />,
+  sources: <Sources />,
+};
 
 const router = createBrowserRouter([
   {
@@ -16,7 +25,7 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       ...sections.map((section) => ({
         path: section.path,
-        element: <SectionPage section={section} />,
+        element: builtPages[section.path] ?? <SectionPage section={section} />,
       })),
       { path: "*", element: <NotFound /> },
     ],
@@ -25,6 +34,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <PreferencesProvider>
+      <RouterProvider router={router} />
+    </PreferencesProvider>
   </StrictMode>,
 );

@@ -1,8 +1,8 @@
 import { Outlet, ScrollRestoration } from "react-router";
-import { SiteFooter } from "../SiteFooter/SiteFooter.tsx";
 import { SiteHeader } from "../SiteHeader/SiteHeader.tsx";
 import STYLES from "./Layout.module.css";
 
+/** Every page renders its own hero and footer, since each footer names that page's sources. */
 export function Layout() {
   return (
     <>
@@ -12,7 +12,6 @@ export function Layout() {
         <Outlet />
       </main>
 
-      <SiteFooter />
       <ScrollRestoration />
     </>
   );
