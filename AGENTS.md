@@ -19,6 +19,7 @@ Before building or changing any UI, read [docs/design.md](docs/design.md) and fo
 ## Code
 
 - Each component and page gets its own folder: `src/components/<Name>/` or `src/pages/<Name>/`, holding `<Name>.tsx` and, when it has styles, `<Name>.module.css`. Global CSS is only `src/tokens.css` (all colours and font stacks) and `src/index.css` (element defaults).
+- Import a component's CSS module as `import STYLES from "./<Name>.module.css"`.
 - Write CSS nested: hover, focus and child rules sit inside their parent with `&`.
 - Space code out: a blank line between logical blocks inside functions and components, never two in a row.
 - When ESLint flags function length or cognitive complexity, split the code into a new file rather than suppressing the rule.

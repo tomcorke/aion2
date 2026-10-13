@@ -1,17 +1,17 @@
 import { Link, NavLink } from "react-router";
 import { sections } from "../../sections.ts";
-import styles from "./SiteHeader.module.css";
+import STYLES from "./SiteHeader.module.css";
 
 export function SiteHeader() {
   return (
-    <header className={styles.header}>
-      <div className={styles.inner}>
-        <Link to="/" className={styles.brand}>
-          <span className={styles.mark}>AION 2</span>
-          <span className={styles.sub}>Field notes</span>
+    <header className={STYLES.header}>
+      <div className={STYLES.inner}>
+        <Link to="/" className={STYLES.brand}>
+          <span className={STYLES.mark}>AION 2</span>
+          <span className={STYLES.sub}>Field notes</span>
         </Link>
 
-        <nav aria-label="Sections" className={styles.nav}>
+        <nav aria-label="Sections" className={STYLES.nav}>
           {sections.map(({ path, title }) => (
             <NavLink key={path} to={`/${path}`}>
               {title}

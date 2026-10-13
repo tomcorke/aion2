@@ -2,7 +2,7 @@ import { Link } from "react-router";
 import { PageHead } from "../../components/PageHead/PageHead.tsx";
 import { sections } from "../../sections.ts";
 import { useTitle } from "../../useTitle.ts";
-import styles from "./Home.module.css";
+import STYLES from "./Home.module.css";
 
 export function Home() {
   useTitle();
@@ -15,10 +15,10 @@ export function Home() {
         lede="Player notes on progression, gear, Daevanion boards, timers and events. Best effort: check anything important in game."
       />
 
-      <ul className={styles.cards}>
+      <ul className={STYLES.cards}>
         {sections.map(({ path, title, summary }) => (
           <li key={path}>
-            <Link to={`/${path}`} className={styles.card}>
+            <Link to={`/${path}`} className={STYLES.card}>
               <h2>{title}</h2>
               <p>{summary}</p>
             </Link>

@@ -1,5 +1,5 @@
 import type { ReactNode } from "react";
-import styles from "./PageHead.module.css";
+import STYLES from "./PageHead.module.css";
 
 type Props = {
   eyebrow?: string;
@@ -10,10 +10,10 @@ type Props = {
 
 export function PageHead({ eyebrow, title, lede, children }: Props) {
   return (
-    <header className={styles.head}>
-      {eyebrow && <p className={styles.eyebrow}>{eyebrow}</p>}
+    <header className={STYLES.head}>
+      {eyebrow && <p className={STYLES.eyebrow}>{eyebrow}</p>}
       <h1>{title}</h1>
-      <p className={styles.lede}>{lede}</p>
+      <p className={STYLES.lede}>{lede}</p>
       {children}
     </header>
   );

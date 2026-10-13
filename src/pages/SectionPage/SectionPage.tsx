@@ -1,7 +1,7 @@
 import { PageHead } from "../../components/PageHead/PageHead.tsx";
 import type { Section } from "../../sections.ts";
 import { useTitle } from "../../useTitle.ts";
-import styles from "./SectionPage.module.css";
+import STYLES from "./SectionPage.module.css";
 
 export function SectionPage({ section }: { section: Section }) {
   useTitle(section.title);
@@ -12,7 +12,7 @@ export function SectionPage({ section }: { section: Section }) {
       title={section.title}
       lede={section.summary}
     >
-      <p className={styles.source}>Built from: {section.source}</p>
+      <p className={STYLES.source}>Built from: {section.source}</p>
     </PageHead>
   );
 }

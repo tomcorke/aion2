@@ -53,6 +53,14 @@ export default tseslint.config(
           ],
         },
       ],
+      "no-restricted-syntax": [
+        "error",
+        {
+          selector: String.raw`ImportDeclaration[source.value=/\.module\.css$/] > [type=/Specifier$/]:not(ImportDefaultSpecifier[local.name="STYLES"])`,
+          message:
+            'Import CSS modules as `import STYLES from "./Name.module.css"`.',
+        },
+      ],
     },
   },
   {
