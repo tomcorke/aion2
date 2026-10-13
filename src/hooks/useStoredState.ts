@@ -1,0 +1,10 @@
+import { useEffect, useState } from "react";
+import { readStored, writeStored } from "../lib/storage.ts";
+
+export function useStoredState<T>(key: string, initial: T) {
+  const [value, setValue] = useState(() => readStored(key, initial));
+
+  useEffect(() => writeStored(key, value), [key, value]);
+
+  return [value, setValue] as const;
+}

@@ -1,12 +1,12 @@
 import { Link } from "react-router";
 import hero from "../../assets/hero.jpg";
-import { Diamond } from "../../components/Diamond/Diamond.tsx";
-import { Rule } from "../../components/Rule/Rule.tsx";
-import { SiteFooter } from "../../components/SiteFooter/SiteFooter.tsx";
-import { TimerBoard } from "../../components/TimerBoard/TimerBoard.tsx";
-import { sections } from "../../sections.ts";
-import { timerSources } from "../../timers.ts";
-import { useTitle } from "../../useTitle.ts";
+import { Diamond } from "../../components/trim/Diamond/Diamond.tsx";
+import { Rule } from "../../components/trim/Rule/Rule.tsx";
+import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
+import { TimerBoard } from "../../components/timers/TimerBoard/TimerBoard.tsx";
+import { sections } from "../../data/sections.ts";
+import { timerSources } from "../../data/timers.ts";
+import { useTitle } from "../../hooks/useTitle.ts";
 import STYLES from "./Home.module.css";
 
 export function Home() {

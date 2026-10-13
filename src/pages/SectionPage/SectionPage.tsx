@@ -1,7 +1,7 @@
-import { PageHero } from "../../components/PageHero/PageHero.tsx";
-import { SiteFooter } from "../../components/SiteFooter/SiteFooter.tsx";
-import type { Section } from "../../sections.ts";
-import { useTitle } from "../../useTitle.ts";
+import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
+import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
+import type { Section } from "../../data/sections.ts";
+import { useTitle } from "../../hooks/useTitle.ts";
 import STYLES from "./SectionPage.module.css";
 
 /** Stand-in for sections not built yet. */

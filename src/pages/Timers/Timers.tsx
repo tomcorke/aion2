@@ -1,8 +1,8 @@
-import { PageHero } from "../../components/PageHero/PageHero.tsx";
-import { SiteFooter } from "../../components/SiteFooter/SiteFooter.tsx";
-import { TimerBoard } from "../../components/TimerBoard/TimerBoard.tsx";
-import { timerSources } from "../../timers.ts";
-import { useTitle } from "../../useTitle.ts";
+import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
+import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
+import { TimerBoard } from "../../components/timers/TimerBoard/TimerBoard.tsx";
+import { timerSources } from "../../data/timers.ts";
+import { useTitle } from "../../hooks/useTitle.ts";
 
 export function Timers() {
   useTitle("Timers");

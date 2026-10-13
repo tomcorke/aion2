@@ -18,7 +18,10 @@ Before building or changing any UI, read [docs/design.md](docs/design.md) and fo
 
 ## Code
 
-- Each component and page gets its own folder: `src/components/<Name>/` or `src/pages/<Name>/`, holding `<Name>.tsx` and, when it has styles, `<Name>.module.css`. Global CSS is only `src/tokens.css` (all colours and font stacks) and `src/index.css` (element defaults).
+- `src/` holds only `main.tsx` and folders: `data/` (game facts and site content), `lib/` (pure logic), `hooks/`, `preferences/` (the reader-preferences context and provider), `styles/` (global CSS), `components/`, `pages/`, and `testing/` (test helpers).
+- Components live at `src/components/<group>/<Name>/`, grouped by feature (`shell`, `controls`, `trim`, `timers`); start a new group when a feature brings several components. Pages live at `src/pages/<Name>/`. Each folder holds `<Name>.tsx` and, when it has styles, `<Name>.module.css`. Global CSS is only `src/styles/tokens.css` (all colours and font stacks) and `src/styles/global.css` (element defaults).
+- Every source file has a test beside it: `foo.ts` and `foo.test.ts`. Tests run in Vitest with Testing Library; render through `renderWithProviders` and freeze time with `freezeClock` from `src/testing/render.tsx`.
+- Handle dates and times with `date-fns`, and time zones with `@date-fns/tz`; `src/lib/time.ts` holds the server clock and formatters.
 - Import a component's CSS module as `import STYLES from "./<Name>.module.css"`.
 - Write CSS nested: hover, focus and child rules sit inside their parent with `&`.
 - Space code out: a blank line between logical blocks inside functions and components, never two in a row.
@@ -33,7 +36,7 @@ ESLint, Stylelint and `test/structure.test.ts` enforce most of this; the lint er
 ## Development
 
 - Client-only SPA. React Router owns URLs; every page and tab a user might share gets its own path.
-- `src/sections.ts` drives the router, the header nav, and the home page. Add a section there.
+- `src/data/sections.ts` drives the router, the header nav, and the home page. Add a section there.
 - GitHub Pages has no SPA rewrites, so `pnpm build` copies `index.html` to `404.html`. Deep links work but return HTTP 404.
 - Run `pnpm test`, `pnpm lint`, `pnpm typecheck`, `pnpm format:check`, and `pnpm build` before handoff.
 

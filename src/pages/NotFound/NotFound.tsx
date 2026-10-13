@@ -1,7 +1,7 @@
 import { Link } from "react-router";
-import { PageHero } from "../../components/PageHero/PageHero.tsx";
-import { SiteFooter } from "../../components/SiteFooter/SiteFooter.tsx";
-import { useTitle } from "../../useTitle.ts";
+import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
+import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
+import { useTitle } from "../../hooks/useTitle.ts";
 import STYLES from "./NotFound.module.css";
 
 export function NotFound() {

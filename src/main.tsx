@@ -1,16 +1,16 @@
 import { StrictMode, type ReactElement } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router";
-import "./tokens.css";
-import "./index.css";
-import { Layout } from "./components/Layout/Layout.tsx";
-import { PreferencesProvider } from "./components/PreferencesProvider/PreferencesProvider.tsx";
+import "./styles/tokens.css";
+import "./styles/global.css";
+import { Layout } from "./components/shell/Layout/Layout.tsx";
+import { PreferencesProvider } from "./preferences/PreferencesProvider.tsx";
 import { Home } from "./pages/Home/Home.tsx";
 import { NotFound } from "./pages/NotFound/NotFound.tsx";
 import { SectionPage } from "./pages/SectionPage/SectionPage.tsx";
 import { Sources } from "./pages/Sources/Sources.tsx";
 import { Timers } from "./pages/Timers/Timers.tsx";
-import { sections } from "./sections.ts";
+import { sections } from "./data/sections.ts";
 
 // Sections with a built page; the rest show a stand-in.
 const builtPages: Record<string, ReactElement> = {

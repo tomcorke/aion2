@@ -1,10 +1,8 @@
-import { PageHero } from "../../components/PageHero/PageHero.tsx";
-import { SiteFooter } from "../../components/SiteFooter/SiteFooter.tsx";
-import { imageCredits, sources, type Source } from "../../sources.ts";
-import { useTitle } from "../../useTitle.ts";
+import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
+import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
+import { imageCredits, sourceList } from "../../data/sources.ts";
+import { useTitle } from "../../hooks/useTitle.ts";
 import STYLES from "./Sources.module.css";
-
-const allSources: Source[] = Object.values(sources);
 
 export function Sources() {
   useTitle("Sources");
@@ -21,7 +19,7 @@ export function Sources() {
           <h2>Guides and data</h2>
 
           <ul className={STYLES.list}>
-            {allSources.map(({ name, covers, url }) => (
+            {sourceList.map(({ name, covers, url }) => (
               <li key={name} className={STYLES.item}>
                 {url ? <a href={url}>{name}</a> : name}
                 <span className={STYLES.covers}>{covers}</span>

@@ -60,7 +60,7 @@ Two modes, each with a default metal the reader can swap.
 
 - Lead with the countdown ("in 3h 12m") and put the clock time second.
 - The zone preference offers Server, Local and UTC (UTC covers GMT). It defaults to Server and persists per browser.
-- Format every time with `Intl.DateTimeFormat` and an IANA zone so daylight saving is handled; avoid hand-written offset arithmetic.
+- Format and compute every time with `date-fns` and an IANA zone from `@date-fns/tz` (helpers in `src/lib/time.ts`), so daylight saving is handled; avoid hand-written offset arithmetic.
 - Keep the server time zone in one constant per region. Europe is currently `Europe/Berlin`; the region's true server clock is an open question in the notes repo, so expect to change that constant.
 
 ## Page patterns

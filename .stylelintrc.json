@@ -58,7 +58,7 @@
       }
     },
     {
-      "files": ["src/tokens.css"],
+      "files": ["src/styles/tokens.css"],
       "rules": {
         "color-no-hex": null,
         "function-disallowed-list": null,
