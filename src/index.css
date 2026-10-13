@@ -1,32 +1,3 @@
-:root {
-  --bg: #f3f4f7;
-  --surface: #fff;
-  --ink: #1b1f2a;
-  --muted: #596074;
-  --line: #dcdfe7;
-  --accent: #9a6b12;
-  --link: #2f4fa8;
-  --f-display: "Marcellus", "Trajan Pro", georgia, serif;
-  --f-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
-  --f-mono: "JetBrains Mono", ui-monospace, consolas, monospace;
-
-  color-scheme: light;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #12151d;
-    --surface: #1a1e29;
-    --ink: #e6e8ef;
-    --muted: #a2a9ba;
-    --line: #2c3242;
-    --accent: #e0b25a;
-    --link: #93abff;
-
-    color-scheme: dark;
-  }
-}
-
 * {
   box-sizing: border-box;
 }
@@ -135,7 +106,7 @@ p {
   background: var(--surface);
 }
 
-.site-nav a.active {
+.site-nav a[aria-current="page"] {
   color: var(--ink);
   box-shadow: inset 0 -2px 0 var(--accent);
 }
