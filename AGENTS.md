@@ -10,7 +10,7 @@ This app is a player-run AION 2 information site at https://aion.corke.dev/, bui
 
 ## Workflow
 
-Until the initial MVP ships, commit directly to `main`: no feature branches or worktrees for this repo. This overrides the sandbox's branch-and-worktree default.
+Until the initial MVP ships, commit directly to `main`: no feature branches or worktrees for this repo, apart from the throwaway worktree `pnpm release` makes. This overrides the sandbox's branch-and-worktree default.
 
 ## Design
 
@@ -42,15 +42,9 @@ ESLint, Stylelint and `test/structure.test.ts` enforce most of this; the lint er
 
 ## Publishing
 
-`publish` is the GitHub Pages artifact branch: the built site at its root. `public/CNAME` sets `aion.corke.dev`; `public/.nojekyll` disables Jekyll.
+`publish` is the GitHub Pages branch: the built site at its root. `public/CNAME` sets `aion.corke.dev`; `public/.nojekyll` disables Jekyll.
 
-1. Release from an updated `main` with a clean worktree (`git status --porcelain` empty). Record `main_commit=$(git rev-parse HEAD)`.
-2. Run `pnpm install --frozen-lockfile`, the handoff checks, and `pnpm build`. Confirm `main` still points to `main_commit` and the worktree is still clean.
-3. In a temporary worktree on `publish` (orphan for the first release, otherwise from `origin/publish`), replace the contents with `dist/`.
-4. Commit as `Publish main@<short-sha>` with body `Source-main-commit: <full-sha>`, push `origin/publish`, then remove the temporary worktree.
-5. Verify https://aion.corke.dev/ serves the new asset hash.
-
-Run the release in one shell so recorded commit values stay fixed. Skip publishing docs-only changes.
+Publish only when the user asks, and skip docs-only changes. Push `main`, then run `pnpm release`. It refuses unless `main` is clean and matches `origin/main`, runs the install, handoff checks and build, commits `dist/` to `publish` as `Publish main@<short-sha>` from a temporary worktree, pushes, and waits until https://aion.corke.dev/ serves the new build. A non-zero exit means nothing was published, or the site has not updated yet; report the message.
 
 ## Agent skills
 

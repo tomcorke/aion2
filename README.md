@@ -23,7 +23,7 @@ pnpm build
 
 ## Notes
 
-- Client-only React SPA built with Vite and React Router. Each section has its own URL.
-- Hosted on GitHub Pages from the `publish` branch. The build copies `index.html` to `404.html` so deep links load; those responses carry HTTP status 404.
+- Client-only React SPA built with Vite and React Router, using hash URLs (`/#/timers`). Each section has its own URL.
+- Hosted on GitHub Pages from the `publish` branch; `pnpm release` builds and publishes. Pages has no SPA rewrites, hence the hash URLs; `public/404.html` redirects old path links to their hash route.
 - Design standards (theme, layout, components) live in [docs/design.md](docs/design.md); every page follows them.
-- Planned pages and open decisions live in [docs/scope.md](docs/scope.md). Release steps are in [AGENTS.md](AGENTS.md).
+- Planned pages and open decisions live in [docs/scope.md](docs/scope.md). Release notes for agents are in [AGENTS.md](AGENTS.md).
