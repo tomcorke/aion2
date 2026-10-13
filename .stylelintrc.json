@@ -1,6 +1,8 @@
 {
   "extends": ["stylelint-config-standard"],
+  "plugins": ["stylelint-use-nesting"],
   "rules": {
+    "csstools/use-nesting": "always",
     "color-no-hex": true,
     "color-named": "never",
     "function-disallowed-list": [
@@ -38,6 +40,15 @@
     ]
   },
   "overrides": [
+    {
+      "files": ["src/**/*.module.css"],
+      "rules": {
+        "selector-class-pattern": [
+          "^[a-z][a-zA-Z0-9]*$",
+          { "message": "Use camelCase module class names, read as styles.name" }
+        ]
+      }
+    },
     {
       "files": ["src/tokens.css"],
       "rules": {

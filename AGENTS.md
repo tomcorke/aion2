@@ -16,6 +16,15 @@ Until the initial MVP ships, commit directly to `main`: no feature branches or w
 
 Before building or changing any UI, read [docs/design.md](docs/design.md) and follow it. Build pages from the shared components in `src/components/`, so the header, footer and controls stay identical on every page.
 
+## Code
+
+- Each component and page gets its own folder: `src/components/<Name>/` or `src/pages/<Name>/`, holding `<Name>.tsx` and, when it has styles, `<Name>.module.css`. Global CSS is only `src/tokens.css` (all colours and font stacks) and `src/index.css` (element defaults).
+- Write CSS nested: hover, focus and child rules sit inside their parent with `&`.
+- Space code out: a blank line between logical blocks inside functions and components, never two in a row.
+- When ESLint flags function length or cognitive complexity, split the code into a new file rather than suppressing the rule.
+
+ESLint, Stylelint and `test/structure.test.ts` enforce most of this; the lint errors name the fix.
+
 ## Scope
 
 `docs/scope.md` holds the intended pages, source material, and open decisions. Read it before planning a feature, and update it when scope changes.

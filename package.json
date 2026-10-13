@@ -21,7 +21,7 @@
   "lint-staged": {
     "*.{ts,tsx}": [
       "oxlint --fix",
-      "eslint",
+      "eslint --fix",
       "prettier --write"
     ],
     "*.css": [
@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "^5.10.0",
     "@types/node": "^24.19.2",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
@@ -49,6 +50,7 @@
     "prettier": "^3.9.10",
     "stylelint": "^17.16.0",
     "stylelint-config-standard": "^40.0.0",
+    "stylelint-use-nesting": "^6.0.2",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.71.2",
     "vite": "^8.3.4"
