@@ -19,7 +19,7 @@
 
 .table {
   width: 100%;
-  min-width: 960px;
+  min-width: 1200px;
   border-collapse: collapse;
 
   & caption {
@@ -57,6 +57,23 @@
 .mode {
   display: block;
   white-space: nowrap;
+}
+
+.condition {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+  white-space: normal;
+}
+
+.notes {
+  min-width: 28ch;
+  color: var(--muted);
+  font-size: 0.875rem;
+
+  & p {
+    margin: 0 0 4px;
+  }
 }
 
 .level {

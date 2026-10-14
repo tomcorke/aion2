@@ -44,3 +44,20 @@ test("shows upper-bound levels and Exploration cube costs", () => {
     "cube: 20 Odyle Energy",
   );
 });
+
+test("a mode's own condition sits with that mode", () => {
+  renderWithProviders(<DropMatrix />);
+
+  const tier4 = screen.getByText(/^Tier 4/);
+
+  expect(tier4.textContent).toContain("Unique Chalice drops only in tier 4.");
+  expect(screen.getByText(/^Tier 3/).textContent).not.toContain("Chalice");
+});
+
+test("gear-dropping modes leave their reward rules to the tier view", () => {
+  renderWithProviders(<DropMatrix />);
+
+  expect(
+    screen.getByRole("row", { name: /^Silent Dartan/ }).textContent,
+  ).not.toContain("loot chest is guaranteed");
+});

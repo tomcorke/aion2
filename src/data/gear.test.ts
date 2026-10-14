@@ -169,6 +169,23 @@ test("intermediate field, Lower Reshanta and crafted alternatives do not become 
   );
 });
 
+test("field boss sources retain confirmed breastplates and their piece levels", () => {
+  for (const [id, level] of [
+    ["dartan", 46],
+    ["kashapa", 46],
+    ["lagta", 46],
+    ["gartua", 70],
+  ] as const) {
+    const activity = gearActivities.find((row) => row.id === id);
+
+    expect(activity?.modes[0].dropIds).toEqual([id]);
+    expect(gearDrops.find((drop) => drop.id === id)).toMatchObject({
+      pieceItemLevel: level,
+      slots: ["Armor", "Accessories", "Breastplate"],
+    });
+  }
+});
+
 test("supporting activities expose only documented materials and difficulty gates", () => {
   expect(
     gearActivities.find(({ id }) => id === "growth")?.modes[0].materials,

@@ -197,9 +197,39 @@ test("the drop matrix finds activities for a missing slot", async () => {
     .map((cell) => cell.textContent);
 
   expect(sources).toEqual([
+    expect.stringContaining("Silent Dartan"),
+    expect.stringContaining("Soul Ruler Kashapa"),
+    expect.stringContaining("High Commander Lagta"),
     expect.stringContaining("Watcher Kaira"),
     expect.stringContaining("Executor Kaira"),
+    expect.stringContaining("Eternal Gartua"),
   ]);
+});
+
+test("material-only rows keep their reward conditions", () => {
+  renderPage();
+
+  const row = (name: RegExp) =>
+    within(
+      screen.getByRole("table", { name: /Activity drop matrix/ }),
+    ).getByRole("row", { name }).textContent;
+
+  expect(row(/^Deus Research Base/)).toMatch(
+    /Tier 4.*Unique Chalice drops only in tier 4/,
+  );
+  expect(row(/^Deus Research Base/)).toContain("refills by 1 every 12 hours");
+  expect(row(/^Deus Research Base/)).toContain(
+    "locks for every character on that server",
+  );
+  expect(row(/^Ascension Trial/)).toContain(
+    "Reward amounts rise with difficulty and final score.",
+  );
+  expect(row(/^Ascension Trial/)).toContain(
+    "An Ascension Binding Chest yields a Manastone or Soulstone.",
+  );
+  expect(row(/^Silent Graveyard/)).toContain(
+    "7 hours per Growth dungeon each week",
+  );
 });
 
 test("pity shows run counts and membership counting, no counter", () => {

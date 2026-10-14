@@ -177,21 +177,21 @@ export const gearDrops: GearDrop[] = [
     tierId: "starter",
     name: "Dartan",
     pieceItemLevel: 46,
-    slots: ["Armor", "Accessories"],
+    slots: ["Armor", "Accessories", "Breastplate"],
   },
   {
     id: "kashapa",
     tierId: "starter",
     name: "Kashapa",
     pieceItemLevel: 46,
-    slots: ["Armor", "Accessories"],
+    slots: ["Armor", "Accessories", "Breastplate"],
   },
   {
     id: "lagta",
     tierId: "starter",
     name: "High Commander Lagta",
     pieceItemLevel: 46,
-    slots: ["Armor", "Accessories"],
+    slots: ["Armor", "Accessories", "Breastplate"],
   },
   {
     id: "rupture",
@@ -247,7 +247,7 @@ export const gearDrops: GearDrop[] = [
     tierId: "70",
     name: "Gartua",
     pieceItemLevel: 70,
-    slots: ["Armor", "Accessories"],
+    slots: ["Armor", "Accessories", "Breastplate"],
   },
   {
     id: "argo",

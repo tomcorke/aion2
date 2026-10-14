@@ -2,6 +2,7 @@ import { useId, useState } from "react";
 import {
   gearActivities,
   gearDrops,
+  gearRewardConditions,
   type GearActivity,
   type GearSlot,
 } from "../../../data/gear.ts";
@@ -26,6 +27,17 @@ const dropsOf = (activity: GearActivity) =>
   [...new Set(activity.modes.flatMap(({ dropIds }) => dropIds))].map((id) =>
     gearDrops.find((drop) => drop.id === id)!,
   );
+
+// Gear-dropping modes show their reward rules in the tier view; material-only modes only here.
+const rewardNotesOf = (activity: GearActivity) => {
+  const ids = activity.modes
+    .filter((mode) => mode.dropIds.length === 0)
+    .map((mode) => mode.rewardConditionId);
+
+  return gearRewardConditions
+    .filter((condition) => ids.includes(condition.id))
+    .flatMap(({ notes }) => notes);
+};
 
 function MatrixRow({ activity }: { activity: GearActivity }) {
   const drops = dropsOf(activity);
@@ -52,6 +64,9 @@ function MatrixRow({ activity }: { activity: GearActivity }) {
             )}
             {mode.cubeOdyleEnergy !== undefined &&
               ` (cube: ${mode.cubeOdyleEnergy} Odyle Energy)`}
+            {mode.condition && (
+              <span className={STYLES.condition}>{mode.condition}</span>
+            )}
           </span>
         ))}
       </td>
@@ -67,6 +82,11 @@ function MatrixRow({ activity }: { activity: GearActivity }) {
         </td>
       ))}
       <td>{materials.join(", ")}</td>
+      <td className={STYLES.notes}>
+        {rewardNotesOf(activity).map((note) => (
+          <p key={note}>{note}</p>
+        ))}
+      </td>
     </tr>
   );
 }
@@ -119,6 +139,7 @@ export function DropMatrix() {
                 </th>
               ))}
               <th scope="col">Materials</th>
+              <th scope="col">Reward rules</th>
             </tr>
           </thead>
           <tbody>
