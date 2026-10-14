@@ -1,0 +1,98 @@
+.detail {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+
+  & h2 {
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  color: var(--muted);
+}
+
+.owned {
+  font-family: var(--f-mono);
+  color: var(--accent);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  & caption {
+    padding-bottom: 8px;
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  & th,
+  & td {
+    padding: 0 12px 0 0;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+  }
+
+  & thead th {
+    padding-bottom: 8px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 400;
+  }
+
+  & tbody th {
+    font-weight: 400;
+  }
+}
+
+.tick {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 40px;
+  cursor: pointer;
+
+  & input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+  }
+}
+
+.figure {
+  font-family: var(--f-mono);
+  white-space: nowrap;
+
+  .table & {
+    text-align: right;
+  }
+}
+
+.total {
+  height: 40px;
+  color: var(--accent);
+}
+
+.notes {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  & li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+}
+
+.link {
+  color: var(--accent);
+}

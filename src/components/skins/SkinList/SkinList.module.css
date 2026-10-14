@@ -1,0 +1,64 @@
+.list {
+  display: grid;
+  gap: 24px;
+  align-content: start;
+}
+
+.group {
+  display: grid;
+  gap: 4px;
+
+  & h2 {
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+
+  & ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 64px 3em;
+  gap: 12px;
+  align-items: center;
+  min-height: 40px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  text-decoration: none;
+
+  &:hover,
+  &[aria-current="page"] {
+    color: var(--accent);
+  }
+
+  & progress {
+    width: 100%;
+    height: 4px;
+    border: 0;
+    appearance: none;
+    background: var(--track);
+    accent-color: var(--accent);
+
+    &::-webkit-progress-bar {
+      background: var(--track);
+    }
+
+    &::-webkit-progress-value {
+      background: var(--accent);
+    }
+
+    &::-moz-progress-bar {
+      background: var(--accent);
+    }
+  }
+}
+
+.count {
+  font-family: var(--f-mono);
+  font-size: 0.875rem;
+  text-align: right;
+}

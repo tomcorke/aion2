@@ -11,6 +11,7 @@ import { Gear } from "./pages/Gear/Gear.tsx";
 import { NotFound } from "./pages/NotFound/NotFound.tsx";
 import { Progression } from "./pages/Progression/Progression.tsx";
 import { SectionPage } from "./pages/SectionPage/SectionPage.tsx";
+import { Skins } from "./pages/Skins/Skins.tsx";
 import { Sources } from "./pages/Sources/Sources.tsx";
 import { Timers } from "./pages/Timers/Timers.tsx";
 import { sections } from "./data/sections.ts";
@@ -20,6 +21,7 @@ const builtPages: Record<string, ReactElement> = {
   festival: <Festival />,
   gear: <Gear />,
   progression: <Progression />,
+  skins: <Skins />,
   timers: <Timers />,
   sources: <Sources />,
 };
@@ -35,6 +37,7 @@ const router = createHashRouter([
         element: builtPages[section.path] ?? <SectionPage section={section} />,
       })),
       { path: "gear/:tier", element: <Gear /> },
+      { path: "skins/:set", element: <Skins /> },
       { path: "*", element: <NotFound /> },
     ],
   },
