@@ -120,6 +120,11 @@ test("the ledger keeps corrected character ownership apart from shared appearanc
   expect(cubeWarning).toMatch(/At 0.*no character.*Wednesday/i);
 });
 
+test("Middle and Upper Abyss guides use the delivered Timers route until the Abyss view lands", () => {
+  expect(resourceCounters["abyss-middle"].guide.to).toBe("/timers");
+  expect(resourceCounters["abyss-upper"].guide.to).toBe("/timers");
+});
+
 test("curated rows and sections have unique IDs and real guide paths", () => {
   const rows = [...sharingLedger, ...altsSections];
 

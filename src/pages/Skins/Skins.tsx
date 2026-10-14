@@ -47,7 +47,15 @@ export function Skins() {
   const selected = skinEntries.find(({ id }) => id === setId);
   const [query, setQuery] = useState("");
   const [source, setSource] = useState<SourceFilter>("all");
+  const [filterSetId, setFilterSetId] = useState(setId);
   const [stored, setStored] = useStoredState<string[]>("skin-owned", []);
+
+  if (filterSetId !== setId) {
+    setFilterSetId(setId);
+    setQuery("");
+    setSource("all");
+  }
+
   const owned = validOwned(stored, skinPieceIds);
   const visible = skinEntries.filter((entry) => matches(entry, query, source));
   const filtered = query !== "" || source !== "all";

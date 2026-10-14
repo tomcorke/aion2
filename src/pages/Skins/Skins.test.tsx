@@ -139,6 +139,43 @@ test("choosing a set changes the route, and history restores it", async () => {
   ).toBeDefined();
 });
 
+test("history restores selected details despite temporary filters without changing ownership", async () => {
+  renderPage("/skins/lightpath-trace");
+
+  await userEvent.click(
+    within(detail()).getByRole("checkbox", { name: "Helm" }),
+  );
+  await userEvent.click(setLink("Spirit Wings"));
+  await userEvent.click(within(detail()).getByRole("checkbox"));
+  await userEvent.click(
+    screen.getByRole("button", { name: "Shugo Festival shop" }),
+  );
+  await search("wings");
+
+  const ownership = localStorage.getItem(KEY);
+
+  await userEvent.click(screen.getByRole("button", { name: "History back" }));
+
+  expect(location()).toBe("/skins/lightpath-trace");
+  expect(within(detail()).getAllByRole("checkbox")).toHaveLength(7);
+  expect(within(detail()).getByText("1/7 owned")).toBeDefined();
+  expect((screen.getByRole("searchbox") as HTMLInputElement).value).toBe("");
+  expect(
+    screen.getByRole("button", { name: "All" }).getAttribute("aria-pressed"),
+  ).toBe("true");
+
+  await search("lightpath");
+  await userEvent.click(
+    screen.getByRole("button", { name: "History forward" }),
+  );
+
+  expect(location()).toBe("/skins/spirit-wings");
+  expect(within(detail()).getAllByRole("checkbox")).toHaveLength(1);
+  expect(within(detail()).getByText("1/1 owned")).toBeDefined();
+  expect((screen.getByRole("searchbox") as HTMLInputElement).value).toBe("");
+  expect(localStorage.getItem(KEY)).toBe(ownership);
+});
+
 test("search matches set names and piece aliases", async () => {
   renderPage();
 
@@ -245,7 +282,7 @@ test("malformed and unknown stored ticks are ignored", () => {
   ).toContain("0/1");
 });
 
-test("blocked storage still allows ticking for this visit", async () => {
+test("blocked storage keeps in-memory ownership through set navigation and history", async () => {
   vi.spyOn(Storage.prototype, "getItem").mockImplementation(() => {
     throw new Error("blocked");
   });
@@ -256,6 +293,34 @@ test("blocked storage still allows ticking for this visit", async () => {
 
   await userEvent.click(within(detail()).getByRole("checkbox"));
 
+  expect(setLink("Spirit Wings").textContent).toContain("1/1");
+
+  await userEvent.click(setLink("Lightpath Trace"));
+  await userEvent.click(
+    within(detail()).getByRole("checkbox", { name: "Helm" }),
+  );
+  await search("lightpath");
+  await userEvent.click(screen.getByRole("button", { name: "History back" }));
+
+  expect(location()).toBe("/skins/spirit-wings");
+  expect(
+    (within(detail()).getByRole("checkbox") as HTMLInputElement).checked,
+  ).toBe(true);
+  expect(setLink("Lightpath Trace").textContent).toContain("1/7");
+
+  await search("wings");
+  await userEvent.click(
+    screen.getByRole("button", { name: "History forward" }),
+  );
+
+  expect(location()).toBe("/skins/lightpath-trace");
+  expect(
+    (
+      within(detail()).getByRole("checkbox", {
+        name: "Helm",
+      }) as HTMLInputElement
+    ).checked,
+  ).toBe(true);
   expect(setLink("Spirit Wings").textContent).toContain("1/1");
 });
 

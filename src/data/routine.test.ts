@@ -1,7 +1,46 @@
-import { expect, test } from "vitest";
+import { screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import { createElement } from "react";
+import { Route, Routes } from "react-router";
+import { afterEach, expect, test, vi } from "vitest";
+import { NotFound } from "../pages/NotFound/NotFound.tsx";
+import { Routine } from "../pages/Routine/Routine.tsx";
+import { Timers } from "../pages/Timers/Timers.tsx";
+import { freezeClock, renderWithProviders } from "../testing/render.tsx";
 import { resourceCounters } from "./alts.ts";
 import { bankingReminders, routineContract, routineTasks } from "./routine.ts";
 import { sections } from "./sections.ts";
+
+afterEach(() => vi.useRealTimers());
+
+test("the Abyss reminder opens the delivered Timers page instead of Not Found", async () => {
+  freezeClock();
+  renderWithProviders(
+    createElement(
+      Routes,
+      null,
+      createElement(Route, {
+        path: "/routine",
+        element: createElement(Routine),
+      }),
+      createElement(Route, {
+        path: "/timers",
+        element: createElement(Timers),
+      }),
+      createElement(Route, { path: "*", element: createElement(NotFound) }),
+    ),
+    { path: "/routine" },
+  );
+
+  await userEvent.click(
+    screen.getByRole("link", { name: "Abyss timing and limits" }),
+  );
+
+  expect(
+    screen.getByRole("heading", { name: "Timers", level: 1 }),
+  ).toBeDefined();
+  expect(screen.queryByRole("heading", { name: "Page not found" })).toBeNull();
+});
 
 test("daily reminders reuse canonical limits without converting weekly entries into daily grants", () => {
   const task = (id: string) => routineTasks.find((row) => row.id === id);
