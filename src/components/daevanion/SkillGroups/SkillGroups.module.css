@@ -1,0 +1,40 @@
+.skills {
+  display: grid;
+  gap: 12px;
+
+  & h2 {
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+}
+
+.groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px 32px;
+
+  & h3 {
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+    font-size: 1.05rem;
+  }
+}
+
+.list {
+  display: grid;
+  gap: 4px;
+  margin: 8px 0 0;
+  padding: 0;
+  list-style: none;
+
+  & li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+}
+
+.note {
+  margin-top: 8px;
+  color: var(--muted);
+}

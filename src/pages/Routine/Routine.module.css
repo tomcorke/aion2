@@ -1,0 +1,38 @@
+.body {
+  display: grid;
+  gap: 24px;
+  max-width: 1000px;
+  padding: 24px var(--gutter) 0;
+
+  & > * {
+    min-width: 0;
+  }
+}
+
+.note {
+  color: var(--muted);
+}
+
+.heading {
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+.reminders {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 12px;
+  padding: 0;
+  list-style: none;
+
+  & li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+}
+
+.link {
+  color: var(--accent);
+}

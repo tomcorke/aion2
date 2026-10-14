@@ -1,0 +1,40 @@
+.body {
+  display: grid;
+  gap: 32px;
+  max-width: 1000px;
+  padding: 24px var(--gutter) 0;
+
+  & > * {
+    min-width: 0;
+  }
+}
+
+.caveats {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+
+  & li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+}
+
+.panel {
+  display: grid;
+  gap: 32px;
+}
+
+.cleric {
+  padding-left: 12px;
+  border-left: 2px solid var(--accent);
+}
+
+.missing {
+  padding: 24px 0;
+  color: var(--muted);
+}

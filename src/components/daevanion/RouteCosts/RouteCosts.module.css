@@ -1,0 +1,111 @@
+.costs {
+  display: grid;
+  gap: 12px;
+
+  & h2 {
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+}
+
+.scroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+
+  & caption {
+    padding-bottom: 8px;
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  & th {
+    font-weight: 400;
+    text-align: left;
+  }
+
+  & th,
+  & td {
+    padding: 8px 16px 8px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  & thead th {
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  & .total th {
+    color: var(--accent);
+  }
+
+  & meter {
+    display: block;
+    width: 100%;
+    height: 4px;
+    margin-top: 6px;
+    border: 0;
+    appearance: none;
+    background: var(--track);
+
+    &::-webkit-meter-bar {
+      height: 4px;
+      border: 0;
+      background: var(--track);
+    }
+
+    &::-webkit-meter-optimum-value {
+      background: var(--accent);
+    }
+
+    &::-moz-meter-bar {
+      background: var(--accent);
+    }
+  }
+}
+
+.meta {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.figure {
+  color: var(--accent);
+  font-family: var(--f-mono);
+}
+
+.missing {
+  color: var(--muted);
+}
+
+.variants {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+
+  & dt {
+    display: inline;
+    color: var(--ink);
+
+    &::after {
+      content: ": ";
+    }
+  }
+
+  & dd {
+    display: inline;
+    margin: 0;
+    color: var(--muted);
+  }
+}
+
+.note {
+  color: var(--muted);
+}

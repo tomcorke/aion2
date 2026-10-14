@@ -1,0 +1,74 @@
+.azphel {
+  display: grid;
+  gap: 12px;
+
+  & h2 {
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+}
+
+.meta {
+  color: var(--muted);
+}
+
+.phases {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  & li {
+    display: grid;
+    gap: 6px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  & h3 {
+    font-size: 1.05rem;
+  }
+
+  & meter {
+    width: 100%;
+    height: 4px;
+    border: 0;
+    appearance: none;
+    background: var(--track);
+
+    &::-webkit-meter-bar {
+      height: 4px;
+      border: 0;
+      background: var(--track);
+    }
+
+    &::-webkit-meter-optimum-value {
+      background: var(--accent);
+    }
+
+    &::-moz-meter-bar {
+      background: var(--accent);
+    }
+  }
+}
+
+.figure {
+  color: var(--accent);
+  font-family: var(--f-mono);
+}
+
+.notes {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+
+  & li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+}
