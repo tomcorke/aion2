@@ -1,3 +1,7 @@
+import { altsSourceAdditions } from "./alts.ts";
+import { gearUpgradeSourceAdditions } from "./gearUpgrades.ts";
+import { growthSourceAdditions } from "./growth.ts";
+
 // Every source the site names. Page footers pick from these; the Sources page lists them all.
 export type Source = {
   name: string;
@@ -6,6 +10,9 @@ export type Source = {
 };
 
 export const sources = {
+  ...altsSourceAdditions,
+  ...gearUpgradeSourceAdditions,
+  ...growthSourceAdditions,
   metabotEvents: {
     name: "MetaBot event schedule",
     covers:
@@ -73,8 +80,61 @@ export const sources = {
   },
   metabotSpiritmasterPlanner: {
     name: "MetaBot Spiritmaster Daevanion planner",
-    covers: "Azphel board node data",
+    covers:
+      "PvE and Azphel board nodes, costs and Spiritmaster skill associations",
     url: "https://metabot.gg/en/aion-2/daevanion/spiritmaster",
+  },
+  metabotGladiatorPlanner: {
+    name: "MetaBot Gladiator Daevanion planner",
+    covers:
+      "Shared board nodes and Gladiator skill associations from the Global client",
+    url: "https://metabot.gg/en/aion-2/daevanion/gladiator",
+  },
+  metabotTemplarPlanner: {
+    name: "MetaBot Templar Daevanion planner",
+    covers:
+      "Shared board nodes and Templar skill associations from the Global client",
+    url: "https://metabot.gg/en/aion-2/daevanion/templar",
+  },
+  metabotAssassinPlanner: {
+    name: "MetaBot Assassin Daevanion planner",
+    covers:
+      "Shared board nodes and Assassin skill associations from the Global client",
+    url: "https://metabot.gg/en/aion-2/daevanion/assassin",
+  },
+  metabotRangerPlanner: {
+    name: "MetaBot Ranger Daevanion planner",
+    covers:
+      "Shared board nodes and Ranger skill associations from the Global client",
+    url: "https://metabot.gg/en/aion-2/daevanion/ranger",
+  },
+  metabotSorcererPlanner: {
+    name: "MetaBot Sorcerer Daevanion planner",
+    covers:
+      "Shared board nodes and Sorcerer skill associations from the Global client",
+    url: "https://metabot.gg/en/aion-2/daevanion/sorcerer",
+  },
+  metabotClericPlanner: {
+    name: "MetaBot Cleric Daevanion planner",
+    covers:
+      "Shared board nodes and Cleric skill associations from the Global client",
+    url: "https://metabot.gg/en/aion-2/daevanion/cleric",
+  },
+  metabotChanterPlanner: {
+    name: "MetaBot Chanter Daevanion planner",
+    covers:
+      "Shared board nodes and Chanter skill associations from the Global client",
+    url: "https://metabot.gg/en/aion-2/daevanion/chanter",
+  },
+  metabotSpiritmasterSkills: {
+    name: "MetaBot Spiritmaster skill tooltips",
+    covers: "Spiritmaster skill effects and estimated route priorities",
+    url: "https://metabot.gg/en/aion-2/skills/spirit-strike",
+  },
+  metabotDaevanionClassSkills: {
+    name: "MetaBot class skill tooltips",
+    covers: "Skill-role estimates for class routes",
+    url: "https://metabot.gg/en/aion-2/skills/attack-preparation-chanter",
   },
   metabotAbyss: {
     name: "MetaBot Abyss guide",
