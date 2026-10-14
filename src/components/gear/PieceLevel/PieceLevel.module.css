@@ -1,0 +1,5 @@
+.level {
+  color: var(--accent);
+  font-family: var(--f-mono);
+  white-space: nowrap;
+}

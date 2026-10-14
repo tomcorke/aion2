@@ -1,0 +1,54 @@
+.track {
+  display: grid;
+  gap: 12px;
+
+  & h2 {
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+}
+
+.note {
+  max-width: 76ch;
+  color: var(--muted);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  margin: 0;
+
+  & dt,
+  & dd {
+    margin: 0;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  & dt {
+    padding-right: 24px;
+    color: var(--muted);
+  }
+
+  @media (width <= 700px) {
+    grid-template-columns: minmax(0, 1fr);
+
+    & dt {
+      padding-bottom: 0;
+      border-bottom: 0;
+      font-size: 0.82rem;
+    }
+  }
+}
+
+.level {
+  color: var(--accent);
+  font-family: var(--f-mono);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--accent);
+}

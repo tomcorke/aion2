@@ -1,0 +1,65 @@
+.matrix {
+  display: grid;
+  gap: 12px;
+
+  & h2 {
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+}
+
+.note {
+  max-width: 76ch;
+  color: var(--muted);
+}
+
+.scroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 960px;
+  border-collapse: collapse;
+
+  & caption {
+    padding-bottom: 8px;
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  & th {
+    text-align: left;
+    font-weight: 400;
+  }
+
+  & th,
+  & td {
+    padding: 8px 12px 8px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  & thead th {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 400;
+  }
+}
+
+.kind {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.mode {
+  display: block;
+  white-space: nowrap;
+}
+
+.level {
+  color: var(--accent);
+  font-family: var(--f-mono);
+}

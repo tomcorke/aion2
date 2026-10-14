@@ -1,0 +1,86 @@
+.drops {
+  display: grid;
+  gap: 24px;
+}
+
+.scroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+
+  & caption {
+    padding-bottom: 8px;
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  & th {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  & th,
+  & td {
+    padding: 8px 12px 8px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+}
+
+.kind {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.total {
+  font-family: var(--f-mono);
+  white-space: nowrap;
+}
+
+.unknown {
+  color: var(--muted);
+  font-family: var(--f-body);
+  font-size: 0.82rem;
+}
+
+.notes {
+  max-width: 36ch;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.rules {
+  display: grid;
+  gap: 8px;
+
+  & h3 {
+    font-size: 1.15rem;
+    color: var(--accent);
+  }
+
+  & ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  & li {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  & p {
+    margin: 4px 0 0;
+  }
+}

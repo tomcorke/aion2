@@ -1,6 +1,6 @@
 # Scope
 
-MVP scope confirmed with the owner. Built so far: the shared header and footer, theme and metal preferences, Home, Progression, Shugo Festival's reference tables, `/timers` (the timer dial), `/sources`, and a 404 page. The other sections still have stand-ins. The remaining work completes those pages and addresses the Timers and Sources gaps. Home stays unchanged except for shared verified timer corrections.
+MVP scope confirmed with the owner. Built so far: the shared header and footer, theme and metal preferences, Home, Progression, Gear's tier browser, Shugo Festival's reference tables, `/timers` (the timer dial), `/sources`, and a 404 page. The other sections still have stand-ins. The remaining work completes those pages and addresses the Timers and Sources gaps. Home stays unchanged except for shared verified timer corrections.
 
 ## Goal
 

@@ -1,0 +1,31 @@
+.body {
+  display: grid;
+  gap: 32px;
+  padding: 24px var(--gutter) 0;
+
+  & > * {
+    min-width: 0;
+  }
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+}
+
+.label {
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.tier {
+  display: grid;
+  gap: 32px;
+}
+
+.missing {
+  padding: 24px 0;
+  color: var(--muted);
+}
