@@ -1,0 +1,37 @@
+.scroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  min-width: 860px;
+  border-collapse: collapse;
+
+  & caption {
+    padding-bottom: 8px;
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  & th {
+    font-weight: 400;
+    text-align: left;
+  }
+
+  & th,
+  & td {
+    padding: 10px 14px 10px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  & thead th {
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  & p {
+    margin: 4px 0;
+  }
+}

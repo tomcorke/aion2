@@ -1,0 +1,64 @@
+.name {
+  display: block;
+  font-weight: 600;
+}
+
+.material,
+.equipment,
+.currency,
+.fact {
+  display: block;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.currency {
+  color: var(--accent);
+  font-family: var(--f-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.currencyRow > th {
+  padding-left: 10px;
+  box-shadow: inset 2px 0 0 var(--accent);
+}
+
+.targets {
+  display: block;
+  color: var(--accent);
+  font-size: 0.82rem;
+}
+
+.list {
+  display: grid;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.detail {
+  display: block;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.route {
+  color: var(--ink);
+}
+
+.muted,
+.condition {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  margin-right: 12px;
+  color: var(--accent);
+}

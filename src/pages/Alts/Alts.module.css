@@ -1,0 +1,52 @@
+.body {
+  display: grid;
+  gap: 24px;
+  max-width: 1100px;
+  padding: 24px var(--gutter) 0;
+
+  & > * {
+    min-width: 0;
+  }
+}
+
+.heading {
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+/* The one loss warning on the page: an accent hairline, not a filled box. */
+.warning {
+  padding-left: 16px;
+  border-left: 2px solid var(--accent);
+
+  & p {
+    margin: 0 0 8px;
+  }
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.items {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+
+  & li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  margin-right: 24px;
+  color: var(--accent);
+}

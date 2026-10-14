@@ -1,0 +1,88 @@
+.counters {
+  display: grid;
+  gap: 12px;
+
+  & h2 {
+    color: var(--accent);
+    font-size: 1.4rem;
+  }
+}
+
+.note {
+  color: var(--muted);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  & th {
+    font-weight: 400;
+    text-align: left;
+  }
+
+  & th,
+  & td {
+    padding: 8px 12px 8px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+
+  & thead th {
+    color: var(--muted);
+    font-size: 0.82rem;
+  }
+
+  & td p {
+    margin: 0 0 4px;
+    color: var(--muted);
+  }
+
+  /* Phones: each counter becomes a stacked block instead of a wide row. */
+  @media (width <= 700px) {
+    & thead {
+      display: none;
+    }
+
+    & tr,
+    & th,
+    & td {
+      display: block;
+    }
+
+    & tr {
+      padding: 8px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    & th,
+    & td {
+      padding: 2px 0;
+      border: 0;
+    }
+  }
+}
+
+.group {
+  padding-top: 20px;
+  color: var(--accent);
+  font-family: var(--f-display);
+  font-size: 1.1rem;
+}
+
+.scope {
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.limit {
+  font-family: var(--f-mono);
+  font-size: 0.9rem;
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--accent);
+}

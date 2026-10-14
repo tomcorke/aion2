@@ -1,4 +1,4 @@
-import { useMatch } from "react-router";
+import { Link, useMatch } from "react-router";
 import { FilterChips } from "../../components/controls/FilterChips/FilterChips.tsx";
 import { Tabs } from "../../components/controls/Tabs/Tabs.tsx";
 import { DropMatrix } from "../../components/gear/DropMatrix/DropMatrix.tsx";
@@ -51,6 +51,9 @@ export function Gear() {
             }))}
             onToggle={(faction) => update({ faction })}
           />
+          <Link to="/gear/enhancement" className={STYLES.upgrades}>
+            Enhancement and upgrades →
+          </Link>
         </div>
 
         <div>

@@ -6,7 +6,7 @@ export type Section = {
   summary: string;
 };
 
-export const sections: Section[] = [
+export const sections = [
   {
     path: "progression",
     title: "Progression",
@@ -62,4 +62,6 @@ export const sections: Section[] = [
     title: "Sources",
     summary: "Where these notes come from, image credits, and open questions.",
   },
-];
+] as const satisfies readonly Section[];
+
+export type SectionPath = (typeof sections)[number]["path"];

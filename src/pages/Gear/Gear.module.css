@@ -15,6 +15,14 @@
   gap: 8px 12px;
 }
 
+.upgrades {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  margin-left: auto;
+  color: var(--accent);
+}
+
 .label {
   color: var(--muted);
   font-size: 0.875rem;

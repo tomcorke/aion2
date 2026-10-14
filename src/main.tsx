@@ -6,23 +6,28 @@ import "./styles/global.css";
 import { Layout } from "./components/shell/Layout/Layout.tsx";
 import { PreferencesProvider } from "./preferences/PreferencesProvider.tsx";
 import { Home } from "./pages/Home/Home.tsx";
+import { Alts } from "./pages/Alts/Alts.tsx";
 import { Daevanion } from "./pages/Daevanion/Daevanion.tsx";
+import { Enhancement } from "./pages/Enhancement/Enhancement.tsx";
 import { Festival } from "./pages/Festival/Festival.tsx";
 import { Gear } from "./pages/Gear/Gear.tsx";
+import { Growth } from "./pages/Growth/Growth.tsx";
 import { NotFound } from "./pages/NotFound/NotFound.tsx";
 import { Progression } from "./pages/Progression/Progression.tsx";
 import { Routine } from "./pages/Routine/Routine.tsx";
-import { SectionPage } from "./pages/SectionPage/SectionPage.tsx";
+
 import { Skins } from "./pages/Skins/Skins.tsx";
 import { Sources } from "./pages/Sources/Sources.tsx";
 import { Timers } from "./pages/Timers/Timers.tsx";
-import { sections } from "./data/sections.ts";
+import { sections, type SectionPath } from "./data/sections.ts";
 
-// Sections with a built page; the rest show a stand-in.
-const builtPages: Record<string, ReactElement> = {
+// Every section must have a real page; a missing registration fails typecheck.
+const builtPages: Record<SectionPath, ReactElement> = {
+  alts: <Alts />,
   daevanion: <Daevanion />,
   festival: <Festival />,
   gear: <Gear />,
+  growth: <Growth />,
   progression: <Progression />,
   routine: <Routine />,
   skins: <Skins />,
@@ -38,9 +43,10 @@ const router = createHashRouter([
       { index: true, element: <Home /> },
       ...sections.map((section) => ({
         path: section.path,
-        element: builtPages[section.path] ?? <SectionPage section={section} />,
+        element: builtPages[section.path],
       })),
       { path: "daevanion/:class", element: <Daevanion /> },
+      { path: "gear/enhancement", element: <Enhancement /> },
       { path: "gear/:tier", element: <Gear /> },
       { path: "skins/:set", element: <Skins /> },
       { path: "*", element: <NotFound /> },

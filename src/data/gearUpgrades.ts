@@ -78,6 +78,7 @@ export type GearUpgradeSourceId =
   SourceId | keyof typeof gearUpgradeSourceAdditions;
 
 export const gearUpgradesSources: GearUpgradeSourceId[] = [
+  "metabotSubstanceMorph",
   "metabotGear",
   "metabotEnhancement",
   "metabotAbyss",

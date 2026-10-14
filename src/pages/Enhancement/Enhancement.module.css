@@ -1,0 +1,37 @@
+.body {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 48px;
+  padding: 24px var(--gutter) 0;
+
+  @media (width <= 700px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+}
+
+.side {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--accent);
+}
+
+.guide {
+  display: grid;
+  gap: 32px;
+  max-width: 76ch;
+}
+
+.part {
+  display: grid;
+  gap: 32px;
+}
