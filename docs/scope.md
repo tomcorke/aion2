@@ -1,6 +1,6 @@
 # Scope
 
-Draft for iteration. Built so far: the shared header and footer, theme and metal preferences, the home page and `/timers` (the timer dial), `/sources`, stand-in pages for the other sections, and a 404 page.
+MVP scope confirmed with the owner. Built so far: the shared header and footer, theme and metal preferences, the home page and `/timers` (the timer dial), `/sources`, stand-in pages for the other sections, and a 404 page. This work completes the eight stand-ins and addresses the remaining Timers and Sources gaps. Home stays unchanged except for shared verified timer corrections.
 
 ## Goal
 
@@ -28,35 +28,44 @@ Six artifacts exist today. Each will be rebuilt as a page or merged into one.
 
 The notes repo also has topics with no artifact yet: factions, character profiles, hidden cubes, Spacetime Rifts, Abyss Corridor, field bosses, legions, Incursion of the Spirits, Mental Focus, Penetration, Spiritmaster Stigmas, Substance Morph, stones, skin sources, Centuryroot Tokens, Abyss Points, HUD currencies, and open questions.
 
-## Proposed sections
+## Sections and specifications
 
-The shell already routes these paths. Names and grouping are open for discussion.
+The shell already routes these sections. Detailed specifications live in GitHub issues, with separately approved implementation tickets linked beneath them. This document is the index and scope summary, not a second copy of the specs.
 
-| Path           | Page                                              | Built from                                        |
-| -------------- | ------------------------------------------------- | ------------------------------------------------- |
-| `/progression` | Item-level gates and the rules that save the most | Progression Route                                 |
-| `/gear`        | Drops by activity, upgrades, power outside gear   | Level 45 Gearing, Progression Route gear sections |
-| `/daevanion`   | Board routes by class                             | Azphel Board Route                                |
-| `/timers`      | Boss and event timers                             | Level 45 Companion timers tab                     |
-| `/routine`     | Daily and weekly checklist                        | Gearing and Progression routine sections          |
-| `/alts`        | What carries over between characters              | Main vs Alts                                      |
-| `/growth`      | Growth materials: what each grows and where from  | Notes repo gear, stones and currency topics       |
-| `/skins`       | Skin sets checklist with sources and search       | Notes repo skin sources and Festival prices       |
-| `/festival`    | Shugo Festival data and simulator                 | Shugo Festival Datasheet                          |
-| `/sources`     | Source list, image credits, open questions        | Notes repo catalog and open questions             |
+| Path           | Page                                                   | Built from                                        | Spec                                               |
+| -------------- | ------------------------------------------------------ | ------------------------------------------------- | -------------------------------------------------- |
+| `/progression` | Overall item-level route and practical priorities      | Progression Route                                 | [#1](https://github.com/tomcorke/aion2/issues/1)   |
+| `/gear`        | Tier drops, pity, upgrades, power outside gear         | Level 45 Gearing, Progression Route gear sections | [#2](https://github.com/tomcorke/aion2/issues/2)   |
+| `/daevanion`   | Class routes, diagrams, and point budgets              | Azphel Board Route                                | [#3](https://github.com/tomcorke/aion2/issues/3)   |
+| `/timers`      | Existing timer verification and supported gaps         | Level 45 Companion timers tab                     | [#9](https://github.com/tomcorke/aion2/issues/9)   |
+| `/routine`     | Manually cleared daily and weekly checklist            | Gearing and Progression routine sections          | [#4](https://github.com/tomcorke/aion2/issues/4)   |
+| `/alts`        | Sharing ledger, counters, and main/alt jobs            | Main vs Alts                                      | [#5](https://github.com/tomcorke/aion2/issues/5)   |
+| `/growth`      | Searchable materials, uses, sources, and limits        | Notes repo gear, stones and currency topics       | [#6](https://github.com/tomcorke/aion2/issues/6)   |
+| `/skins`       | Curated appearances and ownership checklist            | Notes repo skin sources and Festival prices       | [#7](https://github.com/tomcorke/aion2/issues/7)   |
+| `/festival`    | Games, rewards, prices, and conditional simulator      | Shugo Festival Datasheet                          | [#8](https://github.com/tomcorke/aion2/issues/8)   |
+| `/sources`     | Public sources, image credits, relevant open questions | Notes repo catalog and open questions             | [#10](https://github.com/tomcorke/aion2/issues/10) |
 
-Deep-link candidates (hash routes, so `/#/gear/enhancement` in the address bar): `/daevanion/:class/:board`, `/timers/abyss`, `/gear/enhancement`, `/festival/simulator`.
+Shareable selections include `/gear/:tier`, `/gear/enhancement`, `/daevanion/:class/:board/:variant` with a points query, `/timers/abyss`, `/skins/:set`, and `/festival/simulator` with its model inputs. These are hash routes, such as `/#/gear/enhancement`; the router owns navigation and in-page scrolling must not replace the route hash.
 
-## Open decisions
+## Decisions
 
-1. **How the app gets knowledge-base content.** Options: hand-curated TypeScript data per page; build-time import of the knowledge base Markdown (Git submodule or sibling checkout); or a mix, with structured data (timers, boards, shop prices) as JSON in the knowledge base and prose curated in the app. This decides how a new finding reaches the site.
-2. **Source display.** Decided: no per-claim evidence labels or inline citations; they made the artifacts noisy. Each page's footer lists its sources and reviewed date, and `/sources` holds the full list and image credits.
-3. **Duplication between Progression and Gear.** Both artifacts carry the item-level ladder, gear table, and enhancement rules. Proposal: one canonical home per table, linked from the other page.
-4. **Per-browser state.** Timers and checklists store ticks in localStorage today. Keep that, or add per-character profiles?
-5. **Board data size.** The Azphel artifact embeds about 850 KB of node and route data. Ship it as a lazily loaded JSON chunk per class.
-6. **Knowledge-base topics without an artifact.** Add a browsable "Topics" section rendering each note, or fold them into the themed pages?
-7. **Freshness display.** Show each page's reviewed date and client build, taken from the knowledge-base frontmatter.
+1. **Content pipeline.** Hand-curate app data from the notes; no Markdown importer or submodule. Every new or corrected game fact goes into the notes first through that repo's workflow. Retain full Daevanion geometry and ordered route data there before importing it into the app. Lazy-load heavy feature data and reuse shared board geometry rather than duplicating it by class.
+2. **Source display and freshness.** Use plain best-effort notes without evidence badges or inline citations. Keep meaningful conditions, estimates, and loss warnings beside the advice. Each page's footer names its actual sources, image credit, and reviewed date. A content review against the notes is not a new external source check; copying or rebuilding does not advance source-check dates.
+3. **Canonical content.** Progression owns the overall unlock ladder and priorities. Gear owns drop tables, local tier context, pity, and upgrade mechanics. Cross-link full details instead of duplicating tables. Reuse purchase data where Festival and Skins show the same prices.
+4. **Browser state.** Keep existing timer state and preferences. Routine ticks and skin ownership use independent browser-local state, not character/server profiles. Ownership and checklist ticks never enter shareable URLs. Search and source/target filters are temporary view state.
+5. **Routine resets.** Readers clear daily and weekly groups manually, with confirmation. No clock-driven clearing or live remaining-resource counters. EU clock verification does not block this checklist.
+6. **Page interactions.** Progression and Alts are reading guides; Gear uses tier tabs; Growth uses search and target chips; Skins uses a curated catalogue, source filters, and piece ticks. Daevanion shows eight classes, five boards, three PvE variants, the common Azphel route, and a whole-node budget scrubber. Routes assume empty boards; no custom solver or profile import.
+7. **Festival model.** Simulate reward openings with starting tokens and a purchase target. Participation income is an explicit opt-in assumption. Show a histogram, text summary, expected total, and sampled target probability. Do not turn openings into verified key counts or calendar completion dates.
+8. **Knowledge coverage and gaps.** Fold relevant notes into these themed pages; no generic Topics reader or exhaustive wardrobe. Required facts gate only the slice claiming them. Optional unsupported entries can wait and reader-relevant gaps belong on Sources. Ship no bracketed placeholders or guessed fields.
+9. **Tests and delivery.** Use existing routed page/component tests for behaviour and pure tests for calculations/data invariants. Check phones, keyboard access, themes, and metals manually. No new end-to-end framework or standalone speculative control framework. Publication requires a separate user request.
+
+## Remaining verification
+
+- EU daily/weekly reset clocks, the regional server-zone assumption, and unresolved event/boss schedules need focused checks. Correct shared timer data so Home and Timers agree; preserve saved setup and kills. An inconclusive check remains an explicit uncertainty, not a confirmed deadline.
+- Retain complete Daevanion node/route data in the notes before the full viewer ships; summary totals alone do not support a purchase diagram.
+- Verify required appearance pieces and missing material uses/sources before adding those entries. Unsupported optional entries do not hold up a supported catalogue.
+- Festival card/key/package mapping, refill rules, and level-45 applicability of the detailed odds remain limits on the simulator's claims. The conditional opening model does not need those gaps falsely resolved.
 
 ## Out of scope for now
 
-Accounts, a backend, search beyond the browser's own, and Korea or Taiwan region data.
+Accounts, a backend, per-character/server profiles, automatic knowledge imports, global site search, live inventory/resource tracking, automatic checklist resets, custom Daevanion optimisation, an exhaustive wardrobe, and Korea or Taiwan region data. Local page search and filters are in scope.

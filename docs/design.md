@@ -65,13 +65,17 @@ Two modes, each with a default metal the reader can swap.
 
 ## Page patterns
 
-| Page             | Layout                                                                                                                                               |
-| ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Alts             | Two-column ledger, shared on the server against each character, with limits; then the cube-count warning, how many alts, and what never carries over |
-| Gear             | Item-level tier tabs, a gate track marking open and next gates, a table of where that tier's upgrades drop, pity counts, the enhancement ladder      |
-| Growth materials | Search and "what it grows" chips over a table (item, grows, from, limit), with caps and spend order alongside                                        |
-| Skins            | Search and source chips; a list of sets with progress; the selected set's piece checklist and where it comes from                                    |
-| Daevanion        | Class tabs; three route totals; points per board as bars; core, defensive and utility skills; the shared Azphel route                                |
+| Page             | Layout                                                                                                                                                               |
+| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Progression      | Reading guide with a contents rail, the overall gate ladder, short priority sections, and links to detailed mechanics; compact contents control on phones            |
+| Alts             | Two-column ledger, shared on the server against each character, with limits; then the cube-count warning, how many alts, and what never carries over                 |
+| Gear             | Item-level tier tabs, a selected-tier gate track, drop tables, pity counts, and the enhancement ladder; link to Progression for the overall route                    |
+| Growth materials | Search and "what it grows" chips over a table (item, grows, from, limit), with caps and spend order alongside                                                        |
+| Routine          | Daily and weekly checkbox rows with limits and sharing scope, group progress, and separate confirmed manual-clear actions                                            |
+| Skins            | Search and source chips; a curated appearance list with progress; selected outfit, accessory, or wing pieces and acquisition details                                 |
+| Daevanion        | Class and board tabs; three PvE route totals; point-cost bars; skill groups; SVG route and equivalent purchase list; whole-node points scrubber; shared Azphel route |
+| Festival         | Games, rewards, key limits, and shop-price tables; conditional opening simulator with inputs, nearby assumptions, histogram, and equivalent text results             |
+| Sources          | Public source coverage and image-credit lists, followed by reader-relevant open questions grouped by topic                                                           |
 
 ## Phones
 
@@ -100,7 +104,9 @@ Build every page from shared components in `src/components/`; never copy header,
 | `Rule`, `Diamond`, `Orb`, `ProgressBar`    | Trim and markers                                                          |
 | `TimerDial`, `TimerWings`, `TimerSpine`    | Home and timers                                                           |
 
-Hold site-wide reader preferences (theme, metal per theme, zone, faction) in one context backed by `localStorage`. State that belongs to one feature, such as the timer setup and marked kills, uses `useStoredState` in that feature's component.
+Hold site-wide reader preferences (theme, metal per theme, zone, faction) in one context backed by `localStorage`. State that belongs to one feature, such as the timer setup and marked kills, uses `useStoredState` in that feature's component. Routine ticks and skin ownership stay independent and private to the browser; Routine clears only when the reader confirms a group-clear action.
+
+Use router paths for shareable tabs and selected entries, and query parameters for Daevanion budgets and Festival model inputs. Direct loading and Back/Forward restore the same selection. Keep search/filter state temporary and ownership ticks out of URLs. In-page contents controls scroll in code without replacing the route hash.
 
 ## Content and images
 
