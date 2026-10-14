@@ -65,7 +65,6 @@ test("overview assumptions and source freshness remain available to the page", (
   expect(daevanionCaveats.estimates).toContain("not proven minimal");
   expect(daevanionCaveats.estimates).toContain("not a damage simulation");
   expect(daevanionCaveats.cleric).toContain("healing build");
-  expect(daevanionCaveats.missingCosts).toContain("not recorded");
 
   for (const id of daevanionSources) expect(sources).toHaveProperty(id);
 
@@ -134,11 +133,13 @@ test("skill groups retain the corrected Spiritmaster roles and Cleric healing sk
     const namedSkills = Object.values(entry.skills).flat();
 
     expect(new Set(namedSkills).size).toBe(namedSkills.length);
-    expect(entry.damageNote).toContain("other skills");
+    expect(namedSkills).toHaveLength(22);
+    expect(entry.skills.damage.length).toBeGreaterThan(0);
+    expect(entry.damageNote).not.toContain("not recorded");
   }
 });
 
-test("PvE comparisons retain known board costs without inventing missing defensive costs", () => {
+test("PvE comparisons expose every retained board cost", () => {
   expect(daevanionBoards.map(({ id }) => id)).toEqual([
     "nezekan",
     "zikel",
@@ -173,17 +174,18 @@ test("PvE comparisons retain known board costs without inventing missing defensi
       vaizel: 103,
       triniel: 124,
     });
-    expect(entry.routes.defense.boardCosts).toEqual(
-      entry.id === "spiritmaster"
-        ? { nezekan: 115, zikel: 102, vaizel: 103, triniel: 133 }
-        : {},
-    );
+    expect(Object.keys(entry.routes.defense.boardCosts)).toEqual([
+      "nezekan",
+      "zikel",
+      "vaizel",
+      "triniel",
+    ]);
 
     for (const route of Object.values(entry.routes)) {
       const costs = Object.values(route.boardCosts);
 
-      if (costs.length === 4)
-        expect(costs.reduce((sum, cost) => sum + cost, 0)).toBe(route.total);
+      expect(costs).toHaveLength(4);
+      expect(costs.reduce((sum, cost) => sum + cost, 0)).toBe(route.total);
     }
   }
 });

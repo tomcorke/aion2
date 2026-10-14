@@ -81,10 +81,6 @@
   font-family: var(--f-mono);
 }
 
-.missing {
-  color: var(--muted);
-}
-
 .variants {
   display: grid;
   gap: 6px;
@@ -104,8 +100,4 @@
     margin: 0;
     color: var(--muted);
   }
-}
-
-.note {
-  color: var(--muted);
 }

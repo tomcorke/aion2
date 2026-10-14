@@ -1,7 +1,6 @@
 import { useId } from "react";
 import {
   daevanionBoards,
-  daevanionCaveats,
   daevanionPools,
   daevanionVariants,
   type DaevanionClass,
@@ -15,15 +14,12 @@ const pveBoards = daevanionPools.pve.boardIds.map((boardId) => ({
 const pveFullCost = pveBoards.reduce((sum, { fullCost }) => sum + fullCost, 0);
 
 type CostProps = {
-  cost?: number;
+  cost: number;
   max: number;
   label: string;
 };
 
 function Cost({ cost, max, label }: CostProps) {
-  if (cost === undefined)
-    return <td className={STYLES.missing}>Not recorded</td>;
-
   return (
     <td>
       <span className={STYLES.figure}>{cost}</span>
@@ -40,12 +36,6 @@ function Cost({ cost, max, label }: CostProps) {
 /** The class's three PvE route totals, with each board's cost against its full cost. */
 export function RouteCosts({ entry }: { entry: DaevanionClass }) {
   const id = useId();
-
-  const missing = daevanionVariants.some(
-    (variant) =>
-      Object.keys(entry.routes[variant.id].boardCosts).length <
-      pveBoards.length,
-  );
 
   return (
     <section aria-labelledby={id} className={STYLES.costs}>
@@ -113,10 +103,6 @@ export function RouteCosts({ entry }: { entry: DaevanionClass }) {
           </div>
         ))}
       </dl>
-
-      {missing && (
-        <p className={STYLES.note}>{daevanionCaveats.missingCosts}</p>
-      )}
     </section>
   );
 }

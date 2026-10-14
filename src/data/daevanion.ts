@@ -1,7 +1,8 @@
 import type { SourceId } from "./sources.ts";
 
 // Global client build 0.0.4387.0. Curated from combat/daevanion-class-routes.md,
-// combat/spiritmaster-daevanion.md and gear/azphel-board.md in aion2-knowledge.
+// combat/spiritmaster-daevanion.md, combat/daevanion-retained-data.md and
+// gear/azphel-board.md in aion2-knowledge main@4cf7488.
 // Copying the notes does not advance their external source-check dates.
 // Conservative common date for the Spiritmaster and Azphel notes; the class
 // comparison was reviewed on 2026-10-11. No new external checks were made.
@@ -29,8 +30,6 @@ export const daevanionCaveats = {
     "Skill priorities come from tooltips, not a damage simulation. PvE route costs are search estimates and are not proven minimal or optimal builds.",
   cleric:
     "Cleric routes target damage, not a healing build. Healing Enhancement, Healing Light, Light of Regeneration, Radiant Benediction and Radiant Recovery become priorities for healing; Damage + utility includes them.",
-  missingCosts:
-    "Per-board defensive route costs are not recorded in the maintained notes for classes other than Spiritmaster. Their combined totals are available; do not divide those totals into guessed board costs.",
 };
 
 export const daevanionPools = {
@@ -110,8 +109,7 @@ export const daevanionVariants = [
 export type DaevanionVariantId = (typeof daevanionVariants)[number]["id"];
 export type DaevanionRoute = {
   total: number;
-  // Absent keys mean the maintained notes do not record this board's cost.
-  boardCosts: Partial<Record<PveBoardId, number>>;
+  boardCosts: Record<PveBoardId, number>;
 };
 
 export type DaevanionClassId =
@@ -140,7 +138,7 @@ const utilityRoute: DaevanionRoute = {
 };
 
 const otherDamage =
-  "All other skills count as damage. Individual damage-skill names and phase priorities are not recorded here for this class.";
+  "The damage group includes damage passives, core rotation skills and other damage skills. Their phase priorities are estimates from tooltips, not measured damage rankings.";
 
 export const daevanionClasses: DaevanionClass[] = [
   {
@@ -148,7 +146,24 @@ export const daevanionClasses: DaevanionClass[] = [
     name: "Gladiator",
     skills: {
       core: ["Attack Preparation"],
-      damage: [],
+      damage: [
+        "Identify Weakness",
+        "Impact Hit",
+        "Murderous Burst",
+        "Destructive Impulse",
+        "Experienced Counterstrike",
+        "Ruinous Blow",
+        "Aerial Snare",
+        "Ankle Slice",
+        "Crushing Wave",
+        "Keen Strike",
+        "Leaping Slam",
+        "Mocking Blade",
+        "Overhead Slam",
+        "Rending Blow",
+        "Rush Strike",
+        "Sword Aura Rampage",
+      ],
       utility: ["Defiance", "Survival Willpower", "Blood Absorption"],
       defensive: ["Survival Stance", "Protection Armor"],
     },
@@ -159,7 +174,10 @@ export const daevanionClasses: DaevanionClass[] = [
         boardCosts: { nezekan: 100, zikel: 100, vaizel: 93, triniel: 116 },
       },
       utility: utilityRoute,
-      defense: { total: 458, boardCosts: {} },
+      defense: {
+        total: 458,
+        boardCosts: { nezekan: 114, zikel: 103, vaizel: 106, triniel: 135 },
+      },
     },
   },
   {
@@ -167,7 +185,22 @@ export const daevanionClasses: DaevanionClass[] = [
     name: "Templar",
     skills: {
       core: ["Fury"],
-      damage: [],
+      damage: [
+        "Punishing Benediction",
+        "Impact Hit",
+        "Insulting Roar",
+        "Punishment",
+        "Judgment",
+        "Annihilate",
+        "Debilitating Smash",
+        "Flash Rampage",
+        "Pummel",
+        "Shield Rush",
+        "Shield Smite",
+        "Vicious Strike",
+        "Warding Strike",
+        "Poach",
+      ],
       utility: ["Defiance", "Survival Willpower"],
       defensive: [
         "Enhance Health",
@@ -184,7 +217,10 @@ export const daevanionClasses: DaevanionClass[] = [
         boardCosts: { nezekan: 98, zikel: 96, vaizel: 89, triniel: 114 },
       },
       utility: utilityRoute,
-      defense: { total: 464, boardCosts: {} },
+      defense: {
+        total: 464,
+        boardCosts: { nezekan: 117, zikel: 103, vaizel: 108, triniel: 136 },
+      },
     },
   },
   {
@@ -192,7 +228,25 @@ export const daevanionClasses: DaevanionClass[] = [
     name: "Assassin",
     skills: {
       core: ["Assault Stance", "Rear Smite"],
-      damage: [],
+      damage: [
+        "Exploit Weakness",
+        "Impact Hit",
+        "Ambush Stance",
+        "Apply Poison",
+        "Defense Break",
+        "Determination",
+        "Insignia Explosion",
+        "Heart Gore",
+        "Ambush",
+        "Flash Slice",
+        "Infiltrate",
+        "Quick Slice",
+        "Savage Roar",
+        "Shadow Fall",
+        "Shadowstrike",
+        "Storm Rampage",
+        "Whirlwind Slice",
+      ],
       utility: ["Defiance", "Revitalization Contract"],
       defensive: ["Heightened Sixth Sense"],
     },
@@ -203,7 +257,10 @@ export const daevanionClasses: DaevanionClass[] = [
         boardCosts: { nezekan: 107, zikel: 100, vaizel: 97, triniel: 118 },
       },
       utility: utilityRoute,
-      defense: { total: 464, boardCosts: {} },
+      defense: {
+        total: 464,
+        boardCosts: { nezekan: 117, zikel: 103, vaizel: 108, triniel: 136 },
+      },
     },
   },
   {
@@ -211,7 +268,23 @@ export const daevanionClasses: DaevanionClass[] = [
     name: "Ranger",
     skills: {
       core: ["Focused Eye", "Hunter's Resolve"],
-      damage: [],
+      damage: [
+        "Hunter's Soul",
+        "Concentrated Fire",
+        "Melee Fire",
+        "Rooting Eye",
+        "Deadshot",
+        "Gale Arrow",
+        "Marking Shot",
+        "Arrow Scattershot",
+        "Burst Arrow",
+        "Drill Dart",
+        "Explosion Trap",
+        "Snare Shot",
+        "Snipe",
+        "Suppressing Arrow",
+        "Tempest Shot",
+      ],
       utility: [
         "Defiance",
         "Revitalization Contract",
@@ -227,7 +300,10 @@ export const daevanionClasses: DaevanionClass[] = [
         boardCosts: { nezekan: 103, zikel: 98, vaizel: 93, triniel: 115 },
       },
       utility: utilityRoute,
-      defense: { total: 454, boardCosts: {} },
+      defense: {
+        total: 454,
+        boardCosts: { nezekan: 114, zikel: 102, vaizel: 105, triniel: 133 },
+      },
     },
   },
   {
@@ -235,7 +311,23 @@ export const daevanionClasses: DaevanionClass[] = [
     name: "Sorcerer",
     skills: {
       core: ["Robe of Flame", "Grace of Enhancement"],
-      damage: [],
+      damage: [
+        "Fire Mark",
+        "Cold Snap",
+        "Vitality Evaporation",
+        "Robe of Earth",
+        "Wish of Concentration",
+        "Hellfire",
+        "Bittercold Wind",
+        "Blaze",
+        "Firestorm",
+        "Flame Arrow",
+        "Flame Scattershot",
+        "Frost",
+        "Frost Burst",
+        "Ice Chain",
+        "Winter's Shackles",
+      ],
       utility: [
         "Defiance",
         "Revitalization Contract",
@@ -251,7 +343,10 @@ export const daevanionClasses: DaevanionClass[] = [
         boardCosts: { nezekan: 109, zikel: 95, vaizel: 93, triniel: 114 },
       },
       utility: utilityRoute,
-      defense: { total: 454, boardCosts: {} },
+      defense: {
+        total: 454,
+        boardCosts: { nezekan: 114, zikel: 102, vaizel: 105, triniel: 133 },
+      },
     },
   },
   {
@@ -304,7 +399,16 @@ export const daevanionClasses: DaevanionClass[] = [
     name: "Cleric",
     skills: {
       core: ["Earth's Grace", "Empyrean Lord's Grace"],
-      damage: [],
+      damage: [
+        "Chain of Torment",
+        "Divine Aura",
+        "Bolt",
+        "Condemnation",
+        "Debilitating Mark",
+        "Earth's Retribution",
+        "Judgment Thunder",
+        "Lightning Strike Scattershot",
+      ],
       utility: [
         "Defiance",
         "Survival Willpower",
@@ -329,7 +433,10 @@ export const daevanionClasses: DaevanionClass[] = [
         boardCosts: { nezekan: 90, zikel: 85, vaizel: 83, triniel: 105 },
       },
       utility: utilityRoute,
-      defense: { total: 426, boardCosts: {} },
+      defense: {
+        total: 426,
+        boardCosts: { nezekan: 107, zikel: 96, vaizel: 97, triniel: 126 },
+      },
     },
   },
   {
@@ -337,7 +444,21 @@ export const daevanionClasses: DaevanionClass[] = [
     name: "Chanter",
     skills: {
       core: ["Attack Preparation", "Earth's Promise", "Wind's Promise"],
-      damage: [],
+      damage: [
+        "Inspiring Spell",
+        "Impact Hit",
+        "Raging Spell",
+        "Spinning Strike",
+        "Incandescent Blow",
+        "Dark Crush",
+        "Impactful Crush",
+        "Gust Rampage",
+        "Heat Wave Blow",
+        "Onslaught",
+        "Rushing Smash",
+        "Tremor Crush",
+        "Wave Blow",
+      ],
       utility: ["Defiance", "Survival Willpower", "Recuperation"],
       defensive: ["Blessing of Life", "Crossguard", "Protection Circle"],
     },
@@ -348,7 +469,10 @@ export const daevanionClasses: DaevanionClass[] = [
         boardCosts: { nezekan: 97, zikel: 98, vaizel: 90, triniel: 115 },
       },
       utility: utilityRoute,
-      defense: { total: 456, boardCosts: {} },
+      defense: {
+        total: 456,
+        boardCosts: { nezekan: 115, zikel: 101, vaizel: 106, triniel: 134 },
+      },
     },
   },
 ];

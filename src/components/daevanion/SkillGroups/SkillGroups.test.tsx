@@ -24,13 +24,22 @@ test("Spiritmaster's corrected roles land in their groups", () => {
   expect(group("Damage").getByText(/Spirit Strike is the core/)).toBeDefined();
 });
 
-test("classes without named damage skills explain the damage group", () => {
+test("retained Cleric damage skills remain separate from healing and defense", () => {
   renderWithProviders(<SkillGroups entry={entry("cleric")} />);
 
-  expect(skills("Damage")).toEqual([]);
-  expect(
-    group("Damage").getByText(/All other skills count as damage/),
-  ).toBeDefined();
+  expect(skills("Damage")).toHaveLength(8);
+  expect(skills("Damage")).toEqual(
+    expect.arrayContaining([
+      "Chain of Torment",
+      "Divine Aura",
+      "Bolt",
+      "Condemnation",
+      "Debilitating Mark",
+      "Earth's Retribution",
+      "Judgment Thunder",
+      "Lightning Strike Scattershot",
+    ]),
+  );
   expect(skills("Utility")).toContain("Radiant Recovery");
   expect(skills("Defensive")).toEqual([
     "Immortal Veil",

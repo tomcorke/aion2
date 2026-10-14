@@ -37,22 +37,18 @@ test("each board row compares the three routes against the board's full cost", (
   expect(screen.queryByText(/not recorded in the maintained notes/)).toBeNull();
 });
 
-test("missing defensive board costs say so instead of showing a bar", () => {
+test("retained defensive costs have their own board bars", () => {
   renderWithProviders(<RouteCosts entry={entry("templar")} />);
 
   const cells = within(row(/^Zikel/)).getAllByRole("cell");
 
-  expect(cells.map((cell) => cell.textContent)).toEqual([
-    "96",
-    "106",
-    "Not recorded",
-  ]);
-  expect(within(cells[2]).queryByRole("meter")).toBeNull();
+  expect(cells.map((cell) => cell.textContent)).toEqual(["96", "106", "103"]);
+  expect((within(cells[2]).getByRole("meter") as HTMLMeterElement).value).toBe(
+    103,
+  );
   expect(
     within(row(/^All four boards/)).getAllByRole("cell")[2].textContent,
   ).toBe("464");
-  expect(
-    screen.getByText(/not recorded in the maintained notes/),
-  ).toBeDefined();
+  expect(screen.queryByText(/not recorded in the maintained notes/)).toBeNull();
   expect(screen.getByText(/share one Daevanion point pool/)).toBeDefined();
 });
