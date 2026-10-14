@@ -1,0 +1,102 @@
+.body {
+  display: grid;
+  gap: 32px;
+  max-width: 900px;
+  padding: 24px var(--gutter) 0;
+}
+
+.section {
+  display: grid;
+  gap: 12px;
+
+  & h2 {
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+
+  & h3 {
+    font-size: 1.1rem;
+  }
+}
+
+.notes {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  & li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+}
+
+.scroll {
+  overflow-x: auto;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  & caption {
+    padding-bottom: 8px;
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  & th,
+  & td {
+    padding: 8px 12px 8px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+    text-align: left;
+  }
+
+  & thead th {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 400;
+  }
+
+  & tbody th {
+    font-weight: 400;
+  }
+}
+
+.figure {
+  font-family: var(--f-mono);
+  white-space: nowrap;
+
+  .table & {
+    text-align: right;
+  }
+}
+
+.group {
+  .table & {
+    padding-top: 16px;
+    font-family: var(--f-display);
+    color: var(--accent);
+  }
+}
+
+.total {
+  color: var(--accent);
+}
+
+.shop {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px 40px;
+  align-items: start;
+}
+
+.mean {
+  font-family: var(--f-mono);
+  font-size: 1.4rem;
+  color: var(--accent);
+}

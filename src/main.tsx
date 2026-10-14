@@ -6,6 +6,7 @@ import "./styles/global.css";
 import { Layout } from "./components/shell/Layout/Layout.tsx";
 import { PreferencesProvider } from "./preferences/PreferencesProvider.tsx";
 import { Home } from "./pages/Home/Home.tsx";
+import { Festival } from "./pages/Festival/Festival.tsx";
 import { NotFound } from "./pages/NotFound/NotFound.tsx";
 import { Progression } from "./pages/Progression/Progression.tsx";
 import { SectionPage } from "./pages/SectionPage/SectionPage.tsx";
@@ -15,6 +16,7 @@ import { sections } from "./data/sections.ts";
 
 // Sections with a built page; the rest show a stand-in.
 const builtPages: Record<string, ReactElement> = {
+  festival: <Festival />,
   progression: <Progression />,
   timers: <Timers />,
   sources: <Sources />,
