@@ -5,9 +5,9 @@ import {
   type GearActivity,
   type GearSlot,
 } from "../../../data/gear.ts";
+import { pieceLevelText } from "../../../lib/gearPieceLevel.ts";
 import { FilterChips } from "../../controls/FilterChips/FilterChips.tsx";
 import { GearName } from "../GearName/GearName.tsx";
-import { pieceLevelText } from "../PieceLevel/PieceLevel.tsx";
 import STYLES from "./DropMatrix.module.css";
 
 // Mixed is its own column: a set of mixed slots, not every slot.
