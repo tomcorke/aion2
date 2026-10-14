@@ -1,23 +1,12 @@
 // Publishes the built site to the `publish` branch, which GitHub Pages serves.
 // Usage: pnpm release (from a clean `main` that matches `origin/main`).
-import { execFileSync } from "node:child_process";
 import { cpSync, mkdtempSync, readFileSync, rmSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { read, run } from "./command.ts";
 
 const SITE = "https://aion.corke.dev/";
 const BRANCH = "publish";
-
-// pnpm is a .cmd shim on Windows, which only runs through a shell.
-const shell = process.platform === "win32";
-
-function run(command: string, ...args: string[]) {
-  execFileSync(command, args, { stdio: "inherit", shell });
-}
-
-function read(command: string, ...args: string[]) {
-  return execFileSync(command, args, { encoding: "utf8", shell }).trim();
-}
 
 function fail(message: string): never {
   console.error(`release: ${message}`);
