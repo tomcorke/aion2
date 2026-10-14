@@ -1,0 +1,97 @@
+.body {
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 48px;
+  padding: 24px var(--gutter) 0;
+
+  @media (width <= 700px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+    padding-top: 0;
+  }
+}
+
+.guide {
+  display: grid;
+  gap: 32px;
+  max-width: 76ch;
+}
+
+.part {
+  display: grid;
+  gap: 32px;
+}
+
+.section {
+  display: grid;
+  gap: 12px;
+
+  & h2 {
+    scroll-margin-top: 56px;
+    font-size: 1.4rem;
+    color: var(--accent);
+
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.items {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  & li {
+    display: flex;
+    gap: 12px;
+    align-items: baseline;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+.gates {
+  width: 100%;
+  border-collapse: collapse;
+
+  & caption {
+    padding-bottom: 8px;
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  & th {
+    color: var(--muted);
+    font-size: 0.82rem;
+    font-weight: 400;
+    text-align: left;
+  }
+
+  & th,
+  & td {
+    padding: 8px 12px 8px 0;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+}
+
+.level {
+  color: var(--accent);
+  font-family: var(--f-mono);
+  white-space: nowrap;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 24px;
+
+  & a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    color: var(--accent);
+  }
+}

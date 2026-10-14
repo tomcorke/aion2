@@ -1,6 +1,6 @@
 # Scope
 
-MVP scope confirmed with the owner. Built so far: the shared header and footer, theme and metal preferences, the home page and `/timers` (the timer dial), `/sources`, stand-in pages for the other sections, and a 404 page. This work completes the eight stand-ins and addresses the remaining Timers and Sources gaps. Home stays unchanged except for shared verified timer corrections.
+MVP scope confirmed with the owner. Built so far: the shared header and footer, theme and metal preferences, Home, Progression, `/timers` (the timer dial), `/sources`, and a 404 page. The other sections still have stand-ins. The remaining work completes those pages and addresses the Timers and Sources gaps. Home stays unchanged except for shared verified timer corrections.
 
 ## Goal
 

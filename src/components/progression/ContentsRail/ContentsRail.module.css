@@ -1,0 +1,51 @@
+.rail {
+  position: sticky;
+  top: 16px;
+  align-self: start;
+
+  @media (width <= 700px) {
+    top: 0;
+    z-index: 1;
+    margin: 0 calc(-1 * var(--gutter));
+    padding: 0 var(--gutter);
+    border-bottom: 1px solid var(--line);
+    background: var(--ground);
+  }
+}
+
+.list {
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @media (width <= 700px) {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+}
+
+.entry {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  min-height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 0.9rem;
+  text-align: left;
+  white-space: nowrap;
+
+  &:hover {
+    color: var(--ink);
+  }
+
+  @media (width <= 700px) {
+    padding: 0 8px;
+  }
+}
