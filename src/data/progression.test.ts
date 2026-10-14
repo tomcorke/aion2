@@ -24,6 +24,8 @@ test("the milestones open at their checked gates", () => {
   expect(gateFor("Transcendence tier 1")).toBe(1600);
   expect(gateFor("Fire Temple")).toBe(2100);
   expect(gateFor("Ludra")).toBe(2800);
+  expect(gateFor("Subjugation (Conquest mode)")).toBe(1500);
+  expect(gateFor("Subjugation (Transcendence mode)")).toBe(2000);
 });
 
 test("each section has a unique id and links only to real pages", () => {

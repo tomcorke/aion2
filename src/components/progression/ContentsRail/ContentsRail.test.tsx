@@ -1,6 +1,7 @@
-import { render, screen } from "@testing-library/react";
+import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { expect, test, vi } from "vitest";
+import { renderWithProviders } from "../../../testing/render.tsx";
 import { ContentsRail } from "./ContentsRail.tsx";
 
 const entries = [
@@ -9,7 +10,7 @@ const entries = [
 ];
 
 test("scrolls to and focuses the chosen heading", async () => {
-  render(
+  renderWithProviders(
     <>
       <ContentsRail entries={entries} />
       <h2 id="two" tabIndex={-1}>

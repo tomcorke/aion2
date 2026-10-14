@@ -33,7 +33,10 @@ export const gates: Gate[] = [
       "Conquest tier 2",
     ],
   },
-  { itemLevel: 1500, unlocks: ["Ascension Trial Normal"] },
+  {
+    itemLevel: 1500,
+    unlocks: ["Ascension Trial Normal", "Subjugation (Conquest mode)"],
+  },
   {
     itemLevel: 1600,
     unlocks: [
@@ -41,7 +44,10 @@ export const gates: Gate[] = [
     ],
   },
   { itemLevel: 1900, unlocks: ["Transcendence tier 2"] },
-  { itemLevel: 2000, unlocks: ["Ascension Trial Hard"] },
+  {
+    itemLevel: 2000,
+    unlocks: ["Ascension Trial Hard", "Subjugation (Transcendence mode)"],
+  },
   {
     itemLevel: 2100,
     unlocks: [
@@ -100,7 +106,7 @@ export const progressionSections: ProgressionSection[] = [
     id: "item-level",
     title: "Item level",
     intro:
-      "Two numbers share the name. Your total item level, shown on your character, is what opens content. Each gear piece also has its own item level, from 36 up to 102, and that number tells you whether a drop beats what the slot already holds.",
+      "Two numbers share the name. Your total item level, shown on your character, is what opens content. Each gear piece also has its own item level: for example, ordinary monster gear is 41 and dungeon tiers include 54, 70 and 86. Amulets and belts start at item level 13. Compare drops within the same slot.",
     items: [
       "Total item level grows with your gear and its enhancement, with Daevanion points (1- and 2-point nodes have each added 1 item level per point, Azphel included), and with equipped Arcana (Common 20, Rare 40, Epic 60, Unique 80).",
       "Where a new level 45 starts depends on that character's gear and boards, so this guide does not assume a starting number. Check your own total against the ladder below.",
@@ -152,14 +158,6 @@ export const progressionSections: ProgressionSection[] = [
     id: "ladder",
     title: "Item-level ladder",
     intro: "The usual route, by total item level:",
-    items: [
-      "700: run Krao Cave and Draupnir Conquest for item level 54.",
-      "1,000: enter Lower Reshanta, the Ascension Trial and Nightmare.",
-      "1,400: run Urugugu Canyon and Vakron Sky Island Conquest for 70; the usual route crafts True Dragon Lord around here too.",
-      "1,600: start Transcendence for Arcana.",
-      "2,100: run Fire Temple and Ferocious Horn Den Conquest for 86.",
-      "2,800: join the Ludra raid, which drops up to 102, and the later Expeditions.",
-    ],
     showGates: true,
     links: [{ to: "/gear", label: "Each tier's drop table on Gear" }],
   },
@@ -211,6 +209,10 @@ export const progressionSections: ProgressionSection[] = [
       "Each Stigma switches on a specialization at ranks 5, 10, 15 and 20. These are usually worth more than the extra base damage.",
       "More points come from the Abyss, Nightmare and Shugo Festival shops, achievements and the battle pass. Resetting a Stigma refunds its points but has its own cost.",
     ],
+    links: [
+      { to: "/gear", label: "Power systems on Gear" },
+      { to: "/growth", label: "Stigma materials on Growth" },
+    ],
   },
   {
     id: "daevanion",
@@ -241,6 +243,10 @@ export const progressionSections: ProgressionSection[] = [
       "Each pet type (Fera, Natura, Varian, Cogni) has a genus level from 1 to 10, counting every pet of that type you own. Levels grant stat bonuses and open Genus Insight slots 1 to 9.",
       "Insight slots roll stats such as HP, PvE Attack, Boss Attack and Penetration, for 4 Soul Crystals and 1,000 Kina a roll.",
       "When you visit enemy maps through a Spacetime Rift, farm a specific missing pet rather than clearing unrelated monsters.",
+    ],
+    links: [
+      { to: "/gear", label: "Power outside gear on Gear" },
+      { to: "/growth", label: "Soul Crystals on Growth" },
     ],
   },
   {
@@ -279,7 +285,7 @@ export const progressionSections: ProgressionSection[] = [
     id: "routine",
     title: "Routine",
     intro:
-      "Daily refills arrive at 16:00 server time, and weekly counters reset on Wednesday at the same time. Trust the in-game countdown.",
+      "Client data reports daily refills at 16:00 server time and weekly resets on Wednesday at the same time. The EU reset clock is unresolved: other reports give 07:00 UTC. Trust the in-game countdown.",
     items: [
       "Daily: Duty Missions, Nightmare, the daily dungeon (14 entries a week, shared by the server), and spending Odyle Energy before it caps.",
       "Weekly: Exploration rewards (7 per dungeon), Ascension Trial and Subjugation (3 each), raids (4 attempts each) and Abyss time (7 hours per layer).",

@@ -45,6 +45,9 @@ test("tells total item level apart from a piece's item level", () => {
   expect(
     within(section).getByText(/does not assume a starting number/),
   ).toBeDefined();
+  expect(
+    within(section).getByText(/Amulets and belts start at item level 13/),
+  ).toBeDefined();
 });
 
 test("shows every guide section with a contents entry", () => {
@@ -97,6 +100,10 @@ test("links detailed mechanics to their own pages", () => {
   expect(linkTo("Routine", /checklist/)).toBe("/routine");
   expect(linkTo("Shops and Kina", /Materials/)).toBe("/growth");
   expect(linkTo("Closet and collections", /Skins/)).toBe("/skins");
+  expect(linkTo("Stigmas", /Gear/)).toBe("/gear");
+  expect(linkTo("Stigmas", /Growth/)).toBe("/growth");
+  expect(linkTo("Pets and Genus", /Gear/)).toBe("/gear");
+  expect(linkTo("Pets and Genus", /Growth/)).toBe("/growth");
 });
 
 test("contents scroll to a section without touching the route", async () => {
@@ -119,6 +126,22 @@ test("contents scroll to a section without touching the route", async () => {
     "/progression",
   );
   expect(window.location.hash).toBe("");
+});
+
+test("keeps the EU reset clock unresolved alongside the retained reports", () => {
+  renderPage();
+
+  const section = screen.getByRole("region", { name: "Routine" });
+
+  expect(
+    within(section).getByText(
+      /Client data reports daily refills at 16:00 server time/,
+    ),
+  ).toBeDefined();
+  expect(
+    within(section).getByText(/EU reset clock is unresolved/),
+  ).toBeDefined();
+  expect(within(section).getByText(/07:00 UTC/)).toBeDefined();
 });
 
 test("names its sources and reviewed date in the footer", () => {
