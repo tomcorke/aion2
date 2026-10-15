@@ -1,4 +1,5 @@
 import type { SourceId } from "./sources.ts";
+import { skinAcquisitionSourceDetails } from "./skinAcquisitions.ts";
 
 export type SourceDetails = {
   checkedDate?: string;
@@ -10,6 +11,11 @@ export type SourceDetails = {
 // S120/S105 were actually rechecked in the retained 2026-10-14 timer audit.
 // No catalogue check date is recorded for the press-kit credit or ownChecks.
 export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
+  shugoTimers: {
+    checkedDate: "2026-10-14",
+    accessNote:
+      "Public regional timer feed, not publisher confirmation. Its EU reset clock conflicts with the event guide.",
+  },
   // Initial Festival investigation: catalogue introduction and S01–S08.
   officialMembership: {
     checkedDate: "2026-10-05",
@@ -138,11 +144,6 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   },
   game8Abyss: { checkedDate: "2026-10-10" },
   wikilyBlackCloud: { checkedDate: "2026-10-11" },
-  wikilySkyfeatherGuardian: {
-    checkedDate: "2026-10-14",
-    accessNote:
-      "Region unstated. The listing names a bound skin chest but does not identify where that chest comes from.",
-  },
   destructoidClashRunes: { checkedDate: "2026-10-12" },
   gamerBlurbClashRunes: { checkedDate: "2026-10-12" },
   space4GamesRifts: {
@@ -174,4 +175,5 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   metabotFactions: { checkedDate: "2026-10-08" },
   game8Factions: { checkedDate: "2026-10-06" },
   allThingsDailyDungeon: { checkedDate: "2026-10-14" },
+  ...skinAcquisitionSourceDetails,
 };
