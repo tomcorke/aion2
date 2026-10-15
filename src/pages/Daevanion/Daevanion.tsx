@@ -1,4 +1,4 @@
-import { Link, useLocation } from "react-router";
+import { useLocation } from "react-router";
 import { Tabs } from "../../components/controls/Tabs/Tabs.tsx";
 import { AzphelRoute } from "../../components/daevanion/AzphelRoute/AzphelRoute.tsx";
 import { RouteCosts } from "../../components/daevanion/RouteCosts/RouteCosts.tsx";
@@ -9,18 +9,48 @@ import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
 import { Diamond } from "../../components/trim/Diamond/Diamond.tsx";
 import { Rule } from "../../components/trim/Rule/Rule.tsx";
 import {
+  azphelOverview,
+  daevanionBoards,
   daevanionCaveats,
   daevanionClasses,
   daevanionReviewed,
   daevanionSources,
+  daevanionVariants,
+  type DaevanionClass,
 } from "../../data/daevanion.ts";
 import { useTitle } from "../../hooks/useTitle.ts";
+import { parseRouteBudget } from "../../lib/daevanionBudget.ts";
 import STYLES from "./Daevanion.module.css";
 
-// ponytail: #16 adds the other seven classes here; their data already loads.
-const viewerClasses = new Set(["spiritmaster"]);
-
 const caveats = [daevanionCaveats.emptyBoard, daevanionCaveats.estimates];
+
+const azphelTotal = azphelOverview.phases.at(-1)!.cumulativeCost;
+
+/** A class tab keeps only a known board and route, and clamps the budget to that class's route. */
+function classHref(
+  target: DaevanionClass,
+  [boardId, variantId]: string[],
+  rawPoints: string | null,
+) {
+  const board = daevanionBoards.find(({ id }) => id === boardId)?.id;
+  // Without a known board the link opens the class root, which shows Damage.
+  const variant =
+    (board && daevanionVariants.find(({ id }) => id === variantId)?.id) ||
+    "damage";
+
+  const pve = board && board !== "azphel" ? board : "nezekan";
+  const total =
+    board === "azphel" ? azphelTotal : target.routes[variant].boardCosts[pve];
+
+  const { points } = parseRouteBudget(rawPoints, total);
+  const query = points ? `?points=${points}` : "";
+  let path = "";
+
+  if (board === "azphel") path = "/azphel";
+  else if (board) path = `/${board}/${variant}`;
+
+  return `/daevanion/${target.id}${path}${query}`;
+}
 
 export function Daevanion() {
   useTitle("Daevanion");
@@ -35,14 +65,12 @@ export function Daevanion() {
 
   const [boardId = "nezekan", variantId] = selection;
   const entry = daevanionClasses.find(({ id }) => id === classId);
+  const rawPoints = new URLSearchParams(search).get("points");
 
-  // Class tabs keep the board, variant and budget, so switching class keeps the view.
-  const tail = selection.map((segment) => `/${segment}`).join("") + search;
-
-  const tabs = daevanionClasses.map(({ id, name }) => ({
-    id,
-    label: name,
-    to: `/daevanion/${id}${tail}`,
+  const tabs = daevanionClasses.map((target) => ({
+    id: target.id,
+    label: target.name,
+    to: classHref(target, selection, rawPoints),
   }));
 
   return (
@@ -73,23 +101,12 @@ export function Daevanion() {
                 <RouteCosts entry={entry} />
                 <SkillGroups entry={entry} />
 
-                {viewerClasses.has(entry.id) ? (
-                  <RouteViewer
-                    entry={entry}
-                    boardId={boardId}
-                    variantId={variantId}
-                    rawPoints={new URLSearchParams(search).get("points")}
-                  />
-                ) : (
-                  <p className={STYLES.missing}>
-                    Board diagrams and purchase orders cover Spiritmaster for
-                    now.{" "}
-                    <Link to={`/daevanion/spiritmaster/azphel${search}`}>
-                      The Azphel route
-                    </Link>{" "}
-                    is the same for every class.
-                  </p>
-                )}
+                <RouteViewer
+                  entry={entry}
+                  boardId={boardId}
+                  variantId={variantId}
+                  rawPoints={rawPoints}
+                />
               </div>
             ) : (
               <p className={STYLES.missing}>

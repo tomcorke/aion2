@@ -58,8 +58,6 @@ const summary = () => screen.getByText(/^Buys the first/).textContent;
 const back = () =>
   userEvent.click(screen.getByRole("button", { name: "History back" }));
 
-const spiritmaster = daevanionClasses.find(({ id }) => id === "spiritmaster")!;
-
 beforeEach(() => localStorage.clear());
 
 test("the root selects Spiritmaster, Nezekan, Damage and no points", async () => {
@@ -99,34 +97,60 @@ test.each(daevanionClasses)(
   },
 );
 
-test("other classes keep the overview without a guessed diagram", () => {
+test("Cleric opens its own damage-first board with the healing caveat", async () => {
   renderPage("/daevanion/cleric/zikel/damage");
 
+  await diagram("Zikel");
+
+  expect(selectedTabs()).toEqual(["Cleric", "Zikel", "Damage"]);
   expect(
     classPanel().getByText(/target damage, not a healing build/),
   ).toBeDefined();
-  expect(screen.getByText(/cover Spiritmaster for now/)).toBeDefined();
-  expect(screen.queryByRole("group", { name: /board diagram/ })).toBeNull();
+  expect(screen.getByText("0 of 85 points")).toBeDefined();
+  expect(screen.queryByText(/cover Spiritmaster for now/)).toBeNull();
+});
+
+test("Chanter shows its own skills on the shared geometry", async () => {
+  renderPage("/daevanion/chanter/nezekan/damage?points=97");
+
+  await diagram();
+
   expect(
-    screen.getByRole("link", { name: "The Azphel route" }).getAttribute("href"),
-  ).toBe("/daevanion/spiritmaster/azphel");
+    screen.getByRole("button", { name: /^Row 5, column 3: Blessing of Life/ }),
+  ).toBeDefined();
+  expect(summary()).toMatch(/^Buys the first 61 purchases of 61 for 97 points/);
+  expect(screen.queryByText(/healing build/)).toBeNull();
+});
+
+test("every class shares the one Azphel route", async () => {
+  renderPage("/daevanion/chanter/azphel/hp-mp-first?points=36");
+
+  await diagram("Azphel");
+
+  expect(selectedTabs()).toEqual(["Chanter", "Azphel"]);
+  expect(summary()).toMatch(/^Buys the first 30 purchases of 74 for 36 points/);
+  expect(screen.getByRole("tab", { name: "Cleric" }).getAttribute("href")).toBe(
+    "/daevanion/cleric/azphel?points=36",
+  );
 });
 
 test.each(
-  (["nezekan", "zikel", "vaizel", "triniel"] as const).flatMap((board) =>
-    daevanionVariants.map((variant) => ({ board, variant })),
+  daevanionClasses.flatMap((entry) =>
+    (["nezekan", "zikel", "vaizel", "triniel"] as const).flatMap((board) =>
+      daevanionVariants.map((variant) => ({ entry, board, variant })),
+    ),
   ),
 )(
-  "a direct link opens $board with the $variant.id route in full",
-  async ({ board, variant }) => {
-    const total = spiritmaster.routes[variant.id].boardCosts[board];
+  "a direct link opens $entry.id $board with the $variant.id route in full",
+  async ({ entry, board, variant }) => {
+    const total = entry.routes[variant.id].boardCosts[board];
     const name = board[0].toUpperCase() + board.slice(1);
 
-    renderPage(`/daevanion/spiritmaster/${board}/${variant.id}?points=999`);
+    renderPage(`/daevanion/${entry.id}/${board}/${variant.id}?points=999`);
 
     await diagram(name);
 
-    expect(selectedTabs()).toEqual(["Spiritmaster", name, variant.label]);
+    expect(selectedTabs()).toEqual([entry.name, name, variant.label]);
     expect(screen.getByText(`${total} of ${total} points`)).toBeDefined();
     expect(
       screen.getByText(
@@ -135,7 +159,7 @@ test.each(
     ).toBeDefined();
     expect(summary()).toMatch(/The whole route fits this budget\.$/);
     expect(location()).toBe(
-      `/daevanion/spiritmaster/${board}/${variant.id}?points=999`,
+      `/daevanion/${entry.id}/${board}/${variant.id}?points=999`,
     );
   },
 );
@@ -303,23 +327,94 @@ test("changing board or route clamps the budget to the new route", async () => {
   expect(location()).toBe("/daevanion/spiritmaster/azphel?points=107");
 });
 
-test("switching class keeps the board, route and budget", async () => {
-  renderPage("/daevanion/spiritmaster/vaizel/utility?points=20");
+test("switching class keeps the board and route and clamps the budget", async () => {
+  renderPage("/daevanion/spiritmaster/nezekan/damage?points=107");
 
-  await diagram("Vaizel");
-  await userEvent.click(screen.getByRole("tab", { name: "Gladiator" }));
+  await screen.findByRole("button", {
+    name: /^Row 5, column 3: Spirit Strike/,
+  });
 
-  expect(location()).toBe("/daevanion/gladiator/vaizel/utility?points=20");
-  expect(screen.getByText(/cover Spiritmaster for now/)).toBeDefined();
+  expect(
+    screen.getByRole("tab", { name: "Sorcerer" }).getAttribute("href"),
+  ).toBe("/daevanion/sorcerer/nezekan/damage?points=107");
+  expect(
+    screen.getByRole("tab", { name: "Chanter" }).getAttribute("href"),
+  ).toBe("/daevanion/chanter/nezekan/damage?points=97");
+
+  await userEvent.click(screen.getByRole("tab", { name: "Cleric" }));
+
+  expect(location()).toBe("/daevanion/cleric/nezekan/damage?points=90");
+  expect(
+    await screen.findByRole("button", {
+      name: /^Row 5, column 3: Warm Benediction/,
+    }),
+  ).toBeDefined();
+  expect(screen.getByText("90 of 90 points")).toBeDefined();
+  expect(
+    screen.queryByRole("button", { name: /^Row 5, column 3: Spirit Strike/ }),
+  ).toBeNull();
+
+  await back();
+
+  expect(location()).toBe("/daevanion/spiritmaster/nezekan/damage?points=107");
+  expect(
+    await screen.findByRole("button", {
+      name: /^Row 5, column 3: Spirit Strike/,
+    }),
+  ).toBeDefined();
+});
+
+test.each([
+  [
+    "/daevanion/spiritmaster/zikel/defense?points=abc",
+    "/daevanion/cleric/zikel/defense",
+  ],
+  [
+    "/daevanion/spiritmaster/vaizel?points=2.5",
+    "/daevanion/cleric/vaizel/damage?points=2",
+  ],
+  [
+    "/daevanion/spiritmaster/zikel/healer?points=500",
+    "/daevanion/cleric/zikel/damage?points=85",
+  ],
+  ["/daevanion/spiritmaster/abyss?points=500", "/daevanion/cleric?points=90"],
+  [
+    "/daevanion/chanter/unknown/utility?points=999",
+    "/daevanion/chanter?points=97",
+  ],
+  [
+    "/daevanion/necromancer/triniel/utility?points=-4",
+    "/daevanion/cleric/triniel/utility",
+  ],
+  [
+    "/daevanion/spiritmaster/azphel?points=Infinity",
+    "/daevanion/cleric/azphel",
+  ],
+])("class links from %s carry only valid choices", (from, to) => {
+  renderPage(from);
+
+  const links = screen
+    .getAllByRole("tab")
+    .map((tab) => tab.getAttribute("href") ?? "");
+
+  expect(links).toContain(to);
+  expect(links.join(" ")).not.toMatch(
+    /NaN|abc|healer|abyss|unknown|Infinity|-4|999/,
+  );
+});
+
+test("an unknown board recovers to the class root clamped to its Damage route", async () => {
+  renderPage("/daevanion/spiritmaster/unknown/defense?points=999");
 
   await userEvent.click(screen.getByRole("tab", { name: "Spiritmaster" }));
 
-  expect(await diagram("Vaizel")).toBeDefined();
-  expect(selectedTabs()).toEqual([
-    "Spiritmaster",
-    "Vaizel",
-    "Damage + utility",
-  ]);
+  expect(location()).toBe("/daevanion/spiritmaster?points=107");
+
+  await diagram();
+
+  expect(selectedTabs()).toEqual(["Spiritmaster", "Nezekan", "Damage"]);
+  expect(screen.getByText("107 of 107 points")).toBeDefined();
+  expect(screen.queryByText(/Budget adjusted/)).toBeNull();
 });
 
 test("the scrubber replaces the current entry instead of adding history", async () => {
