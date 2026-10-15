@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { useLocation, useNavigate } from "react-router";
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import { sources } from "../../data/sources.ts";
+import { skinAcquisitionSources } from "../../data/skinAcquisitions.ts";
 import { skinsSources } from "../../data/skins.ts";
 import { renderWithProviders } from "../../testing/render.tsx";
 import { Skins } from "./Skins.tsx";
@@ -216,7 +217,7 @@ test("search combines with the source chip, with an empty state and clear", asyn
     screen.getAllByRole("button", { name: "Clear filters" })[0]!,
   );
 
-  expect(within(catalogue()).getAllByRole("link")).toHaveLength(7);
+  expect(within(catalogue()).getAllByRole("link")).toHaveLength(13);
   expect(
     within(chips)
       .getByRole("button", { name: "All" })
@@ -335,6 +336,133 @@ test("the footer names the page's sources", () => {
 
   const footer = screen.getByRole("contentinfo");
 
-  for (const id of skinsSources)
+  for (const id of [...skinsSources, ...skinAcquisitionSources])
     expect(footer.textContent).toContain(sources[id].name);
+
+  expect(footer.textContent).toContain("Reviewed 14 October 2026");
+});
+
+const chip = (name: string) =>
+  within(screen.getByRole("group", { name: "Source" })).getByRole("button", {
+    name,
+  });
+
+const listed = () =>
+  within(catalogue())
+    .getAllByRole("link")
+    .map((link) => link.firstElementChild?.textContent);
+
+test("lists non-Festival appearances beside Festival ones", () => {
+  renderPage();
+
+  expect(setLink("Skyfeather Guardian").textContent).toContain("0/7");
+  expect(setLink("Archon Decanus accessories").textContent).toContain("0/2");
+  expect(listed()).toContain("Sky Feather");
+});
+
+test("a multi-route appearance appears under each of its sources", async () => {
+  renderPage();
+
+  for (const name of [
+    "Black Cloud random shop",
+    "Extract Skin",
+    "Skin chests",
+    "Skin Combine",
+  ]) {
+    await userEvent.click(chip(name));
+
+    expect(listed()).toContain("Skyfeather Guardian");
+  }
+
+  await userEvent.click(chip("Abyss Trade Shop"));
+
+  expect(listed()).toEqual([
+    "Archon Centurion",
+    "Archon Decanus",
+    "Archon Centurion accessories",
+    "Archon Decanus accessories",
+  ]);
+});
+
+test("search tells the similarly named Skyfeather sets apart", async () => {
+  renderPage();
+
+  await search("skyfeather");
+
+  expect(listed()).toEqual(["Skyfeather Guardian"]);
+
+  await userEvent.clear(screen.getByRole("searchbox"));
+  await search("◆Sky");
+
+  expect(listed()).toEqual(["Sky Feather"]);
+
+  await userEvent.clear(screen.getByRole("searchbox"));
+  await search("guardian decanus");
+
+  expect(listed()).toEqual(["Archon Decanus", "Archon Decanus accessories"]);
+});
+
+test("Guardian routes show their own piece coverage and the extraction warning", () => {
+  renderPage("/skins/skyfeather-guardian");
+
+  const route = (name: string) =>
+    within(detail()).getByRole("region", { name });
+
+  expect(within(detail()).getAllByRole("checkbox")).toHaveLength(7);
+  expect(
+    within(route("Black Cloud Merchants")).getByText(/All 7 pieces/),
+  ).toBeDefined();
+  expect(
+    within(route("Skin Chest (10 times) (Bound)")).getByText(
+      "Helm, Breastplate",
+    ),
+  ).toBeDefined();
+  expect(
+    within(route("Skin Combine: Rare skins")).getByText(
+      /1,000 Kina per attempt/,
+    ),
+  ).toBeDefined();
+  expect(
+    within(route("Extract Skin from Divine Canyon armor")).getByText(
+      /costs Kina and always destroys the gear item/,
+    ),
+  ).toBeDefined();
+  expect(within(detail()).queryByRole("link", { name: /Festival/ })).toBeNull();
+  expect(
+    within(detail()).getByRole("link", { name: /carries over/ }),
+  ).toBeDefined();
+});
+
+test("Abyss prices keep both currencies per piece and in the total", () => {
+  renderPage("/skins/archon-centurion");
+
+  expect(
+    within(detail()).getByRole("row", {
+      name: /Helm.*147,100 Abyss Points \+ 40 Silver Medals of Merit/,
+    }),
+  ).toBeDefined();
+  expect(
+    within(detail()).getByRole("row", {
+      name: /Total.*1,029,700 Abyss Points \+ 280 Silver Medals of Merit/,
+    }),
+  ).toBeDefined();
+  expect(
+    within(detail()).getByText(/One of each piece per character/),
+  ).toBeDefined();
+});
+
+test("new ticks persist beside existing Festival ticks", async () => {
+  localStorage.setItem(KEY, JSON.stringify(["lightpath-trace-helm"]));
+  renderPage("/skins/sky-feather");
+
+  await userEvent.click(
+    within(detail()).getByRole("checkbox", { name: "Cloak" }),
+  );
+
+  expect(JSON.parse(localStorage.getItem(KEY)!)).toEqual([
+    "lightpath-trace-helm",
+    "sky-feather-cloak",
+  ]);
+  expect(setLink("Lightpath Trace").textContent).toContain("1/7");
+  expect(within(detail()).getByText("1/7 owned")).toBeDefined();
 });

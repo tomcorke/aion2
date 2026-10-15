@@ -1,0 +1,60 @@
+.detail {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+
+  & h2 {
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  color: var(--muted);
+}
+
+.owned {
+  font-family: var(--f-mono);
+  color: var(--accent);
+}
+
+.pieces {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  & li {
+    border-bottom: 1px solid var(--line);
+  }
+}
+
+.tick {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  min-height: 40px;
+  cursor: pointer;
+
+  & input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+  }
+}
+
+.note {
+  color: var(--muted);
+}
+
+.link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  color: var(--accent);
+}

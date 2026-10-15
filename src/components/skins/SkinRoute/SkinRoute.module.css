@@ -1,0 +1,67 @@
+.route {
+  display: grid;
+  gap: 8px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+
+  & h3 {
+    font-size: 1.1rem;
+  }
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+  color: var(--muted);
+}
+
+.warning {
+  padding-left: 12px;
+  border-left: 2px solid var(--accent);
+
+  & strong {
+    color: var(--accent);
+  }
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+
+  & caption {
+    padding-bottom: 8px;
+    color: var(--muted);
+    font-size: 0.875rem;
+    text-align: left;
+  }
+
+  & th,
+  & td {
+    height: 40px;
+    padding: 0 12px 0 0;
+    border-bottom: 1px solid var(--line);
+    text-align: left;
+  }
+
+  & th {
+    font-weight: 400;
+  }
+}
+
+.figure {
+  font-family: var(--f-mono);
+  overflow-wrap: anywhere;
+
+  .table & {
+    text-align: right;
+  }
+}
+
+.total {
+  color: var(--accent);
+}
+
+.condition {
+  color: var(--muted);
+}

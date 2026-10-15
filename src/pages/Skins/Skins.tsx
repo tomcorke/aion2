@@ -112,7 +112,7 @@ export function Skins() {
     <>
       <PageHero
         title="Skins"
-        lede="Festival, Black Cloud and Abyss appearances, with their sources, prices and your own checklist."
+        lede="Curated outfits, accessories and wings, with their acquisition routes, prices and your own checklist."
       />
 
       <div className={STYLES.body}>
