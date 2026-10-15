@@ -1,5 +1,7 @@
 import type { Faction } from "../preferences/preferences.ts";
 import type { SourceId } from "./sources.ts";
+import { resourceCounters } from "./alts.ts";
+import { dailyDungeonRewardNote } from "./routine.ts";
 
 // Global Season 1. Curated from knowledge/topics/gear/level-45-progression.md
 // and exploration/field-bosses.md in E:/working/aion2-knowledge.
@@ -13,6 +15,7 @@ export const gearSources: SourceId[] = [
   "metabotArcana",
   "metabotAbyss",
   "metabotMonsters",
+  "allThingsDailyDungeon",
   "ownChecks",
 ];
 
@@ -76,6 +79,7 @@ export type GearActivity = {
     | "Crafting"
     | "Raid"
     | "Growth"
+    | "Daily Dungeon"
     | "Ascension Trial"
     | "Transcendence";
   modes: GearMode[];
@@ -398,6 +402,15 @@ export const gearRewardConditions: GearRewardCondition[] = [
       "3 entries each week, per character.",
       "Reward amounts rise with difficulty and final score.",
       "An Ascension Binding Chest yields a Manastone or Soulstone.",
+    ],
+  },
+  {
+    id: "daily-dungeon",
+    notes: [
+      `${resourceCounters["daily-dungeon"].limit}, shared by every character on the server.`,
+      resourceCounters["daily-dungeon"].notes!,
+      dailyDungeonRewardNote,
+      "Reward amounts depend on final score; lower reward tiers were not checked.",
     ],
   },
   {
@@ -728,6 +741,21 @@ export const gearActivities: GearActivity[] = [
         totalItemLevel: 2800,
         dropIds: ["abyssal", "ludra"],
         rewardConditionId: "raid",
+      },
+    ],
+  },
+  {
+    id: "unknown-fissure",
+    name: resourceCounters["daily-dungeon"].name,
+    kind: "Daily Dungeon",
+    modes: [
+      {
+        name: "Solo timed score challenge",
+        dropIds: [],
+        materials: ["Enhance Stones"],
+        rewardConditionId: "daily-dungeon",
+        condition:
+          "Unknown Fissure is the client-data name, not the Global display name.",
       },
     ],
   },

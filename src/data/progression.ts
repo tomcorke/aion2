@@ -1,6 +1,7 @@
 // The Progression guide: the overall item-level ladder and practical priorities.
 // Checked against the aion2-knowledge notes (Global, EU) on 2026-10-14.
 import type { SourceId } from "./sources.ts";
+import { dailyDungeonRewardNote } from "./routine.ts";
 
 export type Gate = {
   // Total character item level that opens the content.
@@ -275,7 +276,7 @@ export const progressionSections: ProgressionSection[] = [
     title: "Alts",
     items: [
       "Most reward counters belong to each character, so an alt brings its own Odyle Energy, Conquest and Transcendence counts, Nightmare, Ascension Trial, Subjugation, Exploration, raids and Abyss time.",
-      "Duty Missions, the daily dungeon and the unobtained-cube count are shared by the server, so leave them to your main. Global client data lists Shugo Festival and Dimensional Invasion keys as server-wide too, but that has not been confirmed in play.",
+      "Duty Missions, Daily Dungeon and the unobtained-cube count are shared by the server, so leave them to your main. Global client data lists Shugo Festival and Dimensional Invasion keys as server-wide too, but that has not been confirmed in play.",
       "An alt that clears Conquest earns unbound Kina it can pass to the main through Server Storage. Soul Bound gear cannot be equipped on an alt.",
       "An alt that skips cubes costs the main runs, so every character opens its cubes.",
     ],
@@ -287,7 +288,8 @@ export const progressionSections: ProgressionSection[] = [
     intro:
       "Client data reports daily refills at 16:00 server time and weekly resets on Wednesday at the same time. The EU reset clock is unresolved: other reports give 07:00 UTC. Trust the in-game countdown.",
     items: [
-      "Daily: Duty Missions, Nightmare, the daily dungeon (14 entries a week, shared by the server), and spending Odyle Energy before it caps.",
+      "Daily reminders: Duty Missions, Nightmare, Daily Dungeon (14 entries a week, shared by the server), and spending Odyle Energy before it caps.",
+      `Daily Dungeon: ${dailyDungeonRewardNote}`,
       "Weekly: Exploration rewards (7 per dungeon), Ascension Trial and Subjugation (3 each), raids (4 attempts each) and Abyss time (7 hours per layer).",
     ],
     links: [
@@ -304,6 +306,7 @@ export const progressionSourceIds: SourceId[] = [
   "gamesFuzeAfter45",
   "metabotEnhancement",
   "metabotChecklist",
+  "allThingsDailyDungeon",
   "metabotArcana",
   "metabotDaevanion",
   "metabotSpiritmasterPlanner",

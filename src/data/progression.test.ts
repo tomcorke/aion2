@@ -1,6 +1,11 @@
 import { expect, test } from "vitest";
 import { sections } from "./sections.ts";
-import { gates, progressionSections } from "./progression.ts";
+import {
+  gates,
+  progressionSections,
+  progressionSourceIds,
+} from "./progression.ts";
+import { dailyDungeonRewardNote } from "./routine.ts";
 
 test("gates climb in total item level from 700 to 4,500", () => {
   const levels = gates.map((gate) => gate.itemLevel);
@@ -39,4 +44,21 @@ test("each section has a unique id and links only to real pages", () => {
   expect(links.length).toBeGreaterThan(0);
 
   for (const { to } of links) expect(paths).toContain(to);
+});
+
+test("routine names Daily Dungeon and reuses its qualified reward without a new total-item-level gate", () => {
+  const routine = progressionSections.find(({ id }) => id === "routine");
+  const copy = JSON.stringify(progressionSections);
+
+  expect(routine?.items).toContain(`Daily Dungeon: ${dailyDungeonRewardNote}`);
+  expect(copy).not.toContain("the daily dungeon");
+  expect(routine?.items?.join(" ")).toMatch(
+    /Daily Dungeon.*14 entries a week.*shared by the server/,
+  );
+  expect(
+    gates.some(({ unlocks }) =>
+      unlocks.some((unlock) => /Daily Dungeon|Unknown Fissure/.test(unlock)),
+    ),
+  ).toBe(false);
+  expect(progressionSourceIds).toContain("allThingsDailyDungeon");
 });

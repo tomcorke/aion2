@@ -252,9 +252,35 @@ test("curated IDs and references resolve without duplicate definitions", () => {
     "metabotArcana",
     "metabotAbyss",
     "metabotMonsters",
+    "allThingsDailyDungeon",
     "ownChecks",
   ]);
   for (const id of gearSources) expect(sources).toHaveProperty(id);
 
   expect(gearReviewed).toBe("2026-10-13");
+});
+
+test("Daily Dungeon keeps its client-name ID and score-qualified weekly server reward", () => {
+  const activity = gearActivities.find(({ id }) => id === "unknown-fissure");
+  const reward = gearRewardConditions
+    .find(({ id }) => id === "daily-dungeon")
+    ?.notes.join(" ");
+
+  expect(activity?.name).toBe("Daily Dungeon (Daeva Bio-Research Base)");
+  expect(activity?.modes[0]).toMatchObject({
+    name: "Solo timed score challenge",
+    materials: ["Enhance Stones"],
+    dropIds: [],
+    rewardConditionId: "daily-dungeon",
+  });
+  expect(activity?.modes[0].totalItemLevel).toBeUndefined();
+  expect(activity?.modes[0].condition).toContain("Unknown Fissure");
+  expect(reward).toMatch(/level 30/);
+  expect(reward).toMatch(/14 entries each week.*shared.*server/);
+  expect(reward).toMatch(
+    /final score of 10,000 or more pays 10,000 Enhance Stones/,
+  );
+  expect(reward).toMatch(/140,000.*before ticket entries/);
+  expect(reward).toContain("lower reward tiers");
+  expect(gearSources).toContain("allThingsDailyDungeon");
 });
