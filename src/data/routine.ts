@@ -184,7 +184,7 @@ export const routineTasks: RoutineTask[] = [
     purpose:
       "Review the separate character and server recipes for Odyle Energy (Bound) when extra energy is useful.",
     counterIds: ["morph-energy-character", "morph-energy-server"],
-    guide: { to: "/growth", label: "Substance Morph limits" },
+    guide: { to: "/alts", label: "Substance Morph limits" },
     details:
       "These are Global client build 0.0.4387.0 limits, not imported Korean allowances. Check the current recipe's materials and limit before crafting.",
   },
@@ -195,7 +195,7 @@ export const routineTasks: RoutineTask[] = [
     purpose:
       "Convert Silver Fragments of Merit (Bound) into medals only when their appearance cost is useful to you.",
     counterIds: ["medal-morph"],
-    guide: { to: "/skins", label: "Centurion medal costs" },
+    guide: { to: "/alts", label: "Medal recipe limits" },
     details:
       "The two recipes list separate entries but may share their weekly counter. The cheaper recipe has only a 10% success chance; check the preview rather than assuming a guaranteed medal.",
   },

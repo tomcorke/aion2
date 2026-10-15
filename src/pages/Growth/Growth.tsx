@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ClearFilters } from "../../components/controls/ClearFilters/ClearFilters.tsx";
 import { FilterChips } from "../../components/controls/FilterChips/FilterChips.tsx";
 import { SearchField } from "../../components/controls/SearchField/SearchField.tsx";
 import { GrowthAdvice } from "../../components/growth/GrowthAdvice/GrowthAdvice.tsx";
@@ -54,11 +55,7 @@ export function Growth() {
     setTarget("all");
   };
 
-  const clearButton = (
-    <button type="button" className={STYLES.clear} onClick={clear}>
-      Clear filters
-    </button>
-  );
+  const clearButton = <ClearFilters onClear={clear} />;
 
   return (
     <>

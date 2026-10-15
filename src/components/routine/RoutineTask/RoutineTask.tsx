@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import { resourceCounters, type ResourceCounter } from "../../../data/alts.ts";
 import type { RoutineTask as Task } from "../../../data/routine.ts";
+import { counterLimit } from "../../../lib/counterLimit.ts";
 import STYLES from "./RoutineTask.module.css";
 
 type Props = {
@@ -13,16 +14,6 @@ const scopes: Record<ResourceCounter["scope"], string> = {
   character: "Per character",
   server: "Server-shared",
 };
-
-// Weekly allowances already state their size; caps matter only where counts bank.
-function limit({ limit, kind, cap, membershipCap }: ResourceCounter) {
-  if (cap === undefined || kind === "weekly" || kind === "time-budget")
-    return limit;
-
-  const membership = membershipCap ? ` (${membershipCap} with membership)` : "";
-
-  return `${limit}, cap ${cap}${membership}`;
-}
 
 /** One reminder row: tick, purpose, the counters it spends and its guide. */
 export function RoutineTask({ task, checked, onToggle }: Props) {
@@ -51,7 +42,7 @@ export function RoutineTask({ task, checked, onToggle }: Props) {
               <li key={counterId}>
                 <span className={STYLES.scope}>{scopes[counter.scope]}</span>
                 <span>
-                  {counter.name}: {limit(counter)}.
+                  {counter.name}: {counterLimit(counter)}.
                   {counter.notes && ` ${counter.notes}`}
                 </span>
               </li>

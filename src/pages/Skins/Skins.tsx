@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useMatch } from "react-router";
+import { ClearFilters } from "../../components/controls/ClearFilters/ClearFilters.tsx";
 import { FilterChips } from "../../components/controls/FilterChips/FilterChips.tsx";
 import { SearchField } from "../../components/controls/SearchField/SearchField.tsx";
 import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
@@ -65,11 +66,7 @@ export function Skins() {
     setSource("all");
   };
 
-  const clearButton = (
-    <button type="button" className={STYLES.clear} onClick={clear}>
-      Clear filters
-    </button>
-  );
+  const clearButton = <ClearFilters onClear={clear} />;
 
   const toggle = (pieceId: string) =>
     setStored((current) =>
