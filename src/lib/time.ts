@@ -13,8 +13,8 @@ import {
 } from "date-fns";
 import type { Zone } from "../preferences/preferences.ts";
 
-// The EU server clock. Boss timers seen in game fit Central European time, but the region's
-// true server zone is an open question in the notes repo; change it here if that resolves.
+// Site reference clock, not a confirmed EU server zone. Public event/reset clocks
+// conflict; keep the timer warnings until the regional rules are independently checked.
 export const SERVER_ZONE = "Europe/Berlin";
 
 const zoneNames: Record<Exclude<Zone, "local">, string> = {

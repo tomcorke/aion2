@@ -3,13 +3,16 @@ import type { Faction } from "../preferences/preferences.ts";
 import type { SourceId } from "./sources.ts";
 
 // Timer facts come from the notes repo: exploration/field-bosses.md, exploration/spacetime-rifts.md,
-// events/incursion-of-the-spirits.md and basics/alts.md. All times are server time.
+// events/incursion-of-the-spirits.md, events/shugo-festival/overview.md and basics/alts.md.
+// Slots use the site's provisional Berlin clock; timerVerification.ts retains the limits.
 
 export const timerSources: SourceId[] = [
+  "shugoTimers",
   "metabotEvents",
   "metabotMonsters",
   "couga54",
   "wikily",
+  "game8Festival",
   "ownChecks",
 ];
 
@@ -111,5 +114,11 @@ export const timerDefs: TimerDef[] = [
     group: "field",
     itemLevel: 46,
     schedule: { kind: "respawn", hours: { elyos: 3, asmodians: 6 } },
+  },
+  {
+    id: "festival",
+    name: "Shugo Festival",
+    group: "fixed",
+    schedule: { kind: "slots", hours: everyHours(0, 1), minute: 0 },
   },
 ];

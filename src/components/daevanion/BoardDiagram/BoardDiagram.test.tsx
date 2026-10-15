@@ -78,10 +78,44 @@ test("Enter and taps select a node, including ones the route skips", async () =>
   expect(pressedNodes()[0]).toMatch(/^Row 7, column 8: HP \+100/);
 });
 
-test("the board keeps 44px tap targets by default and can fit the screen on request", async () => {
+test("the board never shrinks below 44px tap targets and zooms to double size", async () => {
   renderAzphel();
 
   const board = screen.getByRole("group", { name: "Azphel board diagram" });
+  const zoom = screen.getByRole("button", { name: "Zoom to double size" });
+
+  // One SVG unit is one CSS pixel; hit cells sit on a 44-unit grid, so they never overlap.
+  expect(board.getAttribute("width")).toBe("660");
+  expect(board.getAttribute("height")).toBe("660");
+  expect(board.getAttribute("viewBox")).toBe("0 0 660 660");
+
+  for (const node of screen
+    .getAllByRole("button")
+    .filter((element) => element.tagName === "g")) {
+    const hit = node.querySelector("rect")!;
+
+    expect(hit.getAttribute("width")).toBe("44");
+    expect(hit.getAttribute("height")).toBe("44");
+    expect(node.getAttribute("transform")).toMatch(
+      /^translate\((\d+\.5|\d+)/,
+    );
+  }
+
+  expect(screen.queryByRole("button", { name: /Fit/ })).toBeNull();
+  expect(zoom.getAttribute("aria-pressed")).toBe("false");
+
+  await userEvent.click(zoom);
+
+  expect(zoom.getAttribute("aria-pressed")).toBe("true");
+  expect(board.getAttribute("width")).toBe("1320");
+  expect(board.getAttribute("height")).toBe("1320");
+  expect(board.getAttribute("viewBox")).toBe("0 0 660 660");
+
+  await userEvent.click(zoom);
+
+  expect(zoom.getAttribute("aria-pressed")).toBe("false");
+  expect(board.getAttribute("width")).toBe("660");
+});
   const fit = screen.getByRole("button", {
     name: "Fit the whole board on screen",
   });
