@@ -162,7 +162,7 @@ export const routineTasks: RoutineTask[] = [
     purpose:
       "Plan Abyss Point farming and useful elite drops within the character's layer-specific time budgets.",
     counterIds: ["abyss-lower", "abyss-middle", "abyss-upper"],
-    guide: { to: "/timers", label: "Abyss timing and limits" },
+    guide: { to: "/timers/abyss", label: "Lower Reshanta timers" },
     details:
       "Membership doubles Lower and Middle time, not a documented Upper allowance. A Lower Abyss Rift Stone adds 1 hour to Lower usage time; Middle and Upper stone effects were not checked. AP earning-cap values and scope remain unverified.",
   },

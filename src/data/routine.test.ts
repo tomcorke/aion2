@@ -24,7 +24,7 @@ test("the Abyss reminder opens the delivered Timers page instead of Not Found", 
         element: createElement(Routine),
       }),
       createElement(Route, {
-        path: "/timers",
+        path: "/timers/:view",
         element: createElement(Timers),
       }),
       createElement(Route, { path: "*", element: createElement(NotFound) }),
@@ -33,7 +33,7 @@ test("the Abyss reminder opens the delivered Timers page instead of Not Found", 
   );
 
   await userEvent.click(
-    screen.getByRole("link", { name: "Abyss timing and limits" }),
+    screen.getByRole("link", { name: "Lower Reshanta timers" }),
   );
 
   expect(

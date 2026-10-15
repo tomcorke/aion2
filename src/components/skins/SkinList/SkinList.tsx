@@ -1,10 +1,11 @@
 import { Link } from "react-router";
+import type { SkinAcquisitionEntry } from "../../../data/skinAcquisitions.ts";
 import { skinCategories, type SkinEntry } from "../../../data/skins.ts";
 import { ownedCount } from "../../../lib/skinOwnership.ts";
 import STYLES from "./SkinList.module.css";
 
 type Props = {
-  entries: SkinEntry[];
+  entries: (SkinEntry | SkinAcquisitionEntry)[];
   owned: string[];
   selected?: string;
 };

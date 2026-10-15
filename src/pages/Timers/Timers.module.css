@@ -1,0 +1,14 @@
+/* The board brings its own gutters; the tabs and notice above it need matching ones. */
+.views {
+  padding-top: 24px;
+
+  & [role="tablist"] {
+    margin-inline: var(--gutter);
+  }
+}
+
+.missing {
+  margin: 0 var(--gutter);
+  padding-top: 16px;
+  color: var(--muted);
+}

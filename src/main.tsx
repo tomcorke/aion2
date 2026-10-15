@@ -51,6 +51,7 @@ const router = createHashRouter([
       { path: "gear/enhancement", element: <Enhancement /> },
       { path: "gear/:tier", element: <Gear /> },
       { path: "skins/:set", element: <Skins /> },
+      { path: "timers/:view", element: <Timers /> },
       { path: "*", element: <NotFound /> },
     ],
   },

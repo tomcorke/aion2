@@ -117,7 +117,7 @@ const counterDefinitions = {
     membershipCap: 14,
     notes:
       "A Lower Abyss Rift Stone adds 1 hour of Lower Abyss usage time. This does not establish refills for other layers.",
-    guide: { to: "/timers", label: "Lower Reshanta timers" },
+    guide: { to: "/timers/abyss", label: "Lower Reshanta timers" },
   },
   "abyss-middle": {
     name: "Middle Abyss time",

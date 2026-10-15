@@ -33,10 +33,26 @@
 }
 
 .edit {
-  height: 32px;
+  height: 40px;
   padding: 0 14px;
   border: 1px solid var(--accent);
   border-radius: 999px;
   background: transparent;
   font-size: 0.82rem;
+}
+
+.empty {
+  margin: 0;
+  text-align: center;
+  color: var(--muted);
+}
+
+.warning {
+  width: min(100%, 760px);
+  margin: 0 auto;
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  font-size: 0.875rem;
+  text-align: center;
 }

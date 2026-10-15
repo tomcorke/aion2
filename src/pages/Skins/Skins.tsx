@@ -5,15 +5,24 @@ import { FilterChips } from "../../components/controls/FilterChips/FilterChips.t
 import { SearchField } from "../../components/controls/SearchField/SearchField.tsx";
 import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
 import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
+import { AppearanceDetail } from "../../components/skins/AppearanceDetail/AppearanceDetail.tsx";
 import { SkinDetail } from "../../components/skins/SkinDetail/SkinDetail.tsx";
 import { SkinList } from "../../components/skins/SkinList/SkinList.tsx";
+import {
+  matchesSkin,
+  nonFestivalSkinEntries,
+  nonFestivalSkinPieceIds,
+  skinAcquisitionSourceLabels,
+  skinAcquisitionSources,
+  skinAcquisitionsReviewed,
+  type SkinAcquisitionSource,
+} from "../../data/skinAcquisitions.ts";
 import {
   skinEntries,
   skinPieceIds,
   skinSourceLabels,
   skinsReviewed,
   skinsSources,
-  type SkinEntry,
   type SkinSource,
 } from "../../data/skins.ts";
 import { useStoredState } from "../../hooks/useStoredState.ts";
@@ -21,31 +30,31 @@ import { useTitle } from "../../hooks/useTitle.ts";
 import { toggleOwned, validOwned } from "../../lib/skinOwnership.ts";
 import STYLES from "./Skins.module.css";
 
-type SourceFilter = SkinSource | "all";
+type SourceFilter = SkinSource | SkinAcquisitionSource | "all";
+
+const entries = [...skinEntries, ...nonFestivalSkinEntries];
+
+const knownPieceIds = new Set([...skinPieceIds, ...nonFestivalSkinPieceIds]);
 
 const sourceChips: { value: SourceFilter; label: string }[] = [
   { value: "all", label: "All" },
-  ...Object.entries(skinSourceLabels).map(([value, label]) => ({
-    value: value as SkinSource,
-    label,
-  })),
+  ...Object.entries({
+    ...skinSourceLabels,
+    ...skinAcquisitionSourceLabels,
+  }).map(([value, label]) => ({ value: value as SourceFilter, label })),
 ];
 
-function matches(entry: SkinEntry, query: string, source: SourceFilter) {
-  const text = query.trim().toLowerCase();
-  const names = [entry.name, ...entry.pieces.map(({ name }) => name)];
+const footerSources = [
+  ...new Set([...skinsSources, ...skinAcquisitionSources]),
+];
 
-  return (
-    (source === "all" || entry.sources.includes(source)) &&
-    names.some((name) => name.toLowerCase().includes(text))
-  );
-}
+const reviewed = [skinsReviewed, skinAcquisitionsReviewed].sort().at(-1);
 
 export function Skins() {
   useTitle("Skins");
 
   const setId = useMatch("/skins/:set")?.params.set;
-  const selected = skinEntries.find(({ id }) => id === setId);
+  const selected = entries.find(({ id }) => id === setId);
   const [query, setQuery] = useState("");
   const [source, setSource] = useState<SourceFilter>("all");
   const [filterSetId, setFilterSetId] = useState(setId);
@@ -57,8 +66,8 @@ export function Skins() {
     setSource("all");
   }
 
-  const owned = validOwned(stored, skinPieceIds);
-  const visible = skinEntries.filter((entry) => matches(entry, query, source));
+  const owned = validOwned(stored, knownPieceIds);
+  const visible = entries.filter((entry) => matchesSkin(entry, query, source));
   const filtered = query !== "" || source !== "all";
 
   const clear = () => {
@@ -70,7 +79,7 @@ export function Skins() {
 
   const toggle = (pieceId: string) =>
     setStored((current) =>
-      toggleOwned(validOwned(current, skinPieceIds), pieceId),
+      toggleOwned(validOwned(current, knownPieceIds), pieceId),
     );
 
   function details() {
@@ -92,14 +101,18 @@ export function Skins() {
         </p>
       );
 
-    return <SkinDetail entry={selected} owned={owned} onToggle={toggle} />;
+    return "acquisitions" in selected ? (
+      <AppearanceDetail entry={selected} owned={owned} onToggle={toggle} />
+    ) : (
+      <SkinDetail entry={selected} owned={owned} onToggle={toggle} />
+    );
   }
 
   return (
     <>
       <PageHero
         title="Skins"
-        lede="Shugo Festival outfits, accessories and wings, with piece prices and your own checklist."
+        lede="Festival, Black Cloud and Abyss appearances, with their sources, prices and your own checklist."
       />
 
       <div className={STYLES.body}>
@@ -139,7 +152,7 @@ export function Skins() {
         </div>
       </div>
 
-      <SiteFooter sources={skinsSources} reviewed={skinsReviewed} />
+      <SiteFooter sources={footerSources} reviewed={reviewed} />
     </>
   );
 }

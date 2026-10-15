@@ -121,6 +121,7 @@ test("the ledger keeps corrected character ownership apart from shared appearanc
 });
 
 test("Middle and Upper Abyss guides use the delivered Timers route until the Abyss view lands", () => {
+  expect(resourceCounters["abyss-lower"].guide.to).toBe("/timers/abyss");
   expect(resourceCounters["abyss-middle"].guide.to).toBe("/timers");
   expect(resourceCounters["abyss-upper"].guide.to).toBe("/timers");
 });

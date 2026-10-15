@@ -4,11 +4,13 @@ import {
   type Faction,
 } from "../../../preferences/preferences.ts";
 import { timerDefs, type TimerGroup } from "../../../data/timers.ts";
+import { timerClockWarning } from "../../../data/timerVerification.ts";
 import { resolveTimer, type Kills } from "../../../lib/resolveTimer.ts";
 import { useNow } from "../../../hooks/useNow.ts";
 import { useStoredState } from "../../../hooks/useStoredState.ts";
 import { FilterChips } from "../../controls/FilterChips/FilterChips.tsx";
 import { TimerEditor } from "../TimerEditor/TimerEditor.tsx";
+import { TimerNotes } from "../TimerNotes/TimerNotes.tsx";
 import { TimerSpine } from "../TimerSpine/TimerSpine.tsx";
 import { TimerWings } from "../TimerWings/TimerWings.tsx";
 import { ZoneSwitch } from "../../controls/ZoneSwitch/ZoneSwitch.tsx";
@@ -55,7 +57,13 @@ function toggled<T>(list: T[], item: T) {
   return list.includes(item) ? list.filter((x) => x !== item) : [...list, item];
 }
 
-export function TimerBoard() {
+type Props = {
+  // A named group view, such as /timers/abyss. It replaces the group chips for this
+  // render only; the saved groups, order, hidden timers and item level stay as they are.
+  group?: TimerGroup;
+};
+
+export function TimerBoard({ group }: Props) {
   const now = useNow();
   const { preferences, update } = usePreferences();
   const [stored, setSetup] = useStoredState("timer-setup", defaultSetup);
@@ -69,10 +77,12 @@ export function TimerBoard() {
     .map((id) => timerDefs.find((def) => def.id === id)!)
     .map((def) => resolveTimer(def, now, preferences.faction, kills));
 
+  const groups = group ? [group] : setup.groups;
+
   const shown = timers.filter(
     (t) =>
       !setup.hidden.includes(t.id) &&
-      setup.groups.includes(t.group) &&
+      groups.includes(t.group) &&
       (t.itemLevel ?? Infinity) >= setup.minItemLevel,
   );
 
@@ -103,6 +113,8 @@ export function TimerBoard() {
 
   return (
     <section aria-label="Timers" className={STYLES.board}>
+      <p className={STYLES.warning}>{timerClockWarning}</p>
+
       <div className={STYLES.wings}>
         <TimerWings {...layout} />
       </div>
@@ -111,18 +123,30 @@ export function TimerBoard() {
         <TimerSpine {...layout} />
       </div>
 
+      {shown.length === 0 && (
+        <p role="status" className={STYLES.empty}>
+          {group
+            ? `No ${groupLabels[group]} timers to show: your hidden timers or item-level filter leave none. Use Edit timers or a lower item level below.`
+            : "No timers to show. Turn on a timer group, pick a lower item level, or show timers under Edit timers."}
+        </p>
+      )}
+
       <div className={STYLES.toolbar}>
         <ZoneSwitch />
 
-        <FilterChips
-          label="Timer groups"
-          chips={(Object.keys(groupLabels) as TimerGroup[]).map((group) => ({
-            value: group,
-            label: groupLabels[group],
-            pressed: setup.groups.includes(group),
-          }))}
-          onToggle={(group) => change({ groups: toggled(setup.groups, group) })}
-        />
+        {!group && (
+          <FilterChips
+            label="Timer groups"
+            chips={(Object.keys(groupLabels) as TimerGroup[]).map((value) => ({
+              value,
+              label: groupLabels[value],
+              pressed: setup.groups.includes(value),
+            }))}
+            onToggle={(value) =>
+              change({ groups: toggled(setup.groups, value) })
+            }
+          />
+        )}
 
         <FilterChips
           label="Minimum gear item level"
@@ -162,6 +186,8 @@ export function TimerBoard() {
           onMove={move}
         />
       )}
+
+      <TimerNotes shown={shown.map(({ id }) => id)} />
     </section>
   );
 }
