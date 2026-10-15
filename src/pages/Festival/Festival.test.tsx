@@ -338,6 +338,33 @@ describe("simulator", () => {
     expect(figure(/Chance to reach 3,000/)).toBe("100%");
   });
 
+  test("a bad custom amount beside a named target is shown and run drops it", async () => {
+    renderAt("/festival/simulator?target=lightpath-trace&customTarget=-1");
+
+    const custom = screen.getByRole("textbox", {
+      name: "Custom target tokens",
+    });
+
+    expect(custom.getAttribute("aria-invalid")).toBe("true");
+    expect(custom.getAttribute("aria-describedby")).toContain("error");
+    expect(
+      screen.getByText(/Custom target tokens must be a nonnegative/),
+    ).toBeDefined();
+    expect(
+      screen.getByText(/Only used with a custom target\. Run the simulation/),
+    ).toBeDefined();
+
+    await userEvent.click(
+      screen.getByRole("button", { name: "Run simulation" }),
+    );
+
+    expect(location()).not.toContain("customTarget");
+    expect(figure(/Chance to reach 5,000/)).toBe("0%");
+    expect(
+      screen.queryByRole("textbox", { name: "Custom target tokens" }),
+    ).toBeNull();
+  });
+
   test("sampling again draws a fresh sample for the same inputs", async () => {
     renderAt("/festival/simulator?openings=1");
 

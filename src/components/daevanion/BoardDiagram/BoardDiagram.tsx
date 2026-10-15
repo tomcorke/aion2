@@ -17,6 +17,7 @@ type Props = {
 };
 
 // One SVG unit is one CSS pixel at natural size, so every tap target is 44px.
+// Zoom only ever enlarges; shrinking the board would shrink the targets.
 const CELL = 44;
 
 const moves: Record<string, [number, number]> = {
@@ -82,7 +83,7 @@ export function BoardDiagram({
   selected,
   onSelect,
 }: Props) {
-  const [fitted, setFitted] = useState(false);
+  const [zoomed, setZoomed] = useState(false);
   const refs = useRef(new Map<string, SVGGElement>());
   const byKey = new Map(nodes.map((view) => [view.node.key, view]));
   const rows = nodes.map(({ node }) => node.row);
@@ -91,6 +92,7 @@ export function BoardDiagram({
   const left = Math.min(...cols);
   const width = (Math.max(...cols) - left + 1) * CELL;
   const height = (Math.max(...rows) - top + 1) * CELL;
+  const scale = zoomed ? 2 : 1;
   const x = (col: number) => (col - left + 0.5) * CELL;
   const y = (row: number) => (row - top + 0.5) * CELL;
   const focusable =
@@ -146,11 +148,11 @@ export function BoardDiagram({
     <figure className={STYLES.figure}>
       <button
         type="button"
-        aria-pressed={fitted}
+        aria-pressed={zoomed}
         className={STYLES.zoom}
-        onClick={() => setFitted(!fitted)}
+        onClick={() => setZoomed(!zoomed)}
       >
-        Fit the whole board on screen
+        Zoom to double size
       </button>
 
       <div className={STYLES.scroller}>
@@ -158,9 +160,9 @@ export function BoardDiagram({
           role="group"
           aria-label={`${name} board diagram`}
           viewBox={`0 0 ${width} ${height}`}
-          width={fitted ? undefined : width}
-          height={fitted ? undefined : height}
-          className={fitted ? STYLES.fitted : STYLES.natural}
+          width={width * scale}
+          height={height * scale}
+          className={STYLES.board}
         >
           <g aria-hidden="true">
             {grid.map((pair) => line(pair, STYLES.grid))}
@@ -218,7 +220,7 @@ export function BoardDiagram({
         targets and circles are connectors; filled shapes fit the budget, and an
         outer ring marks the next purchase. Small dots are nodes this route
         skips. Select a node, or use the arrow keys, for its details. On a small
-        screen, scroll the board sideways.
+        screen, scroll the board sideways; zoom doubles its size.
       </figcaption>
     </figure>
   );

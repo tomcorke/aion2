@@ -34,7 +34,7 @@ test("offers every shared purchase with its total, and a custom target", () => {
   ).toBeNull();
 });
 
-test("shows the custom field only for a custom target", () => {
+test("shows the custom field for a custom target, or to fix a bad amount", () => {
   renderWithProviders(
     <SimulatorForm
       draft={{ ...draft, target: "custom" }}

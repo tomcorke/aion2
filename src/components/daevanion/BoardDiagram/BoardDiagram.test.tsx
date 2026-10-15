@@ -96,9 +96,12 @@ test("the board never shrinks below 44px tap targets and zooms to double size", 
 
     expect(hit.getAttribute("width")).toBe("44");
     expect(hit.getAttribute("height")).toBe("44");
-    expect(node.getAttribute("transform")).toMatch(
-      /^translate\((\d+\.5|\d+)/,
-    );
+    const [x, y] = node
+      .getAttribute("transform")!
+      .match(/[\d.]+/g)!
+      .map(Number);
+
+    expect([(x! - 22) % 44, (y! - 22) % 44]).toEqual([0, 0]);
   }
 
   expect(screen.queryByRole("button", { name: /Fit/ })).toBeNull();
@@ -115,27 +118,4 @@ test("the board never shrinks below 44px tap targets and zooms to double size", 
 
   expect(zoom.getAttribute("aria-pressed")).toBe("false");
   expect(board.getAttribute("width")).toBe("660");
-});
-  const fit = screen.getByRole("button", {
-    name: "Fit the whole board on screen",
-  });
-
-  // One SVG unit is one CSS pixel until the reader asks to fit the board.
-  expect(board.getAttribute("width")).toBe("660");
-  expect(board.getAttribute("viewBox")).toBe("0 0 660 660");
-
-  for (const node of screen
-    .getAllByRole("button")
-    .filter((element) => element.tagName === "g")) {
-    expect(
-      Number(node.querySelector("rect")!.getAttribute("width")),
-    ).toBeGreaterThanOrEqual(40);
-  }
-
-  expect(fit.getAttribute("aria-pressed")).toBe("false");
-
-  await userEvent.click(fit);
-
-  expect(fit.getAttribute("aria-pressed")).toBe("true");
-  expect(board.getAttribute("width")).toBeNull();
 });

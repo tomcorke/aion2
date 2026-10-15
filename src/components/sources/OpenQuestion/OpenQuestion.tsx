@@ -37,12 +37,11 @@ export function OpenQuestion({ question }: Props) {
 
       {supporting.length > 0 && (
         <p className={STYLES.sources}>
-          <span>Sources: </span>
-          {supporting.map(({ name, url }, i) => (
-            <span key={name}>
-              {i > 0 && ", "}
-              <a href={url}>{name}</a>
-            </span>
+          <span>Sources:</span>
+          {supporting.map(({ name, url }) => (
+            <a key={name} href={url}>
+              {name}
+            </a>
           ))}
         </p>
       )}

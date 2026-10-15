@@ -165,10 +165,15 @@ export function SimulatorForm(props: Props) {
           <TargetSelect draft={draft} onChange={onChange} />
         </Field>
 
-        {draft.target === "custom" && (
+        {/* A bad amount in the URL stays visible even beside a named target. */}
+        {(draft.target === "custom" || errors.customTarget) && (
           <Field
             name="customTarget"
-            hint="Whole tokens, 0 or more."
+            hint={
+              draft.target === "custom"
+                ? "Whole tokens, 0 or more."
+                : "Only used with a custom target. Run the simulation to drop it."
+            }
             error={errors.customTarget}
           >
             <NumberInput name="customTarget" {...props} />

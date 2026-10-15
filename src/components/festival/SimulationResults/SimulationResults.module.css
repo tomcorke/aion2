@@ -32,6 +32,10 @@
   }
 }
 
+.scroll {
+  overflow-x: auto;
+}
+
 .histogram {
   width: 100%;
   border-collapse: collapse;

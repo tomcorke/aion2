@@ -43,36 +43,41 @@ function Histogram({ result }: { result: Result }) {
   const rows = bins(result.histogram);
   const tallest = Math.max(...rows.map(({ count }) => count));
 
+  // Large valid totals make wide ranges; scroll the table, not the page.
   return (
-    <table className={STYLES.histogram}>
-      <caption>Token totals across {number.format(result.trials)} runs</caption>
-      <thead>
-        <tr>
-          <th scope="col">Tokens</th>
-          <th scope="col">Runs</th>
-          <th scope="col">Share</th>
-        </tr>
-      </thead>
-      <tbody>
-        {rows.map(({ from, to, count }) => (
-          <tr key={from}>
-            <th scope="row">
-              {from === to
-                ? number.format(from)
-                : `${number.format(from)}–${number.format(to)}`}
-            </th>
-            <td>{number.format(count)}</td>
-            <td className={STYLES.barCell}>
-              <span
-                aria-hidden="true"
-                className={STYLES.bar}
-                style={{ width: `${(count / tallest) * 100}%` }}
-              />
-            </td>
+    <div className={STYLES.scroll}>
+      <table className={STYLES.histogram}>
+        <caption>
+          Token totals across {number.format(result.trials)} runs
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col">Tokens</th>
+            <th scope="col">Runs</th>
+            <th scope="col">Share</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody>
+          {rows.map(({ from, to, count }) => (
+            <tr key={from}>
+              <th scope="row">
+                {from === to
+                  ? number.format(from)
+                  : `${number.format(from)}–${number.format(to)}`}
+              </th>
+              <td>{number.format(count)}</td>
+              <td className={STYLES.barCell}>
+                <span
+                  aria-hidden="true"
+                  className={STYLES.bar}
+                  style={{ width: `${(count / tallest) * 100}%` }}
+                />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 

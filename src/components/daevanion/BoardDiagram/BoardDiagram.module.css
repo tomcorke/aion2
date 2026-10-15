@@ -26,16 +26,10 @@
   max-height: 80vh;
 }
 
-/* Natural size keeps 44px targets; the scroller, not the page, scrolls. */
-.natural {
+/* Natural size or larger keeps 44px targets; the scroller, not the page, scrolls. */
+.board {
   display: block;
   max-width: none;
-}
-
-.fitted {
-  display: block;
-  width: 100%;
-  max-width: 660px;
 }
 
 .grid {

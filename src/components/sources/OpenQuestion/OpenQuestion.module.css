@@ -46,11 +46,19 @@
   }
 }
 
+/* Each source is its own 40px tap target, like the guide links above. */
 .sources {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 16px;
   color: var(--muted);
   font-size: 0.875rem;
 
   & a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
     color: var(--accent);
     overflow-wrap: anywhere;
   }
