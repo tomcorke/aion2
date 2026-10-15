@@ -2,11 +2,16 @@
   display: grid;
   gap: 32px;
   padding: 24px var(--gutter) 0;
+
+  & > * {
+    min-width: 0;
+  }
 }
 
 .section {
   display: grid;
   gap: 8px;
+  min-width: 0;
 
   & h2 {
     font-size: 1.4rem;
@@ -31,5 +36,26 @@
 
 .covers {
   font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.intro {
+  max-width: 76ch;
+  color: var(--muted);
+}
+
+.group {
+  display: grid;
+  gap: 4px;
+  padding-top: 16px;
+
+  & h3 {
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+}
+
+.checked {
+  font-size: 0.82rem;
   color: var(--muted);
 }

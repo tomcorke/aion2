@@ -1,0 +1,35 @@
+.detail {
+  display: grid;
+  gap: 8px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+
+  & h3 {
+    font-size: 1.1rem;
+    color: var(--accent);
+  }
+
+  & dl {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 4px 16px;
+    margin: 0;
+
+    @media (width <= 520px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  & dt {
+    color: var(--muted);
+  }
+
+  & dd {
+    margin: 0;
+  }
+}
+
+.note {
+  color: var(--muted);
+}

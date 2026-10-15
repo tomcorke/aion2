@@ -1,4 +1,7 @@
 import type { ReactNode } from "react";
+import { Link, useMatch } from "react-router";
+import { Tabs } from "../../components/controls/Tabs/Tabs.tsx";
+import { FestivalSimulator } from "../../components/festival/FestivalSimulator/FestivalSimulator.tsx";
 import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
 import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
 import { Diamond } from "../../components/trim/Diamond/Diamond.tsx";
@@ -20,6 +23,17 @@ import STYLES from "./Festival.module.css";
 const number = new Intl.NumberFormat("en-GB");
 
 const percent = new Intl.NumberFormat("en-GB", { style: "percent" });
+
+const views = [
+  { id: "reference", label: "Reference", to: "/festival" },
+  { id: "simulator", label: "Token simulator", to: "/festival/simulator" },
+];
+
+// Shared purchase IDs make the shop and the simulator agree on cost.
+const simulatorLink = (purchaseId: string) => ({
+  pathname: "/festival/simulator",
+  search: `?target=${encodeURIComponent(purchaseId)}`,
+});
 
 const shopTables: {
   caption: string;
@@ -159,6 +173,15 @@ function Shop() {
           <ShopTable key={table.category} {...table} />
         ))}
       </div>
+
+      <h3>Simulate saving for a purchase</h3>
+      <p className={STYLES.links}>
+        {festivalPurchases.map(({ id, name }) => (
+          <Link key={id} to={simulatorLink(id)}>
+            {name} →
+          </Link>
+        ))}
+      </p>
     </Section>
   );
 }
@@ -229,61 +252,79 @@ function Odds() {
   );
 }
 
+function Reference() {
+  return (
+    <div className={STYLES.reference}>
+      <Section id="festival-games" title="Games">
+        <GamesTable />
+      </Section>
+
+      <Rule gem />
+
+      <Section id="festival-entry" title="Entering">
+        <Notes
+          items={[
+            festivalEntry.instructions,
+            festivalEntry.availability,
+            festivalEntry.scheduleCondition,
+            festivalEntry.levelCondition,
+          ]}
+        />
+      </Section>
+
+      <Rule gem />
+
+      <Section id="festival-rewards" title="Rewards and cards">
+        <Notes
+          items={[
+            festivalRewards.cards.selections,
+            festivalRewards.sharedTable,
+            festivalRewards.packageCondition,
+            festivalRewards.mappingCondition,
+          ]}
+        />
+
+        <h3>Other rewards</h3>
+        <Notes items={festivalRewards.otherRewards} />
+      </Section>
+
+      <Rule gem />
+
+      <Keys />
+
+      <Rule gem />
+
+      <Odds />
+
+      <Rule gem />
+
+      <Shop />
+    </div>
+  );
+}
+
 export function Festival() {
   useTitle("Shugo Festival");
+
+  const view = useMatch("/festival/simulator") ? "simulator" : "reference";
 
   return (
     <>
       <PageHero
         title="Shugo Festival"
-        lede="The nine games, how to enter, keys, token odds and shop prices."
+        lede="The nine games, how to enter, keys, token odds, shop prices and a token simulator."
       />
 
       <div className={STYLES.body}>
-        <Section id="festival-games" title="Games">
-          <GamesTable />
-        </Section>
-
-        <Rule gem />
-
-        <Section id="festival-entry" title="Entering">
-          <Notes
-            items={[
-              festivalEntry.instructions,
-              festivalEntry.availability,
-              festivalEntry.scheduleCondition,
-              festivalEntry.levelCondition,
-            ]}
-          />
-        </Section>
-
-        <Rule gem />
-
-        <Section id="festival-rewards" title="Rewards and cards">
-          <Notes
-            items={[
-              festivalRewards.cards.selections,
-              festivalRewards.sharedTable,
-              festivalRewards.packageCondition,
-              festivalRewards.mappingCondition,
-            ]}
-          />
-
-          <h3>Other rewards</h3>
-          <Notes items={festivalRewards.otherRewards} />
-        </Section>
-
-        <Rule gem />
-
-        <Keys />
-
-        <Rule gem />
-
-        <Odds />
-
-        <Rule gem />
-
-        <Shop />
+        <Tabs label="Festival view" tabs={views} selected={view}>
+          {view === "simulator" ? (
+            <Section id="festival-simulator" title="Token simulator">
+              <FestivalSimulator />
+            </Section>
+          ) : (
+            <Reference />
+          )}
+        </Tabs>
       </div>
 
       <SiteFooter sources={festivalSources} reviewed={festivalReviewed} />

@@ -3,6 +3,10 @@
   gap: 32px;
   max-width: 900px;
   padding: 24px var(--gutter) 0;
+
+  & > * {
+    min-width: 0;
+  }
 }
 
 .section {
@@ -99,4 +103,23 @@
   font-family: var(--f-mono);
   font-size: 1.4rem;
   color: var(--accent);
+}
+
+.reference {
+  display: grid;
+  gap: 32px;
+  min-width: 0;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 24px;
+
+  & a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+    color: var(--accent);
+  }
 }

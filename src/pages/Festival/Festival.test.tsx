@@ -1,5 +1,7 @@
 import { screen, within } from "@testing-library/react";
-import { expect, test } from "vitest";
+import userEvent from "@testing-library/user-event";
+import { useLocation, useNavigate } from "react-router";
+import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import {
   festivalEntry,
   festivalKeys,
@@ -172,4 +174,215 @@ test("names its sources and reviewed date in the footer", () => {
     expect(footer.textContent).toContain(sources[id].name);
 
   expect(footer.textContent).toContain("Reviewed 5 October 2026");
+});
+
+function Where() {
+  const { pathname, search } = useLocation();
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <output aria-label="location">{pathname + search}</output>
+      <button type="button" onClick={() => navigate(-1)}>
+        History back
+      </button>
+    </>
+  );
+}
+
+const renderAt = (path: string) =>
+  renderWithProviders(
+    <>
+      <Festival />
+      <Where />
+    </>,
+    { path },
+  );
+
+const location = () =>
+  screen.getByRole("status", { name: "location" }).textContent;
+
+const figure = (name: RegExp) =>
+  within(screen.getByRole("region", { name: /^Results/ })).getByRole(
+    "definition",
+    { name },
+  ).textContent;
+
+describe("simulator", () => {
+  // Every draw lands in the first band: 30 tokens per opening.
+  beforeEach(() => {
+    vi.spyOn(Math, "random").mockReturnValue(0);
+  });
+
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
+
+  test("defaults to 100 openings, no tokens, Lightpath Trace and no participation", () => {
+    renderAt("/festival/simulator");
+
+    expect(
+      screen
+        .getByRole("tab", { name: "Token simulator" })
+        .getAttribute("aria-selected"),
+    ).toBe("true");
+    expect(screen.getByRole("textbox", { name: "Openings" })).toHaveProperty(
+      "value",
+      "100",
+    );
+    expect(
+      screen.getByRole("textbox", { name: "Starting tokens" }),
+    ).toHaveProperty("value", "0");
+    expect(screen.getByRole("combobox", { name: "Target" })).toHaveProperty(
+      "value",
+      "lightpath-trace",
+    );
+    expect(screen.getByRole("checkbox")).toHaveProperty("checked", false);
+
+    expect(figure(/Chance to reach 5,000/)).toBe("0%");
+    expect(figure(/Sample mean/)).toBe("3,000");
+    expect(figure(/Expected total/)).toBe("4,020");
+    expect(screen.getByRole("row", { name: /^3,000 2,000/ })).toBeDefined();
+  });
+
+  test("restores inputs from the URL, including explicit participation", () => {
+    renderAt(
+      "/festival/simulator?openings=200&startTokens=10&target=spirit-wings&participation=true",
+    );
+
+    expect(screen.getByRole("combobox", { name: "Target" })).toHaveProperty(
+      "value",
+      "spirit-wings",
+    );
+    expect(screen.getByRole("checkbox")).toHaveProperty("checked", true);
+    expect(figure(/Chance to reach 4,200/)).toBe("100%");
+    expect(figure(/Sample mean/)).toBe("16,010");
+    expect(figure(/Expected total/)).toBe("18,050");
+    expect(
+      screen.getByText(
+        /2,000 of 2,000 sampled runs of 200 openings reached Spirit Wings/,
+      ),
+    ).toBeDefined();
+  });
+
+  test.each([
+    ["openings=1001", /Openings must be a whole number from 0 to 1,000/],
+    ["openings=1.5", /Openings must be a whole number from 0 to 1,000/],
+    ["startTokens=-5", /Starting tokens must be a nonnegative safe integer/],
+    [
+      "openings=1&startTokens=9007199254740991",
+      /Starting tokens plus the maximum modeled reward/,
+    ],
+    ["target=nope", /Choose a supported purchase/],
+    ["openings=1&openings=2", /appear only once/],
+  ])("explains invalid URL input %s without results", (query, message) => {
+    renderAt(`/festival/simulator?${query}`);
+
+    expect(screen.getByText(message)).toBeDefined();
+    expect(screen.getByRole("alert").textContent).toMatch(/No results/);
+    expect(screen.queryByRole("region", { name: /^Results/ })).toBeNull();
+  });
+
+  test("labels results stale while inputs change, then runs into history", async () => {
+    renderAt("/festival/simulator");
+
+    const openings = screen.getByRole("textbox", { name: "Openings" });
+
+    await userEvent.clear(openings);
+    await userEvent.type(openings, "200");
+
+    expect(
+      screen.getByRole("heading", { name: "Results for the previous inputs" }),
+    ).toBeDefined();
+    expect(figure(/Sample mean/)).toBe("3,000");
+
+    await userEvent.click(
+      screen.getByRole("button", { name: "Run simulation" }),
+    );
+
+    expect(location()).toBe(
+      "/festival/simulator?openings=200&startTokens=0&target=lightpath-trace&participation=false",
+    );
+    expect(screen.getByRole("heading", { name: "Results" })).toBeDefined();
+    expect(figure(/Sample mean/)).toBe("6,000");
+
+    await userEvent.click(screen.getByRole("button", { name: "History back" }));
+
+    expect(location()).toBe("/festival/simulator");
+    expect(screen.getByRole("textbox", { name: "Openings" })).toHaveProperty(
+      "value",
+      "100",
+    );
+    expect(figure(/Sample mean/)).toBe("3,000");
+  });
+
+  test("a custom target goes into the URL and is reachable", async () => {
+    renderAt("/festival/simulator");
+
+    await userEvent.selectOptions(
+      screen.getByRole("combobox", { name: "Target" }),
+      "custom",
+    );
+    const custom = screen.getByRole("textbox", {
+      name: "Custom target tokens",
+    });
+
+    await userEvent.clear(custom);
+    await userEvent.type(custom, "3000");
+    await userEvent.click(
+      screen.getByRole("button", { name: "Run simulation" }),
+    );
+
+    expect(location()).toContain("target=custom");
+    expect(location()).toContain("customTarget=3000");
+    expect(figure(/Chance to reach 3,000/)).toBe("100%");
+  });
+
+  test("sampling again draws a fresh sample for the same inputs", async () => {
+    renderAt("/festival/simulator?openings=1");
+
+    const draws = vi.mocked(Math.random).mock.calls.length;
+
+    await userEvent.click(screen.getByRole("button", { name: "Sample again" }));
+
+    expect(vi.mocked(Math.random).mock.calls).toHaveLength(draws + 2000);
+    expect(location()).toBe("/festival/simulator?openings=1");
+  });
+
+  test("keeps the model assumptions beside the inputs", () => {
+    renderAt("/festival/simulator");
+
+    const assumptions = screen.getByRole("list", { name: "Model assumptions" });
+
+    expect(within(assumptions).getByText(/independent draw/)).toBeDefined();
+    expect(
+      within(assumptions).getByText(festivalOpeningModel.condition),
+    ).toBeDefined();
+    expect(
+      within(assumptions).getByText(
+        /modeling assumption, not a claim about keys/,
+      ),
+    ).toBeDefined();
+    expect(screen.queryByText(/keys needed|days to/i)).toBeNull();
+  });
+});
+
+test("shop purchases open the simulator with that target, and the tab returns", async () => {
+  renderAt("/festival");
+
+  await userEvent.click(screen.getByRole("link", { name: "Skilled Expert →" }));
+
+  expect(location()).toBe("/festival/simulator?target=skilled-expert");
+  expect(screen.getByRole("combobox", { name: "Target" })).toHaveProperty(
+    "value",
+    "skilled-expert",
+  );
+  expect(
+    screen.getByRole("definition", { name: /Chance to reach 24,900/ }),
+  ).toBeDefined();
+
+  await userEvent.click(screen.getByRole("tab", { name: "Reference" }));
+
+  expect(location()).toBe("/festival");
+  expect(screen.getByRole("region", { name: "Shop prices" })).toBeDefined();
 });

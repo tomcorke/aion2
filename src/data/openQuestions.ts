@@ -265,7 +265,6 @@ export const openQuestions: OpenQuestion[] = [
     practicalCheck:
       "Inspect the chest's Source Information and reward preview in the Global client. Treat these as optional acquisition gaps; Extract Skin is already known to cost Kina and destroy its item.",
     relatedGuideLinks: [{ to: "/skins", label: "Curated appearance sources" }],
-    // Public Wikily chest listing needs coordinator registration before linking it here.
-    supportingSourceIDs: [],
+    supportingSourceIDs: ["wikilySkyfeatherGuardian"],
   },
 ];

@@ -1,0 +1,57 @@
+.list {
+  display: grid;
+  gap: 12px;
+
+  & h3 {
+    font-size: 1.1rem;
+  }
+
+  & h4 {
+    margin-top: 8px;
+    color: var(--accent);
+    font-size: 1rem;
+  }
+
+  & ol {
+    margin: 0;
+    padding-left: 2.5em;
+    font-family: var(--f-mono);
+  }
+
+  & li {
+    border-bottom: 1px solid var(--line);
+  }
+
+  & button {
+    display: grid;
+    width: 100%;
+    min-height: 40px;
+    padding: 6px 0;
+    border: 0;
+    background: none;
+    color: var(--ink);
+    font: inherit;
+    font-family: var(--f-body);
+    text-align: left;
+    cursor: pointer;
+
+    &[aria-pressed="true"] {
+      outline: 1px dashed var(--accent);
+    }
+  }
+}
+
+.name {
+  font-weight: 600;
+}
+
+.bought {
+  & .name {
+    color: var(--accent);
+  }
+}
+
+.meta {
+  color: var(--muted);
+  font-size: 0.9em;
+}

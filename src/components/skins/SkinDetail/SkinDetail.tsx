@@ -93,8 +93,20 @@ export function SkinDetail({ entry, owned, onToggle }: Props) {
       </ul>
 
       <p>
-        <Link to="/festival" className={STYLES.link}>
-          Shugo Festival games, keys and shop prices
+        <Link to="/alts" className={STYLES.link}>
+          What carries over between characters
+        </Link>
+      </p>
+
+      <p>
+        <Link
+          to={{
+            pathname: "/festival/simulator",
+            search: `?target=${encodeURIComponent(entry.id)}`,
+          }}
+          className={STYLES.link}
+        >
+          Simulate Festival tokens for {name}
         </Link>
       </p>
     </div>

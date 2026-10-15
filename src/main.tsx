@@ -46,6 +46,8 @@ const router = createHashRouter([
         element: builtPages[section.path],
       })),
       { path: "daevanion/:class", element: <Daevanion /> },
+      { path: "daevanion/:class/:board/:variant?", element: <Daevanion /> },
+      { path: "festival/simulator", element: <Festival /> },
       { path: "gear/enhancement", element: <Enhancement /> },
       { path: "gear/:tier", element: <Gear /> },
       { path: "skins/:set", element: <Skins /> },

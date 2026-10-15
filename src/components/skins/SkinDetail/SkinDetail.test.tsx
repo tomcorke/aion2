@@ -53,3 +53,27 @@ test("outfits note the Closet rather than the wing scope", () => {
   expect(screen.getByText(/Closet appearances are available/)).toBeDefined();
   expect(screen.queryByText(/stay with the character/)).toBeNull();
 });
+
+test("links to the simulator with this purchase as the target", () => {
+  renderWithProviders(
+    <SkinDetail entry={entry("spirit-wings")} owned={[]} onToggle={vi.fn()} />,
+  );
+
+  expect(
+    screen
+      .getByRole("link", { name: "Simulate Festival tokens for Spirit Wings" })
+      .getAttribute("href"),
+  ).toBe("/festival/simulator?target=spirit-wings");
+});
+
+test("links the sharing notes to Alts", () => {
+  renderWithProviders(
+    <SkinDetail entry={entry("spirit-wings")} owned={[]} onToggle={vi.fn()} />,
+  );
+
+  expect(
+    screen
+      .getByRole("link", { name: "What carries over between characters" })
+      .getAttribute("href"),
+  ).toBe("/alts");
+});

@@ -1,0 +1,126 @@
+.figure {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+}
+
+.zoom {
+  justify-self: start;
+  min-height: 40px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: none;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+
+  &[aria-pressed="true"] {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+}
+
+.scroller {
+  overflow: auto;
+  max-height: 80vh;
+}
+
+/* Natural size keeps 44px targets; the scroller, not the page, scrolls. */
+.natural {
+  display: block;
+  max-width: none;
+}
+
+.fitted {
+  display: block;
+  width: 100%;
+  max-width: 660px;
+}
+
+.grid {
+  stroke: var(--line);
+  stroke-width: 2;
+}
+
+.edge {
+  stroke: var(--accent);
+  stroke-dasharray: 4 4;
+  stroke-width: 1.5;
+  opacity: 0.6;
+}
+
+.edgeBought {
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+
+.hit {
+  fill: transparent;
+}
+
+.node {
+  cursor: pointer;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus-visible .hit {
+    stroke: var(--ink);
+    stroke-width: 2;
+  }
+}
+
+.selected {
+  fill: none;
+  stroke: var(--ink);
+  stroke-dasharray: 3 3;
+  stroke-width: 2;
+}
+
+.start {
+  fill: var(--ink);
+}
+
+.off {
+  fill: var(--muted);
+}
+
+.ring {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.bought {
+  fill: var(--accent);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.later {
+  fill: var(--ground);
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+
+.text,
+.boughtText {
+  font-family: var(--f-mono);
+  font-size: 11px;
+  text-anchor: middle;
+  pointer-events: none;
+}
+
+.text {
+  fill: var(--ink);
+}
+
+.boughtText {
+  fill: var(--ground);
+}
+
+.legend {
+  color: var(--muted);
+}

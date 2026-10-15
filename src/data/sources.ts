@@ -13,6 +13,12 @@ export const sources = {
   ...altsSourceAdditions,
   ...gearUpgradeSourceAdditions,
   ...growthSourceAdditions,
+  shugoTimers: {
+    name: "Shugo.GG timer data",
+    covers:
+      "Regional fixed schedules and the disputed EU event/reset clocks; no publisher confirmation",
+    url: "https://shugo.gg/timers.json",
+  },
   metabotEvents: {
     name: "MetaBot event schedule",
     covers:
@@ -192,6 +198,12 @@ export const sources = {
     name: "Game8 Abyss Points guide",
     covers: "Abyss Trade Shop spending priorities",
     url: "https://game8.co/games/Aion-2/archives/628796",
+  },
+  wikilySkyfeatherGuardian: {
+    name: "Wikily Skyfeather Guardian helm skin",
+    covers:
+      "Listed Black Cloud Merchant and bound skin-chest sources; not the chest’s origin",
+    url: "https://wikily.gg/aion-2/skins/skyfeather-guardian-skin-helm-bound",
   },
   wikilyBlackCloud: {
     name: "Wikily Black Cloud Merchants",

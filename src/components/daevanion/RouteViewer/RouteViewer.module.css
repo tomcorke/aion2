@@ -1,0 +1,48 @@
+.viewer {
+  display: grid;
+  gap: 16px;
+
+  & h2 {
+    font-size: 1.4rem;
+    color: var(--accent);
+  }
+}
+
+.notes {
+  display: grid;
+  gap: 8px;
+  margin: 16px 0;
+  padding: 0;
+  list-style: none;
+  color: var(--muted);
+
+  & li {
+    display: flex;
+    gap: 10px;
+    align-items: baseline;
+  }
+}
+
+.missing {
+  padding: 16px 0;
+  color: var(--muted);
+}
+
+.state {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  padding: 16px 0;
+
+  & button {
+    min-height: 40px;
+    padding: 0 16px;
+    border: 1px solid var(--accent);
+    border-radius: 4px;
+    background: none;
+    color: var(--accent);
+    font: inherit;
+    cursor: pointer;
+  }
+}

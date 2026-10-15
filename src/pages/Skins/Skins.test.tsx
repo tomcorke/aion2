@@ -90,7 +90,7 @@ test("a direct set URL shows its pieces, prices and limits", () => {
     within(detail())
       .getByRole("link", { name: /Festival/ })
       .getAttribute("href"),
-  ).toBe("/festival");
+  ).toBe("/festival/simulator?target=skilled-expert");
 });
 
 test("accessory and wing totals stay out of outfits", () => {
