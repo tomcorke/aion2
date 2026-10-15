@@ -1,5 +1,7 @@
+/* minmax(0, 1fr) stops the natural-size board widening the page; it scrolls locally. */
 .viewer {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 16px;
 
   & h2 {

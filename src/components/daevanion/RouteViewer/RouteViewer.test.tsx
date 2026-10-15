@@ -46,11 +46,16 @@ function deferred() {
 }
 
 beforeEach(() => {
+  vi.unstubAllGlobals();
   load.mockReset();
   load.mockImplementation(actual);
 });
 
-test("shows loading, then a failure with a retry that loads the board", async () => {
+test("shows loading, then a failure whose button reloads the page", async () => {
+  // A failed dynamic import stays cached for the document; only a reload clears it.
+  const reload = vi.fn();
+
+  vi.stubGlobal("location", { reload });
   load.mockRejectedValueOnce(new Error("offline"));
   renderWithProviders(<Harness />);
 
@@ -63,13 +68,12 @@ test("shows loading, then a failure with a retry that loads the board", async ()
   expect(alert.textContent).toMatch(/did not load/);
   expect(screen.queryByRole("group", { name: /board diagram/ })).toBeNull();
 
-  await userEvent.click(screen.getByRole("button", { name: "Try again" }));
+  await userEvent.click(
+    screen.getByRole("button", { name: "Reload and try again" }),
+  );
 
-  expect(
-    await screen.findByRole("group", { name: "Nezekan board diagram" }),
-  ).toBeDefined();
-  expect(screen.queryByRole("alert")).toBeNull();
-  expect(load).toHaveBeenCalledTimes(2);
+  expect(reload).toHaveBeenCalledOnce();
+  expect(load).toHaveBeenCalledOnce();
 });
 
 test("a late result for an earlier class never replaces the current class", async () => {

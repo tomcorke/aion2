@@ -2,7 +2,9 @@
 .views {
   padding-top: 24px;
 
+  /* Contained so the tabs scroll inside the gutters instead of widening a phone page. */
   & [role="tablist"] {
+    contain: inline-size;
     margin-inline: var(--gutter);
   }
 }

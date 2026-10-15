@@ -27,45 +27,35 @@ type Props = {
 
 const azphelTotal = azphelOverview.phases.at(-1)!.cumulativeCost;
 
-/** Loads one class's routes; a result for an earlier class or attempt is ignored. */
+/** Loads one class's routes; a result for an earlier class is ignored. */
 function useClassRoutes(classId: string) {
-  const [attempt, setAttempt] = useState(0);
-
-  const [result, setResult] = useState<{
-    classId: string;
-    attempt: number;
-    data?: Loaded;
-  }>();
+  const [result, setResult] = useState<{ classId: string; data?: Loaded }>();
 
   useEffect(() => {
     let current = true;
 
     loadClassRoutes(classId).then(
-      (data) => current && setResult({ classId, attempt, data }),
-      () => current && setResult({ classId, attempt }),
+      (data) => current && setResult({ classId, data }),
+      () => current && setResult({ classId }),
     );
 
     return () => {
       current = false;
     };
-  }, [classId, attempt]);
+  }, [classId]);
 
-  const settled =
-    result?.classId === classId && result.attempt === attempt
-      ? result
-      : undefined;
+  const settled = result?.classId === classId ? result : undefined;
 
   return {
     data: settled?.data?.classId === classId ? settled.data : undefined,
     failed: settled !== undefined && !settled.data,
-    retry: () => setAttempt((count) => count + 1),
   };
 }
 
 /** Board and route tabs over the selected board's diagram, purchase order and budget. */
 export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
   const id = useId();
-  const { data, failed, retry } = useClassRoutes(entry.id);
+  const { data, failed } = useClassRoutes(entry.id);
   const board = daevanionBoards.find(({ id }) => id === boardId);
   const azphel = board?.id === "azphel";
 
@@ -157,8 +147,13 @@ export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
             {failed && (
               <div role="alert" className={STYLES.state}>
                 <p>The board routes did not load.</p>
-                <button type="button" onClick={retry}>
-                  Try again
+                {/* The browser caches a failed module import for this document,
+                    so only a reload (which keeps the URL) can fetch it again. */}
+                <button
+                  type="button"
+                  onClick={() => globalThis.location.reload()}
+                >
+                  Reload and try again
                 </button>
               </div>
             )}
