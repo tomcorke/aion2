@@ -1,11 +1,15 @@
 import { TZDate, tz } from "@date-fns/tz";
 import {
   addDays,
+  addHours,
+  addMinutes,
   differenceInSeconds,
   format,
   getDay,
+  getHours,
   intervalToDuration,
-  set,
+  parseISO,
+  startOfDay,
 } from "date-fns";
 import type { Zone } from "../preferences/preferences.ts";
 
@@ -35,23 +39,18 @@ export function everyHours(start: number, step: number) {
 
 /** Seconds until the next slot after `now`. Slots are server wall-clock times, so daylight saving is handled. */
 export function secondsUntilNext(now: Date, { hours, minute, days }: Slots) {
-  const today = new TZDate(now, SERVER_ZONE);
+  const today = startOfDay(new TZDate(now, SERVER_ZONE));
+  const end = addDays(today, 8);
 
-  for (let ahead = 0; ahead <= 7; ahead++) {
-    const day = addDays(today, ahead);
+  // Elapsed hours visit both autumn occurrences and skip nonexistent spring hours.
+  // Setting a wall hour directly can choose only one side of an ambiguous slot.
+  for (let hour = today; hour < end; hour = addHours(hour, 1)) {
+    if (!hours.includes(getHours(hour))) continue;
+    if (days && !days.includes(getDay(hour))) continue;
 
-    if (days && !days.includes(getDay(day))) continue;
+    const slot = addMinutes(hour, minute);
 
-    for (const hour of hours) {
-      const slot = set(day, {
-        hours: hour,
-        minutes: minute,
-        seconds: 0,
-        milliseconds: 0,
-      });
-
-      if (slot > now) return differenceInSeconds(slot, now);
-    }
+    if (slot > now) return differenceInSeconds(slot, now);
   }
 
   throw new Error("Slots name no weekday");
@@ -89,5 +88,5 @@ export function formatServerClock(now: Date) {
 
 /** An ISO date such as "2026-10-14" as "14 October 2026". */
 export function formatDate(isoDate: string) {
-  return format(isoDate, "d MMMM yyyy");
+  return format(parseISO(isoDate), "d MMMM yyyy");
 }
