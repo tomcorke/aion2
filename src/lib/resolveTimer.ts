@@ -1,4 +1,4 @@
-import { addHours, differenceInSeconds } from "date-fns";
+import { addHours, differenceInMilliseconds } from "date-fns";
 import type { TimerDef, TimerGroup } from "../data/timers.ts";
 import type { Faction } from "../preferences/preferences.ts";
 import { secondsUntilNext } from "./time.ts";
@@ -28,10 +28,9 @@ function secondsLeft(
 
   if (killedAt === undefined) return null;
 
-  const left = differenceInSeconds(
-    addHours(killedAt, schedule.hours[faction]),
-    now,
-  );
+  const left =
+    differenceInMilliseconds(addHours(killedAt, schedule.hours[faction]), now) /
+    1000;
 
   return left > 0 ? left : null;
 }

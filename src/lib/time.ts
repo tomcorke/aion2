@@ -3,7 +3,7 @@ import {
   addDays,
   addHours,
   addMinutes,
-  differenceInSeconds,
+  differenceInMilliseconds,
   format,
   getDay,
   getHours,
@@ -37,7 +37,7 @@ export function everyHours(start: number, step: number) {
   );
 }
 
-/** Seconds until the next slot after `now`. Slots are server wall-clock times, so daylight saving is handled. */
+/** Fractional seconds until the next server wall-clock slot; preserve precision for deadline reconstruction. */
 export function secondsUntilNext(now: Date, { hours, minute, days }: Slots) {
   const today = startOfDay(new TZDate(now, SERVER_ZONE));
   const end = addDays(today, 8);
@@ -50,7 +50,7 @@ export function secondsUntilNext(now: Date, { hours, minute, days }: Slots) {
 
     const slot = addMinutes(hour, minute);
 
-    if (slot > now) return differenceInSeconds(slot, now);
+    if (slot > now) return differenceInMilliseconds(slot, now) / 1000;
   }
 
   throw new Error("Slots name no weekday");

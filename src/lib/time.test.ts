@@ -1,8 +1,8 @@
 import { execFileSync } from "node:child_process";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
-import { format } from "date-fns";
-import { timerDefs } from "../data/timers.ts";
+import { addSeconds, format } from "date-fns";
+import { dailyReset, timerDefs } from "../data/timers.ts";
 import { resolveTimer } from "./resolveTimer.ts";
 import { describe, expect, test } from "vitest";
 import { HOUR, NOW } from "../testing/render.tsx";
@@ -65,16 +65,16 @@ describe("secondsUntilNext", () => {
   });
 
   test.each([
-    ["2026-10-24T23:30:00Z", 0, "2026-10-25T00:00:00Z"],
+    ["2026-10-24T23:30:00.123Z", 0, "2026-10-25T00:00:00Z"],
     ["2026-10-24T23:45:00Z", 30, "2026-10-25T00:30:00Z"],
-    ["2026-10-25T00:15:00Z", 30, "2026-10-25T00:30:00Z"],
-    ["2026-10-25T00:30:00Z", 0, "2026-10-25T01:00:00Z"],
-    ["2026-10-25T00:45:00Z", 30, "2026-10-25T01:30:00Z"],
+    ["2026-10-25T00:15:00.123Z", 30, "2026-10-25T00:30:00Z"],
+    ["2026-10-25T00:30:00.123Z", 0, "2026-10-25T01:00:00Z"],
+    ["2026-10-25T00:45:00.123Z", 30, "2026-10-25T01:30:00Z"],
     ["2026-10-25T00:00:00Z", 0, "2026-10-25T01:00:00Z"],
     ["2026-10-25T01:00:00Z", 0, "2026-10-25T02:00:00Z"],
     ["2026-10-25T01:30:00Z", 30, "2026-10-25T02:30:00Z"],
-    ["2026-03-29T00:30:00Z", 0, "2026-03-29T01:00:00Z"],
-    ["2026-03-29T00:45:00Z", 30, "2026-03-29T01:30:00Z"],
+    ["2026-03-29T00:30:00.123Z", 0, "2026-03-29T01:00:00Z"],
+    ["2026-03-29T00:45:00.123Z", 30, "2026-03-29T01:30:00Z"],
     ["2026-03-29T01:00:00Z", 0, "2026-03-29T02:00:00Z"],
   ])(
     "after %s, hourly minute %i slots respect repeated and missing Berlin hours",
@@ -132,6 +132,33 @@ describe("secondsUntilNext", () => {
     ).toThrow();
   });
 });
+
+test("sub-second reset countdown reconstructs the exact UTC and server minute", () => {
+  const now = new Date("2026-10-14T12:00:00.123Z");
+  const seconds = secondsUntilNext(now, dailyReset);
+  const target = addSeconds(now, seconds);
+
+  expect(formatAt(target, "server")).toBe("Wed 16:00");
+  expect(formatAt(target, "utc")).toBe("Wed 14:00");
+  expect(target.toISOString()).toBe("2026-10-14T14:00:00.000Z");
+  expect(seconds).toBeCloseTo(7199.877, 3);
+});
+
+test.each([
+  ["2026-10-14T13:59:59.999Z", "2026-10-14T14:00:00.000Z", "Wed"],
+  ["2026-10-14T14:00:00.000Z", "2026-10-15T14:00:00.000Z", "Thu"],
+  ["2026-10-14T14:00:00.001Z", "2026-10-15T14:00:00.000Z", "Thu"],
+])(
+  "reset boundary %s reconstructs only the next future slot",
+  (nowISO, expected, day) => {
+    const now = new Date(nowISO);
+    const target = addSeconds(now, secondsUntilNext(now, dailyReset));
+
+    expect(target.toISOString()).toBe(expected);
+    expect(formatAt(target, "server")).toBe(`${day} 16:00`);
+    expect(formatAt(target, "utc")).toBe(`${day} 14:00`);
+  },
+);
 
 describe("formatCountdown", () => {
   test("shows the two largest units", () => {
