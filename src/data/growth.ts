@@ -22,6 +22,18 @@ export const growthSourceAdditions = {
     covers: "Faction-specific quest chains and first-quest material rewards",
     url: "https://game8.co/games/Aion-2/archives/629056",
   },
+  metabotIntermediateSoulstone: {
+    name: "MetaBot Intermediate Soulstone",
+    covers:
+      "Tradable Soulstone recipe, Alchemy mastery and faction-specific crafting tables",
+    url: "https://metabot.gg/en/aion-2/items/intermediate-soulstone",
+  },
+  metabotSuperiorSoulstone: {
+    name: "MetaBot Superior Soulstone",
+    covers:
+      "Tradable Soulstone recipe, Alchemy mastery and faction-specific crafting tables",
+    url: "https://metabot.gg/en/aion-2/items/superior-soulstone",
+  },
   metabotSubstanceMorph: {
     name: "MetaBot Substance Morph recipes",
     covers: "Global recipe inputs, limits and wing conversion",
@@ -145,6 +157,34 @@ const ordinaryStoneSources: Record<string, GrowthAcquisition[]> = {
   ],
 };
 
+const soulstoneSources: Record<string, GrowthAcquisition[]> = {
+  lesser: ordinaryStoneSources.lesser,
+  intermediate: [
+    {
+      name: "Hard dungeon stages and achievements",
+      detail:
+        "These routes give bound copies, separate from the tradable Alchemy item.",
+    },
+    {
+      name: "Alchemy",
+      detail:
+        "Tradable Intermediate Soulstone: 5 Lesser Soulstones + 3 Spiritstone Powder + 2 Professional Ink (Bound). Alchemy mastery 25; Alchemy Tables in Verteron (Elyos) or Altgard (Asmodian).",
+    },
+  ],
+  superior: [
+    {
+      name: "Achievements and battle pass",
+      detail:
+        "These routes give bound copies, separate from the tradable Alchemy item.",
+    },
+    {
+      name: "Alchemy",
+      detail:
+        "Tradable Superior Soulstone: 30 Intermediate Soulstones + 10 Spiritstone Powder + 2 Exceptional Ink (Bound). Alchemy mastery 90; Alchemy Tables in Verteron (Elyos) or Altgard (Asmodian).",
+    },
+  ],
+};
+
 const ordinaryStones: GrowthMaterial[] = stoneEngraving
   .filter(({ id }) => id !== "theostone")
   .flatMap((stone) =>
@@ -159,7 +199,9 @@ const ordinaryStones: GrowthMaterial[] = stoneEngraving
       slots: stone.slots,
       use: `${stone.use} ${tier.name} rolls ${tier.lineGrades.join(" / ")} lines.`,
       acquisition: [
-        ...ordinaryStoneSources[tier.id],
+        ...(stone.id === "soulstone"
+          ? soulstoneSources[tier.id]
+          : ordinaryStoneSources[tier.id]),
         ...(stone.id === "manastone" && tier.id === "superior"
           ? [
               {
@@ -171,6 +213,9 @@ const ordinaryStones: GrowthMaterial[] = stoneEngraving
       ],
       condition: [
         stone.warning,
+        stone.id === "soulstone" && tier.id !== "lesser"
+          ? "Alchemy is the only listed source for the tradable item; other routes are not ruled out."
+          : "",
         "Check the exact variant's bound/tradable status. Engraving overwrites lines with no undo; dismantling refunds no stones.",
       ]
         .filter(Boolean)
@@ -180,6 +225,12 @@ const ordinaryStones: GrowthMaterial[] = stoneEngraving
         "metabotManastones",
         "game8Manastones",
         "corpusManastones",
+        ...(stone.id === "soulstone" && tier.id === "intermediate"
+          ? ["metabotIntermediateSoulstone"]
+          : []),
+        ...(stone.id === "soulstone" && tier.id === "superior"
+          ? ["metabotSuperiorSoulstone"]
+          : []),
       ] as GrowthSourceId[],
     })),
   );

@@ -31,6 +31,8 @@ test.each([
   ["metabotLowerAbyssRiftStone", "2026-10-14"],
   ["metabotEvents", "2026-10-14"],
   ["couga54", "2026-10-14"],
+  ["metabotIntermediateSoulstone", "2026-10-15"],
+  ["metabotSuperiorSoulstone", "2026-10-15"],
 ] satisfies [SourceId, string][])(
   "%s retains its actual catalogue check %s, not a note review date",
   (id, date) => {

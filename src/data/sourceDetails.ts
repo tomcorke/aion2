@@ -175,5 +175,7 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   metabotFactions: { checkedDate: "2026-10-08" },
   game8Factions: { checkedDate: "2026-10-06" },
   allThingsDailyDungeon: { checkedDate: "2026-10-14" },
+  metabotIntermediateSoulstone: { checkedDate: "2026-10-15" },
+  metabotSuperiorSoulstone: { checkedDate: "2026-10-15" },
   ...skinAcquisitionSourceDetails,
 };

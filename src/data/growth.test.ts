@@ -6,6 +6,7 @@ import {
   growthSources,
   growthSourceAdditions,
   growthLimitations,
+  growthReviewed,
 } from "./growth.ts";
 import { gearUpgradeSourceAdditions } from "./gearUpgrades.ts";
 import { gearActivities, gearRewardConditions } from "./gear.ts";
@@ -92,6 +93,80 @@ test("stones preserve tier, slots, ordinary versus Abyssal, prices and variant r
   expect(
     growthMaterials.find(({ id }) => id === "clash-rune-chest")?.condition,
   ).toContain("finite");
+});
+
+test.each([
+  {
+    id: "intermediate-soulstone",
+    recipe:
+      "5 Lesser Soulstones + 3 Spiritstone Powder + 2 Professional Ink (Bound)",
+    mastery: 25,
+    sourceId: "metabotIntermediateSoulstone",
+    url: "https://metabot.gg/en/aion-2/items/intermediate-soulstone",
+  },
+  {
+    id: "superior-soulstone",
+    recipe:
+      "30 Intermediate Soulstones + 10 Spiritstone Powder + 2 Exceptional Ink (Bound)",
+    mastery: 90,
+    sourceId: "metabotSuperiorSoulstone",
+    url: "https://metabot.gg/en/aion-2/items/superior-soulstone",
+  },
+])(
+  "$id has its complete tradable Alchemy recipe and source",
+  ({ id, recipe, mastery, sourceId, url }) => {
+    const material = growthMaterials.find((material) => material.id === id)!;
+    const alchemy = material.acquisition.find(({ name }) => name === "Alchemy");
+
+    expect(alchemy?.detail).toContain(recipe);
+    expect(alchemy?.detail).toContain(`Alchemy mastery ${mastery}`);
+    expect(alchemy?.detail).toContain(
+      "Alchemy Tables in Verteron (Elyos) or Altgard (Asmodian)",
+    );
+    expect(alchemy?.detail).toContain("Tradable");
+    expect(alchemy?.detail).not.toMatch(/great success|20%|Market/i);
+    expect(alchemy?.limit).toBeUndefined();
+    expect(material.condition).toContain(
+      "only listed source for the tradable item",
+    );
+    expect(material.condition).toContain("other routes are not ruled out");
+    expect(material.sourceIds).toContain(sourceId);
+    expect(growthSourceAdditions).toHaveProperty(
+      sourceId,
+      expect.objectContaining({ url }),
+    );
+    expect(sources).toHaveProperty(sourceId, expect.objectContaining({ url }));
+    expect(growthSources).toContain(sourceId);
+  },
+);
+
+test.each([
+  [
+    "lesser-soulstone",
+    "Quests, Hard dungeon stages, raids, achievements and battle pass",
+  ],
+  ["intermediate-soulstone", "Hard dungeon stages and achievements"],
+  ["superior-soulstone", "Achievements and battle pass"],
+])("%s keeps reward copies explicitly bound", (id, routeName) => {
+  const material = growthMaterials.find((material) => material.id === id)!;
+  const route = material.acquisition.find(({ name }) => name === routeName);
+
+  expect(route?.detail).toContain("bound copies");
+});
+
+test("Soulstone corrections preserve Manastone recipes and the oldest topic review date", () => {
+  const alchemy = (id: string) =>
+    growthMaterials
+      .find((material) => material.id === id)
+      ?.acquisition.find(({ name }) => name === "Alchemy");
+
+  expect(alchemy("intermediate-manastone")?.detail).toBe(
+    "5 Lesser + 3 Spiritstone Powder + 2 Professional Ink; a 20% great success yields Superior instead.",
+  );
+  expect(alchemy("superior-manastone")?.detail).toBe(
+    "30 Intermediate stones make one Superior.",
+  );
+  expect(growthReviewed).toBe("2026-10-05");
 });
 
 test("material IDs and canonical source/activity references resolve without invented gap entries", () => {
