@@ -1,6 +1,6 @@
 # Scope
 
-MVP scope confirmed with the owner. Built so far: the shared header and footer, theme and metal preferences, Home, Progression, Gear's tier browser, Shugo Festival's reference tables, `/timers` (the timer dial), `/sources`, and a 404 page. The other sections still have stand-ins. The remaining work completes those pages and addresses the Timers and Sources gaps. Home stays unchanged except for shared verified timer corrections.
+The MVP has real pages for every section below, with the shared header, footer, theme and metal preferences. Gear includes its tier browser and upgrades; Daevanion includes all eight classes; Festival includes its reference and conditional simulator. Routine and skin ownership stay private to the browser. Home keeps its existing layout and uses the same timer definitions and warnings as Timers.
 
 ## Goal
 
@@ -15,7 +15,7 @@ Region is Global, with EU server times where times matter. Facts come from the `
 
 ## Source material
 
-Six artifacts exist today. Each will be rebuilt as a page or merged into one.
+Six artifacts informed the pages below. They are layout and scope references; the notes repository is the factual authority.
 
 | Artifact                  | Last updated | Contents                                                                                                                                                                                          | Interactive parts                                                                                      |
 | ------------------------- | ------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ |
@@ -59,11 +59,11 @@ Shareable selections include `/gear/:tier`, `/gear/enhancement`, `/daevanion/:cl
 8. **Knowledge coverage and gaps.** Fold relevant notes into these themed pages; no generic Topics reader or exhaustive wardrobe. Required facts gate only the slice claiming them. Optional unsupported entries can wait and reader-relevant gaps belong on Sources. Ship no bracketed placeholders or guessed fields.
 9. **Tests and delivery.** Use existing routed page/component tests for behaviour and pure tests for calculations/data invariants. Check phones, keyboard access, themes, and metals manually. No new end-to-end framework or standalone speculative control framework. Publication requires a separate user request.
 
-## Remaining verification
+## Retained limits
 
-- EU daily/weekly reset clocks, the regional server-zone assumption, and unresolved event/boss schedules need focused checks. Correct shared timer data so Home and Timers agree; preserve saved setup and kills. An inconclusive check remains an explicit uncertainty, not a confirmed deadline.
-- Retain complete Daevanion node/route data in the notes before the full viewer ships; summary totals alone do not support a purchase diagram.
-- Verify required appearance pieces and missing material uses/sources before adding those entries. Unsupported optional entries do not hold up a supported catalogue.
+- The timer audit did not settle the EU reset clocks or server zone. Home and Timers show the same provisional-clock warning. Further corrections must preserve saved setup and kills; an inconclusive check is not a confirmed deadline.
+- Complete Daevanion geometry and purchase orders were retained in the notes before app use. Connected routes and checked totals do not establish optimal builds or a cheapest continuation from an owned board.
+- The catalogue includes supported appearance groups and their acquisition conditions. Unknown prices, chest origins and sharing effects remain qualified; unsupported optional entries stay excluded.
 - Festival card/key/package mapping, refill rules, and level-45 applicability of the detailed odds remain limits on the simulator's claims. The conditional opening model does not need those gaps falsely resolved.
 
 ## Out of scope for now
