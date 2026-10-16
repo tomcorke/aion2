@@ -1,7 +1,7 @@
+/* Full frame for the checklist; prose keeps a reading measure. */
 .body {
   display: grid;
   gap: 24px;
-  max-width: 1000px;
   padding: 24px var(--gutter) 0;
 
   & > * {
@@ -10,7 +10,20 @@
 }
 
 .note {
+  max-width: 74ch;
   color: var(--muted);
+}
+
+/* Daily and weekly sit side by side once each column can hold a full row. */
+.groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 30rem), 1fr));
+  gap: 24px 56px;
+  align-items: start;
+}
+
+.prose {
+  max-width: 74ch;
 }
 
 .heading {

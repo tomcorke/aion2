@@ -15,10 +15,13 @@ const scopes: Record<ResourceCounter["scope"], string> = {
   server: "Server-shared",
 };
 
-/** One reminder row: tick, purpose, the counters it spends and its guide. */
+/** One checklist row: tick, limits and any warning at a glance; purpose, notes and guide on demand. */
 export function RoutineTask({ task, checked, onToggle }: Props) {
   const { id, title, purpose, details, warning, guide } = task;
   const titleId = `routine-${id}`;
+  const counters = task.counterIds.map(
+    (counterId) => resourceCounters[counterId],
+  );
 
   return (
     <li className={STYLES.task} aria-labelledby={titleId}>
@@ -31,32 +34,43 @@ export function RoutineTask({ task, checked, onToggle }: Props) {
         <span id={titleId}>{title}</span>
       </label>
 
-      <div className={STYLES.body}>
-        <p>{purpose}</p>
+      <ul className={STYLES.limits}>
+        {counters.map((counter) => (
+          <li key={counter.name}>
+            <span className={STYLES.scope}>{scopes[counter.scope]}</span>
+            <span>
+              {counter.name}: {counterLimit(counter)}
+            </span>
+          </li>
+        ))}
+      </ul>
 
-        <ul className={STYLES.counters}>
-          {task.counterIds.map((counterId) => {
-            const counter = resourceCounters[counterId];
+      {warning && <p className={STYLES.warning}>{warning}</p>}
 
-            return (
-              <li key={counterId}>
-                <span className={STYLES.scope}>{scopes[counter.scope]}</span>
-                <span>
-                  {counter.name}: {counterLimit(counter)}.
-                  {counter.notes && ` ${counter.notes}`}
-                </span>
-              </li>
-            );
-          })}
-        </ul>
+      <details className={STYLES.more}>
+        <summary>
+          <span className={STYLES.hidden}>Details: {title}</span>
+        </summary>
 
-        {details && <p className={STYLES.muted}>{details}</p>}
-        {warning && <p className={STYLES.warning}>{warning}</p>}
+        <div className={STYLES.body}>
+          <p>{purpose}</p>
 
-        <Link to={guide.to} className={STYLES.link}>
-          {guide.label}
-        </Link>
-      </div>
+          {counters.map(
+            (counter) =>
+              counter.notes && (
+                <p key={counter.name} className={STYLES.muted}>
+                  {counter.name}: {counter.notes}
+                </p>
+              ),
+          )}
+
+          {details && <p className={STYLES.muted}>{details}</p>}
+
+          <Link to={guide.to} className={STYLES.link}>
+            {guide.label}
+          </Link>
+        </div>
+      </details>
     </li>
   );
 }

@@ -11,8 +11,16 @@
 }
 
 .name {
+  display: inline-flex;
+  gap: 0.35em;
+  align-items: center;
   font: 15px var(--f-display);
   white-space: nowrap;
+
+  /* The icon sits on the marker's side. */
+  .label[data-align="end"] & {
+    flex-direction: row-reverse;
+  }
 }
 
 .time {

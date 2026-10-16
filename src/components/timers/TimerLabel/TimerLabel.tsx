@@ -1,6 +1,7 @@
 import { usePreferences } from "../../../preferences/preferences.ts";
 import { formatAt, formatCountdown } from "../../../lib/time.ts";
 import type { Timer } from "../../../lib/resolveTimer.ts";
+import { TimerIcon } from "../TimerIcon/TimerIcon.tsx";
 import STYLES from "./TimerLabel.module.css";
 
 type Props = {
@@ -26,6 +27,7 @@ export function TimerLabel({
   return (
     <div className={STYLES.label} data-align={align}>
       <span className={STYLES.name} style={{ fontSize: nameSize }}>
+        <TimerIcon id={timer.id} group={timer.group} />
         {timer.name}
       </span>
 

@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { Link } from "react-router";
 import { RoutineGroup } from "../../components/routine/RoutineGroup/RoutineGroup.tsx";
 import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
@@ -52,7 +51,22 @@ export function Routine() {
       <div className={STYLES.body}>
         <p className={STYLES.note}>{routineContract}</p>
 
-        <section aria-labelledby="routine-banking">
+        <div className={STYLES.groups}>
+          {groups.map(({ group, title }) => (
+            <RoutineGroup
+              key={group}
+              title={title}
+              tasks={routineTasks.filter((task) => task.group === group)}
+              ticks={ticks}
+              onToggle={toggle}
+              onClear={() => clear(group)}
+            />
+          ))}
+        </div>
+
+        <Rule gem />
+
+        <section aria-labelledby="routine-banking" className={STYLES.prose}>
           <h2 id="routine-banking" className={STYLES.heading}>
             Banking and refills
           </h2>
@@ -68,19 +82,6 @@ export function Routine() {
             Timers and reset schedules
           </Link>
         </section>
-
-        {groups.map(({ group, title }) => (
-          <Fragment key={group}>
-            <Rule gem />
-            <RoutineGroup
-              title={title}
-              tasks={routineTasks.filter((task) => task.group === group)}
-              ticks={ticks}
-              onToggle={toggle}
-              onClear={() => clear(group)}
-            />
-          </Fragment>
-        ))}
       </div>
 
       <SiteFooter sources={routineSources} reviewed={routineReviewed} />

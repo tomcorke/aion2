@@ -28,6 +28,20 @@ test("shows the countdown and when it ends", () => {
   expect(screen.queryByRole("button")).toBeNull();
 });
 
+test("puts the timer's icon beside its name", () => {
+  renderWithProviders(
+    <TimerLabel
+      timer={timer({ id: "rift", name: "Spacetime Rift", group: "fixed" })}
+      now={NOW}
+      {...handlers()}
+    />,
+  );
+
+  const name = screen.getByText("Spacetime Rift");
+
+  expect(name.querySelector("svg[aria-hidden='true']")).not.toBeNull();
+});
+
 test("offers Mark kill for an untimed field boss", async () => {
   const { onMarkKill, onClearKill } = handlers();
 
