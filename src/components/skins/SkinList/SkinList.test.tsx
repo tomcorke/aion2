@@ -1,6 +1,6 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { expect, test } from "vitest";
+import { expect, test, vi } from "vitest";
 import { skinCatalogueEntries } from "../../../data/skinCatalogue.ts";
 import type { SkinCatalogueEntry } from "../../../data/skinCatalogueTypes.ts";
 import { renderWithProviders } from "../../../testing/render.tsx";
@@ -107,4 +107,26 @@ test("progress counts only the entry's own owned pieces", () => {
 
   expect(link.textContent).toContain("1/2");
   expect(link.getAttribute("aria-current")).toBe("page");
+});
+
+test("picking reports only rows other than the current one", async () => {
+  const onPick = vi.fn();
+
+  renderWithProviders(
+    <SkinList
+      entries={[entry("awakened"), partial]}
+      owned={[]}
+      selected="awakened"
+      selectedKind="costume"
+      filtered={false}
+      onPick={onPick}
+    />,
+  );
+  await userEvent.click(screen.getByRole("link", { name: /^Awakened/ }));
+
+  expect(onPick).not.toHaveBeenCalled();
+
+  await userEvent.click(screen.getByRole("link", { name: /^Partial/ }));
+
+  expect(onPick).toHaveBeenCalledOnce();
 });

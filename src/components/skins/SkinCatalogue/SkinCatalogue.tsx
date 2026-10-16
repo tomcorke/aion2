@@ -65,17 +65,18 @@ export function SkinCatalogue({ entries, pieceIds, setId }: Props) {
     setSource("all");
   }
 
-  // On phones the details sit above the list, out of view of the row just picked.
+  // A picked row hands focus to its details, so the next Tab reaches them; on
+  // phones they sit above the list, so scroll up only when they start out of view.
   useEffect(() => {
     const section = detailRef.current;
 
     if (!picked.current || !section) return;
 
     picked.current = false;
+    section.focus({ preventScroll: true });
 
     if (section.getBoundingClientRect().top >= 0) return;
 
-    section.focus({ preventScroll: true });
     section.scrollIntoView?.({ block: "start" });
   }, [setId]);
 

@@ -1,6 +1,7 @@
 import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { beforeEach, expect, test } from "vitest";
+import { useLocation } from "react-router";
+import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import {
   skinCatalogueEntries,
   skinCataloguePieceIds,
@@ -27,6 +28,86 @@ const precedes = (first: Element, second: Element) =>
   0;
 
 beforeEach(() => localStorage.clear());
+
+afterEach(() => {
+  vi.restoreAllMocks();
+  delete (Element.prototype as Partial<Element>).scrollIntoView;
+});
+
+function RoutedCatalogue() {
+  const setId = useLocation().pathname.split("/")[2];
+
+  return (
+    <SkinCatalogue
+      entries={skinCatalogueEntries}
+      pieceIds={skinCataloguePieceIds}
+      setId={setId}
+    />
+  );
+}
+
+test.each([
+  { width: 390, top: 113, scrolls: false },
+  { width: 390, top: -592, scrolls: true },
+  { width: 1440, top: 16, scrolls: false },
+  { width: 1440, top: -40, scrolls: true },
+])(
+  "Enter on a row at $width px moves focus to the selected detail (top $top)",
+  async ({ width, top, scrolls }) => {
+    vi.spyOn(window, "innerWidth", "get").mockReturnValue(width);
+    vi.spyOn(Element.prototype, "getBoundingClientRect").mockReturnValue({
+      top,
+    } as DOMRect);
+    const scroll = vi.fn();
+
+    Element.prototype.scrollIntoView = scroll;
+
+    renderWithProviders(<RoutedCatalogue />, {
+      path: "/skins/blazing-sun-wings",
+    });
+
+    within(nav())
+      .getByRole("link", { name: /Ascended Daeva/ })
+      .focus();
+    await userEvent.keyboard("{Enter}");
+
+    expect(
+      within(detail()).getByRole("heading", { name: /Ascended Daeva/ }),
+    ).toBeDefined();
+    expect(document.activeElement).toBe(detail());
+    expect(scroll).toHaveBeenCalledTimes(scrolls ? 1 : 0);
+
+    await userEvent.tab();
+
+    expect(detail().contains(document.activeElement)).toBe(true);
+  },
+);
+
+test("typing a search after picking leaves focus in the search field", async () => {
+  Element.prototype.scrollIntoView = vi.fn();
+  renderWithProviders(<RoutedCatalogue />, { path: "/skins" });
+
+  await userEvent.click(
+    within(nav()).getByRole("link", { name: /Ascended Daeva/ }),
+  );
+  await userEvent.type(screen.getByRole("searchbox"), "wings");
+
+  expect(document.activeElement).toBe(screen.getByRole("searchbox"));
+});
+
+test("re-picking the selected row does not steal focus on a later route change", async () => {
+  Element.prototype.scrollIntoView = vi.fn();
+  renderWithProviders(<RoutedCatalogue />, {
+    path: "/skins/blazing-sun-wings",
+  });
+
+  await userEvent.click(
+    within(nav()).getByRole("link", { name: /Blazing Sun Wings/ }),
+  );
+  await userEvent.click(screen.getByRole("link", { name: "Back to all sets" }));
+
+  expect(document.activeElement).not.toBe(detail());
+});
 
 test("the list comes first until an entry is selected", () => {
   renderCatalogue();
