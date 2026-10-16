@@ -46,12 +46,21 @@ Two modes, each with a default metal the reader can swap.
 - **Header**, 64px: wordmark left, section nav, then (on pages with times) the live server clock, the metal toggle and the theme button. Nav links stretch to the header's bottom border; the current section has a 2px accent underline sitting on that border.
 - **Hero band**: a press-kit image fading into the page (170–230px on desktop, 130–170px on phones) with the page title and a one-line lede over its lower edge. No slogans, and no credit text on the image.
 - **Body**: content in hairline rows, tables and short sections, with 56px side gutters on desktop and 16px on phones. Separate major sections with a hairline rule carrying a small centre diamond; mark list items with small accent diamonds.
-- **Footer**: a hairline rule, then one paragraph naming the page's sources and image credits, the reviewed date, and an "All sources" link.
+- **Footer**: a hairline rule, then one paragraph across the full footer width naming the page's sources and image credits, the reviewed date, a link to the open questions that affect the page's section (when there are any), and an "All sources" link. Footer links keep the small footnote type but each gets a 40px-high target.
+
+## Width
+
+- The page frame grows with the window up to 1760px and centres beyond that. The header lines its wordmark and controls up with the frame. With 56px gutters this leaves 1328px of content at a 1440px window and 1648px at 1920px and wider.
+- Each page sizes content by its type, not with a fixed page cap. Tables, ledgers, matrices, checklists, catalogues and controls use the frame width. Prose (paragraphs, notes, warnings and bullet lists of sentences) keeps a measure of about 76ch.
+- A side column (advice, contents rail or selected detail) is a fixed 300–340px. It appears beside the main column only while the main column still has room for its table, and otherwise moves below.
+- When a page has independent groups, it can set them side by side at wide widths in hairline-divided columns (for example, Festival's three shop tables). Prefer this to one long column. Do not use a grid of bordered boxes.
+- Why 1760px and not a fluid frame: the four-column Growth table and its advice column reach a comfortable column measure at 1648px. A fluid frame at 2560px stretched Growth's text columns past 100 characters a line and pushed prose-bound pages such as Progression to the left edge, so the blank space moved to one side rather than shrinking.
 
 ## Home page and timers: the dial
 
 - A 300px dial counts down to the daily reset with an accent arc, shows the reset time in the chosen zone, and shows the live server clock.
 - Fixed timers (weekly reset, Spacetime Rift, Dimensional Invasion, Artifact Siege) stack in a column left of the dial as rings. Bosses stack on the right as metal orbs, biggest gear item level first, orb size scaled by gear item level. A straight spoke joins each to the dial.
+- Each timer name carries a small line glyph in the accent, before the name: one shape per fixed event (weekly reset, Spacetime Rift, Dimensional Invasion, Artifact Siege, Shugo Festival) and one shared shape per boss group. Glyphs are decorative (`aria-hidden`); the name carries the meaning, so they never replace text or rely on colour.
 - A toolbar under the dial holds: Times in Server · Local · UTC, group chips (Fixed, Lower Reshanta, Field bosses), the gear item-level filter (All, 46+, 56+, 70+, 86), and Edit timers.
 - Readers can hide, reorder and filter timers. Field bosses start untimed until the reader marks a kill. These choices persist per browser.
 - On phones the dial shrinks to the top left and timers hang off a vertical spine below it, one row each.
@@ -65,17 +74,17 @@ Two modes, each with a default metal the reader can swap.
 
 ## Page patterns
 
-| Page             | Layout                                                                                                                                                               |
-| ---------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Progression      | Reading guide with a contents rail, the overall gate ladder, short priority sections, and links to detailed mechanics; compact contents control on phones            |
-| Alts             | Two-column ledger, shared on the server against each character, with limits; then the cube-count warning, how many alts, and what never carries over                 |
-| Gear             | Item-level tier tabs, a selected-tier gate track, drop tables, pity counts, and the enhancement ladder; link to Progression for the overall route                    |
-| Growth materials | Search and "what it grows" chips over a table (item, grows, from, limit), with caps and spend order alongside                                                        |
-| Routine          | Daily and weekly checkbox rows with limits and sharing scope, group progress, and separate confirmed manual-clear actions                                            |
-| Skins            | Search and source chips; a curated appearance list with progress; selected outfit, accessory, or wing pieces and acquisition details                                 |
-| Daevanion        | Class and board tabs; three PvE route totals; point-cost bars; skill groups; SVG route and equivalent purchase list; whole-node points scrubber; shared Azphel route |
-| Festival         | Games, rewards, key limits, and shop-price tables; conditional opening simulator with inputs, nearby assumptions, histogram, and equivalent text results             |
-| Sources          | Public source coverage and image-credit lists, followed by reader-relevant open questions grouped by topic                                                           |
+| Page             | Layout                                                                                                                                                                                                                                                                                                                               |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Progression      | Reading guide with a contents rail, the overall gate ladder, short priority sections, and links to detailed mechanics; compact contents control on phones                                                                                                                                                                            |
+| Alts             | Two-column ledger, shared on the server against each character, with limits; then the cube-count warning, how many alts, and what never carries over                                                                                                                                                                                 |
+| Gear             | Item-level tier tabs, a selected-tier gate track, drop tables, pity counts, and the enhancement ladder; link to Progression for the overall route                                                                                                                                                                                    |
+| Growth materials | Search and "what it grows" chips over a table (item, grows, from, limits); narrow widths show each material as a labelled entry, never a sideways scroll; spend order beside it from 1360px                                                                                                                                          |
+| Routine          | Daily and weekly groups side by side when both fit; each compact row shows the tick, task name, each counter's limit with its sharing scope, and any warning in full; a per-row disclosure holds the purpose, counter notes, details and guide link; group progress and separate confirmed manual-clear actions; banking notes below |
+| Skins            | Search and source chips; a curated appearance list with progress; selected outfit, accessory, or wing pieces and acquisition details                                                                                                                                                                                                 |
+| Daevanion        | Class and board tabs; three PvE route totals; point-cost bars; skill groups; SVG route and equivalent purchase list; whole-node points scrubber; shared Azphel route; from 1200px the board and node detail sit left of the purchase order, which flows into columns                                                                 |
+| Festival         | Games, rewards, key limits, and shop-price tables; conditional opening simulator with inputs, nearby assumptions, histogram, and equivalent text results                                                                                                                                                                             |
+| Sources          | Open questions first, grouped by topic, each saying what is unknown, which advice it affects and the next check; a `?topic=` entry point (linked from each page footer) narrows them to one section; then public source coverage and image credits                                                                                   |
 
 ## Phones
 
@@ -106,7 +115,7 @@ Build every page from shared components in `src/components/`; never copy header,
 
 Hold site-wide reader preferences (theme, metal per theme, zone, faction) in one context backed by `localStorage`. State that belongs to one feature, such as the timer setup and marked kills, uses `useStoredState` in that feature's component. Routine ticks and skin ownership stay independent and private to the browser; Routine clears only when the reader confirms a group-clear action.
 
-Use router paths for shareable tabs and selected entries, and query parameters for Daevanion budgets and Festival model inputs. Direct loading and Back/Forward restore the same selection. Keep search/filter state temporary and ownership ticks out of URLs. In-page contents controls scroll in code without replacing the route hash.
+Use router paths for shareable tabs and selected entries, and query parameters for Daevanion budgets, Festival model inputs and the Sources topic filter. Direct loading and Back/Forward restore the same selection. Keep search/filter state temporary and ownership ticks out of URLs. In-page contents controls scroll in code without replacing the route hash.
 
 ## Content and images
 

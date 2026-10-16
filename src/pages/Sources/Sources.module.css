@@ -35,6 +35,7 @@
 }
 
 .covers {
+  max-width: 76ch;
   font-size: 0.875rem;
   color: var(--muted);
 }
@@ -58,4 +59,13 @@
 .checked {
   font-size: 0.82rem;
   color: var(--muted);
+}
+
+.filter {
+  max-width: 76ch;
+  color: var(--muted);
+
+  & a {
+    color: var(--accent);
+  }
 }

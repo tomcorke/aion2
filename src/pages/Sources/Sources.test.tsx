@@ -9,6 +9,7 @@ import {
   type SourceId,
 } from "../../data/sources.ts";
 import { formatDate } from "../../lib/time.ts";
+import { questionsForTopic } from "../../components/shell/SiteFooter/SiteFooter.tsx";
 import { renderWithProviders } from "../../testing/render.tsx";
 import { Sources } from "./Sources.tsx";
 
@@ -122,4 +123,32 @@ test("shows recorded check dates and access notes, and invents none", () => {
     if (details?.accessNote)
       expect(item.textContent).toContain(details.accessNote);
   }
+});
+
+test("open questions come before the source catalog", () => {
+  renderWithProviders(<Sources />);
+
+  const [first] = screen.getAllByRole("heading", { level: 2 });
+
+  expect(first!.textContent).toBe("Open questions");
+});
+
+test("filters questions to one section and offers the full list", () => {
+  renderWithProviders(<Sources />, { path: "/sources?topic=festival" });
+
+  const questions = screen.getByRole("region", { name: "Open questions" });
+  const expected = questionsForTopic("festival");
+
+  expect(
+    within(questions).getAllByRole("listitem", { name: /./ }),
+  ).toHaveLength(expected.length);
+  expect(
+    within(questions).getByText(/affect the Shugo Festival section/),
+  ).toBeDefined();
+  expect(
+    within(questions)
+      .getByRole("link", { name: "Show all questions" })
+      .getAttribute("href"),
+  ).toBe("/sources");
+  expect(screen.getByRole("region", { name: "Guides and data" })).toBeDefined();
 });

@@ -29,3 +29,19 @@ test("links to the full source list", () => {
     screen.getByRole("link", { name: "All sources" }).getAttribute("href"),
   ).toBe("/sources");
 });
+
+test("links to the open questions that affect the current page", () => {
+  renderWithProviders(<SiteFooter />, { path: "/festival/simulator" });
+
+  const link = screen.getByRole("link", {
+    name: /open questions? for this section/,
+  });
+
+  expect(link.getAttribute("href")).toBe("/sources?topic=festival");
+});
+
+test("leaves out the questions link where none apply", () => {
+  renderWithProviders(<SiteFooter />, { path: "/daevanion" });
+
+  expect(screen.queryByRole("link", { name: /open question/ })).toBeNull();
+});

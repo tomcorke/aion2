@@ -1,8 +1,13 @@
+import { Link, useSearchParams } from "react-router";
 import { OpenQuestion } from "../../components/sources/OpenQuestion/OpenQuestion.tsx";
 import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
-import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
+import {
+  questionsForTopic,
+  SiteFooter,
+} from "../../components/shell/SiteFooter/SiteFooter.tsx";
 import { Rule } from "../../components/trim/Rule/Rule.tsx";
 import { openQuestionGroups, openQuestions } from "../../data/openQuestions.ts";
+import { sections } from "../../data/sections.ts";
 import { sourceDetails } from "../../data/sourceDetails.ts";
 import {
   imageCredits,
@@ -17,14 +22,61 @@ import STYLES from "./Sources.module.css";
 export function Sources() {
   useTitle("Sources");
 
+  const topic = useSearchParams()[0].get("topic");
+  const section = sections.find(({ path }) => path === topic);
+  const shown = section ? questionsForTopic(section.path) : openQuestions;
+  const groups = openQuestionGroups.filter(({ id }) =>
+    shown.some(({ groupId }) => groupId === id),
+  );
+
   return (
     <>
       <PageHero
         title="Sources"
-        lede="Where these notes come from, the image credits, and what is still unknown."
+        lede="What these notes still need confirmed in game, where the rest comes from, and the image credits."
       />
 
       <div className={STYLES.body}>
+        <section aria-labelledby="open-questions" className={STYLES.section}>
+          <h2 id="open-questions">Open questions</h2>
+
+          <p className={STYLES.intro}>
+            Things these notes cannot settle yet, why each changes the advice,
+            and the smallest check that would settle it. Reviewed dates on each
+            page mark when its content was last compared with the notes, not a
+            new check of these sources.
+          </p>
+
+          {section && (
+            <p className={STYLES.filter}>
+              Showing questions that affect the {section.title} section.{" "}
+              <Link to="/sources" preventScrollReset>
+                Show all questions
+              </Link>
+            </p>
+          )}
+
+          {groups.map(({ id, title }) => (
+            <section
+              key={id}
+              aria-labelledby={`questions-${id}`}
+              className={STYLES.group}
+            >
+              <h3 id={`questions-${id}`}>{title}</h3>
+
+              <ul className={STYLES.list}>
+                {shown
+                  .filter((question) => question.groupId === id)
+                  .map((question) => (
+                    <OpenQuestion key={question.id} question={question} />
+                  ))}
+              </ul>
+            </section>
+          ))}
+        </section>
+
+        <Rule gem />
+
         <section aria-labelledby="guides" className={STYLES.section}>
           <h2 id="guides">Guides and data</h2>
 
@@ -67,37 +119,6 @@ export function Sources() {
               </li>
             ))}
           </ul>
-        </section>
-
-        <Rule gem />
-
-        <section aria-labelledby="open-questions" className={STYLES.section}>
-          <h2 id="open-questions">Open questions</h2>
-
-          <p className={STYLES.intro}>
-            Things these notes cannot settle yet, why each changes the advice,
-            and the smallest check that would settle it. Reviewed dates on each
-            page mark when its content was last compared with the notes, not a
-            new check of these sources.
-          </p>
-
-          {openQuestionGroups.map(({ id, title }) => (
-            <section
-              key={id}
-              aria-labelledby={`questions-${id}`}
-              className={STYLES.group}
-            >
-              <h3 id={`questions-${id}`}>{title}</h3>
-
-              <ul className={STYLES.list}>
-                {openQuestions
-                  .filter((question) => question.groupId === id)
-                  .map((question) => (
-                    <OpenQuestion key={question.id} question={question} />
-                  ))}
-              </ul>
-            </section>
-          ))}
         </section>
       </div>
 
