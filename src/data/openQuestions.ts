@@ -9,6 +9,7 @@ export const openQuestionGroups = [
   { id: "festival", title: "Shugo Festival rewards and keys" },
   { id: "cubes", title: "Hidden Cube rewards" },
   { id: "gear", title: "Upgrades, stones and material sources" },
+  { id: "daevanion", title: "Daevanion builds and resets" },
   { id: "appearances", title: "Alts and appearances" },
 ] as const;
 
@@ -48,6 +49,19 @@ export const openQuestions: OpenQuestion[] = [
       { to: "/timers", label: "Server, local and UTC timers" },
     ],
     supportingSourceIDs: ["metabotEvents"],
+  },
+  {
+    id: "eu-event-slots",
+    groupId: "timers",
+    unknown:
+      "EU Spacetime Rift slots remain disputed, and the Executors and Nahma ten-minute offsets have not been checked across repeated spawns.",
+    why: "Conflicting public schedules and one evening's observations do not establish the right EU entry or boss times for every occurrence.",
+    practicalCheck:
+      "Record live EU Rift openings and Executors and Nahma starts with local and UTC time across several occurrences. Compare the actual starts with the displayed slots before changing a schedule.",
+    relatedGuideLinks: [
+      { to: "/timers", label: "EU event and boss schedules" },
+    ],
+    supportingSourceIDs: ["shugoTimers", "metabotEvents", "wikily"],
   },
   {
     id: "kaira-argo-spawns",
@@ -178,6 +192,59 @@ export const openQuestions: OpenQuestion[] = [
     supportingSourceIDs: ["metabotHiddenCubes"],
   },
   {
+    id: "gear-pity-contents",
+    groupId: "gear",
+    unknown:
+      "What each Exploration and Conquest pity reward contains, and whether a skipped cube advances pity, remain unconfirmed.",
+    why: "Known pity thresholds do not tell you which item to expect or whether an unclaimed reward helps reach it.",
+    practicalCheck:
+      "Inspect each pity reward preview and record the counter before and after claiming or skipping a cube. Skipping still spends the shared unobtained-cube count; check that allowance before testing.",
+    relatedGuideLinks: [{ to: "/gear", label: "Gear pity rewards" }],
+    supportingSourceIDs: ["metabotDungeons", "gamesFuzeAfter45"],
+  },
+  {
+    id: "gear-voucher-acquisition",
+    groupId: "gear",
+    unknown:
+      "Gear Change Voucher drop mode, a Global drop guarantee, and whether the voucher comes from the cube or the final boss outside it remain unconfirmed.",
+    why: "A reported final-boss source does not establish whether an alt must spend a reward count and Odyle Energy to get a voucher.",
+    practicalCheck:
+      "Inspect Global Exploration and Conquest reward previews and record final-boss drops separately from cube rewards. Check voucher tooltips and repeated drops rather than assuming a guarantee from another region.",
+    relatedGuideLinks: [
+      { to: "/gear", label: "Gear Change Voucher sources" },
+      { to: "/alts", label: "Alt reward allowances" },
+    ],
+    supportingSourceIDs: ["metabotGear"],
+  },
+  {
+    id: "weapon-alt-transfer",
+    groupId: "gear",
+    unknown:
+      "The weapon selection chest's class choices and whether the chest or a bound dungeon weapon can enter Server Storage are unconfirmed.",
+    why: "A wrong-class drop is not automatically usable alt gear. Selection choices and storage eligibility matter before paying for conversion.",
+    practicalCheck:
+      "Inspect the Global chest's selection preview and the storage and binding tooltips on both the chest and weapon. Check Server Storage eligibility before converting; Soul Bound equipment cannot be equipped on an alt.",
+    relatedGuideLinks: [
+      { to: "/gear", label: "Weapon conversion and drops" },
+      { to: "/alts", label: "Server Storage restrictions" },
+    ],
+    supportingSourceIDs: ["metabotGear", "gameTruthAlts"],
+  },
+  {
+    id: "subjugation-rewards",
+    groupId: "gear",
+    unknown:
+      "Subjugation's item rewards and its live Global menu entry remain unconfirmed.",
+    why: "Entry gates and weekly tickets alone do not establish which items a run will earn or where to start it.",
+    practicalCheck:
+      "Locate Subjugation in the Global client and record its menu path, entry screen and reward preview. Keep item rewards separate from seasonal rank points.",
+    relatedGuideLinks: [
+      { to: "/gear", label: "Subjugation gear rewards" },
+      { to: "/routine", label: "Weekly Subjugation tickets" },
+    ],
+    supportingSourceIDs: ["metabotDungeons", "metabotChecklist"],
+  },
+  {
     id: "transfer-sync-requirements",
     groupId: "gear",
     unknown:
@@ -241,6 +308,59 @@ export const openQuestions: OpenQuestion[] = [
       { to: "/gear/enhancement", label: "Clash Rune failure warning" },
     ],
     supportingSourceIDs: ["gamerBlurbClashRunes", "destructoidClashRunes"],
+  },
+  {
+    id: "daevanion-skill-priorities",
+    groupId: "daevanion",
+    unknown:
+      "Daevanion skill priorities have not been checked against combat parses, Critical Hit Resist's PvE value is unknown, and tank and healer target sets may need different priorities.",
+    why: "Tooltip-based damage routes do not establish the best spending order for actual damage, tanking or healing.",
+    practicalCheck:
+      "Compare controlled combat parses with skill ranks and stat nodes changed separately. Record monster critical hits and compare tank and healer results before changing their target sets.",
+    relatedGuideLinks: [
+      { to: "/daevanion", label: "Class routes and priorities" },
+    ],
+    supportingSourceIDs: [
+      "metabotSpiritmasterSkills",
+      "metabotDaevanionClassSkills",
+      "metabotSpiritmasterPlanner",
+    ],
+  },
+  {
+    id: "azphel-pve-effects",
+    groupId: "daevanion",
+    unknown:
+      "Whether Azphel's Status Effect Chance and Resist help against PvE monsters and bosses, and whether its HP and MP nodes raise Combat Power, remain unconfirmed.",
+    why: "Known HP and MP gains and the observed item-level increase do not establish crowd-control value or a Combat Power gain.",
+    practicalCheck:
+      "Record stats and Combat Power before and after buying an Azphel HP or MP node. Compare controlled crowd-control attempts against the same monsters with and without Status Effect nodes.",
+    relatedGuideLinks: [{ to: "/daevanion", label: "Shared Azphel route" }],
+    supportingSourceIDs: ["metabotSpiritmasterPlanner"],
+  },
+  {
+    id: "daevanion-reset-refund",
+    groupId: "daevanion",
+    unknown:
+      "Whether a whole-board Daevanion reset refunds every point, and whether its Kina cost scales with points spent, remain unconfirmed.",
+    why: "Resetting to follow a route may cost more Kina or return fewer points than expected.",
+    practicalCheck:
+      "Inspect the reset preview, then record spent and available points and Kina before and after a whole-board reset. Compare boards with different points spent before assuming a cost rule.",
+    relatedGuideLinks: [{ to: "/daevanion", label: "Board route budgets" }],
+    supportingSourceIDs: ["metabotDaevanion"],
+  },
+  {
+    id: "alt-currency-cap-scopes",
+    groupId: "appearances",
+    unknown:
+      "Whether Quna and Centuryroot Tokens are shared, and the scopes of weekly Abyss Point, Daeva Pass EXP and Conquest and Transcendence final-boss kill caps, remain unconfirmed. The weekly Abyss Point cap values are also unknown.",
+    why: "An alt does not necessarily add another currency pool or cap. Unknown sharing rules can overstate how much extra progress it brings.",
+    practicalCheck:
+      "Compare currency balances and weekly counters across characters and servers, recording cap tooltips and changes after earning or spending. Check each currency and cap separately rather than borrowing another counter's scope.",
+    relatedGuideLinks: [
+      { to: "/alts", label: "Currency and counter sharing" },
+      { to: "/growth", label: "Currency limits and spending" },
+    ],
+    supportingSourceIDs: ["metabotChecklist", "metabotAbyss", "gameTruthAlts"],
   },
   {
     id: "skin-owned-stat-sharing",

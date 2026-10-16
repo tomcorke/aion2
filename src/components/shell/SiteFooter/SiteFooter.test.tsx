@@ -40,8 +40,23 @@ test("links to the open questions that affect the current page", () => {
   expect(link.getAttribute("href")).toBe("/sources?topic=festival");
 });
 
-test("leaves out the questions link where none apply", () => {
-  renderWithProviders(<SiteFooter />, { path: "/daevanion" });
+test("links the Daevanion section to its three open questions", () => {
+  renderWithProviders(<SiteFooter />, {
+    path: "/daevanion/spiritmaster/nezekan/damage?points=30",
+  });
 
-  expect(screen.queryByRole("link", { name: /open question/ })).toBeNull();
+  expect(
+    screen
+      .getByRole("link", { name: "3 open questions for this section" })
+      .getAttribute("href"),
+  ).toBe("/sources?topic=daevanion");
 });
+
+test.each(["/sources", "/unknown", "/"])(
+  "leaves out the questions link where none apply: %s",
+  (path) => {
+    renderWithProviders(<SiteFooter />, { path });
+
+    expect(screen.queryByRole("link", { name: /open question/ })).toBeNull();
+  },
+);

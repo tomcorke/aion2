@@ -1,10 +1,7 @@
 import { Link, useSearchParams } from "react-router";
 import { OpenQuestion } from "../../components/sources/OpenQuestion/OpenQuestion.tsx";
 import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
-import {
-  questionsForTopic,
-  SiteFooter,
-} from "../../components/shell/SiteFooter/SiteFooter.tsx";
+import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
 import { Rule } from "../../components/trim/Rule/Rule.tsx";
 import { openQuestionGroups, openQuestions } from "../../data/openQuestions.ts";
 import { sections } from "../../data/sections.ts";
@@ -16,6 +13,7 @@ import {
   type SourceId,
 } from "../../data/sources.ts";
 import { useTitle } from "../../hooks/useTitle.ts";
+import { questionsForTopic } from "../../lib/questionsForTopic.ts";
 import { formatDate } from "../../lib/time.ts";
 import STYLES from "./Sources.module.css";
 

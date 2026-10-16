@@ -9,7 +9,7 @@ import {
   type SourceId,
 } from "../../data/sources.ts";
 import { formatDate } from "../../lib/time.ts";
-import { questionsForTopic } from "../../components/shell/SiteFooter/SiteFooter.tsx";
+import { questionsForTopic } from "../../lib/questionsForTopic.ts";
 import { renderWithProviders } from "../../testing/render.tsx";
 import { Sources } from "./Sources.tsx";
 
@@ -131,6 +131,36 @@ test("open questions come before the source catalog", () => {
   const [first] = screen.getAllByRole("heading", { level: 2 });
 
   expect(first!.textContent).toBe("Open questions");
+});
+
+test("shows the three Daevanion gaps in their own filtered group", () => {
+  renderWithProviders(<Sources />, { path: "/sources?topic=daevanion" });
+
+  const group = within(
+    screen.getByRole("region", { name: "Daevanion builds and resets" }),
+  );
+
+  expect(group.getAllByRole("listitem")).toHaveLength(3);
+  expect(group.getByText(/Daevanion skill priorities/)).toBeDefined();
+  expect(group.getByText(/Whether Azphel's Status Effect/)).toBeDefined();
+  expect(
+    group.getByText(/Whether a whole-board Daevanion reset/),
+  ).toBeDefined();
+  expect(screen.getByText(/affect the Daevanion section/)).toBeDefined();
+  expect(
+    screen.queryByRole("region", { name: "EU clocks and event schedules" }),
+  ).toBeNull();
+});
+
+test("an unknown topic keeps all 26 questions visible", () => {
+  renderWithProviders(<Sources />, { path: "/sources?topic=unknown" });
+
+  const questions = within(
+    screen.getByRole("region", { name: "Open questions" }),
+  );
+
+  expect(questions.getAllByRole("listitem")).toHaveLength(26);
+  expect(questions.queryByText(/Showing questions that affect/)).toBeNull();
 });
 
 test("filters questions to one section and offers the full list", () => {

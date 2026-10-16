@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router";
-import { openQuestions } from "../../../data/openQuestions.ts";
 import { sources, type SourceId } from "../../../data/sources.ts";
+import { questionsForTopic } from "../../../lib/questionsForTopic.ts";
 import { formatDate } from "../../../lib/time.ts";
 import { Rule } from "../../trim/Rule/Rule.tsx";
 import STYLES from "./SiteFooter.module.css";
@@ -12,13 +12,6 @@ type Props = {
 };
 
 const topicOf = (path: string) => path.split("/")[1] ?? "";
-
-/** Open questions whose advice links into a top-level section, such as "festival". */
-export function questionsForTopic(topic: string) {
-  return openQuestions.filter(({ relatedGuideLinks }) =>
-    relatedGuideLinks.some(({ to }) => topicOf(to) === topic),
-  );
-}
 
 export function SiteFooter({ sources: ids = [], reviewed }: Props) {
   const names = ids.map((id) => sources[id].name);

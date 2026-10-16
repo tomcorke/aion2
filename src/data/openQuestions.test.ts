@@ -9,8 +9,10 @@ test("reader questions have stable unique IDs, topic groups, useful checks and r
     "festival",
     "cubes",
     "gear",
+    "daevanion",
     "appearances",
   ]);
+  expect(openQuestions).toHaveLength(26);
   expect(new Set(openQuestions.map(({ id }) => id)).size).toBe(
     openQuestions.length,
   );
@@ -43,6 +45,8 @@ test("reader questions have stable unique IDs, topic groups, useful checks and r
       expect(link.label.length).toBeGreaterThan(3);
     }
 
+    expect(question.supportingSourceIDs.length).toBeGreaterThan(0);
+
     for (const id of question.supportingSourceIDs) {
       expect(id in sources).toBe(true);
       expect("url" in sources[id] && sources[id].url).toMatch(/^https:\/\//);
@@ -74,6 +78,67 @@ test.each([
     const question = openQuestions.find((entry) => entry.id === id);
 
     expect(question?.unknown).toMatch(meaning);
+  },
+);
+
+test.each([
+  [
+    "daevanion-skill-priorities",
+    "daevanion",
+    /skill priorities.*Critical Hit Resist.*tank.*healer/i,
+    ["/daevanion"],
+  ],
+  [
+    "azphel-pve-effects",
+    "daevanion",
+    /Status Effect.*monsters.*Combat Power/i,
+    ["/daevanion"],
+  ],
+  [
+    "daevanion-reset-refund",
+    "daevanion",
+    /reset.*refund.*cost/i,
+    ["/daevanion"],
+  ],
+  ["gear-pity-contents", "gear", /pity.*contain.*skipped cube/i, ["/gear"]],
+  [
+    "gear-voucher-acquisition",
+    "gear",
+    /Voucher.*mode.*guarantee.*cube/i,
+    ["/gear", "/alts"],
+  ],
+  [
+    "weapon-alt-transfer",
+    "gear",
+    /weapon.*selection.*Server Storage/i,
+    ["/gear", "/alts"],
+  ],
+  [
+    "subjugation-rewards",
+    "gear",
+    /Subjugation.*item rewards.*menu/i,
+    ["/gear", "/routine"],
+  ],
+  [
+    "alt-currency-cap-scopes",
+    "appearances",
+    /Quna.*Centuryroot Tokens.*weekly.*cap/i,
+    ["/alts", "/growth"],
+  ],
+  [
+    "eu-event-slots",
+    "timers",
+    /Rift.*Executors.*Nahma.*ten-minute/i,
+    ["/timers"],
+  ],
+] as const)(
+  "covers retained gap %s and links its affected sections",
+  (id, group, meaning, paths) => {
+    const question = openQuestions.find((entry) => entry.id === id);
+
+    expect(question?.groupId).toBe(group);
+    expect(question?.unknown).toMatch(meaning);
+    expect(question?.relatedGuideLinks.map(({ to }) => to)).toEqual(paths);
   },
 );
 
