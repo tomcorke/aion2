@@ -1,19 +1,19 @@
-import {
-  skinAcquisitionSourceLabels,
-  type SkinAcquisition,
-  type SkinAppearancePiece,
-  type SkinCost,
-} from "../../../data/skinAcquisitions.ts";
+import type { SkinAppearancePiece } from "../../../data/skinAcquisitions.ts";
+import { skinCatalogueSourceLabels } from "../../../data/skinCatalogueMetadata.ts";
+import type {
+  SkinCatalogueAcquisition,
+  SkinCatalogueCost,
+} from "../../../data/skinCatalogueTypes.ts";
 import STYLES from "./SkinRoute.module.css";
 
 type Props = {
-  route: SkinAcquisition;
+  route: SkinCatalogueAcquisition;
   pieces: SkinAppearancePiece[];
 };
 
 const number = new Intl.NumberFormat("en-GB");
 
-const formatCosts = (costs: SkinCost[]) =>
+const formatCosts = (costs: SkinCatalogueCost[]) =>
   costs
     .map(({ currency, amount }) => `${number.format(amount)} ${currency}`)
     .join(" + ");
@@ -35,7 +35,7 @@ export function SkinRoute({ route, pieces }: Props) {
       <h3 id={headingId}>{name}</h3>
 
       <p className={STYLES.meta}>
-        <span>{skinAcquisitionSourceLabels[source]}</span>
+        <span>{skinCatalogueSourceLabels[source]}</span>
         <span>{coverage}</span>
       </p>
 

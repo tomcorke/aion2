@@ -5,6 +5,7 @@ import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import { sources } from "../../data/sources.ts";
 import { skinAcquisitionSources } from "../../data/skinAcquisitions.ts";
 import { skinsSources } from "../../data/skins.ts";
+import { loadSkinCatalogue } from "../../lib/skinCatalogueLoader.ts";
 import { renderWithProviders } from "../../testing/render.tsx";
 import { Skins } from "./Skins.tsx";
 
@@ -27,14 +28,21 @@ function Where() {
   );
 }
 
-const renderPage = (path = "/skins") =>
-  renderWithProviders(
+vi.mock("../../lib/skinCatalogueLoader.ts", { spy: true });
+
+async function renderPage(path = "/skins") {
+  const result = renderWithProviders(
     <>
       <Skins />
       <Where />
     </>,
     { path },
   );
+
+  await screen.findAllByRole("navigation", { name: "Skin sets" });
+
+  return result;
+}
 
 const location = () =>
   screen.getByRole("status", { name: "location" }).textContent;
@@ -44,7 +52,7 @@ const catalogue = () => screen.getByRole("navigation", { name: "Skin sets" });
 const detail = () => screen.getByRole("region", { name: "Selected set" });
 
 const setLink = (name: string) =>
-  within(catalogue()).getByRole("link", { name: new RegExp(name) });
+  within(catalogue()).getByRole("link", { name: new RegExp(`^${name}`) });
 
 const search = (text: string) =>
   userEvent.type(
@@ -56,10 +64,10 @@ beforeEach(() => localStorage.clear());
 
 afterEach(() => vi.restoreAllMocks());
 
-test("lists outfits, accessory pairs and wings separately", () => {
-  renderPage();
+test("lists outfits, accessory pairs and wings separately", async () => {
+  await renderPage();
 
-  for (const heading of ["Outfits", "Accessories", "Wings"])
+  for (const heading of ["Outfits", "Armour", "Accessories", "Vanity", "Wings"])
     expect(
       within(catalogue()).getByRole("heading", { name: heading }),
     ).toBeDefined();
@@ -70,8 +78,8 @@ test("lists outfits, accessory pairs and wings separately", () => {
   expect(within(detail()).getByText(/Pick a set/)).toBeDefined();
 });
 
-test("a direct set URL shows its pieces, prices and limits", () => {
-  renderPage("/skins/skilled-expert");
+test("a direct set URL shows its pieces, prices and limits", async () => {
+  await renderPage("/skins/skilled-expert");
 
   expect(
     within(detail()).getByRole("heading", { name: "Skilled Expert" }),
@@ -94,8 +102,8 @@ test("a direct set URL shows its pieces, prices and limits", () => {
   ).toBe("/festival/simulator?target=skilled-expert");
 });
 
-test("accessory and wing totals stay out of outfits", () => {
-  renderPage("/skins/starry-starry-night");
+test("accessory and wing totals stay out of outfits", async () => {
+  await renderPage("/skins/starry-starry-night");
 
   expect(within(detail()).getAllByRole("checkbox")).toHaveLength(2);
   expect(
@@ -103,21 +111,21 @@ test("accessory and wing totals stay out of outfits", () => {
   ).toBeDefined();
 });
 
-test("wing entries explain their character scope", () => {
-  renderPage("/skins/spirit-wings");
+test("wing entries explain their character scope", async () => {
+  await renderPage("/skins/spirit-wings");
 
   expect(within(detail()).getByText(/stay with the character/)).toBeDefined();
 });
 
-test("an unknown set says so and keeps the catalogue", () => {
-  renderPage("/skins/nope");
+test("an unknown set says so and keeps the catalogue", async () => {
+  await renderPage("/skins/nope");
 
   expect(within(detail()).getByText(/no “nope” skin set/)).toBeDefined();
   expect(setLink("Lightpath Trace")).toBeDefined();
 });
 
 test("choosing a set changes the route, and history restores it", async () => {
-  renderPage();
+  await renderPage();
 
   await userEvent.click(setLink("Spirit Wings"));
 
@@ -141,7 +149,7 @@ test("choosing a set changes the route, and history restores it", async () => {
 });
 
 test("history restores selected details despite temporary filters without changing ownership", async () => {
-  renderPage("/skins/lightpath-trace");
+  await renderPage("/skins/lightpath-trace");
 
   await userEvent.click(
     within(detail()).getByRole("checkbox", { name: "Helm" }),
@@ -178,27 +186,24 @@ test("history restores selected details despite temporary filters without changi
 });
 
 test("search matches set names and piece aliases", async () => {
-  renderPage();
+  await renderPage();
 
   await search("shoulders");
 
-  expect(within(catalogue()).getAllByRole("link")).toHaveLength(2);
+  expect(listed()).toEqual(["Lightpath Trace", "Skilled Expert"]);
 
   await userEvent.clear(screen.getByRole("searchbox"));
   await search("butterfly");
 
-  expect(
-    within(catalogue())
-      .getAllByRole("link")
-      .map((link) => link.textContent),
-  ).toEqual([
-    expect.stringContaining("Violet Butterfly Wings"),
-    expect.stringContaining("Springflower Butterfly Wings"),
+  expect(listed()).toEqual([
+    "Violet Butterfly Wings",
+    "Springflower Butterfly Wings",
+    "Blue Butterfly Wings",
   ]);
 });
 
 test("search combines with the source chip, with an empty state and clear", async () => {
-  renderPage();
+  await renderPage();
 
   const chips = screen.getByRole("group", { name: "Source" });
 
@@ -217,7 +222,7 @@ test("search combines with the source chip, with an empty state and clear", asyn
     screen.getAllByRole("button", { name: "Clear filters" })[0]!,
   );
 
-  expect(within(catalogue()).getAllByRole("link")).toHaveLength(13);
+  expect(within(catalogue()).getAllByRole("link")).toHaveLength(314);
   expect(
     within(chips)
       .getByRole("button", { name: "All" })
@@ -226,7 +231,7 @@ test("search combines with the source chip, with an empty state and clear", asyn
 });
 
 test("filtering out the selected set hides its details", async () => {
-  renderPage("/skins/lightpath-trace");
+  await renderPage("/skins/lightpath-trace");
 
   await search("wings");
 
@@ -235,7 +240,7 @@ test("filtering out the selected set hides its details", async () => {
 });
 
 test("ticks are per piece, update progress, and survive a remount", async () => {
-  const { unmount } = renderPage("/skins/lightpath-trace");
+  const { unmount } = await renderPage("/skins/lightpath-trace");
 
   await userEvent.click(
     within(detail()).getByRole("checkbox", { name: "Helm" }),
@@ -255,7 +260,7 @@ test("ticks are per piece, update progress, and survive a remount", async () => 
   ]);
 
   unmount();
-  renderPage("/skins/lightpath-trace");
+  await renderPage("/skins/lightpath-trace");
 
   expect(
     (
@@ -266,20 +271,20 @@ test("ticks are per piece, update progress, and survive a remount", async () => 
   ).toBe(true);
 });
 
-test("malformed and unknown stored ticks are ignored", () => {
+test("malformed and unknown stored ticks are ignored", async () => {
   localStorage.setItem(
     KEY,
     JSON.stringify(["retired", "spirit-wings-appearance", 4]),
   );
-  renderPage();
+  await renderPage();
 
   expect(setLink("Spirit Wings").textContent).toContain("1/1");
 
   localStorage.setItem(KEY, "{not json");
-  renderPage();
+  await renderPage();
 
   expect(
-    screen.getAllByRole("link", { name: /Spirit Wings/ })[1]!.textContent,
+    screen.getAllByRole("link", { name: /^Spirit Wings/ })[1]!.textContent,
   ).toContain("0/1");
 });
 
@@ -290,7 +295,7 @@ test("blocked storage keeps in-memory ownership through set navigation and histo
   vi.spyOn(Storage.prototype, "setItem").mockImplementation(() => {
     throw new Error("blocked");
   });
-  renderPage("/skins/spirit-wings");
+  await renderPage("/skins/spirit-wings");
 
   await userEvent.click(within(detail()).getByRole("checkbox"));
 
@@ -325,21 +330,72 @@ test("blocked storage keeps in-memory ownership through set navigation and histo
   expect(setLink("Spirit Wings").textContent).toContain("1/1");
 });
 
-test("ownership is explained as browser-local", () => {
-  renderPage();
+test("ownership is explained as browser-local", async () => {
+  await renderPage();
 
   expect(screen.getByText(/only in this browser/)).toBeDefined();
 });
 
-test("the footer names the page's sources", () => {
-  renderPage();
+test("the footer names the sources and preserves the oldest content review", async () => {
+  await renderPage();
 
   const footer = screen.getByRole("contentinfo");
 
   for (const id of [...skinsSources, ...skinAcquisitionSources])
     expect(footer.textContent).toContain(sources[id].name);
 
-  expect(footer.textContent).toContain("Reviewed 14 October 2026");
+  expect(footer.textContent).toContain("Reviewed 12 October 2026");
+});
+
+test("the footer links each data page used, adding the selected entry's own pages", async () => {
+  await renderPage("/skins/awakened");
+
+  const footer = screen.getByRole("contentinfo");
+  const href = (name: string) =>
+    within(footer).getByRole("link", { name }).getAttribute("href");
+
+  expect(href("MetaBot.GG skin inventory")).toBe(
+    "https://metabot.gg/en/aion-2/skins",
+  );
+  expect(href("MetaBot.GG wing inventory")).toBe(
+    "https://metabot.gg/en/aion-2/wings",
+  );
+  expect(href("MetaBot.GG methodology")).toBe(
+    "https://metabot.gg/en/aion-2/methodology",
+  );
+  expect(href("MetaBot.GG Nightmare Shop")).toBe(
+    "https://metabot.gg/en/aion-2/shops/trade-shop-phantasmal-fragment",
+  );
+  expect(
+    within(footer).getAllByRole("link", { name: "MetaBot.GG skin inventory" }),
+  ).toHaveLength(1);
+  expect(
+    within(footer).getByRole("link", { name: /open question/ }),
+  ).toBeDefined();
+});
+
+test("the page says what the reference does not prove", async () => {
+  await renderPage();
+
+  expect(screen.getByText(/Weapons are not listed/)).toBeDefined();
+  expect(
+    screen.getByText(/not proof that each can be obtained now/),
+  ).toBeDefined();
+});
+
+test("a failed load says so, keeps ticks and offers a reload", async () => {
+  localStorage.setItem(KEY, JSON.stringify(["lightpath-trace-helm"]));
+  vi.mocked(loadSkinCatalogue).mockRejectedValueOnce(new Error("offline"));
+  renderWithProviders(<Skins />, { path: "/skins/lightpath-trace" });
+
+  expect(screen.getByText(/Loading the appearance list/)).toBeDefined();
+  expect(
+    within(await screen.findByRole("alert")).getByRole("button", {
+      name: "Reload the page",
+    }),
+  ).toBeDefined();
+  expect(screen.queryByRole("navigation", { name: "Skin sets" })).toBeNull();
+  expect(localStorage.getItem(KEY)).toBe('["lightpath-trace-helm"]');
 });
 
 const chip = (name: string) =>
@@ -352,8 +408,8 @@ const listed = () =>
     .getAllByRole("link")
     .map((link) => link.firstElementChild?.textContent);
 
-test("lists non-Festival appearances beside Festival ones", () => {
-  renderPage();
+test("lists non-Festival appearances beside Festival ones", async () => {
+  await renderPage();
 
   expect(setLink("Skyfeather Guardian").textContent).toContain("0/7");
   expect(setLink("Archon Decanus accessories").textContent).toContain("0/2");
@@ -361,7 +417,7 @@ test("lists non-Festival appearances beside Festival ones", () => {
 });
 
 test("a multi-route appearance appears under each of its sources", async () => {
-  renderPage();
+  await renderPage();
 
   for (const name of [
     "Black Cloud random shop",
@@ -381,11 +437,13 @@ test("a multi-route appearance appears under each of its sources", async () => {
     "Archon Decanus",
     "Archon Centurion accessories",
     "Archon Decanus accessories",
+    "Brawler Wings",
+    "Warrior Wings",
   ]);
 });
 
 test("search tells the similarly named Skyfeather sets apart", async () => {
-  renderPage();
+  await renderPage();
 
   await search("skyfeather");
 
@@ -402,8 +460,8 @@ test("search tells the similarly named Skyfeather sets apart", async () => {
   expect(listed()).toEqual(["Archon Decanus", "Archon Decanus accessories"]);
 });
 
-test("Guardian routes show their own piece coverage and the extraction warning", () => {
-  renderPage("/skins/skyfeather-guardian");
+test("Guardian routes show their own piece coverage and the extraction warning", async () => {
+  await renderPage("/skins/skyfeather-guardian");
 
   const route = (name: string) =>
     within(detail()).getByRole("region", { name });
@@ -433,8 +491,8 @@ test("Guardian routes show their own piece coverage and the extraction warning",
   ).toBeDefined();
 });
 
-test("Abyss prices keep both currencies per piece and in the total", () => {
-  renderPage("/skins/archon-centurion");
+test("Abyss prices keep both currencies per piece and in the total", async () => {
+  await renderPage("/skins/archon-centurion");
 
   expect(
     within(detail()).getByRole("row", {
@@ -453,7 +511,7 @@ test("Abyss prices keep both currencies per piece and in the total", () => {
 
 test("new ticks persist beside existing Festival ticks", async () => {
   localStorage.setItem(KEY, JSON.stringify(["lightpath-trace-helm"]));
-  renderPage("/skins/sky-feather");
+  await renderPage("/skins/sky-feather");
 
   await userEvent.click(
     within(detail()).getByRole("checkbox", { name: "Cloak" }),

@@ -177,5 +177,23 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   allThingsDailyDungeon: { checkedDate: "2026-10-14" },
   metabotIntermediateSoulstone: { checkedDate: "2026-10-15" },
   metabotSuperiorSoulstone: { checkedDate: "2026-10-15" },
+  // S151–S155: retained public inventory/shop checks, not live availability.
+  metabotSkinInventory: { checkedDate: "2026-10-16" },
+  metabotWingInventory: { checkedDate: "2026-10-16" },
+  metabotNightmareShop: {
+    checkedDate: "2026-10-16",
+    accessNote:
+      "Complete relevant client shop rows retained; not a live purchase audit.",
+  },
+  metabotSeasonShop: {
+    checkedDate: "2026-10-16",
+    accessNote:
+      "Extracted seasonal end dates lack a verified live hour or time zone.",
+  },
+  metabotDaevaPassShop: {
+    checkedDate: "2026-10-16",
+    accessNote:
+      "Client shop rows retained despite one empty set-detail response; not a live availability audit.",
+  },
   ...skinAcquisitionSourceDetails,
 };

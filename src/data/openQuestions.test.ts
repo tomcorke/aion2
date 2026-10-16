@@ -12,7 +12,7 @@ test("reader questions have stable unique IDs, topic groups, useful checks and r
     "daevanion",
     "appearances",
   ]);
-  expect(openQuestions).toHaveLength(26);
+  expect(openQuestions).toHaveLength(27);
   expect(new Set(openQuestions.map(({ id }) => id)).size).toBe(
     openQuestions.length,
   );
@@ -141,6 +141,23 @@ test.each([
     expect(question?.relatedGuideLinks.map(({ to }) => to)).toEqual(paths);
   },
 );
+
+test("keeps the expanded catalogue acquisition gap explicit without treating existence as availability", () => {
+  const question = openQuestions.find(
+    ({ id }) => id === "skin-catalogue-acquisition",
+  );
+
+  expect(question?.unknown).toMatch(
+    /piece-specific.*random-shop.*Poko.*seasonal/i,
+  );
+  expect(question?.why).toMatch(/client.*obtained now/i);
+  expect(question?.practicalCheck).toMatch(
+    /piece.*source.*probability.*Global shop/i,
+  );
+  expect(question?.relatedGuideLinks).toEqual([
+    { to: "/skins", label: "Full non-weapon appearance reference" },
+  ]);
+});
 
 test("excludes private profiles, artifact links, evidence labels and already resolved questions", () => {
   const copy = openQuestions

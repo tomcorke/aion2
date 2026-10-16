@@ -1,6 +1,7 @@
 import { screen } from "@testing-library/react";
 import { expect, test } from "vitest";
 import { nonFestivalSkinEntries } from "../../../data/skinAcquisitions.ts";
+import { skinCatalogueEntries } from "../../../data/skinCatalogue.ts";
 import { renderWithProviders } from "../../../testing/render.tsx";
 import { SkinRoute } from "./SkinRoute.tsx";
 
@@ -57,4 +58,18 @@ test("a single-currency shop route totals the two accessories", () => {
     screen.getByRole("row", { name: /Total.*181,200 Abyss Points$/ }),
   ).toBeDefined();
   expect(screen.getByText("One of each piece per character.")).toBeDefined();
+});
+
+test("catalogue shop routes keep their own currency and the unverified end date", () => {
+  const { pieces, acquisitions } = skinCatalogueEntries.find(
+    ({ id }) => id === "floofy-shugo-friend",
+  )!;
+
+  renderWithProviders(<SkinRoute route={acquisitions[0]!} pieces={pieces} />);
+
+  expect(screen.getAllByText("Daeva Pass Shop")).toHaveLength(2);
+  expect(
+    screen.getByRole("row", { name: /Total.*Daeva Pass Shop Coin$/ }),
+  ).toBeDefined();
+  expect(screen.getByText(/not a verified live deadline/)).toBeDefined();
 });

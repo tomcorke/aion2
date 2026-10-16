@@ -377,6 +377,24 @@ export const openQuestions: OpenQuestion[] = [
     supportingSourceIDs: ["gameTruthAlts", "gamerBlurbShared"],
   },
   {
+    id: "skin-catalogue-acquisition",
+    groupId: "appearances",
+    unknown:
+      "Piece-specific random-shop prices, cube and ranking requirements, full wing recipes and alternate extraction routes remain incomplete. Poko's Skin Bundle origin and probability meaning, and live seasonal offer availability, are unresolved.",
+    why: "A complete client appearance inventory does not establish that every piece can be obtained now or give a reliable cost to collect it.",
+    practicalCheck:
+      "Inspect each named piece's current source and cost panels. Identify the exact bundle and whether its probability applies to a piece, design or set; compare seasonal dates with the live Global shop and regional notice before treating them as deadlines.",
+    relatedGuideLinks: [
+      { to: "/skins", label: "Full non-weapon appearance reference" },
+    ],
+    supportingSourceIDs: [
+      "metabotSkinInventory",
+      "metabotWingInventory",
+      "metabotSeasonShop",
+      "metabotDaevaPassShop",
+    ],
+  },
+  {
     id: "optional-skin-chests",
     groupId: "appearances",
     unknown:

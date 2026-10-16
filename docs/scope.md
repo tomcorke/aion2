@@ -32,18 +32,18 @@ The notes repo also has topics with no artifact yet: factions, character profile
 
 The shell already routes these sections. Detailed specifications live in GitHub issues, with separately approved implementation tickets linked beneath them. This document is the index and scope summary, not a second copy of the specs.
 
-| Path           | Page                                                   | Built from                                        | Spec                                               |
-| -------------- | ------------------------------------------------------ | ------------------------------------------------- | -------------------------------------------------- |
-| `/progression` | Overall item-level route and practical priorities      | Progression Route                                 | [#1](https://github.com/tomcorke/aion2/issues/1)   |
-| `/gear`        | Tier drops, pity, upgrades, power outside gear         | Level 45 Gearing, Progression Route gear sections | [#2](https://github.com/tomcorke/aion2/issues/2)   |
-| `/daevanion`   | Class routes, diagrams, and point budgets              | Azphel Board Route                                | [#3](https://github.com/tomcorke/aion2/issues/3)   |
-| `/timers`      | Existing timer verification and supported gaps         | Level 45 Companion timers tab                     | [#9](https://github.com/tomcorke/aion2/issues/9)   |
-| `/routine`     | Manually cleared daily and weekly checklist            | Gearing and Progression routine sections          | [#4](https://github.com/tomcorke/aion2/issues/4)   |
-| `/alts`        | Sharing ledger, counters, and main/alt jobs            | Main vs Alts                                      | [#5](https://github.com/tomcorke/aion2/issues/5)   |
-| `/growth`      | Searchable materials, uses, sources, and limits        | Notes repo gear, stones and currency topics       | [#6](https://github.com/tomcorke/aion2/issues/6)   |
-| `/skins`       | Curated appearances and ownership checklist            | Notes repo skin sources and Festival prices       | [#7](https://github.com/tomcorke/aion2/issues/7)   |
-| `/festival`    | Games, rewards, prices, and conditional simulator      | Shugo Festival Datasheet                          | [#8](https://github.com/tomcorke/aion2/issues/8)   |
-| `/sources`     | Public sources, image credits, relevant open questions | Notes repo catalog and open questions             | [#10](https://github.com/tomcorke/aion2/issues/10) |
+| Path           | Page                                                    | Built from                                             | Spec                                                                                                 |
+| -------------- | ------------------------------------------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------- |
+| `/progression` | Overall item-level route and practical priorities       | Progression Route                                      | [#1](https://github.com/tomcorke/aion2/issues/1)                                                     |
+| `/gear`        | Tier drops, pity, upgrades, power outside gear          | Level 45 Gearing, Progression Route gear sections      | [#2](https://github.com/tomcorke/aion2/issues/2)                                                     |
+| `/daevanion`   | Class routes, diagrams, and point budgets               | Azphel Board Route                                     | [#3](https://github.com/tomcorke/aion2/issues/3)                                                     |
+| `/timers`      | Existing timer verification and supported gaps          | Level 45 Companion timers tab                          | [#9](https://github.com/tomcorke/aion2/issues/9)                                                     |
+| `/routine`     | Manually cleared daily and weekly checklist             | Gearing and Progression routine sections               | [#4](https://github.com/tomcorke/aion2/issues/4)                                                     |
+| `/alts`        | Sharing ledger, counters, and main/alt jobs             | Main vs Alts                                           | [#5](https://github.com/tomcorke/aion2/issues/5)                                                     |
+| `/growth`      | Searchable materials, uses, sources, and limits         | Notes repo gear, stones and currency topics            | [#6](https://github.com/tomcorke/aion2/issues/6)                                                     |
+| `/skins`       | Non-weapon appearance reference and ownership checklist | Notes repo skin catalogue, sources and Festival prices | [#7](https://github.com/tomcorke/aion2/issues/7), [#36](https://github.com/tomcorke/aion2/issues/36) |
+| `/festival`    | Games, rewards, prices, and conditional simulator       | Shugo Festival Datasheet                               | [#8](https://github.com/tomcorke/aion2/issues/8)                                                     |
+| `/sources`     | Public sources, image credits, relevant open questions  | Notes repo catalog and open questions                  | [#10](https://github.com/tomcorke/aion2/issues/10)                                                   |
 
 Shareable selections include `/gear/:tier`, `/gear/enhancement`, `/daevanion/:class/:board/:variant` with a points query, `/timers/abyss`, `/skins/:set`, and `/festival/simulator` with its model inputs. These are hash routes, such as `/#/gear/enhancement`; the router owns navigation and in-page scrolling must not replace the route hash.
 
@@ -54,9 +54,9 @@ Shareable selections include `/gear/:tier`, `/gear/enhancement`, `/daevanion/:cl
 3. **Canonical content.** Progression owns the overall unlock ladder and priorities. Gear owns drop tables, local tier context, pity, and upgrade mechanics. Cross-link full details instead of duplicating tables. Reuse purchase data where Festival and Skins show the same prices.
 4. **Browser state.** Keep existing timer state and preferences. Routine ticks and skin ownership use independent browser-local state, not character/server profiles. Ownership and checklist ticks never enter shareable URLs. Search and source/target filters are temporary view state.
 5. **Routine resets.** Readers clear daily and weekly groups manually, with confirmation. No clock-driven clearing or live remaining-resource counters. EU clock verification does not block this checklist.
-6. **Page interactions.** Progression and Alts are reading guides; Gear uses tier tabs; Growth uses search and target chips; Skins uses a curated catalogue, source filters, and piece ticks. Daevanion shows eight classes, five boards, three PvE variants, the common Azphel route, and a whole-node budget scrubber. Routes assume empty boards; no custom solver or profile import.
+6. **Page interactions.** Progression and Alts are reading guides; Gear uses tier tabs; Growth uses search and target chips; Skins lists all 1,008 non-weapon client appearances (weapons excluded) with known routes, a "Source not recorded" filter, and piece ticks; client records do not prove current availability. Daevanion shows eight classes, five boards, three PvE variants, the common Azphel route, and a whole-node budget scrubber. Routes assume empty boards; no custom solver or profile import.
 7. **Festival model.** Simulate reward openings with starting tokens and a purchase target. Participation income is an explicit opt-in assumption. Show a histogram, text summary, expected total, and sampled target probability. Do not turn openings into verified key counts or calendar completion dates.
-8. **Knowledge coverage and gaps.** Fold relevant notes into these themed pages; no generic Topics reader or exhaustive wardrobe. Required facts gate only the slice claiming them. Optional unsupported entries can wait and reader-relevant gaps belong on Sources. Ship no bracketed placeholders or guessed fields.
+8. **Knowledge coverage and gaps.** Fold relevant notes into these themed pages; no generic Topics reader; Skins is the one wardrobe-wide reference (#36), and only its non-weapon records. Required facts gate only the slice claiming them. Optional unsupported entries can wait and reader-relevant gaps belong on Sources. Ship no bracketed placeholders or guessed fields.
 9. **Tests and delivery.** Use existing routed page/component tests for behaviour and pure tests for calculations/data invariants. Check phones, keyboard access, themes, and metals manually. No new end-to-end framework or standalone speculative control framework. Publication requires a separate user request.
 
 ## Retained limits
@@ -68,4 +68,4 @@ Shareable selections include `/gear/:tier`, `/gear/enhancement`, `/daevanion/:cl
 
 ## Out of scope for now
 
-Accounts, a backend, per-character/server profiles, automatic knowledge imports, global site search, live inventory/resource tracking, automatic checklist resets, custom Daevanion optimisation, an exhaustive wardrobe, and Korea or Taiwan region data. Local page search and filters are in scope.
+Accounts, a backend, per-character/server profiles, automatic knowledge imports, global site search, live inventory/resource tracking, automatic checklist resets, custom Daevanion optimisation, weapon appearances, and Korea or Taiwan region data. Local page search and filters are in scope.

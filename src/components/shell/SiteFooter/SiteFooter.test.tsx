@@ -60,3 +60,33 @@ test.each(["/sources", "/unknown", "/"])(
     expect(screen.queryByRole("link", { name: /open question/ })).toBeNull();
   },
 );
+
+test("links each attributed data page directly, once, without rel hints", () => {
+  const page = { name: "Inventory", url: "https://example.com/skins" };
+
+  renderWithProviders(
+    <SiteFooter
+      sources={["couga54"]}
+      reviewed="2026-10-14"
+      attribution={[
+        page,
+        { name: "Shop", url: "https://example.com/shop" },
+        page,
+      ]}
+    />,
+  );
+
+  const links = screen.getAllByRole("link", { name: /Inventory|Shop/ });
+
+  expect(links.map((link) => link.getAttribute("href"))).toEqual([
+    "https://example.com/skins",
+    "https://example.com/shop",
+  ]);
+  expect(links.every((link) => !link.hasAttribute("rel"))).toBe(true);
+  expect(screen.getByRole("contentinfo").textContent).toContain(
+    "Data from Inventory, Shop.",
+  );
+  expect(screen.getByRole("contentinfo").textContent).toContain(
+    "Reviewed 14 October 2026.",
+  );
+});

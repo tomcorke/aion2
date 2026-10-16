@@ -1,0 +1,7717 @@
+[
+  {
+    "id": "ascended-daeva",
+    "kind": "costume",
+    "name": "Ascended Daeva",
+    "pieces": [
+      {
+        "id": "ascended-daeva-helm",
+        "name": "Ascended Daeva (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "ascended-daeva-boots",
+        "name": "Ascended Daeva (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "ascended-daeva-breastplate",
+        "name": "Ascended Daeva (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "ascended-daeva-greaves",
+        "name": "Ascended Daeva (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "ascended-daeva-gloves",
+        "name": "Ascended Daeva (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "ascended-daeva-cloak",
+        "name": "Ascended Daeva (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "ascended-daeva-pauldrons",
+        "name": "Ascended Daeva (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-black-mask-helm",
+    "kind": "armor",
+    "name": "Black Mask (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-black-mask-helm-appearance",
+        "name": "Black Mask (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-crimson-twilight-gown-helm",
+    "kind": "armor",
+    "name": "Crimson Twilight Gown (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-crimson-twilight-gown-helm-appearance",
+        "name": "Crimson Twilight Gown (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "floofy-shugo-friend",
+    "kind": "costume",
+    "name": "Floofy Shugo Friend",
+    "pieces": [
+      {
+        "id": "floofy-shugo-friend-helm",
+        "name": "Floofy Shugo Friend (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "floofy-shugo-friend-boots",
+        "name": "Floofy Shugo Friend (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "floofy-shugo-friend-breastplate",
+        "name": "Floofy Shugo Friend (Breastplate)",
+        "aliases": ["Breastplate"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "floofy-shugo-friend-helm",
+        "source": "pass-shop",
+        "sourceId": "metabotDaevaPassShop",
+        "name": "Daeva Pass Shop",
+        "costs": [
+          {
+            "currency": "Daeva Pass Shop Coin",
+            "amount": 7000
+          }
+        ],
+        "endDate": "2026-12-16"
+      },
+      {
+        "pieceId": "floofy-shugo-friend-boots",
+        "source": "pass-shop",
+        "sourceId": "metabotDaevaPassShop",
+        "name": "Daeva Pass Shop",
+        "costs": [
+          {
+            "currency": "Daeva Pass Shop Coin",
+            "amount": 8000
+          }
+        ],
+        "endDate": "2026-12-16"
+      },
+      {
+        "pieceId": "floofy-shugo-friend-breastplate",
+        "source": "pass-shop",
+        "sourceId": "metabotDaevaPassShop",
+        "name": "Daeva Pass Shop",
+        "costs": [
+          {
+            "currency": "Daeva Pass Shop Coin",
+            "amount": 30000
+          }
+        ],
+        "endDate": "2026-12-16"
+      }
+    ]
+  },
+  {
+    "id": "genesis-daeva",
+    "kind": "costume",
+    "name": "Genesis Daeva",
+    "pieces": [
+      {
+        "id": "genesis-daeva-helm",
+        "name": "Genesis Daeva (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "genesis-daeva-boots",
+        "name": "Genesis Daeva (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "genesis-daeva-breastplate",
+        "name": "Genesis Daeva (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "genesis-daeva-greaves",
+        "name": "Genesis Daeva (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "genesis-daeva-gloves",
+        "name": "Genesis Daeva (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "genesis-daeva-cloak",
+        "name": "Genesis Daeva (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "genesis-daeva-pauldrons",
+        "name": "Genesis Daeva (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-head-bow-helm",
+    "kind": "armor",
+    "name": "Head Bow (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-head-bow-helm-appearance",
+        "name": "Head Bow (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-light-of-life-helm",
+    "kind": "armor",
+    "name": "Light of Life (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-light-of-life-helm-appearance",
+        "name": "Light of Life (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "loose-fit-streetwear",
+    "kind": "costume",
+    "name": "Loose-Fit Streetwear",
+    "pieces": [
+      {
+        "id": "loose-fit-streetwear-helm",
+        "name": "Loose-Fit Streetwear (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "loose-fit-streetwear-boots",
+        "name": "Loose-Fit Streetwear (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "loose-fit-streetwear-breastplate",
+        "name": "Loose-Fit Streetwear (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "loose-fit-streetwear-greaves",
+        "name": "Loose-Fit Streetwear (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "loose-fit-streetwear-gloves",
+        "name": "Loose-Fit Streetwear (Gloves)",
+        "aliases": ["Gloves"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "mischievous-shugo",
+    "kind": "costume",
+    "name": "Mischievous Shugo",
+    "pieces": [
+      {
+        "id": "mischievous-shugo-helm",
+        "name": "Mischievous Shugo (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "mischievous-shugo-boots",
+        "name": "Mischievous Shugo (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "mischievous-shugo-breastplate",
+        "name": "Mischievous Shugo (Breastplate)",
+        "aliases": ["Breastplate"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "mischievous-shugo-helm",
+        "source": "pass-shop",
+        "sourceId": "metabotDaevaPassShop",
+        "name": "Daeva Pass Shop",
+        "costs": [
+          {
+            "currency": "Daeva Pass Shop Coin",
+            "amount": 7000
+          }
+        ],
+        "endDate": "2026-12-16"
+      },
+      {
+        "pieceId": "mischievous-shugo-boots",
+        "source": "pass-shop",
+        "sourceId": "metabotDaevaPassShop",
+        "name": "Daeva Pass Shop",
+        "costs": [
+          {
+            "currency": "Daeva Pass Shop Coin",
+            "amount": 8000
+          }
+        ],
+        "endDate": "2026-12-16"
+      },
+      {
+        "pieceId": "mischievous-shugo-breastplate",
+        "source": "pass-shop",
+        "sourceId": "metabotDaevaPassShop",
+        "name": "Daeva Pass Shop",
+        "costs": [
+          {
+            "currency": "Daeva Pass Shop Coin",
+            "amount": 30000
+          }
+        ],
+        "endDate": "2026-12-16"
+      }
+    ]
+  },
+  {
+    "id": "moonlit-aria",
+    "kind": "costume",
+    "name": "Moonlit Aria",
+    "pieces": [
+      {
+        "id": "moonlit-aria-helm",
+        "name": "Moonlit Aria (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "moonlit-aria-boots",
+        "name": "Moonlit Aria (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "moonlit-aria-breastplate",
+        "name": "Moonlit Aria (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "moonlit-aria-greaves",
+        "name": "Moonlit Aria (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "moonlit-aria-gloves",
+        "name": "Moonlit Aria (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "moonlit-aria-cloak",
+        "name": "Moonlit Aria (Cloak)",
+        "aliases": ["Cloak"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-salvation-s-grace-helm",
+    "kind": "armor",
+    "name": "◆ Salvation's Grace (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-salvation-s-grace-helm-appearance",
+        "name": "◆ Salvation's Grace (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "shadowlight-wind",
+    "kind": "costume",
+    "name": "Shadowlight Wind",
+    "pieces": [
+      {
+        "id": "shadowlight-wind-helm",
+        "name": "Shadowlight Wind (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "shadowlight-wind-boots",
+        "name": "Shadowlight Wind (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "shadowlight-wind-breastplate",
+        "name": "Shadowlight Wind (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "shadowlight-wind-greaves",
+        "name": "Shadowlight Wind (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "shadowlight-wind-gloves",
+        "name": "Shadowlight Wind (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "shadowlight-wind-cloak",
+        "name": "Shadowlight Wind (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "shadowlight-wind-pauldrons",
+        "name": "Shadowlight Wind (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "snowy-sheer",
+    "kind": "costume",
+    "name": "Snowy Sheer",
+    "pieces": [
+      {
+        "id": "snowy-sheer-helm",
+        "name": "Snowy Sheer (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "snowy-sheer-boots",
+        "name": "Snowy Sheer (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "snowy-sheer-breastplate",
+        "name": "Snowy Sheer (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "snowy-sheer-greaves",
+        "name": "Snowy Sheer (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "snowy-sheer-gloves",
+        "name": "Snowy Sheer (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "snowy-sheer-cloak",
+        "name": "Snowy Sheer (Cloak)",
+        "aliases": ["Cloak"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-talisra-celestial-crown-helm",
+    "kind": "armor",
+    "name": "Talisra Celestial Crown (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-talisra-celestial-crown-helm-appearance",
+        "name": "Talisra Celestial Crown (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-talisra-coronet-helm",
+    "kind": "armor",
+    "name": "Talisra Coronet (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-talisra-coronet-helm-appearance",
+        "name": "Talisra Coronet (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-talisra-crown-helm",
+    "kind": "armor",
+    "name": "Talisra Crown (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-talisra-crown-helm-appearance",
+        "name": "Talisra Crown (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-talisra-delusion-crown-helm",
+    "kind": "armor",
+    "name": "Talisra Delusion Crown (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-talisra-delusion-crown-helm-appearance",
+        "name": "Talisra Delusion Crown (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-talisra-eventide-crown-helm",
+    "kind": "armor",
+    "name": "Talisra Eventide Crown (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-talisra-eventide-crown-helm-appearance",
+        "name": "Talisra Eventide Crown (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-talisra-hairband-helm",
+    "kind": "armor",
+    "name": "Talisra Hairband (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-talisra-hairband-helm-appearance",
+        "name": "Talisra Hairband (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-white-headset-helm",
+    "kind": "armor",
+    "name": "White Headset (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-white-headset-helm-appearance",
+        "name": "White Headset (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-zikel-s-apparition-celestial-crown-helm",
+    "kind": "armor",
+    "name": "Zikel's Apparition Celestial Crown (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-zikel-s-apparition-celestial-crown-helm-appearance",
+        "name": "Zikel's Apparition Celestial Crown (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-zikel-s-apparition-coronet-helm",
+    "kind": "armor",
+    "name": "Zikel's Apparition Coronet (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-zikel-s-apparition-coronet-helm-appearance",
+        "name": "Zikel's Apparition Coronet (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-zikel-s-apparition-delusion-crown-helm",
+    "kind": "armor",
+    "name": "Zikel's Apparition Delusion Crown (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-zikel-s-apparition-delusion-crown-helm-appearance",
+        "name": "Zikel's Apparition Delusion Crown (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-zikel-s-apparition-durable-coronet-helm",
+    "kind": "armor",
+    "name": "Zikel's Apparition Durable Coronet (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-zikel-s-apparition-durable-coronet-helm-appearance",
+        "name": "Zikel's Apparition Durable Coronet (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-zikel-s-apparition-eventide-crown-helm",
+    "kind": "armor",
+    "name": "Zikel's Apparition Eventide Crown (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-zikel-s-apparition-eventide-crown-helm-appearance",
+        "name": "Zikel's Apparition Eventide Crown (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-zikel-s-apparition-mask-helm",
+    "kind": "armor",
+    "name": "Zikel's Apparition Mask (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-zikel-s-apparition-mask-helm-appearance",
+        "name": "Zikel's Apparition Mask (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "anguished-darkness",
+    "kind": "costume",
+    "name": "Anguished Darkness",
+    "pieces": [
+      {
+        "id": "anguished-darkness-helm",
+        "name": "Anguished Darkness (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "anguished-darkness-boots",
+        "name": "Anguished Darkness (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "anguished-darkness-breastplate",
+        "name": "Anguished Darkness (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "anguished-darkness-greaves",
+        "name": "Anguished Darkness (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "anguished-darkness-gloves",
+        "name": "Anguished Darkness (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "anguished-darkness-cloak",
+        "name": "Anguished Darkness (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "anguished-darkness-pauldrons",
+        "name": "Anguished Darkness (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "awakened",
+    "kind": "costume",
+    "name": "Awakened",
+    "pieces": [
+      {
+        "id": "awakened-helm",
+        "name": "Awakened (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "awakened-boots",
+        "name": "Awakened (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "awakened-breastplate",
+        "name": "Awakened (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "awakened-greaves",
+        "name": "Awakened (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "awakened-gloves",
+        "name": "Awakened (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "awakened-cloak",
+        "name": "Awakened (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "awakened-pauldrons",
+        "name": "Awakened (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "awakened-helm",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 6750
+          }
+        ]
+      },
+      {
+        "pieceId": "awakened-boots",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 6750
+          }
+        ]
+      },
+      {
+        "pieceId": "awakened-breastplate",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 10800
+          }
+        ]
+      },
+      {
+        "pieceId": "awakened-greaves",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 8000
+          }
+        ]
+      },
+      {
+        "pieceId": "awakened-gloves",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 5300
+          }
+        ]
+      },
+      {
+        "pieceId": "awakened-cloak",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 5300
+          }
+        ]
+      },
+      {
+        "pieceId": "awakened-pauldrons",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 6750
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "blessing-of-life",
+    "kind": "costume",
+    "name": "◆ Blessing of Life",
+    "pieces": [
+      {
+        "id": "blessing-of-life-helm",
+        "name": "◆ Blessing of Life (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "blessing-of-life-boots",
+        "name": "◆ Blessing of Life (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "blessing-of-life-breastplate",
+        "name": "◆ Blessing of Life (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "blessing-of-life-greaves",
+        "name": "◆ Blessing of Life (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "blessing-of-life-gloves",
+        "name": "◆ Blessing of Life (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "blessing-of-life-cloak",
+        "name": "◆ Blessing of Life (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "blessing-of-life-pauldrons",
+        "name": "◆ Blessing of Life (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "dawnbreaker",
+    "kind": "costume",
+    "name": "◆ Dawnbreaker",
+    "pieces": [
+      {
+        "id": "dawnbreaker-helm",
+        "name": "◆ Dawnbreaker (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "dawnbreaker-boots",
+        "name": "◆ Dawnbreaker (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "dawnbreaker-breastplate",
+        "name": "◆ Dawnbreaker (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "dawnbreaker-greaves",
+        "name": "◆ Dawnbreaker (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "dawnbreaker-gloves",
+        "name": "◆ Dawnbreaker (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "dawnbreaker-cloak",
+        "name": "◆ Dawnbreaker (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "dawnbreaker-pauldrons",
+        "name": "◆ Dawnbreaker (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "destruction-spearhead",
+    "kind": "costume",
+    "name": "Destruction Spearhead",
+    "pieces": [
+      {
+        "id": "destruction-spearhead-helm",
+        "name": "Destruction Spearhead (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "destruction-spearhead-boots",
+        "name": "Destruction Spearhead (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "destruction-spearhead-breastplate",
+        "name": "Destruction Spearhead (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "destruction-spearhead-greaves",
+        "name": "Destruction Spearhead (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "destruction-spearhead-gloves",
+        "name": "Destruction Spearhead (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "destruction-spearhead-cloak",
+        "name": "Destruction Spearhead (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "destruction-spearhead-pauldrons",
+        "name": "Destruction Spearhead (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-divine-auldor-mask-helm",
+    "kind": "armor",
+    "name": "Divine Auldor Mask (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-divine-auldor-mask-helm-appearance",
+        "name": "Divine Auldor Mask (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "draconic-aura",
+    "kind": "costume",
+    "name": "Draconic Aura",
+    "pieces": [
+      {
+        "id": "draconic-aura-helm",
+        "name": "Draconic Aura (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "draconic-aura-boots",
+        "name": "Draconic Aura (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "draconic-aura-breastplate",
+        "name": "Draconic Aura (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "draconic-aura-greaves",
+        "name": "Draconic Aura (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "draconic-aura-gloves",
+        "name": "Draconic Aura (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "draconic-aura-cloak",
+        "name": "Draconic Aura (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "draconic-aura-pauldrons",
+        "name": "Draconic Aura (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "draconic-benediction",
+    "kind": "costume",
+    "name": "Draconic Benediction",
+    "pieces": [
+      {
+        "id": "draconic-benediction-helm",
+        "name": "Draconic Benediction (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "draconic-benediction-boots",
+        "name": "Draconic Benediction (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "draconic-benediction-breastplate",
+        "name": "Draconic Benediction (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "draconic-benediction-greaves",
+        "name": "Draconic Benediction (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "draconic-benediction-gloves",
+        "name": "Draconic Benediction (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "draconic-benediction-cloak",
+        "name": "Draconic Benediction (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "draconic-benediction-pauldrons",
+        "name": "Draconic Benediction (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "draconic-rage",
+    "kind": "costume",
+    "name": "Draconic Rage",
+    "pieces": [
+      {
+        "id": "draconic-rage-helm",
+        "name": "Draconic Rage (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "draconic-rage-boots",
+        "name": "Draconic Rage (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "draconic-rage-breastplate",
+        "name": "Draconic Rage (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "draconic-rage-greaves",
+        "name": "Draconic Rage (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "draconic-rage-gloves",
+        "name": "Draconic Rage (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "draconic-rage-cloak",
+        "name": "Draconic Rage (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "draconic-rage-pauldrons",
+        "name": "Draconic Rage (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "eternal-horn",
+    "kind": "costume",
+    "name": "Eternal Horn",
+    "pieces": [
+      {
+        "id": "eternal-horn-helm",
+        "name": "Eternal Horn (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "eternal-horn-boots",
+        "name": "Eternal Horn (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "eternal-horn-breastplate",
+        "name": "Eternal Horn (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "eternal-horn-greaves",
+        "name": "Eternal Horn (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "eternal-horn-gloves",
+        "name": "Eternal Horn (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "eternal-horn-cloak",
+        "name": "Eternal Horn (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "eternal-horn-pauldrons",
+        "name": "Eternal Horn (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "eternal-horn-helm",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 6750
+          }
+        ]
+      },
+      {
+        "pieceId": "eternal-horn-boots",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 6750
+          }
+        ]
+      },
+      {
+        "pieceId": "eternal-horn-breastplate",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 10800
+          }
+        ]
+      },
+      {
+        "pieceId": "eternal-horn-greaves",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 8000
+          }
+        ]
+      },
+      {
+        "pieceId": "eternal-horn-gloves",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 5300
+          }
+        ]
+      },
+      {
+        "pieceId": "eternal-horn-cloak",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 5300
+          }
+        ]
+      },
+      {
+        "pieceId": "eternal-horn-pauldrons",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 6750
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "forest-guardian",
+    "kind": "costume",
+    "name": "Forest Guardian",
+    "pieces": [
+      {
+        "id": "forest-guardian-helm",
+        "name": "Forest Guardian (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "forest-guardian-boots",
+        "name": "Forest Guardian (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "forest-guardian-breastplate",
+        "name": "Forest Guardian (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "forest-guardian-greaves",
+        "name": "Forest Guardian (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "forest-guardian-gloves",
+        "name": "Forest Guardian (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "forest-guardian-cloak",
+        "name": "Forest Guardian (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "forest-guardian-pauldrons",
+        "name": "Forest Guardian (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "forgotten-recon-team",
+    "kind": "costume",
+    "name": "◆ Forgotten Recon Team",
+    "pieces": [
+      {
+        "id": "forgotten-recon-team-helm",
+        "name": "◆ Forgotten Recon Team (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "forgotten-recon-team-boots",
+        "name": "◆ Forgotten Recon Team (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "forgotten-recon-team-breastplate",
+        "name": "◆ Forgotten Recon Team (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "forgotten-recon-team-greaves",
+        "name": "◆ Forgotten Recon Team (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "forgotten-recon-team-gloves",
+        "name": "◆ Forgotten Recon Team (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "forgotten-recon-team-cloak",
+        "name": "◆ Forgotten Recon Team (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "forgotten-recon-team-pauldrons",
+        "name": "◆ Forgotten Recon Team (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "guardian-of-honor",
+    "kind": "costume",
+    "name": "◆ Guardian of Honor",
+    "pieces": [
+      {
+        "id": "guardian-of-honor-helm",
+        "name": "◆ Guardian of Honor (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "guardian-of-honor-boots",
+        "name": "◆ Guardian of Honor (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "guardian-of-honor-breastplate",
+        "name": "◆ Guardian of Honor (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "guardian-of-honor-greaves",
+        "name": "◆ Guardian of Honor (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "guardian-of-honor-gloves",
+        "name": "◆ Guardian of Honor (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "guardian-of-honor-cloak",
+        "name": "◆ Guardian of Honor (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "guardian-of-honor-pauldrons",
+        "name": "◆ Guardian of Honor (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-guardian-token-helm",
+    "kind": "armor",
+    "name": "Guardian Token (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-guardian-token-helm-appearance",
+        "name": "Guardian Token (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "howling-dragon",
+    "kind": "costume",
+    "name": "Howling Dragon",
+    "pieces": [
+      {
+        "id": "howling-dragon-helm",
+        "name": "Howling Dragon (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "howling-dragon-boots",
+        "name": "Howling Dragon (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "howling-dragon-breastplate",
+        "name": "Howling Dragon (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "howling-dragon-greaves",
+        "name": "Howling Dragon (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "howling-dragon-gloves",
+        "name": "Howling Dragon (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "howling-dragon-cloak",
+        "name": "Howling Dragon (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "howling-dragon-pauldrons",
+        "name": "Howling Dragon (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "moon-luster",
+    "kind": "costume",
+    "name": "◆ Moon Luster",
+    "pieces": [
+      {
+        "id": "moon-luster-helm",
+        "name": "◆ Moon Luster (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "moon-luster-boots",
+        "name": "◆ Moon Luster (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "moon-luster-breastplate",
+        "name": "◆ Moon Luster (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "moon-luster-greaves",
+        "name": "◆ Moon Luster (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "moon-luster-gloves",
+        "name": "◆ Moon Luster (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "moon-luster-cloak",
+        "name": "◆ Moon Luster (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "moon-luster-pauldrons",
+        "name": "◆ Moon Luster (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "nameless-savior",
+    "kind": "costume",
+    "name": "◆ Nameless Savior",
+    "pieces": [
+      {
+        "id": "nameless-savior-helm",
+        "name": "◆ Nameless Savior (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "nameless-savior-boots",
+        "name": "◆ Nameless Savior (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "nameless-savior-breastplate",
+        "name": "◆ Nameless Savior (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "nameless-savior-greaves",
+        "name": "◆ Nameless Savior (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "nameless-savior-gloves",
+        "name": "◆ Nameless Savior (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "nameless-savior-cloak",
+        "name": "◆ Nameless Savior (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "nameless-savior-pauldrons",
+        "name": "◆ Nameless Savior (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "netherworld-seeker",
+    "kind": "costume",
+    "name": "Netherworld Seeker",
+    "pieces": [
+      {
+        "id": "netherworld-seeker-helm",
+        "name": "Netherworld Seeker (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "netherworld-seeker-boots",
+        "name": "Netherworld Seeker (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "netherworld-seeker-breastplate",
+        "name": "Netherworld Seeker (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "netherworld-seeker-greaves",
+        "name": "Netherworld Seeker (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "netherworld-seeker-gloves",
+        "name": "Netherworld Seeker (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "netherworld-seeker-cloak",
+        "name": "Netherworld Seeker (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "netherworld-seeker-pauldrons",
+        "name": "Netherworld Seeker (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "pitch-black-night",
+    "kind": "costume",
+    "name": "Pitch Black Night",
+    "pieces": [
+      {
+        "id": "pitch-black-night-helm",
+        "name": "Pitch Black Night (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "pitch-black-night-boots",
+        "name": "Pitch Black Night (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "pitch-black-night-breastplate",
+        "name": "Pitch Black Night (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "pitch-black-night-greaves",
+        "name": "Pitch Black Night (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "pitch-black-night-gloves",
+        "name": "Pitch Black Night (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "pitch-black-night-cloak",
+        "name": "Pitch Black Night (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "pitch-black-night-pauldrons",
+        "name": "Pitch Black Night (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "rage-ironclad",
+    "kind": "costume",
+    "name": "Rage Ironclad",
+    "pieces": [
+      {
+        "id": "rage-ironclad-helm",
+        "name": "Rage Ironclad (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "rage-ironclad-boots",
+        "name": "Rage Ironclad (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "rage-ironclad-breastplate",
+        "name": "Rage Ironclad (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "rage-ironclad-greaves",
+        "name": "Rage Ironclad (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "rage-ironclad-gloves",
+        "name": "Rage Ironclad (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "rage-ironclad-cloak",
+        "name": "Rage Ironclad (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "rage-ironclad-pauldrons",
+        "name": "Rage Ironclad (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "roaring-dragon",
+    "kind": "costume",
+    "name": "Roaring Dragon",
+    "pieces": [
+      {
+        "id": "roaring-dragon-helm",
+        "name": "Roaring Dragon (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "roaring-dragon-boots",
+        "name": "Roaring Dragon (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "roaring-dragon-breastplate",
+        "name": "Roaring Dragon (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "roaring-dragon-greaves",
+        "name": "Roaring Dragon (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "roaring-dragon-gloves",
+        "name": "Roaring Dragon (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "roaring-dragon-cloak",
+        "name": "Roaring Dragon (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "roaring-dragon-pauldrons",
+        "name": "Roaring Dragon (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "ruinous-devourer",
+    "kind": "costume",
+    "name": "◆ Ruinous Devourer",
+    "pieces": [
+      {
+        "id": "ruinous-devourer-helm",
+        "name": "◆ Ruinous Devourer (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "ruinous-devourer-boots",
+        "name": "◆ Ruinous Devourer (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "ruinous-devourer-breastplate",
+        "name": "◆ Ruinous Devourer (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "ruinous-devourer-greaves",
+        "name": "◆ Ruinous Devourer (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "ruinous-devourer-gloves",
+        "name": "◆ Ruinous Devourer (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "ruinous-devourer-cloak",
+        "name": "◆ Ruinous Devourer (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "ruinous-devourer-pauldrons",
+        "name": "◆ Ruinous Devourer (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-saam-laurel-helm",
+    "kind": "armor",
+    "name": "Saam Laurel (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-saam-laurel-helm-appearance",
+        "name": "Saam Laurel (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-saendukal-mask-helm",
+    "kind": "armor",
+    "name": "Saendukal Mask (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-saendukal-mask-helm-appearance",
+        "name": "Saendukal Mask (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "silent-forest",
+    "kind": "costume",
+    "name": "Silent Forest",
+    "pieces": [
+      {
+        "id": "silent-forest-helm",
+        "name": "Silent Forest (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "silent-forest-boots",
+        "name": "Silent Forest (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "silent-forest-breastplate",
+        "name": "Silent Forest (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "silent-forest-greaves",
+        "name": "Silent Forest (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "silent-forest-gloves",
+        "name": "Silent Forest (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "silent-forest-cloak",
+        "name": "Silent Forest (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "silent-forest-pauldrons",
+        "name": "Silent Forest (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "soul-pledge",
+    "kind": "costume",
+    "name": "◆ Soul Pledge",
+    "pieces": [
+      {
+        "id": "soul-pledge-helm",
+        "name": "◆ Soul Pledge (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "soul-pledge-boots",
+        "name": "◆ Soul Pledge (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "soul-pledge-breastplate",
+        "name": "◆ Soul Pledge (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "soul-pledge-greaves",
+        "name": "◆ Soul Pledge (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "soul-pledge-gloves",
+        "name": "◆ Soul Pledge (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "soul-pledge-cloak",
+        "name": "◆ Soul Pledge (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "soul-pledge-pauldrons",
+        "name": "◆ Soul Pledge (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "storm-legacy",
+    "kind": "costume",
+    "name": "Storm Legacy",
+    "pieces": [
+      {
+        "id": "storm-legacy-helm",
+        "name": "Storm Legacy (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "storm-legacy-boots",
+        "name": "Storm Legacy (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "storm-legacy-breastplate",
+        "name": "Storm Legacy (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "storm-legacy-greaves",
+        "name": "Storm Legacy (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "storm-legacy-gloves",
+        "name": "Storm Legacy (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "storm-legacy-cloak",
+        "name": "Storm Legacy (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "storm-legacy-pauldrons",
+        "name": "Storm Legacy (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-water-spirit-mask-helm",
+    "kind": "armor",
+    "name": "Water Spirit Mask (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-water-spirit-mask-helm-appearance",
+        "name": "Water Spirit Mask (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-windmancer-mask-helm",
+    "kind": "armor",
+    "name": "Windmancer Mask (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-windmancer-mask-helm-appearance",
+        "name": "Windmancer Mask (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "amethyst-scale",
+    "kind": "costume",
+    "name": "Amethyst Scale",
+    "pieces": [
+      {
+        "id": "amethyst-scale-helm",
+        "name": "Amethyst Scale (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "amethyst-scale-boots",
+        "name": "Amethyst Scale (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "amethyst-scale-breastplate",
+        "name": "Amethyst Scale (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "amethyst-scale-greaves",
+        "name": "Amethyst Scale (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "amethyst-scale-gloves",
+        "name": "Amethyst Scale (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "amethyst-scale-cloak",
+        "name": "Amethyst Scale (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "amethyst-scale-pauldrons",
+        "name": "Amethyst Scale (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "ancient-guardian",
+    "kind": "costume",
+    "name": "Ancient Guardian",
+    "pieces": [
+      {
+        "id": "ancient-guardian-helm",
+        "name": "Ancient Guardian (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "ancient-guardian-boots",
+        "name": "Ancient Guardian (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "ancient-guardian-breastplate",
+        "name": "Ancient Guardian (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "ancient-guardian-greaves",
+        "name": "Ancient Guardian (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "ancient-guardian-gloves",
+        "name": "Ancient Guardian (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "ancient-guardian-cloak",
+        "name": "Ancient Guardian (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "ancient-guardian-pauldrons",
+        "name": "Ancient Guardian (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-apple-candy-helm",
+    "kind": "armor",
+    "name": "Apple Candy (Helm)",
+    "pieces": [
+      {
+        "id": "appearance-apple-candy-helm-appearance",
+        "name": "Apple Candy (Helm)",
+        "aliases": ["Helm"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "argent-light",
+    "kind": "costume",
+    "name": "Argent Light",
+    "pieces": [
+      {
+        "id": "argent-light-helm",
+        "name": "Argent Light (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "argent-light-boots",
+        "name": "Argent Light (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "argent-light-breastplate",
+        "name": "Argent Light (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "argent-light-greaves",
+        "name": "Argent Light (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "argent-light-gloves",
+        "name": "Argent Light (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "argent-light-cloak",
+        "name": "Argent Light (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "argent-light-pauldrons",
+        "name": "Argent Light (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "azure-aura",
+    "kind": "costume",
+    "name": "Azure Aura",
+    "pieces": [
+      {
+        "id": "azure-aura-helm",
+        "name": "Azure Aura (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "azure-aura-boots",
+        "name": "Azure Aura (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "azure-aura-breastplate",
+        "name": "Azure Aura (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "azure-aura-greaves",
+        "name": "Azure Aura (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "azure-aura-gloves",
+        "name": "Azure Aura (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "azure-aura-cloak",
+        "name": "Azure Aura (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "azure-aura-pauldrons",
+        "name": "Azure Aura (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "battle-spirit",
+    "kind": "costume",
+    "name": "◆ Battle Spirit",
+    "pieces": [
+      {
+        "id": "battle-spirit-helm",
+        "name": "◆ Battle Spirit (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "battle-spirit-boots",
+        "name": "◆ Battle Spirit (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "battle-spirit-breastplate",
+        "name": "◆ Battle Spirit (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "battle-spirit-greaves",
+        "name": "◆ Battle Spirit (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "battle-spirit-gloves",
+        "name": "◆ Battle Spirit (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "battle-spirit-cloak",
+        "name": "◆ Battle Spirit (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "battle-spirit-pauldrons",
+        "name": "◆ Battle Spirit (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "bloodscent-image",
+    "kind": "costume",
+    "name": "Bloodscent Image",
+    "pieces": [
+      {
+        "id": "bloodscent-image-helm",
+        "name": "Bloodscent Image (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "bloodscent-image-boots",
+        "name": "Bloodscent Image (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "bloodscent-image-breastplate",
+        "name": "Bloodscent Image (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "bloodscent-image-greaves",
+        "name": "Bloodscent Image (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "bloodscent-image-gloves",
+        "name": "Bloodscent Image (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "bloodscent-image-cloak",
+        "name": "Bloodscent Image (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "bloodscent-image-pauldrons",
+        "name": "Bloodscent Image (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "dream-executor",
+    "kind": "costume",
+    "name": "Dream Executor",
+    "pieces": [
+      {
+        "id": "dream-executor-helm",
+        "name": "Dream Executor (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "dream-executor-boots",
+        "name": "Dream Executor (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "dream-executor-breastplate",
+        "name": "Dream Executor (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "dream-executor-greaves",
+        "name": "Dream Executor (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "dream-executor-gloves",
+        "name": "Dream Executor (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "dream-executor-cloak",
+        "name": "Dream Executor (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "dream-executor-pauldrons",
+        "name": "Dream Executor (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "dusk-silk",
+    "kind": "costume",
+    "name": "◆ Dusk Silk",
+    "pieces": [
+      {
+        "id": "dusk-silk-helm",
+        "name": "◆ Dusk Silk (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "dusk-silk-boots",
+        "name": "◆ Dusk Silk (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "dusk-silk-breastplate",
+        "name": "◆ Dusk Silk (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "dusk-silk-greaves",
+        "name": "◆ Dusk Silk (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "dusk-silk-gloves",
+        "name": "◆ Dusk Silk (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "dusk-silk-cloak",
+        "name": "◆ Dusk Silk (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "dusk-silk-pauldrons",
+        "name": "◆ Dusk Silk (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "duskpath",
+    "kind": "costume",
+    "name": "Duskpath",
+    "pieces": [
+      {
+        "id": "duskpath-helm",
+        "name": "Duskpath (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "duskpath-boots",
+        "name": "Duskpath (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "duskpath-breastplate",
+        "name": "Duskpath (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "duskpath-greaves",
+        "name": "Duskpath (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "duskpath-gloves",
+        "name": "Duskpath (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "duskpath-cloak",
+        "name": "Duskpath (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "duskpath-pauldrons",
+        "name": "Duskpath (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "flash-ironclad",
+    "kind": "costume",
+    "name": "◆ Flash Ironclad",
+    "pieces": [
+      {
+        "id": "flash-ironclad-helm",
+        "name": "◆ Flash Ironclad (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "flash-ironclad-boots",
+        "name": "◆ Flash Ironclad (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "flash-ironclad-breastplate",
+        "name": "◆ Flash Ironclad (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "flash-ironclad-greaves",
+        "name": "◆ Flash Ironclad (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "flash-ironclad-gloves",
+        "name": "◆ Flash Ironclad (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "flash-ironclad-cloak",
+        "name": "◆ Flash Ironclad (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "flash-ironclad-pauldrons",
+        "name": "◆ Flash Ironclad (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "forest-scholar",
+    "kind": "costume",
+    "name": "Forest Scholar",
+    "pieces": [
+      {
+        "id": "forest-scholar-helm",
+        "name": "Forest Scholar (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "forest-scholar-boots",
+        "name": "Forest Scholar (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "forest-scholar-breastplate",
+        "name": "Forest Scholar (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "forest-scholar-greaves",
+        "name": "Forest Scholar (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "forest-scholar-gloves",
+        "name": "Forest Scholar (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "forest-scholar-cloak",
+        "name": "Forest Scholar (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "forest-scholar-pauldrons",
+        "name": "Forest Scholar (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "gilded-guardian",
+    "kind": "costume",
+    "name": "Gilded Guardian",
+    "pieces": [
+      {
+        "id": "gilded-guardian-helm",
+        "name": "Gilded Guardian (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "gilded-guardian-boots",
+        "name": "Gilded Guardian (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "gilded-guardian-breastplate",
+        "name": "Gilded Guardian (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "gilded-guardian-greaves",
+        "name": "Gilded Guardian (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "gilded-guardian-gloves",
+        "name": "Gilded Guardian (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "gilded-guardian-cloak",
+        "name": "Gilded Guardian (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "gilded-guardian-pauldrons",
+        "name": "Gilded Guardian (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "hallowed-promise",
+    "kind": "costume",
+    "name": "Hallowed Promise",
+    "pieces": [
+      {
+        "id": "hallowed-promise-helm",
+        "name": "Hallowed Promise (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "hallowed-promise-boots",
+        "name": "Hallowed Promise (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "hallowed-promise-breastplate",
+        "name": "Hallowed Promise (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "hallowed-promise-greaves",
+        "name": "Hallowed Promise (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "hallowed-promise-gloves",
+        "name": "Hallowed Promise (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "hallowed-promise-cloak",
+        "name": "Hallowed Promise (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "hallowed-promise-pauldrons",
+        "name": "Hallowed Promise (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "hidden-escaper",
+    "kind": "costume",
+    "name": "◆ Hidden Escaper",
+    "pieces": [
+      {
+        "id": "hidden-escaper-helm",
+        "name": "◆ Hidden Escaper (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "hidden-escaper-boots",
+        "name": "◆ Hidden Escaper (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "hidden-escaper-breastplate",
+        "name": "◆ Hidden Escaper (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "hidden-escaper-greaves",
+        "name": "◆ Hidden Escaper (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "hidden-escaper-gloves",
+        "name": "◆ Hidden Escaper (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "hidden-escaper-cloak",
+        "name": "◆ Hidden Escaper (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "hidden-escaper-pauldrons",
+        "name": "◆ Hidden Escaper (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "immortal-heart",
+    "kind": "costume",
+    "name": "Immortal Heart",
+    "pieces": [
+      {
+        "id": "immortal-heart-helm",
+        "name": "Immortal Heart (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "immortal-heart-boots",
+        "name": "Immortal Heart (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "immortal-heart-breastplate",
+        "name": "Immortal Heart (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "immortal-heart-greaves",
+        "name": "Immortal Heart (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "immortal-heart-gloves",
+        "name": "Immortal Heart (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "immortal-heart-cloak",
+        "name": "Immortal Heart (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "immortal-heart-pauldrons",
+        "name": "Immortal Heart (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "iron-heart",
+    "kind": "costume",
+    "name": "Iron Heart",
+    "pieces": [
+      {
+        "id": "iron-heart-helm",
+        "name": "Iron Heart (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "iron-heart-boots",
+        "name": "Iron Heart (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "iron-heart-breastplate",
+        "name": "Iron Heart (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "iron-heart-greaves",
+        "name": "Iron Heart (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "iron-heart-gloves",
+        "name": "Iron Heart (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "iron-heart-cloak",
+        "name": "Iron Heart (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "iron-heart-pauldrons",
+        "name": "Iron Heart (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "ironclad-vow",
+    "kind": "costume",
+    "name": "◆ Ironclad Vow",
+    "pieces": [
+      {
+        "id": "ironclad-vow-helm",
+        "name": "◆ Ironclad Vow (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "ironclad-vow-boots",
+        "name": "◆ Ironclad Vow (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "ironclad-vow-breastplate",
+        "name": "◆ Ironclad Vow (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "ironclad-vow-greaves",
+        "name": "◆ Ironclad Vow (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "ironclad-vow-gloves",
+        "name": "◆ Ironclad Vow (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "ironclad-vow-cloak",
+        "name": "◆ Ironclad Vow (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "ironclad-vow-pauldrons",
+        "name": "◆ Ironclad Vow (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "judgment-of-glory",
+    "kind": "costume",
+    "name": "◆ Judgment of Glory",
+    "pieces": [
+      {
+        "id": "judgment-of-glory-helm",
+        "name": "◆ Judgment of Glory (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "judgment-of-glory-boots",
+        "name": "◆ Judgment of Glory (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "judgment-of-glory-breastplate",
+        "name": "◆ Judgment of Glory (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "judgment-of-glory-greaves",
+        "name": "◆ Judgment of Glory (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "judgment-of-glory-gloves",
+        "name": "◆ Judgment of Glory (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "judgment-of-glory-cloak",
+        "name": "◆ Judgment of Glory (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "judgment-of-glory-pauldrons",
+        "name": "◆ Judgment of Glory (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "keeper",
+    "kind": "costume",
+    "name": "◆ Keeper",
+    "pieces": [
+      {
+        "id": "keeper-helm",
+        "name": "◆ Keeper (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "keeper-boots",
+        "name": "◆ Keeper (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "keeper-breastplate",
+        "name": "◆ Keeper (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "keeper-greaves",
+        "name": "◆ Keeper (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "keeper-gloves",
+        "name": "◆ Keeper (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "keeper-cloak",
+        "name": "◆ Keeper (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "keeper-pauldrons",
+        "name": "◆ Keeper (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "knightly-conviction",
+    "kind": "costume",
+    "name": "Knightly Conviction",
+    "pieces": [
+      {
+        "id": "knightly-conviction-helm",
+        "name": "Knightly Conviction (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "knightly-conviction-boots",
+        "name": "Knightly Conviction (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "knightly-conviction-breastplate",
+        "name": "Knightly Conviction (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "knightly-conviction-greaves",
+        "name": "Knightly Conviction (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "knightly-conviction-gloves",
+        "name": "Knightly Conviction (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "knightly-conviction-cloak",
+        "name": "Knightly Conviction (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "knightly-conviction-pauldrons",
+        "name": "Knightly Conviction (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "knowledge-successor",
+    "kind": "costume",
+    "name": "Knowledge Successor",
+    "pieces": [
+      {
+        "id": "knowledge-successor-helm",
+        "name": "Knowledge Successor (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "knowledge-successor-boots",
+        "name": "Knowledge Successor (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "knowledge-successor-breastplate",
+        "name": "Knowledge Successor (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "knowledge-successor-greaves",
+        "name": "Knowledge Successor (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "knowledge-successor-gloves",
+        "name": "Knowledge Successor (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "knowledge-successor-cloak",
+        "name": "Knowledge Successor (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "knowledge-successor-pauldrons",
+        "name": "Knowledge Successor (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "kromedes-desire",
+    "kind": "costume",
+    "name": "◆ Kromede's Desire",
+    "pieces": [
+      {
+        "id": "kromedes-desire-helm",
+        "name": "◆ Kromede's Desire (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "kromedes-desire-boots",
+        "name": "◆ Kromede's Desire (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "kromedes-desire-breastplate",
+        "name": "◆ Kromede's Desire (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "kromedes-desire-greaves",
+        "name": "◆ Kromede's Desire (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "kromedes-desire-gloves",
+        "name": "◆ Kromede's Desire (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "kromedes-desire-cloak",
+        "name": "◆ Kromede's Desire (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "kromedes-desire-pauldrons",
+        "name": "◆ Kromede's Desire (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "lone-chaser",
+    "kind": "costume",
+    "name": "Lone Chaser",
+    "pieces": [
+      {
+        "id": "lone-chaser-helm",
+        "name": "Lone Chaser (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "lone-chaser-boots",
+        "name": "Lone Chaser (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "lone-chaser-breastplate",
+        "name": "Lone Chaser (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "lone-chaser-greaves",
+        "name": "Lone Chaser (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "lone-chaser-gloves",
+        "name": "Lone Chaser (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "lone-chaser-cloak",
+        "name": "Lone Chaser (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "lone-chaser-pauldrons",
+        "name": "Lone Chaser (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "meteors-benediction",
+    "kind": "costume",
+    "name": "◆ Meteor's Benediction",
+    "pieces": [
+      {
+        "id": "meteors-benediction-helm",
+        "name": "◆ Meteor's Benediction (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "meteors-benediction-boots",
+        "name": "◆ Meteor's Benediction (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "meteors-benediction-breastplate",
+        "name": "◆ Meteor's Benediction (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "meteors-benediction-greaves",
+        "name": "◆ Meteor's Benediction (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "meteors-benediction-gloves",
+        "name": "◆ Meteor's Benediction (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "meteors-benediction-cloak",
+        "name": "◆ Meteor's Benediction (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "meteors-benediction-pauldrons",
+        "name": "◆ Meteor's Benediction (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "night-dragon",
+    "kind": "costume",
+    "name": "Night Dragon",
+    "pieces": [
+      {
+        "id": "night-dragon-helm",
+        "name": "Night Dragon (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "night-dragon-boots",
+        "name": "Night Dragon (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "night-dragon-breastplate",
+        "name": "Night Dragon (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "night-dragon-greaves",
+        "name": "Night Dragon (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "night-dragon-gloves",
+        "name": "Night Dragon (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "night-dragon-cloak",
+        "name": "Night Dragon (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "night-dragon-pauldrons",
+        "name": "Night Dragon (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "night-mist-phantom",
+    "kind": "costume",
+    "name": "Night Mist Phantom",
+    "pieces": [
+      {
+        "id": "night-mist-phantom-helm",
+        "name": "Night Mist Phantom (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "night-mist-phantom-boots",
+        "name": "Night Mist Phantom (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "night-mist-phantom-breastplate",
+        "name": "Night Mist Phantom (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "night-mist-phantom-greaves",
+        "name": "Night Mist Phantom (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "night-mist-phantom-gloves",
+        "name": "Night Mist Phantom (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "night-mist-phantom-cloak",
+        "name": "Night Mist Phantom (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "night-mist-phantom-pauldrons",
+        "name": "Night Mist Phantom (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "night-shadow",
+    "kind": "costume",
+    "name": "Night Shadow",
+    "pieces": [
+      {
+        "id": "night-shadow-helm",
+        "name": "Night Shadow (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "night-shadow-boots",
+        "name": "Night Shadow (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "night-shadow-breastplate",
+        "name": "Night Shadow (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "night-shadow-greaves",
+        "name": "Night Shadow (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "night-shadow-gloves",
+        "name": "Night Shadow (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "night-shadow-cloak",
+        "name": "Night Shadow (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "night-shadow-pauldrons",
+        "name": "Night Shadow (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "north-wind-ironclad",
+    "kind": "costume",
+    "name": "◆ North Wind Ironclad",
+    "pieces": [
+      {
+        "id": "north-wind-ironclad-helm",
+        "name": "North Wind Ironclad (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "north-wind-ironclad-boots",
+        "name": "◆ North Wind Ironclad (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "north-wind-ironclad-breastplate",
+        "name": "◆ North Wind Ironclad (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "north-wind-ironclad-greaves",
+        "name": "◆ North Wind Ironclad (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "north-wind-ironclad-gloves",
+        "name": "◆ North Wind Ironclad (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "north-wind-ironclad-cloak",
+        "name": "◆ North Wind Ironclad (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "north-wind-ironclad-pauldrons",
+        "name": "◆ North Wind Ironclad (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "oblivion-mediator",
+    "kind": "costume",
+    "name": "Oblivion Mediator",
+    "pieces": [
+      {
+        "id": "oblivion-mediator-helm",
+        "name": "Oblivion Mediator (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "oblivion-mediator-boots",
+        "name": "Oblivion Mediator (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "oblivion-mediator-breastplate",
+        "name": "Oblivion Mediator (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "oblivion-mediator-greaves",
+        "name": "Oblivion Mediator (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "oblivion-mediator-gloves",
+        "name": "Oblivion Mediator (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "oblivion-mediator-cloak",
+        "name": "Oblivion Mediator (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "oblivion-mediator-pauldrons",
+        "name": "Oblivion Mediator (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "promise-legion",
+    "kind": "costume",
+    "name": "Promise Legion",
+    "pieces": [
+      {
+        "id": "promise-legion-helm",
+        "name": "Promise Legion (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "promise-legion-boots",
+        "name": "Promise Legion (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "promise-legion-breastplate",
+        "name": "Promise Legion (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "promise-legion-greaves",
+        "name": "Promise Legion (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "promise-legion-gloves",
+        "name": "Promise Legion (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "promise-legion-cloak",
+        "name": "Promise Legion (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "promise-legion-pauldrons",
+        "name": "Promise Legion (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "radiant-heart",
+    "kind": "costume",
+    "name": "Radiant Heart",
+    "pieces": [
+      {
+        "id": "radiant-heart-helm",
+        "name": "Radiant Heart (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "radiant-heart-boots",
+        "name": "Radiant Heart (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "radiant-heart-breastplate",
+        "name": "Radiant Heart (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "radiant-heart-greaves",
+        "name": "Radiant Heart (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "radiant-heart-gloves",
+        "name": "Radiant Heart (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "radiant-heart-cloak",
+        "name": "Radiant Heart (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "radiant-heart-pauldrons",
+        "name": "Radiant Heart (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "researcher",
+    "kind": "costume",
+    "name": "Researcher",
+    "pieces": [
+      {
+        "id": "researcher-helm",
+        "name": "Researcher (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "researcher-boots",
+        "name": "Researcher (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "researcher-breastplate",
+        "name": "Researcher (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "researcher-greaves",
+        "name": "Researcher (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "researcher-gloves",
+        "name": "Researcher (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "researcher-cloak",
+        "name": "Researcher (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "researcher-pauldrons",
+        "name": "Researcher (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "restored-recon-team",
+    "kind": "costume",
+    "name": "Restored Recon Team",
+    "pieces": [
+      {
+        "id": "restored-recon-team-helm",
+        "name": "Restored Recon Team (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "restored-recon-team-boots",
+        "name": "Restored Recon Team (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "restored-recon-team-breastplate",
+        "name": "Restored Recon Team (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "restored-recon-team-greaves",
+        "name": "Restored Recon Team (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "restored-recon-team-gloves",
+        "name": "Restored Recon Team (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "restored-recon-team-cloak",
+        "name": "Restored Recon Team (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "restored-recon-team-pauldrons",
+        "name": "Restored Recon Team (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "sage-of-destiny",
+    "kind": "costume",
+    "name": "Sage of Destiny",
+    "pieces": [
+      {
+        "id": "sage-of-destiny-helm",
+        "name": "Sage of Destiny (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "sage-of-destiny-boots",
+        "name": "Sage of Destiny (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "sage-of-destiny-breastplate",
+        "name": "Sage of Destiny (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "sage-of-destiny-greaves",
+        "name": "Sage of Destiny (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "sage-of-destiny-gloves",
+        "name": "Sage of Destiny (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "sage-of-destiny-cloak",
+        "name": "Sage of Destiny (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "sage-of-destiny-pauldrons",
+        "name": "Sage of Destiny (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "sandstorm-wanderer",
+    "kind": "costume",
+    "name": "Sandstorm Wanderer",
+    "pieces": [
+      {
+        "id": "sandstorm-wanderer-helm",
+        "name": "Sandstorm Wanderer (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "sandstorm-wanderer-boots",
+        "name": "Sandstorm Wanderer (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "sandstorm-wanderer-breastplate",
+        "name": "Sandstorm Wanderer (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "sandstorm-wanderer-greaves",
+        "name": "Sandstorm Wanderer (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "sandstorm-wanderer-gloves",
+        "name": "Sandstorm Wanderer (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "sandstorm-wanderer-cloak",
+        "name": "Sandstorm Wanderer (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "sandstorm-wanderer-pauldrons",
+        "name": "Sandstorm Wanderer (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "scribe",
+    "kind": "costume",
+    "name": "Scribe",
+    "pieces": [
+      {
+        "id": "scribe-helm",
+        "name": "Scribe (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "scribe-boots",
+        "name": "Scribe (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "scribe-breastplate",
+        "name": "Scribe (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "scribe-greaves",
+        "name": "Scribe (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "scribe-gloves",
+        "name": "Scribe (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "scribe-cloak",
+        "name": "Scribe (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "scribe-pauldrons",
+        "name": "Scribe (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "shadow-mask",
+    "kind": "costume",
+    "name": "Shadow Mask",
+    "pieces": [
+      {
+        "id": "shadow-mask-helm",
+        "name": "Shadow Mask (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "shadow-mask-boots",
+        "name": "Shadow Mask (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "shadow-mask-breastplate",
+        "name": "Shadow Mask (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "shadow-mask-greaves",
+        "name": "Shadow Mask (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "shadow-mask-gloves",
+        "name": "Shadow Mask (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "shadow-mask-cloak",
+        "name": "Shadow Mask (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "shadow-mask-pauldrons",
+        "name": "Shadow Mask (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "silent-breath",
+    "kind": "costume",
+    "name": "Silent Breath",
+    "pieces": [
+      {
+        "id": "silent-breath-helm",
+        "name": "Silent Breath (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "silent-breath-boots",
+        "name": "Silent Breath (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "silent-breath-breastplate",
+        "name": "Silent Breath (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "silent-breath-greaves",
+        "name": "Silent Breath (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "silent-breath-gloves",
+        "name": "Silent Breath (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "silent-breath-cloak",
+        "name": "Silent Breath (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "silent-breath-pauldrons",
+        "name": "Silent Breath (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "silent-hunter",
+    "kind": "costume",
+    "name": "◆ Silent Hunter",
+    "pieces": [
+      {
+        "id": "silent-hunter-helm",
+        "name": "◆ Silent Hunter (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "silent-hunter-boots",
+        "name": "◆ Silent Hunter (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "silent-hunter-breastplate",
+        "name": "◆ Silent Hunter (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "silent-hunter-greaves",
+        "name": "◆ Silent Hunter (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "silent-hunter-gloves",
+        "name": "◆ Silent Hunter (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "silent-hunter-cloak",
+        "name": "◆ Silent Hunter (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "silent-hunter-pauldrons",
+        "name": "◆ Silent Hunter (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "silent-resolve",
+    "kind": "costume",
+    "name": "Silent Resolve",
+    "pieces": [
+      {
+        "id": "silent-resolve-helm",
+        "name": "Silent Resolve (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "silent-resolve-boots",
+        "name": "Silent Resolve (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "silent-resolve-breastplate",
+        "name": "Silent Resolve (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "silent-resolve-greaves",
+        "name": "Silent Resolve (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "silent-resolve-gloves",
+        "name": "Silent Resolve (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "silent-resolve-cloak",
+        "name": "Silent Resolve (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "silent-resolve-pauldrons",
+        "name": "Silent Resolve (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "silent-wraith",
+    "kind": "costume",
+    "name": "◆ Silent Wraith",
+    "pieces": [
+      {
+        "id": "silent-wraith-helm",
+        "name": "◆ Silent Wraith (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "silent-wraith-boots",
+        "name": "◆ Silent Wraith (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "silent-wraith-breastplate",
+        "name": "◆ Silent Wraith (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "silent-wraith-greaves",
+        "name": "◆ Silent Wraith (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "silent-wraith-gloves",
+        "name": "◆ Silent Wraith (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "silent-wraith-cloak",
+        "name": "◆ Silent Wraith (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "silent-wraith-pauldrons",
+        "name": "◆ Silent Wraith (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "silver-barrier",
+    "kind": "costume",
+    "name": "Silver Barrier",
+    "pieces": [
+      {
+        "id": "silver-barrier-helm",
+        "name": "Silver Barrier (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "silver-barrier-boots",
+        "name": "Silver Barrier (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "silver-barrier-breastplate",
+        "name": "Silver Barrier (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "silver-barrier-greaves",
+        "name": "Silver Barrier (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "silver-barrier-gloves",
+        "name": "Silver Barrier (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "silver-barrier-cloak",
+        "name": "Silver Barrier (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "silver-barrier-pauldrons",
+        "name": "Silver Barrier (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "silver-bell-fairys-dream",
+    "kind": "costume",
+    "name": "Silver Bell Fairy's Dream",
+    "pieces": [
+      {
+        "id": "silver-bell-fairys-dream-helm",
+        "name": "Silver Bell Fairy's Dream (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "silver-bell-fairys-dream-boots",
+        "name": "Silver Bell Fairy's Dream (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "silver-bell-fairys-dream-breastplate",
+        "name": "Silver Bell Fairy's Dream (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "silver-bell-fairys-dream-greaves",
+        "name": "Silver Bell Fairy's Dream (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "silver-bell-fairys-dream-gloves",
+        "name": "Silver Bell Fairy's Dream (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "silver-bell-fairys-dream-cloak",
+        "name": "Silver Bell Fairy's Dream (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "silver-bell-fairys-dream-pauldrons",
+        "name": "Silver Bell Fairy's Dream (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "skybright-oath",
+    "kind": "costume",
+    "name": "Skybright Oath",
+    "pieces": [
+      {
+        "id": "skybright-oath-helm",
+        "name": "Skybright Oath (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "skybright-oath-boots",
+        "name": "Skybright Oath (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "skybright-oath-breastplate",
+        "name": "Skybright Oath (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "skybright-oath-greaves",
+        "name": "Skybright Oath (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "skybright-oath-gloves",
+        "name": "Skybright Oath (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "skybright-oath-cloak",
+        "name": "Skybright Oath (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "skybright-oath-pauldrons",
+        "name": "Skybright Oath (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "solar-radiance",
+    "kind": "costume",
+    "name": "◆ Solar Radiance",
+    "pieces": [
+      {
+        "id": "solar-radiance-helm",
+        "name": "◆ Solar Radiance (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "solar-radiance-boots",
+        "name": "◆ Solar Radiance (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "solar-radiance-breastplate",
+        "name": "◆ Solar Radiance (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "solar-radiance-greaves",
+        "name": "◆ Solar Radiance (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "solar-radiance-gloves",
+        "name": "◆ Solar Radiance (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "solar-radiance-cloak",
+        "name": "◆ Solar Radiance (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "solar-radiance-pauldrons",
+        "name": "◆ Solar Radiance (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "star-prophet",
+    "kind": "costume",
+    "name": "Star Prophet",
+    "pieces": [
+      {
+        "id": "star-prophet-helm",
+        "name": "Star Prophet (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "star-prophet-boots",
+        "name": "Star Prophet (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "star-prophet-breastplate",
+        "name": "Star Prophet (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "star-prophet-greaves",
+        "name": "Star Prophet (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "star-prophet-gloves",
+        "name": "Star Prophet (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "star-prophet-cloak",
+        "name": "Star Prophet (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "star-prophet-pauldrons",
+        "name": "Star Prophet (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "steel-endurance",
+    "kind": "costume",
+    "name": "Steel Endurance",
+    "pieces": [
+      {
+        "id": "steel-endurance-helm",
+        "name": "Steel Endurance (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "steel-endurance-boots",
+        "name": "Steel Endurance (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "steel-endurance-breastplate",
+        "name": "Steel Endurance (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "steel-endurance-greaves",
+        "name": "Steel Endurance (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "steel-endurance-gloves",
+        "name": "Steel Endurance (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "steel-endurance-cloak",
+        "name": "Steel Endurance (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "steel-endurance-pauldrons",
+        "name": "Steel Endurance (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "steel-fortress",
+    "kind": "costume",
+    "name": "◆ Steel Fortress",
+    "pieces": [
+      {
+        "id": "steel-fortress-helm",
+        "name": "◆ Steel Fortress (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "steel-fortress-boots",
+        "name": "◆ Steel Fortress (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "steel-fortress-breastplate",
+        "name": "◆ Steel Fortress (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "steel-fortress-greaves",
+        "name": "◆ Steel Fortress (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "steel-fortress-gloves",
+        "name": "◆ Steel Fortress (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "steel-fortress-cloak",
+        "name": "◆ Steel Fortress (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "steel-fortress-pauldrons",
+        "name": "◆ Steel Fortress (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "steel-heavy-armor",
+    "kind": "costume",
+    "name": "Steel Heavy Armor",
+    "pieces": [
+      {
+        "id": "steel-heavy-armor-helm",
+        "name": "Steel Heavy Armor (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "steel-heavy-armor-boots",
+        "name": "Steel Heavy Armor (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "steel-heavy-armor-breastplate",
+        "name": "Steel Heavy Armor (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "steel-heavy-armor-greaves",
+        "name": "Steel Heavy Armor (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "steel-heavy-armor-gloves",
+        "name": "Steel Heavy Armor (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "steel-heavy-armor-cloak",
+        "name": "Steel Heavy Armor (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "steel-heavy-armor-pauldrons",
+        "name": "Steel Heavy Armor (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "steel-wall",
+    "kind": "costume",
+    "name": "Steel Wall",
+    "pieces": [
+      {
+        "id": "steel-wall-helm",
+        "name": "Steel Wall (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "steel-wall-boots",
+        "name": "Steel Wall (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "steel-wall-breastplate",
+        "name": "Steel Wall (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "steel-wall-greaves",
+        "name": "Steel Wall (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "steel-wall-gloves",
+        "name": "Steel Wall (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "steel-wall-cloak",
+        "name": "Steel Wall (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "steel-wall-pauldrons",
+        "name": "Steel Wall (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "tailor-of-fate",
+    "kind": "costume",
+    "name": "Tailor of Fate",
+    "pieces": [
+      {
+        "id": "tailor-of-fate-helm",
+        "name": "Tailor of Fate (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "tailor-of-fate-boots",
+        "name": "Tailor of Fate (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "tailor-of-fate-breastplate",
+        "name": "Tailor of Fate (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "tailor-of-fate-greaves",
+        "name": "Tailor of Fate (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "tailor-of-fate-gloves",
+        "name": "Tailor of Fate (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "tailor-of-fate-cloak",
+        "name": "Tailor of Fate (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "tailor-of-fate-pauldrons",
+        "name": "Tailor of Fate (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "whisper-of-the-ether",
+    "kind": "costume",
+    "name": "Whisper of the Ether",
+    "pieces": [
+      {
+        "id": "whisper-of-the-ether-helm",
+        "name": "Whisper of the Ether (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "whisper-of-the-ether-boots",
+        "name": "Whisper of the Ether (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "whisper-of-the-ether-breastplate",
+        "name": "Whisper of the Ether (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "whisper-of-the-ether-greaves",
+        "name": "Whisper of the Ether (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "whisper-of-the-ether-gloves",
+        "name": "Whisper of the Ether (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "whisper-of-the-ether-cloak",
+        "name": "Whisper of the Ether (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "whisper-of-the-ether-pauldrons",
+        "name": "Whisper of the Ether (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "wild-wanderer",
+    "kind": "costume",
+    "name": "Wild Wanderer",
+    "pieces": [
+      {
+        "id": "wild-wanderer-helm",
+        "name": "Wild Wanderer (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "wild-wanderer-boots",
+        "name": "Wild Wanderer (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "wild-wanderer-breastplate",
+        "name": "Wild Wanderer (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "wild-wanderer-greaves",
+        "name": "Wild Wanderer (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "wild-wanderer-gloves",
+        "name": "Wild Wanderer (Gloves)",
+        "aliases": ["Gloves"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "wilderness-grain",
+    "kind": "costume",
+    "name": "Wilderness Grain",
+    "pieces": [
+      {
+        "id": "wilderness-grain-helm",
+        "name": "Wilderness Grain (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "wilderness-grain-boots",
+        "name": "Wilderness Grain (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "wilderness-grain-breastplate",
+        "name": "Wilderness Grain (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "wilderness-grain-greaves",
+        "name": "Wilderness Grain (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "wilderness-grain-gloves",
+        "name": "Wilderness Grain (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "wilderness-grain-cloak",
+        "name": "Wilderness Grain (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "wilderness-grain-pauldrons",
+        "name": "Wilderness Grain (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "adamant-guardian",
+    "kind": "costume",
+    "name": "◆ Adamant Guardian",
+    "pieces": [
+      {
+        "id": "adamant-guardian-helm",
+        "name": "◆ Adamant Guardian (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "adamant-guardian-boots",
+        "name": "◆ Adamant Guardian (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "adamant-guardian-breastplate",
+        "name": "◆ Adamant Guardian (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "adamant-guardian-greaves",
+        "name": "◆ Adamant Guardian (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "adamant-guardian-gloves",
+        "name": "◆ Adamant Guardian (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "adamant-guardian-cloak",
+        "name": "◆ Adamant Guardian (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "adamant-guardian-pauldrons",
+        "name": "◆ Adamant Guardian (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "blue-breath-searcher",
+    "kind": "costume",
+    "name": "Blue Breath Searcher",
+    "pieces": [
+      {
+        "id": "blue-breath-searcher-helm",
+        "name": "Blue Breath Searcher (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "blue-breath-searcher-boots",
+        "name": "Blue Breath Searcher (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "blue-breath-searcher-breastplate",
+        "name": "Blue Breath Searcher (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "blue-breath-searcher-greaves",
+        "name": "Blue Breath Searcher (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "blue-breath-searcher-gloves",
+        "name": "Blue Breath Searcher (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "blue-breath-searcher-cloak",
+        "name": "Blue Breath Searcher (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "blue-breath-searcher-pauldrons",
+        "name": "Blue Breath Searcher (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "chivalrous-will",
+    "kind": "costume",
+    "name": "◆ Chivalrous Will",
+    "pieces": [
+      {
+        "id": "chivalrous-will-helm",
+        "name": "◆ Chivalrous Will (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "chivalrous-will-boots",
+        "name": "◆ Chivalrous Will (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "chivalrous-will-breastplate",
+        "name": "◆ Chivalrous Will (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "chivalrous-will-greaves",
+        "name": "◆ Chivalrous Will (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "chivalrous-will-gloves",
+        "name": "◆ Chivalrous Will (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "chivalrous-will-cloak",
+        "name": "◆ Chivalrous Will (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "chivalrous-will-pauldrons",
+        "name": "◆ Chivalrous Will (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "dark-fang",
+    "kind": "costume",
+    "name": "Dark Fang",
+    "pieces": [
+      {
+        "id": "dark-fang-helm",
+        "name": "Dark Fang (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "dark-fang-boots",
+        "name": "Dark Fang (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "dark-fang-breastplate",
+        "name": "Dark Fang (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "dark-fang-greaves",
+        "name": "Dark Fang (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "dark-fang-gloves",
+        "name": "Dark Fang (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "dark-fang-cloak",
+        "name": "Dark Fang (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "dark-fang-pauldrons",
+        "name": "Dark Fang (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "divine-benediction",
+    "kind": "costume",
+    "name": "Divine Benediction",
+    "pieces": [
+      {
+        "id": "divine-benediction-helm",
+        "name": "Divine Benediction (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "divine-benediction-boots",
+        "name": "Divine Benediction (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "divine-benediction-breastplate",
+        "name": "Divine Benediction (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "divine-benediction-greaves",
+        "name": "Divine Benediction (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "divine-benediction-gloves",
+        "name": "Divine Benediction (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "divine-benediction-cloak",
+        "name": "Divine Benediction (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "divine-benediction-pauldrons",
+        "name": "Divine Benediction (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "forest-hermit",
+    "kind": "costume",
+    "name": "Forest Hermit",
+    "pieces": [
+      {
+        "id": "forest-hermit-helm",
+        "name": "Forest Hermit (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "forest-hermit-boots",
+        "name": "Forest Hermit (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "forest-hermit-breastplate",
+        "name": "Forest Hermit (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "forest-hermit-greaves",
+        "name": "Forest Hermit (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "forest-hermit-gloves",
+        "name": "Forest Hermit (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "forest-hermit-cloak",
+        "name": "Forest Hermit (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "forest-hermit-pauldrons",
+        "name": "Forest Hermit (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "illusionary-shadow",
+    "kind": "costume",
+    "name": "Illusionary Shadow",
+    "pieces": [
+      {
+        "id": "illusionary-shadow-helm",
+        "name": "Illusionary Shadow (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "illusionary-shadow-boots",
+        "name": "Illusionary Shadow (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "illusionary-shadow-breastplate",
+        "name": "Illusionary Shadow (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "illusionary-shadow-greaves",
+        "name": "Illusionary Shadow (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "illusionary-shadow-gloves",
+        "name": "Illusionary Shadow (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "illusionary-shadow-cloak",
+        "name": "Illusionary Shadow (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "illusionary-shadow-pauldrons",
+        "name": "Illusionary Shadow (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "journey-flow",
+    "kind": "costume",
+    "name": "Journey Flow",
+    "pieces": [
+      {
+        "id": "journey-flow-helm",
+        "name": "Journey Flow (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "journey-flow-boots",
+        "name": "Journey Flow (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "journey-flow-breastplate",
+        "name": "Journey Flow (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "journey-flow-greaves",
+        "name": "Journey Flow (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "journey-flow-gloves",
+        "name": "Journey Flow (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "journey-flow-cloak",
+        "name": "Journey Flow (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "journey-flow-pauldrons",
+        "name": "Journey Flow (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "journey-progress",
+    "kind": "costume",
+    "name": "Journey Progress",
+    "pieces": [
+      {
+        "id": "journey-progress-helm",
+        "name": "Journey Progress (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "journey-progress-boots",
+        "name": "Journey Progress (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "journey-progress-breastplate",
+        "name": "Journey Progress (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "journey-progress-greaves",
+        "name": "Journey Progress (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "journey-progress-gloves",
+        "name": "Journey Progress (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "journey-progress-cloak",
+        "name": "Journey Progress (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "journey-progress-pauldrons",
+        "name": "Journey Progress (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "nature-greenwood",
+    "kind": "costume",
+    "name": "◆ Nature Greenwood",
+    "pieces": [
+      {
+        "id": "nature-greenwood-helm",
+        "name": "◆ Nature Greenwood (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "nature-greenwood-boots",
+        "name": "◆ Nature Greenwood (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "nature-greenwood-breastplate",
+        "name": "◆ Nature Greenwood (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "nature-greenwood-greaves",
+        "name": "◆ Nature Greenwood (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "nature-greenwood-gloves",
+        "name": "◆ Nature Greenwood (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "nature-greenwood-cloak",
+        "name": "◆ Nature Greenwood (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "nature-greenwood-pauldrons",
+        "name": "◆ Nature Greenwood (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "sand-dunes-workshop",
+    "kind": "costume",
+    "name": "Sand Dunes Workshop",
+    "pieces": [
+      {
+        "id": "sand-dunes-workshop-helm",
+        "name": "Sand Dunes Workshop (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "sand-dunes-workshop-boots",
+        "name": "Sand Dunes Workshop (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "sand-dunes-workshop-breastplate",
+        "name": "Sand Dunes Workshop (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "sand-dunes-workshop-greaves",
+        "name": "Sand Dunes Workshop (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "sand-dunes-workshop-gloves",
+        "name": "Sand Dunes Workshop (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "sand-dunes-workshop-cloak",
+        "name": "Sand Dunes Workshop (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "sand-dunes-workshop-pauldrons",
+        "name": "Sand Dunes Workshop (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "silent-steel",
+    "kind": "costume",
+    "name": "Silent Steel",
+    "pieces": [
+      {
+        "id": "silent-steel-helm",
+        "name": "Silent Steel (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "silent-steel-boots",
+        "name": "Silent Steel (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "silent-steel-breastplate",
+        "name": "Silent Steel (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "silent-steel-greaves",
+        "name": "Silent Steel (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "silent-steel-gloves",
+        "name": "Silent Steel (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "silent-steel-cloak",
+        "name": "Silent Steel (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "silent-steel-pauldrons",
+        "name": "Silent Steel (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "silent-wind",
+    "kind": "costume",
+    "name": "Silent Wind",
+    "pieces": [
+      {
+        "id": "silent-wind-helm",
+        "name": "Silent Wind (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "silent-wind-boots",
+        "name": "Silent Wind (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "silent-wind-breastplate",
+        "name": "Silent Wind (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "silent-wind-greaves",
+        "name": "Silent Wind (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "silent-wind-gloves",
+        "name": "Silent Wind (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "silent-wind-cloak",
+        "name": "Silent Wind (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "silent-wind-pauldrons",
+        "name": "Silent Wind (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "silver-executioner",
+    "kind": "costume",
+    "name": "Silver Executioner",
+    "pieces": [
+      {
+        "id": "silver-executioner-helm",
+        "name": "Silver Executioner (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "silver-executioner-boots",
+        "name": "Silver Executioner (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "silver-executioner-breastplate",
+        "name": "Silver Executioner (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "silver-executioner-greaves",
+        "name": "Silver Executioner (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "silver-executioner-gloves",
+        "name": "Silver Executioner (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "silver-executioner-cloak",
+        "name": "Silver Executioner (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "silver-executioner-pauldrons",
+        "name": "Silver Executioner (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "start-of-training",
+    "kind": "costume",
+    "name": "Start of Training",
+    "pieces": [
+      {
+        "id": "start-of-training-helm",
+        "name": "Start of Training (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "start-of-training-boots",
+        "name": "Start of Training (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "start-of-training-breastplate",
+        "name": "Start of Training (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "start-of-training-greaves",
+        "name": "Start of Training (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "start-of-training-gloves",
+        "name": "Start of Training (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "start-of-training-cloak",
+        "name": "Start of Training (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "start-of-training-pauldrons",
+        "name": "Start of Training (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "steadfast-advisor",
+    "kind": "costume",
+    "name": "Steadfast Advisor",
+    "pieces": [
+      {
+        "id": "steadfast-advisor-helm",
+        "name": "Steadfast Advisor (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "steadfast-advisor-boots",
+        "name": "Steadfast Advisor (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "steadfast-advisor-breastplate",
+        "name": "Steadfast Advisor (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "steadfast-advisor-greaves",
+        "name": "Steadfast Advisor (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "steadfast-advisor-gloves",
+        "name": "Steadfast Advisor (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "steadfast-advisor-cloak",
+        "name": "Steadfast Advisor (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "steadfast-advisor-pauldrons",
+        "name": "Steadfast Advisor (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "unknown-pursuer",
+    "kind": "costume",
+    "name": "Unknown Pursuer",
+    "pieces": [
+      {
+        "id": "unknown-pursuer-helm",
+        "name": "Unknown Pursuer (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "unknown-pursuer-boots",
+        "name": "Unknown Pursuer (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "unknown-pursuer-breastplate",
+        "name": "Unknown Pursuer (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "unknown-pursuer-greaves",
+        "name": "Unknown Pursuer (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "unknown-pursuer-gloves",
+        "name": "Unknown Pursuer (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "unknown-pursuer-cloak",
+        "name": "Unknown Pursuer (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "unknown-pursuer-pauldrons",
+        "name": "Unknown Pursuer (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "wayfarer",
+    "kind": "costume",
+    "name": "Wayfarer",
+    "pieces": [
+      {
+        "id": "wayfarer-helm",
+        "name": "Wayfarer (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "wayfarer-boots",
+        "name": "Wayfarer (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "wayfarer-breastplate",
+        "name": "Wayfarer (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "wayfarer-greaves",
+        "name": "Wayfarer (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "wayfarer-gloves",
+        "name": "Wayfarer (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "wayfarer-cloak",
+        "name": "Wayfarer (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "wayfarer-pauldrons",
+        "name": "Wayfarer (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "contemplator",
+    "kind": "costume",
+    "name": "◆ Contemplator",
+    "pieces": [
+      {
+        "id": "contemplator-helm",
+        "name": "◆ Contemplator (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "contemplator-boots",
+        "name": "◆ Contemplator (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "contemplator-breastplate",
+        "name": "◆ Contemplator (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "contemplator-greaves",
+        "name": "◆ Contemplator (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "contemplator-gloves",
+        "name": "◆ Contemplator (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "contemplator-cloak",
+        "name": "◆ Contemplator (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "contemplator-pauldrons",
+        "name": "◆ Contemplator (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "dawn-frost",
+    "kind": "costume",
+    "name": "Dawn Frost",
+    "pieces": [
+      {
+        "id": "dawn-frost-helm",
+        "name": "Dawn Frost (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "dawn-frost-boots",
+        "name": "Dawn Frost (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "dawn-frost-breastplate",
+        "name": "Dawn Frost (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "dawn-frost-greaves",
+        "name": "Dawn Frost (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "dawn-frost-gloves",
+        "name": "Dawn Frost (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "dawn-frost-cloak",
+        "name": "Dawn Frost (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "dawn-frost-pauldrons",
+        "name": "Dawn Frost (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "direction-setter",
+    "kind": "costume",
+    "name": "Direction Setter",
+    "pieces": [
+      {
+        "id": "direction-setter-helm",
+        "name": "Direction Setter (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "direction-setter-boots",
+        "name": "Direction Setter (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "direction-setter-breastplate",
+        "name": "Direction Setter (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "direction-setter-greaves",
+        "name": "Direction Setter (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "direction-setter-gloves",
+        "name": "Direction Setter (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "direction-setter-cloak",
+        "name": "Direction Setter (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "direction-setter-pauldrons",
+        "name": "Direction Setter (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "light-of-genesis",
+    "kind": "costume",
+    "name": "Light of Genesis",
+    "pieces": [
+      {
+        "id": "light-of-genesis-helm",
+        "name": "Light of Genesis (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "light-of-genesis-boots",
+        "name": "Light of Genesis (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "light-of-genesis-breastplate",
+        "name": "Light of Genesis (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "light-of-genesis-greaves",
+        "name": "Light of Genesis (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "light-of-genesis-gloves",
+        "name": "Light of Genesis (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "light-of-genesis-cloak",
+        "name": "Light of Genesis (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "light-of-genesis-pauldrons",
+        "name": "Light of Genesis (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "netherworld-explorer",
+    "kind": "costume",
+    "name": "Netherworld Explorer",
+    "pieces": [
+      {
+        "id": "netherworld-explorer-helm",
+        "name": "Netherworld Explorer (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "netherworld-explorer-boots",
+        "name": "Netherworld Explorer (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "netherworld-explorer-breastplate",
+        "name": "Netherworld Explorer (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "netherworld-explorer-greaves",
+        "name": "Netherworld Explorer (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "netherworld-explorer-gloves",
+        "name": "Netherworld Explorer (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "netherworld-explorer-cloak",
+        "name": "Netherworld Explorer (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "netherworld-explorer-pauldrons",
+        "name": "Netherworld Explorer (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "noble-vow",
+    "kind": "costume",
+    "name": "◆ Noble Vow",
+    "pieces": [
+      {
+        "id": "noble-vow-helm",
+        "name": "◆ Noble Vow (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "noble-vow-boots",
+        "name": "◆ Noble Vow (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "noble-vow-breastplate",
+        "name": "◆ Noble Vow (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "noble-vow-greaves",
+        "name": "◆ Noble Vow (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "noble-vow-gloves",
+        "name": "◆ Noble Vow (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "noble-vow-cloak",
+        "name": "◆ Noble Vow (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "noble-vow-pauldrons",
+        "name": "◆ Noble Vow (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "senior-inquirer",
+    "kind": "costume",
+    "name": "Senior Inquirer",
+    "pieces": [
+      {
+        "id": "senior-inquirer-helm",
+        "name": "Senior Inquirer (Helm)",
+        "aliases": ["Helm"]
+      },
+      {
+        "id": "senior-inquirer-boots",
+        "name": "Senior Inquirer (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "senior-inquirer-breastplate",
+        "name": "Senior Inquirer (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "senior-inquirer-greaves",
+        "name": "Senior Inquirer (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "senior-inquirer-gloves",
+        "name": "Senior Inquirer (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "senior-inquirer-cloak",
+        "name": "Senior Inquirer (Cloak)",
+        "aliases": ["Cloak"]
+      },
+      {
+        "id": "senior-inquirer-pauldrons",
+        "name": "Senior Inquirer (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-crimson-twilight-gown-boots",
+    "kind": "armor",
+    "name": "Crimson Twilight Gown (Boots)",
+    "pieces": [
+      {
+        "id": "appearance-crimson-twilight-gown-boots-appearance",
+        "name": "Crimson Twilight Gown (Boots)",
+        "aliases": ["Boots"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "dreamy-day-uniform",
+    "kind": "costume",
+    "name": "Dreamy Day Uniform",
+    "pieces": [
+      {
+        "id": "dreamy-day-uniform-boots",
+        "name": "Dreamy Day Uniform (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "dreamy-day-uniform-breastplate",
+        "name": "Dreamy Day Uniform (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "dreamy-day-uniform-greaves",
+        "name": "Dreamy Day Uniform (Greaves)",
+        "aliases": ["Greaves"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "leather-crop-fit",
+    "kind": "costume",
+    "name": "Leather Crop Fit",
+    "pieces": [
+      {
+        "id": "leather-crop-fit-boots",
+        "name": "Leather Crop Fit (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "leather-crop-fit-breastplate",
+        "name": "Leather Crop Fit (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "leather-crop-fit-greaves",
+        "name": "Leather Crop Fit (Greaves)",
+        "aliases": ["Greaves"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-light-of-life-boots",
+    "kind": "armor",
+    "name": "Light of Life (Boots)",
+    "pieces": [
+      {
+        "id": "appearance-light-of-life-boots-appearance",
+        "name": "Light of Life (Boots)",
+        "aliases": ["Boots"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-salvation-s-grace-boots",
+    "kind": "armor",
+    "name": "◆ Salvation's Grace (Boots)",
+    "pieces": [
+      {
+        "id": "appearance-salvation-s-grace-boots-appearance",
+        "name": "◆ Salvation's Grace (Boots)",
+        "aliases": ["Boots"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "shadow-slayer",
+    "kind": "costume",
+    "name": "Shadow Slayer",
+    "pieces": [
+      {
+        "id": "shadow-slayer-boots",
+        "name": "Shadow Slayer (Boots)",
+        "aliases": ["Boots"]
+      },
+      {
+        "id": "shadow-slayer-breastplate",
+        "name": "Shadow Slayer (Breastplate)",
+        "aliases": ["Breastplate"]
+      },
+      {
+        "id": "shadow-slayer-greaves",
+        "name": "Shadow Slayer (Greaves)",
+        "aliases": ["Greaves"]
+      },
+      {
+        "id": "shadow-slayer-gloves",
+        "name": "Shadow Slayer (Gloves)",
+        "aliases": ["Gloves"]
+      },
+      {
+        "id": "shadow-slayer-cloak",
+        "name": "Shadow Slayer (Cloak)",
+        "aliases": ["Cloak"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "shadow-slayer-boots",
+        "source": "season-shop",
+        "sourceId": "metabotSeasonShop",
+        "name": "Season Shop",
+        "costs": [
+          {
+            "currency": "Oath Coin",
+            "amount": 50400
+          }
+        ],
+        "endDate": "2026-12-16"
+      },
+      {
+        "pieceId": "shadow-slayer-breastplate",
+        "source": "season-shop",
+        "sourceId": "metabotSeasonShop",
+        "name": "Season Shop",
+        "costs": [
+          {
+            "currency": "Oath Coin",
+            "amount": 80400
+          }
+        ],
+        "endDate": "2026-12-16"
+      },
+      {
+        "pieceId": "shadow-slayer-greaves",
+        "source": "season-shop",
+        "sourceId": "metabotSeasonShop",
+        "name": "Season Shop",
+        "costs": [
+          {
+            "currency": "Oath Coin",
+            "amount": 60000
+          }
+        ],
+        "endDate": "2026-12-16"
+      },
+      {
+        "pieceId": "shadow-slayer-gloves",
+        "source": "season-shop",
+        "sourceId": "metabotSeasonShop",
+        "name": "Season Shop",
+        "costs": [
+          {
+            "currency": "Oath Coin",
+            "amount": 39600
+          }
+        ],
+        "endDate": "2026-12-16"
+      },
+      {
+        "pieceId": "shadow-slayer-cloak",
+        "source": "season-shop",
+        "sourceId": "metabotSeasonShop",
+        "name": "Season Shop",
+        "costs": [
+          {
+            "currency": "Oath Coin",
+            "amount": 39600
+          }
+        ],
+        "endDate": "2026-12-16"
+      }
+    ]
+  },
+  {
+    "id": "appearance-crimson-twilight-gown-breastplate",
+    "kind": "armor",
+    "name": "Crimson Twilight Gown (Breastplate)",
+    "pieces": [
+      {
+        "id": "appearance-crimson-twilight-gown-breastplate-appearance",
+        "name": "Crimson Twilight Gown (Breastplate)",
+        "aliases": ["Breastplate"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-light-of-life-breastplate",
+    "kind": "armor",
+    "name": "Light of Life (Breastplate)",
+    "pieces": [
+      {
+        "id": "appearance-light-of-life-breastplate-appearance",
+        "name": "Light of Life (Breastplate)",
+        "aliases": ["Breastplate"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-salvation-s-grace-breastplate",
+    "kind": "armor",
+    "name": "◆ Salvation's Grace (Breastplate)",
+    "pieces": [
+      {
+        "id": "appearance-salvation-s-grace-breastplate-appearance",
+        "name": "◆ Salvation's Grace (Breastplate)",
+        "aliases": ["Breastplate"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-crimson-twilight-gown-greaves",
+    "kind": "armor",
+    "name": "Crimson Twilight Gown (Greaves)",
+    "pieces": [
+      {
+        "id": "appearance-crimson-twilight-gown-greaves-appearance",
+        "name": "Crimson Twilight Gown (Greaves)",
+        "aliases": ["Greaves"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-light-of-life-greaves",
+    "kind": "armor",
+    "name": "Light of Life (Greaves)",
+    "pieces": [
+      {
+        "id": "appearance-light-of-life-greaves-appearance",
+        "name": "Light of Life (Greaves)",
+        "aliases": ["Greaves"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-salvation-s-grace-greaves",
+    "kind": "armor",
+    "name": "◆ Salvation's Grace (Greaves)",
+    "pieces": [
+      {
+        "id": "appearance-salvation-s-grace-greaves-appearance",
+        "name": "◆ Salvation's Grace (Greaves)",
+        "aliases": ["Greaves"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-crimson-twilight-gown-gloves",
+    "kind": "armor",
+    "name": "Crimson Twilight Gown (Gloves)",
+    "pieces": [
+      {
+        "id": "appearance-crimson-twilight-gown-gloves-appearance",
+        "name": "Crimson Twilight Gown (Gloves)",
+        "aliases": ["Gloves"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-light-of-life-gloves",
+    "kind": "armor",
+    "name": "Light of Life (Gloves)",
+    "pieces": [
+      {
+        "id": "appearance-light-of-life-gloves-appearance",
+        "name": "Light of Life (Gloves)",
+        "aliases": ["Gloves"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-salvation-s-grace-gloves",
+    "kind": "armor",
+    "name": "◆ Salvation's Grace (Gloves)",
+    "pieces": [
+      {
+        "id": "appearance-salvation-s-grace-gloves-appearance",
+        "name": "◆ Salvation's Grace (Gloves)",
+        "aliases": ["Gloves"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-crimson-twilight-gown-cloak",
+    "kind": "armor",
+    "name": "Crimson Twilight Gown (Cloak)",
+    "pieces": [
+      {
+        "id": "appearance-crimson-twilight-gown-cloak-appearance",
+        "name": "Crimson Twilight Gown (Cloak)",
+        "aliases": ["Cloak"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-light-of-life-cloak",
+    "kind": "armor",
+    "name": "Light of Life (Cloak)",
+    "pieces": [
+      {
+        "id": "appearance-light-of-life-cloak-appearance",
+        "name": "Light of Life (Cloak)",
+        "aliases": ["Cloak"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-salvation-s-grace-cloak",
+    "kind": "armor",
+    "name": "◆ Salvation's Grace (Cloak)",
+    "pieces": [
+      {
+        "id": "appearance-salvation-s-grace-cloak-appearance",
+        "name": "◆ Salvation's Grace (Cloak)",
+        "aliases": ["Cloak"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-crimson-twilight-gown-pauldrons",
+    "kind": "armor",
+    "name": "Crimson Twilight Gown (Pauldrons)",
+    "pieces": [
+      {
+        "id": "appearance-crimson-twilight-gown-pauldrons-appearance",
+        "name": "Crimson Twilight Gown (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-light-of-life-pauldrons",
+    "kind": "armor",
+    "name": "Light of Life (Pauldrons)",
+    "pieces": [
+      {
+        "id": "appearance-light-of-life-pauldrons-appearance",
+        "name": "Light of Life (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-salvation-s-grace-pauldrons",
+    "kind": "armor",
+    "name": "◆ Salvation's Grace (Pauldrons)",
+    "pieces": [
+      {
+        "id": "appearance-salvation-s-grace-pauldrons-appearance",
+        "name": "◆ Salvation's Grace (Pauldrons)",
+        "aliases": ["Pauldrons"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-warm-sunlight-shugo-earrings",
+    "kind": "accessory",
+    "name": "◆ Warm Sunlight Shugo (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-warm-sunlight-shugo-earrings-appearance",
+        "name": "◆ Warm Sunlight Shugo (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "appearance-warm-sunlight-shugo-earrings-appearance",
+        "source": "pass-shop",
+        "sourceId": "metabotDaevaPassShop",
+        "name": "Daeva Pass Shop",
+        "costs": [
+          {
+            "currency": "Daeva Pass Shop Coin",
+            "amount": 4000
+          }
+        ],
+        "endDate": "2026-12-16"
+      }
+    ]
+  },
+  {
+    "id": "appearance-ancient-barrier-earrings",
+    "kind": "accessory",
+    "name": "Ancient Barrier (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-ancient-barrier-earrings-appearance",
+        "name": "Ancient Barrier (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "appearance-ancient-barrier-earrings-appearance",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 5300
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "appearance-dark-eye-earrings",
+    "kind": "accessory",
+    "name": "Dark Eye (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-dark-eye-earrings-appearance",
+        "name": "Dark Eye (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-dewy-forest-earrings",
+    "kind": "accessory",
+    "name": "Dewy Forest (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-dewy-forest-earrings-appearance",
+        "name": "Dewy Forest (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-dusk-grove-earrings",
+    "kind": "accessory",
+    "name": "Dusk Grove (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-dusk-grove-earrings-appearance",
+        "name": "Dusk Grove (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-echo-of-the-abyss-earrings",
+    "kind": "accessory",
+    "name": "Echo of the Abyss (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-echo-of-the-abyss-earrings-appearance",
+        "name": "Echo of the Abyss (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-eclipsing-flame-earrings",
+    "kind": "accessory",
+    "name": "Eclipsing Flame (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-eclipsing-flame-earrings-appearance",
+        "name": "Eclipsing Flame (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-emerald-glow-earrings",
+    "kind": "accessory",
+    "name": "Emerald Glow (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-emerald-glow-earrings-appearance",
+        "name": "Emerald Glow (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-eternal-feather-earrings",
+    "kind": "accessory",
+    "name": "Eternal Feather (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-eternal-feather-earrings-appearance",
+        "name": "Eternal Feather (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-gilded-wings-earrings",
+    "kind": "accessory",
+    "name": "Gilded Wings (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-gilded-wings-earrings-appearance",
+        "name": "Gilded Wings (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-glorious-wings-earrings",
+    "kind": "accessory",
+    "name": "Glorious Wings (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-glorious-wings-earrings-appearance",
+        "name": "Glorious Wings (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-gold-flux-earrings",
+    "kind": "accessory",
+    "name": "Gold Flux (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-gold-flux-earrings-appearance",
+        "name": "Gold Flux (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-heart-of-the-sun-earrings",
+    "kind": "accessory",
+    "name": "Heart of the Sun (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-heart-of-the-sun-earrings-appearance",
+        "name": "Heart of the Sun (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "appearance-heart-of-the-sun-earrings-appearance",
+        "source": "season-shop",
+        "sourceId": "metabotSeasonShop",
+        "name": "Season Shop",
+        "costs": [
+          {
+            "currency": "Oath Coin",
+            "amount": 39600
+          }
+        ],
+        "endDate": "2026-12-16"
+      }
+    ]
+  },
+  {
+    "id": "appearance-light-crystal-earrings",
+    "kind": "accessory",
+    "name": "Light Crystal (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-light-crystal-earrings-appearance",
+        "name": "Light Crystal (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "appearance-light-crystal-earrings-appearance",
+        "source": "season-shop",
+        "sourceId": "metabotSeasonShop",
+        "name": "Season Shop",
+        "costs": [
+          {
+            "currency": "Oath Coin",
+            "amount": 39600
+          }
+        ],
+        "endDate": "2026-12-16"
+      }
+    ]
+  },
+  {
+    "id": "appearance-moon-circle-earrings",
+    "kind": "accessory",
+    "name": "Moon Circle (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-moon-circle-earrings-appearance",
+        "name": "Moon Circle (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-moonlight-blossom-earrings",
+    "kind": "accessory",
+    "name": "Moonlight Blossom (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-moonlight-blossom-earrings-appearance",
+        "name": "Moonlight Blossom (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-sea-s-lament-earrings",
+    "kind": "accessory",
+    "name": "Sea's Lament (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-sea-s-lament-earrings-appearance",
+        "name": "Sea's Lament (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-silver-wings-earrings",
+    "kind": "accessory",
+    "name": "Silver Wings (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-silver-wings-earrings-appearance",
+        "name": "Silver Wings (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-sky-recollection-earrings",
+    "kind": "accessory",
+    "name": "Sky Recollection (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-sky-recollection-earrings-appearance",
+        "name": "Sky Recollection (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "appearance-sky-recollection-earrings-appearance",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 5300
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "appearance-spring-blossom-whisper-earrings",
+    "kind": "accessory",
+    "name": "Spring Blossom Whisper (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-spring-blossom-whisper-earrings-appearance",
+        "name": "Spring Blossom Whisper (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-spring-s-promise-earrings",
+    "kind": "accessory",
+    "name": "Spring's Promise (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-spring-s-promise-earrings-appearance",
+        "name": "Spring's Promise (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-star-tear-earrings",
+    "kind": "accessory",
+    "name": "Star Tear (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-star-tear-earrings-appearance",
+        "name": "Star Tear (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-sunburst-sky-earrings",
+    "kind": "accessory",
+    "name": "Sunburst Sky (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-sunburst-sky-earrings-appearance",
+        "name": "Sunburst Sky (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-sweet-whispers-earrings",
+    "kind": "accessory",
+    "name": "Sweet Whispers (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-sweet-whispers-earrings-appearance",
+        "name": "Sweet Whispers (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-temple-guardian-earrings",
+    "kind": "accessory",
+    "name": "Temple Guardian (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-temple-guardian-earrings-appearance",
+        "name": "Temple Guardian (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-white-petal-sigh-earrings",
+    "kind": "accessory",
+    "name": "White Petal Sigh (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-white-petal-sigh-earrings-appearance",
+        "name": "White Petal Sigh (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-wind-droplet-earrings",
+    "kind": "accessory",
+    "name": "Wind Droplet (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-wind-droplet-earrings-appearance",
+        "name": "Wind Droplet (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-aqua-floret-earrings",
+    "kind": "accessory",
+    "name": "Aqua Floret (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-aqua-floret-earrings-appearance",
+        "name": "Aqua Floret (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-argent-moon-earrings",
+    "kind": "accessory",
+    "name": "Argent Moon (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-argent-moon-earrings-appearance",
+        "name": "Argent Moon (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-auldor-s-feather-earrings",
+    "kind": "accessory",
+    "name": "Auldor's Feather (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-auldor-s-feather-earrings-appearance",
+        "name": "Auldor's Feather (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-dark-deluge-earrings",
+    "kind": "accessory",
+    "name": "Dark Deluge (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-dark-deluge-earrings-appearance",
+        "name": "Dark Deluge (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-eternal-promise-earrings",
+    "kind": "accessory",
+    "name": "Eternal Promise (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-eternal-promise-earrings-appearance",
+        "name": "Eternal Promise (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-flame-heart-earrings",
+    "kind": "accessory",
+    "name": "Flame Heart (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-flame-heart-earrings-appearance",
+        "name": "Flame Heart (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-gold-star-earrings",
+    "kind": "accessory",
+    "name": "Gold Star (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-gold-star-earrings-appearance",
+        "name": "Gold Star (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-light-droplet-earrings",
+    "kind": "accessory",
+    "name": "Light Droplet (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-light-droplet-earrings-appearance",
+        "name": "Light Droplet (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-nocturnal-melody-earrings",
+    "kind": "accessory",
+    "name": "Nocturnal Melody (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-nocturnal-melody-earrings-appearance",
+        "name": "Nocturnal Melody (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-radiant-legacy-earrings",
+    "kind": "accessory",
+    "name": "Radiant Legacy (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-radiant-legacy-earrings-appearance",
+        "name": "Radiant Legacy (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-shadow-ruby-earrings",
+    "kind": "accessory",
+    "name": "Shadow Ruby (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-shadow-ruby-earrings-appearance",
+        "name": "Shadow Ruby (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-shining-melody-earrings",
+    "kind": "accessory",
+    "name": "Shining Melody (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-shining-melody-earrings-appearance",
+        "name": "Shining Melody (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-silver-bloom-earrings",
+    "kind": "accessory",
+    "name": "Silver Bloom (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-silver-bloom-earrings-appearance",
+        "name": "Silver Bloom (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-silver-flux-earrings",
+    "kind": "accessory",
+    "name": "Silver Flux (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-silver-flux-earrings-appearance",
+        "name": "Silver Flux (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-silver-starlight-earrings",
+    "kind": "accessory",
+    "name": "Silver Starlight (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-silver-starlight-earrings-appearance",
+        "name": "Silver Starlight (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-sky-blossom-earrings",
+    "kind": "accessory",
+    "name": "Sky Blossom (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-sky-blossom-earrings-appearance",
+        "name": "Sky Blossom (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-sky-orb-earrings",
+    "kind": "accessory",
+    "name": "Sky Orb (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-sky-orb-earrings-appearance",
+        "name": "Sky Orb (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-verdant-leaf-earrings",
+    "kind": "accessory",
+    "name": "Verdant Leaf (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-verdant-leaf-earrings-appearance",
+        "name": "Verdant Leaf (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-violet-bead-earrings",
+    "kind": "accessory",
+    "name": "Violet Bead (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-violet-bead-earrings-appearance",
+        "name": "Violet Bead (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-woodland-whisper-earrings",
+    "kind": "accessory",
+    "name": "Woodland Whisper (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-woodland-whisper-earrings-appearance",
+        "name": "Woodland Whisper (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-dawn-s-eye-earrings",
+    "kind": "accessory",
+    "name": "Dawn's Eye (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-dawn-s-eye-earrings-appearance",
+        "name": "Dawn's Eye (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-eclipse-form-earrings",
+    "kind": "accessory",
+    "name": "Eclipse Form (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-eclipse-form-earrings-appearance",
+        "name": "Eclipse Form (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-fairy-leaf-earrings",
+    "kind": "accessory",
+    "name": "Fairy Leaf (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-fairy-leaf-earrings-appearance",
+        "name": "Fairy Leaf (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-moonlit-dew-earrings",
+    "kind": "accessory",
+    "name": "Moonlit Dew (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-moonlit-dew-earrings-appearance",
+        "name": "Moonlit Dew (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-nebula-ring-earrings",
+    "kind": "accessory",
+    "name": "Nebula Ring (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-nebula-ring-earrings-appearance",
+        "name": "Nebula Ring (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-steel-wings-earrings",
+    "kind": "accessory",
+    "name": "Steel Wings (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-steel-wings-earrings-appearance",
+        "name": "Steel Wings (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-blue-eye-earrings",
+    "kind": "accessory",
+    "name": "Blue Eye (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-blue-eye-earrings-appearance",
+        "name": "Blue Eye (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-shadow-jewel-earrings",
+    "kind": "accessory",
+    "name": "Shadow Jewel (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-shadow-jewel-earrings-appearance",
+        "name": "Shadow Jewel (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-unwavering-will-earrings",
+    "kind": "accessory",
+    "name": "Unwavering Will (Earrings)",
+    "pieces": [
+      {
+        "id": "appearance-unwavering-will-earrings-appearance",
+        "name": "Unwavering Will (Earrings)",
+        "aliases": ["Earrings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-warm-sunlight-shugo-necklace",
+    "kind": "accessory",
+    "name": "◆ Warm Sunlight Shugo (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-warm-sunlight-shugo-necklace-appearance",
+        "name": "◆ Warm Sunlight Shugo (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "appearance-warm-sunlight-shugo-necklace-appearance",
+        "source": "pass-shop",
+        "sourceId": "metabotDaevaPassShop",
+        "name": "Daeva Pass Shop",
+        "costs": [
+          {
+            "currency": "Daeva Pass Shop Coin",
+            "amount": 5000
+          }
+        ],
+        "endDate": "2026-12-16"
+      }
+    ]
+  },
+  {
+    "id": "appearance-ancient-barrier-necklace",
+    "kind": "accessory",
+    "name": "Ancient Barrier (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-ancient-barrier-necklace-appearance",
+        "name": "Ancient Barrier (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "appearance-ancient-barrier-necklace-appearance",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 6750
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "appearance-dark-eye-necklace",
+    "kind": "accessory",
+    "name": "Dark Eye (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-dark-eye-necklace-appearance",
+        "name": "Dark Eye (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-dewy-forest-necklace",
+    "kind": "accessory",
+    "name": "Dewy Forest (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-dewy-forest-necklace-appearance",
+        "name": "Dewy Forest (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-dusk-grove-necklace",
+    "kind": "accessory",
+    "name": "Dusk Grove (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-dusk-grove-necklace-appearance",
+        "name": "Dusk Grove (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-echo-of-the-abyss-necklace",
+    "kind": "accessory",
+    "name": "Echo of the Abyss (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-echo-of-the-abyss-necklace-appearance",
+        "name": "Echo of the Abyss (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-eclipsing-flame-necklace",
+    "kind": "accessory",
+    "name": "Eclipsing Flame (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-eclipsing-flame-necklace-appearance",
+        "name": "Eclipsing Flame (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-emerald-glow-necklace",
+    "kind": "accessory",
+    "name": "Emerald Glow (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-emerald-glow-necklace-appearance",
+        "name": "Emerald Glow (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-eternal-feather-necklace",
+    "kind": "accessory",
+    "name": "Eternal Feather (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-eternal-feather-necklace-appearance",
+        "name": "Eternal Feather (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-gilded-wings-necklace",
+    "kind": "accessory",
+    "name": "Gilded Wings (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-gilded-wings-necklace-appearance",
+        "name": "Gilded Wings (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-glorious-wings-necklace",
+    "kind": "accessory",
+    "name": "Glorious Wings (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-glorious-wings-necklace-appearance",
+        "name": "Glorious Wings (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-gold-flux-necklace",
+    "kind": "accessory",
+    "name": "Gold Flux (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-gold-flux-necklace-appearance",
+        "name": "Gold Flux (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-heart-of-the-sun-necklace",
+    "kind": "accessory",
+    "name": "Heart of the Sun (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-heart-of-the-sun-necklace-appearance",
+        "name": "Heart of the Sun (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "appearance-heart-of-the-sun-necklace-appearance",
+        "source": "season-shop",
+        "sourceId": "metabotSeasonShop",
+        "name": "Season Shop",
+        "costs": [
+          {
+            "currency": "Oath Coin",
+            "amount": 50400
+          }
+        ],
+        "endDate": "2026-12-16"
+      }
+    ]
+  },
+  {
+    "id": "appearance-light-crystal-necklace",
+    "kind": "accessory",
+    "name": "Light Crystal (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-light-crystal-necklace-appearance",
+        "name": "Light Crystal (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "appearance-light-crystal-necklace-appearance",
+        "source": "season-shop",
+        "sourceId": "metabotSeasonShop",
+        "name": "Season Shop",
+        "costs": [
+          {
+            "currency": "Oath Coin",
+            "amount": 50400
+          }
+        ],
+        "endDate": "2026-12-16"
+      }
+    ]
+  },
+  {
+    "id": "appearance-moon-circle-necklace",
+    "kind": "accessory",
+    "name": "Moon Circle (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-moon-circle-necklace-appearance",
+        "name": "Moon Circle (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-moonlight-blossom-necklace",
+    "kind": "accessory",
+    "name": "Moonlight Blossom (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-moonlight-blossom-necklace-appearance",
+        "name": "Moonlight Blossom (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-sea-s-lament-necklace",
+    "kind": "accessory",
+    "name": "Sea's Lament (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-sea-s-lament-necklace-appearance",
+        "name": "Sea's Lament (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-silver-wings-necklace",
+    "kind": "accessory",
+    "name": "Silver Wings (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-silver-wings-necklace-appearance",
+        "name": "Silver Wings (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-sky-recollection-necklace",
+    "kind": "accessory",
+    "name": "Sky Recollection (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-sky-recollection-necklace-appearance",
+        "name": "Sky Recollection (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "appearance-sky-recollection-necklace-appearance",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 6750
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "appearance-spring-blossom-whisper-necklace",
+    "kind": "accessory",
+    "name": "Spring Blossom Whisper (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-spring-blossom-whisper-necklace-appearance",
+        "name": "Spring Blossom Whisper (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-spring-s-promise-necklace",
+    "kind": "accessory",
+    "name": "Spring's Promise (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-spring-s-promise-necklace-appearance",
+        "name": "Spring's Promise (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-star-tear-necklace",
+    "kind": "accessory",
+    "name": "Star Tear (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-star-tear-necklace-appearance",
+        "name": "Star Tear (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-sunburst-sky-necklace",
+    "kind": "accessory",
+    "name": "Sunburst Sky (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-sunburst-sky-necklace-appearance",
+        "name": "Sunburst Sky (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-sweet-whispers-necklace",
+    "kind": "accessory",
+    "name": "Sweet Whispers (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-sweet-whispers-necklace-appearance",
+        "name": "Sweet Whispers (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-temple-guardian-necklace",
+    "kind": "accessory",
+    "name": "Temple Guardian (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-temple-guardian-necklace-appearance",
+        "name": "Temple Guardian (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-white-petal-sigh-necklace",
+    "kind": "accessory",
+    "name": "White Petal Sigh (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-white-petal-sigh-necklace-appearance",
+        "name": "White Petal Sigh (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-wind-droplet-necklace",
+    "kind": "accessory",
+    "name": "Wind Droplet (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-wind-droplet-necklace-appearance",
+        "name": "Wind Droplet (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-aqua-floret-necklace",
+    "kind": "accessory",
+    "name": "Aqua Floret (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-aqua-floret-necklace-appearance",
+        "name": "Aqua Floret (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-argent-moon-necklace",
+    "kind": "accessory",
+    "name": "Argent Moon (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-argent-moon-necklace-appearance",
+        "name": "Argent Moon (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-auldor-s-feather-necklace",
+    "kind": "accessory",
+    "name": "Auldor's Feather (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-auldor-s-feather-necklace-appearance",
+        "name": "Auldor's Feather (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-dark-deluge-necklace",
+    "kind": "accessory",
+    "name": "Dark Deluge (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-dark-deluge-necklace-appearance",
+        "name": "Dark Deluge (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-eternal-promise-necklace",
+    "kind": "accessory",
+    "name": "Eternal Promise (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-eternal-promise-necklace-appearance",
+        "name": "Eternal Promise (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-flame-heart-necklace",
+    "kind": "accessory",
+    "name": "Flame Heart (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-flame-heart-necklace-appearance",
+        "name": "Flame Heart (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-gold-star-necklace",
+    "kind": "accessory",
+    "name": "Gold Star (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-gold-star-necklace-appearance",
+        "name": "Gold Star (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-light-droplet-necklace",
+    "kind": "accessory",
+    "name": "Light Droplet (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-light-droplet-necklace-appearance",
+        "name": "Light Droplet (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-nocturnal-melody-necklace",
+    "kind": "accessory",
+    "name": "Nocturnal Melody (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-nocturnal-melody-necklace-appearance",
+        "name": "Nocturnal Melody (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-radiant-legacy-necklace",
+    "kind": "accessory",
+    "name": "Radiant Legacy (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-radiant-legacy-necklace-appearance",
+        "name": "Radiant Legacy (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-shadow-ruby-necklace",
+    "kind": "accessory",
+    "name": "Shadow Ruby (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-shadow-ruby-necklace-appearance",
+        "name": "Shadow Ruby (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-shining-melody-necklace",
+    "kind": "accessory",
+    "name": "Shining Melody (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-shining-melody-necklace-appearance",
+        "name": "Shining Melody (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-silver-flux-necklace",
+    "kind": "accessory",
+    "name": "Silver Flux (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-silver-flux-necklace-appearance",
+        "name": "Silver Flux (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-silver-starlight-necklace",
+    "kind": "accessory",
+    "name": "Silver Starlight (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-silver-starlight-necklace-appearance",
+        "name": "Silver Starlight (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-sky-blossom-necklace",
+    "kind": "accessory",
+    "name": "Sky Blossom (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-sky-blossom-necklace-appearance",
+        "name": "Sky Blossom (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-sky-orb-necklace",
+    "kind": "accessory",
+    "name": "Sky Orb (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-sky-orb-necklace-appearance",
+        "name": "Sky Orb (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-verdant-leaf-necklace",
+    "kind": "accessory",
+    "name": "Verdant Leaf (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-verdant-leaf-necklace-appearance",
+        "name": "Verdant Leaf (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-violet-bead-necklace",
+    "kind": "accessory",
+    "name": "Violet Bead (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-violet-bead-necklace-appearance",
+        "name": "Violet Bead (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-woodland-whisper-necklace",
+    "kind": "accessory",
+    "name": "Woodland Whisper (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-woodland-whisper-necklace-appearance",
+        "name": "Woodland Whisper (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-dawn-s-eye-necklace",
+    "kind": "accessory",
+    "name": "Dawn's Eye (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-dawn-s-eye-necklace-appearance",
+        "name": "Dawn's Eye (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-eclipse-form-necklace",
+    "kind": "accessory",
+    "name": "Eclipse Form (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-eclipse-form-necklace-appearance",
+        "name": "Eclipse Form (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-fairy-leaf-necklace",
+    "kind": "accessory",
+    "name": "Fairy Leaf (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-fairy-leaf-necklace-appearance",
+        "name": "Fairy Leaf (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-moonlit-dew-necklace",
+    "kind": "accessory",
+    "name": "Moonlit Dew (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-moonlit-dew-necklace-appearance",
+        "name": "Moonlit Dew (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-nebula-ring-necklace",
+    "kind": "accessory",
+    "name": "Nebula Ring (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-nebula-ring-necklace-appearance",
+        "name": "Nebula Ring (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-steel-wings-necklace",
+    "kind": "accessory",
+    "name": "Steel Wings (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-steel-wings-necklace-appearance",
+        "name": "Steel Wings (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-blue-eye-necklace",
+    "kind": "accessory",
+    "name": "Blue Eye (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-blue-eye-necklace-appearance",
+        "name": "Blue Eye (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-shadow-jewel-necklace",
+    "kind": "accessory",
+    "name": "Shadow Jewel (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-shadow-jewel-necklace-appearance",
+        "name": "Shadow Jewel (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-unwavering-will-necklace",
+    "kind": "accessory",
+    "name": "Unwavering Will (Necklace)",
+    "pieces": [
+      {
+        "id": "appearance-unwavering-will-necklace-appearance",
+        "name": "Unwavering Will (Necklace)",
+        "aliases": ["Necklace"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-adorable-young-elim-shoulder",
+    "kind": "vanity",
+    "name": "Adorable Young Elim (Shoulder)",
+    "pieces": [
+      {
+        "id": "appearance-adorable-young-elim-shoulder-appearance",
+        "name": "Adorable Young Elim (Shoulder)",
+        "aliases": ["Shoulder Wear"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-flowery-young-elim-shoulder",
+    "kind": "vanity",
+    "name": "Flowery Young Elim (Shoulder)",
+    "pieces": [
+      {
+        "id": "appearance-flowery-young-elim-shoulder-appearance",
+        "name": "Flowery Young Elim (Shoulder)",
+        "aliases": ["Shoulder Wear"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-urd-s-squirrel-shoulder",
+    "kind": "vanity",
+    "name": "Urd's Squirrel (Shoulder)",
+    "pieces": [
+      {
+        "id": "appearance-urd-s-squirrel-shoulder-appearance",
+        "name": "Urd's Squirrel (Shoulder)",
+        "aliases": ["Shoulder Wear"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "appearance-urd-s-squirrel-shoulder-appearance",
+        "source": "pass-shop",
+        "sourceId": "metabotDaevaPassShop",
+        "name": "Daeva Pass Shop",
+        "costs": [
+          {
+            "currency": "Daeva Pass Shop Coin",
+            "amount": 12000
+          }
+        ],
+        "endDate": "2026-12-16"
+      }
+    ]
+  },
+  {
+    "id": "appearance-cyber-glasses-eyewear",
+    "kind": "vanity",
+    "name": "Cyber Glasses (Eyewear)",
+    "pieces": [
+      {
+        "id": "appearance-cyber-glasses-eyewear-appearance",
+        "name": "Cyber Glasses (Eyewear)",
+        "aliases": ["Eye Wear"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-mysteriously-cool-glasses-eyewear",
+    "kind": "vanity",
+    "name": "Mysteriously Cool Glasses (Eyewear)",
+    "pieces": [
+      {
+        "id": "appearance-mysteriously-cool-glasses-eyewear-appearance",
+        "name": "Mysteriously Cool Glasses (Eyewear)",
+        "aliases": ["Eye Wear"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-pixel-glasses-eyewear",
+    "kind": "vanity",
+    "name": "Pixel Glasses (Eyewear)",
+    "pieces": [
+      {
+        "id": "appearance-pixel-glasses-eyewear-appearance",
+        "name": "Pixel Glasses (Eyewear)",
+        "aliases": ["Eye Wear"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-predator-mask-facewear",
+    "kind": "vanity",
+    "name": "Predator Mask (Facewear)",
+    "pieces": [
+      {
+        "id": "appearance-predator-mask-facewear-appearance",
+        "name": "Predator Mask (Facewear)",
+        "aliases": ["Mouth Wear"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-street-bubble-gum-facewear",
+    "kind": "vanity",
+    "name": "Street Bubble Gum (Facewear)",
+    "pieces": [
+      {
+        "id": "appearance-street-bubble-gum-facewear-appearance",
+        "name": "Street Bubble Gum (Facewear)",
+        "aliases": ["Mouth Wear"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "appearance-tardy-toast-facewear",
+    "kind": "vanity",
+    "name": "Tardy Toast (Facewear)",
+    "pieces": [
+      {
+        "id": "appearance-tardy-toast-facewear-appearance",
+        "name": "Tardy Toast (Facewear)",
+        "aliases": ["Mouth Wear"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "blazing-sun-wings",
+    "kind": "wing",
+    "name": "Blazing Sun Wings",
+    "pieces": [
+      {
+        "id": "blazing-sun-wings-appearance",
+        "name": "Blazing Sun Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "punk-bunny-bag-wings",
+    "kind": "wing",
+    "name": "Punk Bunny Bag Wings",
+    "pieces": [
+      {
+        "id": "punk-bunny-bag-wings-appearance",
+        "name": "Punk Bunny Bag Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "void-rending-wings",
+    "kind": "wing",
+    "name": "Void Rending Wings",
+    "pieces": [
+      {
+        "id": "void-rending-wings-appearance",
+        "name": "Void Rending Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "ancient-aullaeu-wings",
+    "kind": "wing",
+    "name": "Ancient Aullaeu Wings",
+    "pieces": [
+      {
+        "id": "ancient-aullaeu-wings-appearance",
+        "name": "Ancient Aullaeu Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "black-fragment-wings",
+    "kind": "wing",
+    "name": "Black Fragment Wings",
+    "pieces": [
+      {
+        "id": "black-fragment-wings-appearance",
+        "name": "Black Fragment Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "blue-butterfly-wings",
+    "kind": "wing",
+    "name": "Blue Butterfly Wings",
+    "pieces": [
+      {
+        "id": "blue-butterfly-wings-appearance",
+        "name": "Blue Butterfly Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "blue-wave-wings",
+    "kind": "wing",
+    "name": "Blue Wave Wings",
+    "pieces": [
+      {
+        "id": "blue-wave-wings-appearance",
+        "name": "Blue Wave Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "brawler-wings",
+    "kind": "wing",
+    "name": "Brawler Wings",
+    "pieces": [
+      {
+        "id": "brawler-wings-appearance",
+        "name": "Brawler Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "brawler-wings-appearance",
+        "source": "abyss-shop",
+        "sourceId": "metabotAbyssTradeShop",
+        "name": "Abyss Trade Shop",
+        "costs": [
+          {
+            "currency": "Abyss Points",
+            "amount": 800000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dark-veil-wings",
+    "kind": "wing",
+    "name": "Dark Veil Wings",
+    "pieces": [
+      {
+        "id": "dark-veil-wings-appearance",
+        "name": "Dark Veil Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "forest-spirit-wings",
+    "kind": "wing",
+    "name": "Forest Spirit Wings",
+    "pieces": [
+      {
+        "id": "forest-spirit-wings-appearance",
+        "name": "Forest Spirit Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "kromede-wings",
+    "kind": "wing",
+    "name": "Kromede Wings",
+    "pieces": [
+      {
+        "id": "kromede-wings-appearance",
+        "name": "Kromede Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "nightmare-wings",
+    "kind": "wing",
+    "name": "Nightmare Wings",
+    "pieces": [
+      {
+        "id": "nightmare-wings-appearance",
+        "name": "Nightmare Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "nightmare-wings-appearance",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 160000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "radiant-love-wings",
+    "kind": "wing",
+    "name": "Radiant Love Wings",
+    "pieces": [
+      {
+        "id": "radiant-love-wings-appearance",
+        "name": "Radiant Love Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "talisra-wings",
+    "kind": "wing",
+    "name": "Talisra Wings",
+    "pieces": [
+      {
+        "id": "talisra-wings-appearance",
+        "name": "Talisra Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "talisra-wings-appearance",
+        "source": "season-shop",
+        "sourceId": "metabotSeasonShop",
+        "name": "Season Shop",
+        "costs": [
+          {
+            "currency": "Oath Coin",
+            "amount": 210000
+          }
+        ],
+        "endDate": "2026-12-16"
+      }
+    ]
+  },
+  {
+    "id": "ultimate-daeva-wings",
+    "kind": "wing",
+    "name": "Ultimate Daeva Wings",
+    "pieces": [
+      {
+        "id": "ultimate-daeva-wings-appearance",
+        "name": "Ultimate Daeva Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "conqueror-wings",
+    "kind": "wing",
+    "name": "Conqueror Wings",
+    "pieces": [
+      {
+        "id": "conqueror-wings-appearance",
+        "name": "Conqueror Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "conqueror-wings-appearance",
+        "source": "nightmare-shop",
+        "sourceId": "metabotNightmareShop",
+        "name": "Nightmare Shop",
+        "costs": [
+          {
+            "currency": "Phantasmal Fragment",
+            "amount": 20000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "glorious-wings",
+    "kind": "wing",
+    "name": "Glorious Wings",
+    "pieces": [
+      {
+        "id": "glorious-wings-appearance",
+        "name": "Glorious Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "odyle-wings",
+    "kind": "wing",
+    "name": "Odyle Wings",
+    "pieces": [
+      {
+        "id": "odyle-wings-appearance",
+        "name": "Odyle Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "sealing-wings",
+    "kind": "wing",
+    "name": "Sealing Wings",
+    "pieces": [
+      {
+        "id": "sealing-wings-appearance",
+        "name": "Sealing Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "superior-daeva-wings",
+    "kind": "wing",
+    "name": "Superior Daeva Wings",
+    "pieces": [
+      {
+        "id": "superior-daeva-wings-appearance",
+        "name": "Superior Daeva Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "warrior-wings",
+    "kind": "wing",
+    "name": "Warrior Wings",
+    "pieces": [
+      {
+        "id": "warrior-wings-appearance",
+        "name": "Warrior Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": [
+      {
+        "pieceId": "warrior-wings-appearance",
+        "source": "abyss-shop",
+        "sourceId": "metabotAbyssTradeShop",
+        "name": "Abyss Trade Shop",
+        "costs": [
+          {
+            "currency": "Abyss Points",
+            "amount": 200000
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": "aullaeu-wings",
+    "kind": "wing",
+    "name": "Aullaeu Wings",
+    "pieces": [
+      {
+        "id": "aullaeu-wings-appearance",
+        "name": "Aullaeu Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "fairys-dream-wings",
+    "kind": "wing",
+    "name": "Fairy's Dream Wings",
+    "pieces": [
+      {
+        "id": "fairys-dream-wings-appearance",
+        "name": "Fairy's Dream Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "intermediate-daeva-wings",
+    "kind": "wing",
+    "name": "Intermediate Daeva Wings",
+    "pieces": [
+      {
+        "id": "intermediate-daeva-wings-appearance",
+        "name": "Intermediate Daeva Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  },
+  {
+    "id": "lesser-daeva-wings",
+    "kind": "wing",
+    "name": "Lesser Daeva Wings",
+    "pieces": [
+      {
+        "id": "lesser-daeva-wings-appearance",
+        "name": "Lesser Daeva Wings",
+        "aliases": ["Wings"]
+      }
+    ],
+    "offers": []
+  }
+]

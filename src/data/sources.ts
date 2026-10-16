@@ -2,6 +2,7 @@ import { altsSourceAdditions } from "./alts.ts";
 import { gearUpgradeSourceAdditions } from "./gearUpgrades.ts";
 import { growthSourceAdditions } from "./growth.ts";
 import { skinAcquisitionSourceAdditions } from "./skinAcquisitions.ts";
+import { skinCatalogueSourceAdditions } from "./skinCatalogueMetadata.ts";
 
 // Every source the site names. Page footers pick from these; the Sources page lists them all.
 export type Source = {
@@ -15,6 +16,7 @@ export const sources = {
   ...gearUpgradeSourceAdditions,
   ...growthSourceAdditions,
   ...skinAcquisitionSourceAdditions,
+  ...skinCatalogueSourceAdditions,
   shugoTimers: {
     name: "Shugo.GG timer data",
     covers:

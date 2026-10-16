@@ -1,110 +1,93 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useMatch } from "react-router";
-import { ClearFilters } from "../../components/controls/ClearFilters/ClearFilters.tsx";
-import { FilterChips } from "../../components/controls/FilterChips/FilterChips.tsx";
-import { SearchField } from "../../components/controls/SearchField/SearchField.tsx";
 import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
 import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
-import { AppearanceDetail } from "../../components/skins/AppearanceDetail/AppearanceDetail.tsx";
-import { SkinDetail } from "../../components/skins/SkinDetail/SkinDetail.tsx";
-import { SkinList } from "../../components/skins/SkinList/SkinList.tsx";
+import { SkinCatalogue } from "../../components/skins/SkinCatalogue/SkinCatalogue.tsx";
 import {
-  matchesSkin,
-  nonFestivalSkinEntries,
-  nonFestivalSkinPieceIds,
-  skinAcquisitionSourceLabels,
   skinAcquisitionSources,
   skinAcquisitionsReviewed,
-  type SkinAcquisitionSource,
 } from "../../data/skinAcquisitions.ts";
 import {
-  skinEntries,
-  skinPieceIds,
-  skinSourceLabels,
-  skinsReviewed,
-  skinsSources,
-  type SkinSource,
-} from "../../data/skins.ts";
-import { useStoredState } from "../../hooks/useStoredState.ts";
+  skinCatalogueAttribution,
+  skinCatalogueLimitations,
+  skinCatalogueReviewed,
+} from "../../data/skinCatalogueMetadata.ts";
+import { skinsReviewed, skinsSources } from "../../data/skins.ts";
 import { useTitle } from "../../hooks/useTitle.ts";
-import { toggleOwned, validOwned } from "../../lib/skinOwnership.ts";
+import { loadSkinCatalogue } from "../../lib/skinCatalogueLoader.ts";
 import STYLES from "./Skins.module.css";
 
-type SourceFilter = SkinSource | SkinAcquisitionSource | "all";
-
-const entries = [...skinEntries, ...nonFestivalSkinEntries];
-
-const knownPieceIds = new Set([...skinPieceIds, ...nonFestivalSkinPieceIds]);
-
-const sourceChips: { value: SourceFilter; label: string }[] = [
-  { value: "all", label: "All" },
-  ...Object.entries({
-    ...skinSourceLabels,
-    ...skinAcquisitionSourceLabels,
-  }).map(([value, label]) => ({ value: value as SourceFilter, label })),
-];
+type Catalogue = Awaited<ReturnType<typeof loadSkinCatalogue>>;
 
 const footerSources = [
   ...new Set([...skinsSources, ...skinAcquisitionSources]),
 ];
 
-const reviewed = [skinsReviewed, skinAcquisitionsReviewed].sort().at(-1);
+// A newer inventory review does not re-review the older acquisition notes.
+const reviewed = [
+  skinsReviewed,
+  skinAcquisitionsReviewed,
+  skinCatalogueReviewed,
+]
+  .sort()
+  .at(0);
+
+const [scope, ...limitations] = skinCatalogueLimitations;
 
 export function Skins() {
   useTitle("Skins");
 
   const setId = useMatch("/skins/:set")?.params.set;
-  const selected = entries.find(({ id }) => id === setId);
-  const [query, setQuery] = useState("");
-  const [source, setSource] = useState<SourceFilter>("all");
-  const [filterSetId, setFilterSetId] = useState(setId);
-  const [stored, setStored] = useStoredState<string[]>("skin-owned", []);
+  const [catalogue, setCatalogue] = useState<Catalogue | "loading" | "failed">(
+    "loading",
+  );
 
-  if (filterSetId !== setId) {
-    setFilterSetId(setId);
-    setQuery("");
-    setSource("all");
-  }
+  // The full reference loads only on this page, so other pages stay light.
+  useEffect(() => {
+    let live = true;
 
-  const owned = validOwned(stored, knownPieceIds);
-  const visible = entries.filter((entry) => matchesSkin(entry, query, source));
-  const filtered = query !== "" || source !== "all";
-
-  const clear = () => {
-    setQuery("");
-    setSource("all");
-  };
-
-  const clearButton = <ClearFilters onClear={clear} />;
-
-  const toggle = (pieceId: string) =>
-    setStored((current) =>
-      toggleOwned(validOwned(current, knownPieceIds), pieceId),
+    loadSkinCatalogue().then(
+      (loaded) => live && setCatalogue(loaded),
+      () => live && setCatalogue("failed"),
     );
 
-  function details() {
-    if (setId === undefined)
-      return <p className={STYLES.message}>Pick a set to see its pieces.</p>;
+    return () => {
+      live = false;
+    };
+  }, []);
 
-    if (!selected)
+  const selected =
+    typeof catalogue === "object"
+      ? catalogue.skinCatalogueEntries.find(({ id }) => id === setId)
+      : undefined;
+
+  function body() {
+    if (catalogue === "loading")
       return (
-        <p className={STYLES.message}>
-          There is no “{setId}” skin set. Pick one from the list.
+        <p role="status" className={STYLES.note}>
+          Loading the appearance list…
         </p>
       );
 
-    if (!visible.includes(selected))
+    if (catalogue === "failed")
       return (
-        <p className={STYLES.message}>
-          {selected.name} is hidden by your search or source filter.{" "}
-          {clearButton}
-        </p>
+        <div role="alert" className={STYLES.failure}>
+          <p>
+            The appearance list didn&apos;t load, so nothing is shown. Your
+            ticks are still saved in this browser.
+          </p>
+          <button type="button" onClick={() => window.location.reload()}>
+            Reload the page
+          </button>
+        </div>
       );
 
-    return "acquisitions" in selected ? (
-      <AppearanceDetail entry={selected} owned={owned} onToggle={toggle} />
-    ) : (
-      <SkinDetail entry={selected} owned={owned} onToggle={toggle} />
+    return (
+      <SkinCatalogue
+        entries={catalogue.skinCatalogueEntries}
+        pieceIds={catalogue.skinCataloguePieceIds}
+        setId={setId}
+      />
     );
   }
 
@@ -112,47 +95,32 @@ export function Skins() {
     <>
       <PageHero
         title="Skins"
-        lede="Curated outfits, accessories and wings, with their acquisition routes, prices and your own checklist."
+        lede="Every non-weapon outfit, accessory, vanity piece and wing in the game files, with known routes, prices and your own checklist."
       />
-
       <div className={STYLES.body}>
+        <p className={STYLES.note}>{scope}</p>
+        <details className={STYLES.limits}>
+          <summary>What this list does not cover</summary>
+          <ul>
+            {limitations.map((limitation) => (
+              <li key={limitation}>{limitation}</li>
+            ))}
+          </ul>
+        </details>
         <p className={STYLES.note}>
           Ticks are saved only in this browser. They are your own notes, not a
           synced account, character or Closet inventory.
         </p>
-
-        <div className={STYLES.toolbar}>
-          <SearchField
-            label="Search sets and pieces"
-            value={query}
-            onChange={setQuery}
-          />
-          <FilterChips
-            label="Source"
-            chips={sourceChips.map(({ value, label }) => ({
-              value,
-              label,
-              pressed: source === value,
-            }))}
-            onToggle={setSource}
-          />
-          {filtered && clearButton}
-        </div>
-
-        <div className={STYLES.catalogue}>
-          {visible.length > 0 ? (
-            <SkinList entries={visible} owned={owned} selected={selected?.id} />
-          ) : (
-            <p className={STYLES.message}>
-              No sets match this search and source.
-            </p>
-          )}
-
-          <section aria-label="Selected set">{details()}</section>
-        </div>
+        {body()}
       </div>
-
-      <SiteFooter sources={footerSources} reviewed={reviewed} />
+      <SiteFooter
+        sources={footerSources}
+        reviewed={reviewed}
+        attribution={[
+          ...skinCatalogueAttribution,
+          ...(selected?.attribution ?? []),
+        ]}
+      />
     </>
   );
 }
