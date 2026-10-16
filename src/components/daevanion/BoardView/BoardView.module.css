@@ -6,6 +6,9 @@
   /* Wide screens: budget across the top, board and node detail left, purchase order right. */
   @media (width >= 1200px) {
     grid-template-columns: minmax(0, max-content) minmax(24rem, 1fr);
+
+    /* The tall purchase order spills into the last row, keeping node detail right under the board. */
+    grid-template-rows: auto auto 1fr;
     column-gap: 48px;
     align-items: start;
 
