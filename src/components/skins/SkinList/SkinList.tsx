@@ -94,8 +94,22 @@ export function SkinList({
                       to={`/skins/${entry.id}`}
                       // Keep the reader's place in a long list (#30).
                       preventScrollReset
-                      // Re-picking the current row changes no route, so it must not arm a focus move.
-                      onClick={entry.id === selected ? undefined : onPick}
+                      // Arm a focus move only when this tab will navigate: not on the
+                      // current row, nor a modified or non-primary click (new tab or window).
+                      onClick={(event) => {
+                        if (
+                          entry.id !== selected &&
+                          event.button === 0 &&
+                          !event.defaultPrevented &&
+                          !(
+                            event.metaKey ||
+                            event.ctrlKey ||
+                            event.shiftKey ||
+                            event.altKey
+                          )
+                        )
+                          onPick?.();
+                      }}
                       aria-current={entry.id === selected ? "page" : undefined}
                       className={STYLES.entry}
                     >

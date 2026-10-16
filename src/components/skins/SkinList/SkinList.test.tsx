@@ -1,4 +1,4 @@
-import { screen } from "@testing-library/react";
+import { fireEvent, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { expect, test, vi } from "vitest";
 import { skinCatalogueEntries } from "../../../data/skinCatalogue.ts";
@@ -127,6 +127,34 @@ test("picking reports only rows other than the current one", async () => {
   expect(onPick).not.toHaveBeenCalled();
 
   await userEvent.click(screen.getByRole("link", { name: /^Partial/ }));
+
+  expect(onPick).toHaveBeenCalledOnce();
+});
+
+test("only plain primary clicks and Enter report a pick", async () => {
+  const onPick = vi.fn();
+
+  renderWithProviders(
+    <SkinList
+      entries={[entry("awakened"), partial]}
+      owned={[]}
+      selected="awakened"
+      selectedKind="costume"
+      filtered={false}
+      onPick={onPick}
+    />,
+  );
+
+  const link = screen.getByRole("link", { name: /^Partial/ });
+
+  for (const modifier of ["ctrlKey", "metaKey", "shiftKey", "altKey"])
+    fireEvent.click(link, { [modifier]: true });
+  fireEvent.click(link, { button: 1 });
+
+  expect(onPick).not.toHaveBeenCalled();
+
+  link.focus();
+  await userEvent.keyboard("{Enter}");
 
   expect(onPick).toHaveBeenCalledOnce();
 });

@@ -109,6 +109,21 @@ test("re-picking the selected row does not steal focus on a later route change",
   expect(document.activeElement).not.toBe(detail());
 });
 
+test("a Ctrl-click that opens a row elsewhere does not steal focus later", async () => {
+  Element.prototype.scrollIntoView = vi.fn();
+  renderWithProviders(<RoutedCatalogue />, {
+    path: "/skins/blazing-sun-wings",
+  });
+  const user = userEvent.setup();
+
+  await user.keyboard("{Control>}");
+  await user.click(within(nav()).getByRole("link", { name: /Ascended Daeva/ }));
+  await user.keyboard("{/Control}");
+  await user.click(screen.getByRole("link", { name: "Back to all sets" }));
+
+  expect(document.activeElement).not.toBe(detail());
+});
+
 test("the list comes first until an entry is selected", () => {
   renderCatalogue();
 
