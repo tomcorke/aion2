@@ -62,3 +62,14 @@
   margin-right: 12px;
   color: var(--accent);
 }
+
+/* Stacked entries run the item facts together to save a line each. */
+@container growth (width < 820px) {
+  .material,
+  .equipment,
+  .currency,
+  .fact {
+    display: inline-block;
+    margin-right: 14px;
+  }
+}

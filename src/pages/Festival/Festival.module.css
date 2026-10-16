@@ -1,8 +1,12 @@
 .body {
   display: grid;
   gap: 32px;
-  max-width: 900px;
   padding: 24px var(--gutter) 0;
+
+  /* Tables and controls take the page width; prose keeps a reading measure. */
+  & p {
+    max-width: 76ch;
+  }
 
   & > * {
     min-width: 0;
@@ -24,6 +28,7 @@
 }
 
 .notes {
+  max-width: 76ch;
   display: grid;
   gap: 8px;
   margin: 0;

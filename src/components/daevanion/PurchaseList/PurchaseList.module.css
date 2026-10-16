@@ -12,13 +12,17 @@
     font-size: 1rem;
   }
 
+  /* Short rows flow into columns where there is room; the gap leaves space for each column's numbers. */
   & ol {
     margin: 0;
     padding-left: 2.5em;
     font-family: var(--f-mono);
+    columns: 19rem;
+    column-gap: 3.5em;
   }
 
   & li {
+    break-inside: avoid;
     border-bottom: 1px solid var(--line);
   }
 

@@ -2,6 +2,28 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 24px;
+
+  /* Wide screens: budget across the top, board and node detail left, purchase order right. */
+  @media (width >= 1200px) {
+    grid-template-columns: minmax(0, max-content) minmax(24rem, 1fr);
+    column-gap: 48px;
+    align-items: start;
+
+    & > :first-child {
+      grid-column: 1 / -1;
+    }
+
+    /* The board sets the column width; its legend and the node detail wrap under it. */
+    & figcaption,
+    & > :nth-child(3) {
+      contain: inline-size;
+    }
+
+    & > :last-child {
+      grid-row: 2 / span 2;
+      grid-column: 2;
+    }
+  }
 }
 
 .budget {

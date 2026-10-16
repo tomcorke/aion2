@@ -33,14 +33,11 @@ const chip = (name: string) =>
     { name },
   );
 
-test("lists every material in a labelled, focusable scroll region", () => {
+test("lists every material without a sideways scroll region", () => {
   renderPage();
 
   expect(itemNames()).toHaveLength(growthMaterials.length);
-  const region = screen.getByRole("region", { name: /scrolls sideways/ });
-
-  expect(region.getAttribute("tabindex")).toBe("0");
-  expect(region.contains(table())).toBe(true);
+  expect(screen.queryByRole("region", { name: /scrolls sideways/ })).toBeNull();
   expect(chip("All").getAttribute("aria-pressed")).toBe("true");
 });
 

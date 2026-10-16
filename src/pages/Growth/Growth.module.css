@@ -25,11 +25,11 @@
 
 .layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
   gap: 32px 48px;
   align-items: start;
 
-  @media (width <= 1000px) {
-    grid-template-columns: minmax(0, 1fr);
+  /* The advice sits beside the table only once the table keeps its four columns. */
+  @media (width >= 1360px) {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 320px);
   }
 }

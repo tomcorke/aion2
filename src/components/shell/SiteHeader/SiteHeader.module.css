@@ -5,7 +5,9 @@
   align-items: stretch;
   gap: 26px;
   height: 64px;
-  padding: 0 var(--gutter);
+
+  /* Line the wordmark and controls up with the 1760px page frame in Layout. */
+  padding: 0 max(var(--gutter), calc((100% - 1760px) / 2 + var(--gutter)));
   border-bottom: 1px solid var(--line);
   background: var(--ground);
 

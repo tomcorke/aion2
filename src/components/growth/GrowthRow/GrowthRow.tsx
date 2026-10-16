@@ -95,7 +95,7 @@ function Item({ material }: { material: GrowthMaterial }) {
   ].filter(Boolean);
 
   return (
-    <th scope="row">
+    <th scope="row" role="rowheader">
       <span className={STYLES.name}>{material.name}</span>
       <span className={STYLES[material.kind]}>{kindLabels[material.kind]}</span>
       {facts.map((fact) => (
@@ -112,9 +112,9 @@ export function GrowthRow({ material }: { material: GrowthMaterial }) {
   const currency = material.kind === "currency";
 
   return (
-    <tr className={currency ? STYLES.currencyRow : undefined}>
+    <tr role="row" className={currency ? STYLES.currencyRow : undefined}>
       <Item material={material} />
-      <td>
+      <td role="cell" data-label="Grows">
         <span className={STYLES.targets}>
           {material.targets.map(targetLabel).join(" · ")}
         </span>
@@ -125,14 +125,14 @@ export function GrowthRow({ material }: { material: GrowthMaterial }) {
           </Link>
         ))}
       </td>
-      <td>
+      <td role="cell" data-label="From">
         <ul className={STYLES.list}>
           {material.acquisition.map((route) => (
             <Route key={route.name} route={route} />
           ))}
         </ul>
       </td>
-      <td>
+      <td role="cell" data-label="Limits and conditions">
         <Limits material={material} />
       </td>
     </tr>

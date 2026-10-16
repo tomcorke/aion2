@@ -1,10 +1,9 @@
-.scroll {
-  overflow-x: auto;
+.frame {
+  container: growth / inline-size;
 }
 
 .table {
   width: 100%;
-  min-width: 860px;
   border-collapse: collapse;
 
   & caption {
@@ -21,7 +20,7 @@
 
   & th,
   & td {
-    padding: 10px 14px 10px 0;
+    padding: 10px 18px 10px 0;
     border-bottom: 1px solid var(--line);
     vertical-align: top;
   }
@@ -29,9 +28,82 @@
   & thead th {
     color: var(--muted);
     font-size: 0.82rem;
+
+    &:nth-child(1) {
+      width: 20%;
+    }
+
+    &:nth-child(2) {
+      width: 32%;
+    }
   }
 
   & p {
     margin: 4px 0;
+  }
+}
+
+/* Too narrow for four columns: each row becomes an entry with labelled parts. */
+@container growth (width < 820px) {
+  .table {
+    &,
+    & caption,
+    & tbody,
+    & tr,
+    & th,
+    & td {
+      display: block;
+    }
+
+    & thead {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+      white-space: nowrap;
+    }
+
+    & tbody tr {
+      padding: 14px 0 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    & th,
+    & td {
+      padding: 0;
+      border-bottom: 0;
+    }
+
+    & td {
+      position: relative;
+      margin-top: 10px;
+      padding-left: 8.5rem;
+    }
+
+    /* The column name is already announced from the hidden header row. */
+    & td::before {
+      content: attr(data-label) / "";
+      position: absolute;
+      left: 0;
+      width: 7.5rem;
+      color: var(--muted);
+      font-size: 0.82rem;
+      line-height: 1.75;
+    }
+  }
+}
+
+@container growth (width < 480px) {
+  .table {
+    & td {
+      padding-left: 0;
+    }
+
+    & td::before {
+      position: static;
+      display: block;
+      width: auto;
+    }
   }
 }

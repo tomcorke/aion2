@@ -57,3 +57,11 @@ test("shared counters show their scope and route limits sit beside the route", (
   expect(screen.getByText("Bound.")).toBeDefined();
   expect(screen.queryByText("No limit recorded.")).toBeNull();
 });
+
+test("each cell carries its column name for the stacked layout", () => {
+  renderRow(base);
+
+  const labels = screen.getAllByRole("cell").map((cell) => cell.dataset.label);
+
+  expect(labels).toEqual(["Grows", "From", "Limits and conditions"]);
+});
