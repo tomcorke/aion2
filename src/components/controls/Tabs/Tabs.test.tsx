@@ -1,9 +1,15 @@
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { useLocation } from "react-router";
-import { expect, test } from "vitest";
+import { ScrollRestoration, useLocation } from "react-router";
+import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import { renderWithProviders } from "../../../testing/render.tsx";
 import { Tabs } from "./Tabs.tsx";
+
+beforeEach(() => {
+  vi.spyOn(window, "scrollTo").mockImplementation(() => {});
+});
+
+afterEach(() => vi.restoreAllMocks());
 
 const tabs = [
   { id: "a", label: "Alpha", to: "/x" },
@@ -22,6 +28,7 @@ const renderTabs = (selected?: string, path = "/x") =>
         <p>Panel</p>
       </Tabs>
       <Where />
+      <ScrollRestoration />
     </>,
     { path },
   );
@@ -77,6 +84,55 @@ test("arrow keys, Home and End move focus and the route", async () => {
   expect(screen.getByRole("status", { name: "location" }).textContent).toBe(
     "/x",
   );
+});
+
+test("clicking a routed tab does not reset the page scroll", async () => {
+  renderTabs("a");
+
+  const scroll = vi.spyOn(window, "scrollTo");
+
+  scroll.mockClear();
+
+  await userEvent.click(screen.getByRole("tab", { name: "Beta" }));
+
+  expect(screen.getByRole("status", { name: "location" }).textContent).toBe(
+    "/x/b",
+  );
+  expect(scroll).not.toHaveBeenCalled();
+});
+
+test("keyboard selection keeps scroll while moving focus and the route", async () => {
+  renderTabs("a");
+
+  screen.getByRole("tab", { name: "Alpha" }).focus();
+  vi.mocked(window.scrollTo).mockClear();
+
+  await userEvent.keyboard("{ArrowRight}");
+
+  expect(document.activeElement).toBe(
+    screen.getByRole("tab", { name: "Beta" }),
+  );
+  expect(screen.getByRole("status", { name: "location" }).textContent).toBe(
+    "/x/b",
+  );
+  expect(window.scrollTo).not.toHaveBeenCalled();
+});
+
+test("keyboard selection reveals the whole target using nearest scrolling", async () => {
+  renderTabs("a");
+
+  const target = screen.getByRole("tab", { name: "Gamma" });
+
+  target.scrollIntoView = vi.fn();
+  screen.getByRole("tab", { name: "Alpha" }).focus();
+
+  await userEvent.keyboard("{End}");
+
+  expect(document.activeElement).toBe(target);
+  expect(target.scrollIntoView).toHaveBeenCalledWith({
+    block: "nearest",
+    inline: "nearest",
+  });
 });
 
 test("with no selection the panel content shows without a tabpanel", () => {

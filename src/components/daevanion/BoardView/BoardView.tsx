@@ -61,6 +61,7 @@ export function BoardView(props: Props) {
   const setPoints = (points: number) =>
     setSearchParams(points ? { points: String(points) } : {}, {
       replace: true,
+      preventScrollReset: true,
     });
 
   return (

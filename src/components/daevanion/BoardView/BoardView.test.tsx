@@ -1,9 +1,20 @@
-import { screen, within } from "@testing-library/react";
+import { fireEvent, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { expect, test } from "vitest";
+import { ScrollRestoration, useLocation } from "react-router";
+import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import { loadClassRoutes } from "../../../lib/daevanionLoader.ts";
 import { renderWithProviders } from "../../../testing/render.tsx";
 import { BoardView } from "./BoardView.tsx";
+
+beforeEach(() => {
+  vi.spyOn(window, "scrollTo").mockImplementation(() => {});
+});
+
+afterEach(() => vi.restoreAllMocks());
+
+function Location() {
+  return <output aria-label="location">{useLocation().search}</output>;
+}
 
 const data = await loadClassRoutes("spiritmaster");
 const board = data.classRoutes.boards.nezekan;
@@ -11,14 +22,18 @@ const route = board.routes.damage;
 
 const renderBoard = (rawPoints: string | null = null) =>
   renderWithProviders(
-    <BoardView
-      geometry={data.geometry.nezekan}
-      route={route}
-      phases={data.phases}
-      skillMap={board.skills}
-      skills={data.classRoutes.skills}
-      rawPoints={rawPoints}
-    />,
+    <>
+      <BoardView
+        geometry={data.geometry.nezekan}
+        route={route}
+        phases={data.phases}
+        skillMap={board.skills}
+        skills={data.classRoutes.skills}
+        rawPoints={rawPoints}
+      />
+      <Location />
+      <ScrollRestoration />
+    </>,
   );
 
 const stepOf = (label: string) => Number(/ step (\d+),/.exec(label)?.[1]);
@@ -62,6 +77,22 @@ test("the diagram and the text list give the same purchases in the same order", 
   expect(diagram.filter((label) => label.includes("next purchase"))).toEqual([
     diagram[affordable.length],
   ]);
+});
+
+test("changing the budget updates its URL without resetting scroll or focus", () => {
+  renderBoard();
+
+  const slider = screen.getByRole("slider", { name: "Point budget" });
+
+  slider.focus();
+  vi.mocked(window.scrollTo).mockClear();
+  fireEvent.change(slider, { target: { value: "30" } });
+
+  expect(screen.getByRole("status", { name: "location" }).textContent).toBe(
+    "?points=30",
+  );
+  expect(window.scrollTo).not.toHaveBeenCalled();
+  expect(document.activeElement).toBe(slider);
 });
 
 test("choosing a list entry selects the same node on the board", async () => {

@@ -39,8 +39,12 @@ export function Tabs({ label, tabs, selected, children }: Props) {
 
     const next = move(index, tabs.length);
 
-    navigate(tabs[next].to);
-    refs.current[next]?.focus();
+    navigate(tabs[next].to, { preventScrollReset: true });
+    refs.current[next]?.focus({ preventScroll: true });
+    refs.current[next]?.scrollIntoView?.({
+      block: "nearest",
+      inline: "nearest",
+    });
   }
 
   return (
@@ -55,6 +59,7 @@ export function Tabs({ label, tabs, selected, children }: Props) {
             id={`${id}-${tab.id}`}
             role="tab"
             to={tab.to}
+            preventScrollReset
             aria-selected={index === current}
             tabIndex={index === Math.max(current, 0) ? 0 : -1}
             className={STYLES.tab}
