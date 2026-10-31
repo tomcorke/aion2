@@ -11,8 +11,9 @@ test("reader questions have stable unique IDs, topic groups, useful checks and r
     "gear",
     "daevanion",
     "appearances",
+    "pets",
   ]);
-  expect(openQuestions).toHaveLength(27);
+  expect(openQuestions).toHaveLength(29);
   expect(new Set(openQuestions.map(({ id }) => id)).size).toBe(
     openQuestions.length,
   );

@@ -1,0 +1,87 @@
+/* Rows respond to the list width, since the map takes a column beside it. */
+.list {
+  container-type: inline-size;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.empty {
+  color: var(--muted);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 40px minmax(0, 1fr);
+  gap: 4px 8px;
+  align-items: center;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+
+  &[data-selected="true"] {
+    box-shadow: inset 2px 0 0 var(--accent);
+  }
+
+  @container (width > 640px) {
+    grid-template-columns: 40px minmax(150px, 1fr) repeat(3, minmax(0, 1.1fr));
+    gap: 8px 12px;
+  }
+}
+
+.pick {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+
+  & input {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--accent);
+  }
+}
+
+.name {
+  display: grid;
+  min-width: 0;
+
+  & span {
+    color: var(--muted);
+    font-size: 0.8rem;
+  }
+}
+
+.level {
+  display: flex;
+  grid-column: 2;
+  gap: 10px;
+  align-items: flex-start;
+  min-height: 40px;
+  padding: 2px 0;
+  cursor: pointer;
+
+  & input {
+    flex-shrink: 0;
+    width: 18px;
+    height: 18px;
+    margin-top: 2px;
+    accent-color: var(--accent);
+  }
+
+  @container (width > 640px) {
+    grid-column: auto;
+  }
+}
+
+.levelName {
+  display: block;
+  color: var(--accent);
+  font-family: var(--f-mono);
+  font-size: 0.74rem;
+}
+
+.stats {
+  display: block;
+  font-size: 0.82rem;
+}

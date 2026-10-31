@@ -1,0 +1,2382 @@
+{
+  "areas": [
+    {
+      "id": "verteron-eastern-cantas-valley",
+      "name": "Eastern Cantas Valley",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-western-cantas-valley",
+      "name": "Western Cantas Valley",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-ellun-river-marsh",
+      "name": "Ellun River Marsh",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-collapsed-verteron-barrier-tower",
+      "name": "Collapsed Verteron Barrier Tower",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-contaminated-marsh",
+      "name": "Contaminated Marsh",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-spirit-s-rest",
+      "name": "Spirit's Rest",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-anguish-hill",
+      "name": "Anguish Hill",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-dundu-s-rest",
+      "name": "Dundu's Rest",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-ellun-river-meadow",
+      "name": "Ellun River Meadow",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-ellun-river-midstream",
+      "name": "Ellun River Midstream",
+      "region": "verteron"
+    },
+    { "id": "verteron-miros-post", "name": "Miros Post", "region": "verteron" },
+    { "id": "verteron-pamos-farm", "name": "Pamos Farm", "region": "verteron" },
+    {
+      "id": "verteron-destroyed-abyss-gate",
+      "name": "Destroyed Abyss Gate",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-verteron-fortress-ruins",
+      "name": "Verteron Fortress Ruins",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-krall-command-post",
+      "name": "Krall Command Post",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-illusion-oratory",
+      "name": "Illusion Oratory",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-southern-tolbas-forest",
+      "name": "Southern Tolbas Forest",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-northern-tolbas-forest",
+      "name": "Northern Tolbas Forest",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-eastern-tolbas-forest",
+      "name": "Eastern Tolbas Forest",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-night-dew-cave",
+      "name": "Night Dew Cave",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-aullaeu-village",
+      "name": "Aullaeu Village",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-deserter-encampment",
+      "name": "Deserter Encampment",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-forest-of-exiles",
+      "name": "Forest of Exiles",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-pilgrim-s-ridge",
+      "name": "Pilgrim's Ridge",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-eastern-altamia-highland",
+      "name": "Eastern Altamia Highland",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-rock-tomb-hill",
+      "name": "Rock Tomb Hill",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-western-altamia-highland",
+      "name": "Western Altamia Highland",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-altamia-canyon",
+      "name": "Altamia Canyon",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-southern-altamia-highland",
+      "name": "Southern Altamia Highland",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-contaminated-sanctum",
+      "name": "Contaminated Sanctum",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-destroyed-temple-site",
+      "name": "Destroyed Temple Site",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-kraka-footpath",
+      "name": "Kraka Footpath",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-romlon-s-hideout",
+      "name": "Romlon's Hideout",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-drana-cultivation-area",
+      "name": "Drana Cultivation Area",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-drana-processing-area",
+      "name": "Drana Processing Area",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-scarlet-forest",
+      "name": "Scarlet Forest",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-nahid-brigade-fortress",
+      "name": "Nahid Brigade Fortress",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-garden-of-the-illusion-god",
+      "name": "Garden of the Illusion God",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-pilgrim-s-rest",
+      "name": "Pilgrim's Rest",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-crimson-isle",
+      "name": "Crimson Isle",
+      "region": "verteron"
+    },
+    {
+      "id": "verteron-eternal-isle",
+      "name": "Eternal Isle",
+      "region": "verteron"
+    },
+    {
+      "id": "altgard-dredgion-crash-site",
+      "name": "Dredgion Crash Site",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-galorik-s-inspection-area",
+      "name": "Galorik's Inspection Area",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-calderon-canyon",
+      "name": "Calderon Canyon",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-nameless-cemetery",
+      "name": "Nameless Cemetery",
+      "region": "altgard"
+    },
+    { "id": "altgard-safe-haven", "name": "Safe Haven", "region": "altgard" },
+    { "id": "altgard-crypt", "name": "Crypt", "region": "altgard" },
+    { "id": "altgard-silent-hill", "name": "Silent Hill", "region": "altgard" },
+    {
+      "id": "altgard-tranein-highland",
+      "name": "Tranein Highland",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-sanctum-outpost",
+      "name": "Sanctum Outpost",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-sanctum-outskirts-watch",
+      "name": "Sanctum Outskirts Watch",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-tranein-pond",
+      "name": "Tranein Pond",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-moslan-forest",
+      "name": "Moslan Forest",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-munin-s-bridge",
+      "name": "Munin's Bridge",
+      "region": "altgard"
+    },
+    { "id": "altgard-uruthumheim", "name": "Uruthumheim", "region": "altgard" },
+    {
+      "id": "altgard-purifying-forest",
+      "name": "Purifying Forest",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-battlescar-mound",
+      "name": "Battlescar Mound",
+      "region": "altgard"
+    },
+    { "id": "altgard-dranactus", "name": "Dranactus", "region": "altgard" },
+    {
+      "id": "altgard-basfelt-ruins",
+      "name": "Basfelt Ruins",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-flauke-legion-outpost",
+      "name": "Flauke Legion Outpost",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-mahindel-cliff",
+      "name": "Mahindel Cliff",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-mahindel-river",
+      "name": "Mahindel River",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-fafnite-deposit",
+      "name": "Fafnite Deposit",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-western-gribade-highland",
+      "name": "Western Gribade Highland",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-amunta-s-hideout",
+      "name": "Amunta's Hideout",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-barahta-extermination-unit-outpost",
+      "name": "Barahta Extermination Unit Outpost",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-eastern-gribade-highland",
+      "name": "Eastern Gribade Highland",
+      "region": "altgard"
+    },
+    { "id": "altgard-idun-s-lake", "name": "Idun's Lake", "region": "altgard" },
+    {
+      "id": "altgard-southern-gribade-highland",
+      "name": "Southern Gribade Highland",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-black-claw-village",
+      "name": "Black Claw Village",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-kumrica-s-cellar",
+      "name": "Kumrica's Cellar",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-lagta-fortress",
+      "name": "Lagta Fortress",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-impetusium-square",
+      "name": "Impetusium Square",
+      "region": "altgard"
+    },
+    { "id": "altgard-spirit-isle", "name": "Spirit Isle", "region": "altgard" },
+    {
+      "id": "altgard-immortal-isle",
+      "name": "Immortal Isle",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-quai-campsite",
+      "name": "Quai Campsite",
+      "region": "altgard"
+    },
+    {
+      "id": "altgard-sanctum-dumpsite",
+      "name": "Sanctum Dumpsite",
+      "region": "altgard"
+    },
+    {
+      "id": "lower-reshanta-black-fragments-area",
+      "name": "Black Fragments Area",
+      "region": "lower-reshanta"
+    },
+    {
+      "id": "lower-reshanta-devastated-remnants",
+      "name": "Devastated Remnants",
+      "region": "lower-reshanta"
+    },
+    {
+      "id": "lower-reshanta-archipelago-of-siel-s-wings",
+      "name": "Archipelago of Siel's Wings",
+      "region": "lower-reshanta"
+    },
+    {
+      "id": "lower-reshanta-sulfur-tree-island",
+      "name": "Sulfur Tree Island",
+      "region": "lower-reshanta"
+    },
+    {
+      "id": "lower-reshanta-reshanta-s-root",
+      "name": "Reshanta's Root",
+      "region": "lower-reshanta"
+    },
+    {
+      "id": "middle-reshanta-contaminated-marsh",
+      "name": "Contaminated Marsh",
+      "region": "middle-reshanta"
+    },
+    {
+      "id": "middle-reshanta-distorted-old-growth-forest",
+      "name": "Distorted Old Growth Forest",
+      "region": "middle-reshanta"
+    },
+    {
+      "id": "middle-reshanta-corroded-heart",
+      "name": "Corroded Heart",
+      "region": "middle-reshanta"
+    },
+    {
+      "id": "middle-reshanta-eroded-fragment-area",
+      "name": "Eroded Fragment Area",
+      "region": "middle-reshanta"
+    },
+    {
+      "id": "middle-reshanta-steel-titan-s-grave",
+      "name": "Steel Titan's Grave",
+      "region": "middle-reshanta"
+    },
+    {
+      "id": "other-eltnen-barrier-tower-ruins",
+      "name": "Eltnen Barrier Tower Ruins",
+      "region": "other"
+    },
+    {
+      "id": "other-nephra-snowfield",
+      "name": "Nephra Snowfield",
+      "region": "other"
+    },
+    {
+      "id": "other-patamor-plains",
+      "name": "Patamor Plains",
+      "region": "other"
+    },
+    {
+      "id": "dungeons-draupnir",
+      "name": "Draupnir",
+      "region": "dungeons",
+      "entrance": "Garden of the Illusion God, Verteron"
+    },
+    {
+      "id": "dungeons-krao-cave",
+      "name": "Krao Cave",
+      "region": "dungeons",
+      "entrance": "Ellun River Midstream, Verteron"
+    }
+  ],
+  "pets": [
+    {
+      "id": "aberrant-armadon",
+      "name": "Aberrant Armadon",
+      "type": "Fera",
+      "areas": [
+        "verteron-eastern-cantas-valley",
+        "verteron-southern-altamia-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "aberrant-bee",
+      "name": "Aberrant Bee",
+      "type": "Fera",
+      "areas": [
+        "altgard-basfelt-ruins",
+        "altgard-calderon-canyon",
+        "altgard-nameless-cemetery",
+        "altgard-quai-campsite",
+        "altgard-silent-hill",
+        "verteron-ellun-river-midstream",
+        "verteron-pamos-farm",
+        "verteron-pilgrim-s-ridge"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "aberrant-coradon",
+      "name": "Aberrant Coradon",
+      "type": "Fera",
+      "areas": [
+        "altgard-basfelt-ruins",
+        "altgard-flauke-legion-outpost",
+        "altgard-tranein-highland",
+        "verteron-garden-of-the-illusion-god",
+        "verteron-kraka-footpath",
+        "verteron-romlon-s-hideout"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "aberrant-odyle-spider",
+      "name": "Aberrant Odyle Spider",
+      "type": "Fera",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "aberrant-potcrab",
+      "name": "Aberrant Potcrab",
+      "type": "Fera",
+      "areas": ["verteron-crimson-isle", "verteron-scarlet-forest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "aberrant-skama",
+      "name": "Aberrant Skama",
+      "type": "Fera",
+      "areas": [
+        "lower-reshanta-sulfur-tree-island",
+        "middle-reshanta-contaminated-marsh",
+        "verteron-contaminated-sanctum"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "aberrant-tog",
+      "name": "Aberrant Tog",
+      "type": "Fera",
+      "areas": [
+        "altgard-battlescar-mound",
+        "altgard-purifying-forest",
+        "verteron-eastern-cantas-valley",
+        "verteron-ellun-river-midstream",
+        "verteron-kraka-footpath",
+        "verteron-pamos-farm",
+        "verteron-southern-altamia-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "aberrant-zaif",
+      "name": "Aberrant Zaif",
+      "type": "Fera",
+      "areas": ["altgard-eastern-gribade-highland", "verteron-pilgrim-s-ridge"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "addicted-shulak-cart-worker",
+      "name": "Addicted Shulak Cart Worker",
+      "type": "Cogni",
+      "areas": ["altgard-fafnite-deposit"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "agrint",
+      "name": "Agrint",
+      "type": "Natura",
+      "areas": [
+        "altgard-basfelt-ruins",
+        "altgard-immortal-isle",
+        "altgard-moslan-forest",
+        "lower-reshanta-reshanta-s-root",
+        "lower-reshanta-sulfur-tree-island",
+        "middle-reshanta-distorted-old-growth-forest",
+        "verteron-contaminated-sanctum",
+        "verteron-ellun-river-midstream",
+        "verteron-eternal-isle",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "airon",
+      "name": "Airon",
+      "type": "Fera",
+      "areas": [
+        "altgard-eastern-gribade-highland",
+        "altgard-mahindel-river",
+        "verteron-altamia-canyon",
+        "verteron-ellun-river-midstream",
+        "verteron-western-altamia-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "ancient-spirit",
+      "name": "Ancient Spirit",
+      "type": "Natura",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "armadon",
+      "name": "Armadon",
+      "type": "Fera",
+      "areas": ["altgard-dredgion-crash-site", "altgard-moslan-forest"],
+      "other": ["Quest reward", "Random shop", "Pet chests"]
+    },
+    {
+      "id": "ashen-agrint",
+      "name": "Ashen Agrint",
+      "type": "Natura",
+      "areas": ["altgard-spirit-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "ashen-basilisk",
+      "name": "Ashen Basilisk",
+      "type": "Fera",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "ashen-dionae",
+      "name": "Ashen Dionae",
+      "type": "Natura",
+      "areas": ["altgard-moslan-forest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "ashen-lupyllini",
+      "name": "Ashen Lupyllini",
+      "type": "Fera",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "ashen-spider",
+      "name": "Ashen Spider",
+      "type": "Fera",
+      "areas": ["altgard-moslan-forest", "verteron-anguish-hill"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "aullaeu-shaman",
+      "name": "Aullaeu Shaman",
+      "type": "Cogni",
+      "areas": ["verteron-aullaeu-village"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "aultrosss-doppelganger",
+      "name": "Aultross's Doppelganger",
+      "type": "Cogni",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "baby-odyle-spider",
+      "name": "Baby Odyle Spider",
+      "type": "Fera",
+      "areas": ["verteron-ellun-river-marsh", "verteron-spirit-s-rest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "basilisk",
+      "name": "Basilisk",
+      "type": "Fera",
+      "areas": ["altgard-moslan-forest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "biruta",
+      "name": "Biruta",
+      "type": "Cogni",
+      "areas": ["altgard-nameless-cemetery", "verteron-eastern-tolbas-forest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "biruta-herbalist",
+      "name": "Biruta Herbalist",
+      "type": "Cogni",
+      "areas": ["altgard-nameless-cemetery"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "black-dragon",
+      "name": "Black Dragon",
+      "type": "Special",
+      "areas": [],
+      "other": ["Daeva's Chest of Might"]
+    },
+    {
+      "id": "black-smoke-murute",
+      "name": "Black Smoke Murute",
+      "type": "Natura",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "black-spirit",
+      "name": "Black Spirit",
+      "type": "Natura",
+      "areas": [
+        "altgard-impetusium-square",
+        "lower-reshanta-reshanta-s-root",
+        "middle-reshanta-corroded-heart",
+        "verteron-contaminated-marsh",
+        "verteron-kraka-footpath",
+        "verteron-romlon-s-hideout"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "blue-kalgolem",
+      "name": "Blue Kalgolem",
+      "type": "Varian",
+      "areas": [
+        "altgard-fafnite-deposit",
+        "lower-reshanta-archipelago-of-siel-s-wings",
+        "middle-reshanta-distorted-old-growth-forest",
+        "verteron-eastern-cantas-valley"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "brax",
+      "name": "Brax",
+      "type": "Fera",
+      "areas": [
+        "altgard-basfelt-ruins",
+        "altgard-battlescar-mound",
+        "altgard-sanctum-outpost",
+        "altgard-tranein-highland",
+        "verteron-eastern-altamia-highland",
+        "verteron-ellun-river-meadow",
+        "verteron-ellun-river-midstream",
+        "verteron-western-altamia-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "cadaver-cleaner",
+      "name": "Cadaver Cleaner",
+      "type": "Varian",
+      "areas": ["altgard-basfelt-ruins", "altgard-uruthumheim"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "cadaver-insectoid",
+      "name": "Cadaver Insectoid",
+      "type": "Fera",
+      "areas": ["altgard-dredgion-crash-site"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "cave-bat",
+      "name": "Cave Bat",
+      "type": "Fera",
+      "areas": ["verteron-scarlet-forest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "congealed-drana",
+      "name": "Congealed Drana",
+      "type": "Varian",
+      "areas": ["altgard-dredgion-crash-site"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "contaminated-slime",
+      "name": "Contaminated Slime",
+      "type": "Varian",
+      "areas": [
+        "lower-reshanta-sulfur-tree-island",
+        "middle-reshanta-contaminated-marsh",
+        "verteron-contaminated-sanctum",
+        "verteron-ellun-river-marsh"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "coradon",
+      "name": "Coradon",
+      "type": "Fera",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "crasaur",
+      "name": "Crasaur",
+      "type": "Fera",
+      "areas": [
+        "altgard-immortal-isle",
+        "altgard-purifying-forest",
+        "verteron-altamia-canyon",
+        "verteron-ellun-river-midstream",
+        "verteron-eternal-isle"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "crestlich",
+      "name": "Crestlich",
+      "type": "Fera",
+      "areas": [
+        "verteron-ellun-river-midstream",
+        "verteron-southern-altamia-highland",
+        "verteron-western-cantas-valley"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "dark-spirit",
+      "name": "Dark Spirit",
+      "type": "Varian",
+      "areas": [
+        "verteron-altamia-canyon",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "decomposed-lupyllini",
+      "name": "Decomposed Lupyllini",
+      "type": "Cogni",
+      "areas": [
+        "altgard-basfelt-ruins",
+        "altgard-battlescar-mound",
+        "altgard-dredgion-crash-site",
+        "altgard-galorik-s-inspection-area",
+        "altgard-moslan-forest",
+        "altgard-munin-s-bridge",
+        "altgard-tranein-highland",
+        "verteron-eastern-altamia-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "dionae",
+      "name": "Dionae",
+      "type": "Natura",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "distorted-mutant",
+      "name": "Distorted Mutant",
+      "type": "Varian",
+      "areas": ["altgard-purifying-forest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "dracuni-herbalist",
+      "name": "Dracuni Herbalist",
+      "type": "Cogni",
+      "areas": ["altgard-spirit-isle", "verteron-drana-processing-area"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "drakan-guard-dog",
+      "name": "Drakan Guard Dog",
+      "type": "Fera",
+      "areas": [
+        "altgard-dranactus",
+        "altgard-eastern-gribade-highland",
+        "altgard-lagta-fortress",
+        "lower-reshanta-archipelago-of-siel-s-wings",
+        "verteron-nahid-brigade-fortress"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "drakan-probe",
+      "name": "Drakan Probe",
+      "type": "Varian",
+      "areas": [
+        "altgard-dranactus",
+        "altgard-lagta-fortress",
+        "altgard-sanctum-outpost",
+        "altgard-tranein-highland",
+        "altgard-tranein-pond",
+        "verteron-drana-processing-area",
+        "verteron-nahid-brigade-fortress"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "drakan-watcher",
+      "name": "Drakan Watcher",
+      "type": "Cogni",
+      "areas": [
+        "altgard-barahta-extermination-unit-outpost",
+        "altgard-dranactus",
+        "altgard-eastern-gribade-highland",
+        "verteron-drana-processing-area"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "drakana-kalgolem",
+      "name": "Drakana Kalgolem",
+      "type": "Varian",
+      "areas": ["altgard-dredgion-crash-site"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "drana-contaminant",
+      "name": "Drana Contaminant",
+      "type": "Varian",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "drana-mutant",
+      "name": "Drana Mutant",
+      "type": "Varian",
+      "areas": ["altgard-dredgion-crash-site"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "drana-mutant-brute",
+      "name": "Drana Mutant Brute",
+      "type": "Varian",
+      "areas": [
+        "altgard-immortal-isle",
+        "verteron-crimson-isle",
+        "verteron-eternal-isle"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "drana-predator",
+      "name": "Drana Predator",
+      "type": "Varian",
+      "areas": ["altgard-dredgion-crash-site", "verteron-crimson-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "drana-slime",
+      "name": "Drana Slime",
+      "type": "Varian",
+      "areas": ["altgard-dredgion-crash-site"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "drana-spore",
+      "name": "Drana Spore",
+      "type": "Natura",
+      "areas": ["verteron-crimson-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "drana-swarm",
+      "name": "Drana Swarm",
+      "type": "Varian",
+      "areas": ["verteron-crimson-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "dratona",
+      "name": "Dratona",
+      "type": "Cogni",
+      "areas": [
+        "altgard-dranactus",
+        "altgard-sanctum-outpost",
+        "altgard-tranein-highland",
+        "altgard-tranein-pond",
+        "verteron-scarlet-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "dratona-tinkerer",
+      "name": "Dratona Tinkerer",
+      "type": "Cogni",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "dried-up-forest-guardian",
+      "name": "Dried Up Forest Guardian",
+      "type": "Natura",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "dry-leaf-agrint",
+      "name": "Dry Leaf Agrint",
+      "type": "Natura",
+      "areas": ["verteron-southern-tolbas-forest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "duduka-trebuchet-worker",
+      "name": "Duduka Trebuchet Worker",
+      "type": "Varian",
+      "areas": ["altgard-black-claw-village"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "duduka-worker",
+      "name": "Duduka Worker",
+      "type": "Varian",
+      "areas": ["altgard-black-claw-village"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "elite-dratona",
+      "name": "Elite Dratona",
+      "type": "Cogni",
+      "areas": ["other-patamor-plains"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "elite-guardite",
+      "name": "Elite Guardite",
+      "type": "Varian",
+      "areas": ["verteron-contaminated-sanctum"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "elite-karnif",
+      "name": "Elite Karnif",
+      "type": "Fera",
+      "areas": ["other-nephra-snowfield"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "elite-keneire",
+      "name": "Elite Keneire",
+      "type": "Fera",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "elite-klaw",
+      "name": "Elite Klaw",
+      "type": "Cogni",
+      "areas": ["verteron-destroyed-abyss-gate"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "elite-manduri-fighter",
+      "name": "Elite Manduri Fighter",
+      "type": "Cogni",
+      "areas": ["altgard-black-claw-village", "verteron-pilgrim-s-ridge"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "elite-poisonous-spore-fungen",
+      "name": "Elite Poisonous Spore Fungen",
+      "type": "Natura",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "elite-soulless-corpse-gnat",
+      "name": "Elite Soulless Corpse Gnat",
+      "type": "Varian",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "elite-ursus",
+      "name": "Elite Ursus",
+      "type": "Fera",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "enhanced-krall-combatant",
+      "name": "Enhanced Krall Combatant",
+      "type": "Cogni",
+      "areas": [
+        "verteron-illusion-oratory",
+        "verteron-verteron-fortress-ruins"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "enhanced-krall-sentry",
+      "name": "Enhanced Krall Sentry",
+      "type": "Cogni",
+      "areas": ["verteron-verteron-fortress-ruins"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "eternal-coradon",
+      "name": "Eternal Coradon",
+      "type": "Fera",
+      "areas": [
+        "altgard-southern-gribade-highland",
+        "lower-reshanta-archipelago-of-siel-s-wings",
+        "middle-reshanta-distorted-old-growth-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "faded-drana",
+      "name": "Faded Drana",
+      "type": "Varian",
+      "areas": ["altgard-fafnite-deposit"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "faded-floater",
+      "name": "Faded Floater",
+      "type": "Varian",
+      "areas": ["altgard-fafnite-deposit"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "faded-mutant",
+      "name": "Faded Mutant",
+      "type": "Varian",
+      "areas": [
+        "altgard-fafnite-deposit",
+        "middle-reshanta-contaminated-marsh"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "faded-mutant-brute",
+      "name": "Faded Mutant Brute",
+      "type": "Varian",
+      "areas": [
+        "altgard-fafnite-deposit",
+        "middle-reshanta-contaminated-marsh"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "faded-predator",
+      "name": "Faded Predator",
+      "type": "Varian",
+      "areas": ["altgard-fafnite-deposit"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "flame-barghest",
+      "name": "Flame Barghest",
+      "type": "Fera",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "flame-stone-guardian-statue",
+      "name": "Flame Stone Guardian Statue",
+      "type": "Varian",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "forest-dionae",
+      "name": "Forest Dionae",
+      "type": "Natura",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "forest-guardian",
+      "name": "Forest Guardian",
+      "type": "Natura",
+      "areas": [
+        "middle-reshanta-distorted-old-growth-forest",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "forest-monster",
+      "name": "Forest Monster",
+      "type": "Varian",
+      "areas": ["altgard-moslan-forest", "verteron-northern-tolbas-forest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "forest-specter",
+      "name": "Forest Specter",
+      "type": "Natura",
+      "areas": [
+        "verteron-altamia-canyon",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "forest-spirit",
+      "name": "Forest Spirit",
+      "type": "Natura",
+      "areas": [
+        "altgard-purifying-forest",
+        "verteron-altamia-canyon",
+        "verteron-ellun-river-marsh",
+        "verteron-ellun-river-midstream",
+        "verteron-pilgrim-s-ridge"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "fossa",
+      "name": "Fossa",
+      "type": "Fera",
+      "areas": [
+        "altgard-basfelt-ruins",
+        "altgard-uruthumheim",
+        "verteron-southern-tolbas-forest"
+      ],
+      "other": ["Quest reward", "Random shop", "Pet chests"]
+    },
+    {
+      "id": "fungen",
+      "name": "Fungen",
+      "type": "Natura",
+      "areas": ["verteron-eastern-cantas-valley"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "fungie",
+      "name": "Fungie",
+      "type": "Natura",
+      "areas": ["verteron-eastern-cantas-valley"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "furious-feruk",
+      "name": "Furious Feruk",
+      "type": "Cogni",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "gatekeeper-pinopi",
+      "name": "Gatekeeper Pinopi",
+      "type": "Varian",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "giant-bee",
+      "name": "Giant Bee",
+      "type": "Fera",
+      "areas": ["verteron-pilgrim-s-ridge"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "giant-sparkie",
+      "name": "Giant Sparkie",
+      "type": "Fera",
+      "areas": [
+        "altgard-fafnite-deposit",
+        "altgard-purifying-forest",
+        "verteron-aullaeu-village",
+        "verteron-eastern-cantas-valley",
+        "verteron-forest-of-exiles",
+        "verteron-southern-altamia-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "grave-rat",
+      "name": "Grave Rat",
+      "type": "Fera",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "gravi",
+      "name": "Gravi",
+      "type": "Natura",
+      "areas": [
+        "altgard-purifying-forest",
+        "verteron-garden-of-the-illusion-god",
+        "verteron-northern-tolbas-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "guardite",
+      "name": "Guardite",
+      "type": "Varian",
+      "areas": ["verteron-contaminated-sanctum"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "harcon",
+      "name": "Harcon",
+      "type": "Varian",
+      "areas": ["dungeons-krao-cave"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "intermediate-earth-spirit",
+      "name": "Intermediate Earth Spirit",
+      "type": "Natura",
+      "areas": [
+        "altgard-immortal-isle",
+        "verteron-eternal-isle",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "intermediate-fire-spirit",
+      "name": "Intermediate Fire Spirit",
+      "type": "Natura",
+      "areas": [
+        "altgard-immortal-isle",
+        "altgard-spirit-isle",
+        "verteron-eternal-isle"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "intermediate-water-spirit",
+      "name": "Intermediate Water Spirit",
+      "type": "Natura",
+      "areas": [
+        "altgard-immortal-isle",
+        "altgard-spirit-isle",
+        "verteron-eternal-isle",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "intermediate-wind-spirit",
+      "name": "Intermediate Wind Spirit",
+      "type": "Natura",
+      "areas": [
+        "altgard-immortal-isle",
+        "verteron-eternal-isle",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "kailin",
+      "name": "Kailin",
+      "type": "Fera",
+      "areas": [
+        "altgard-battlescar-mound",
+        "altgard-purifying-forest",
+        "altgard-sanctum-outpost",
+        "altgard-spirit-isle",
+        "altgard-tranein-highland",
+        "altgard-tranein-pond",
+        "verteron-ellun-river-midstream"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "kalgolem",
+      "name": "Kalgolem",
+      "type": "Varian",
+      "areas": [
+        "altgard-purifying-forest",
+        "lower-reshanta-reshanta-s-root",
+        "middle-reshanta-corroded-heart",
+        "verteron-destroyed-temple-site",
+        "verteron-western-cantas-valley"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "karnif",
+      "name": "Karnif",
+      "type": "Fera",
+      "areas": [
+        "verteron-eastern-altamia-highland",
+        "verteron-kraka-footpath",
+        "verteron-northern-tolbas-forest",
+        "verteron-rock-tomb-hill",
+        "verteron-southern-tolbas-forest",
+        "verteron-western-altamia-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "kernon",
+      "name": "Kernon",
+      "type": "Fera",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "kerubar",
+      "name": "Kerubar",
+      "type": "Cogni",
+      "areas": ["altgard-immortal-isle", "verteron-eternal-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "kerubian",
+      "name": "Kerubian",
+      "type": "Cogni",
+      "areas": ["altgard-immortal-isle", "verteron-eternal-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "kerubiel",
+      "name": "Kerubiel",
+      "type": "Cogni",
+      "areas": ["altgard-immortal-isle", "verteron-eternal-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "klaw",
+      "name": "Klaw",
+      "type": "Cogni",
+      "areas": [
+        "lower-reshanta-sulfur-tree-island",
+        "middle-reshanta-contaminated-marsh",
+        "verteron-destroyed-abyss-gate"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "klaw-scout",
+      "name": "Klaw Scout",
+      "type": "Cogni",
+      "areas": [
+        "altgard-purifying-forest",
+        "lower-reshanta-black-fragments-area",
+        "lower-reshanta-devastated-remnants",
+        "middle-reshanta-eroded-fragment-area",
+        "middle-reshanta-steel-titan-s-grave"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "konutin-worker",
+      "name": "Konutin Worker",
+      "type": "Natura",
+      "areas": ["verteron-northern-tolbas-forest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "krall-laborer",
+      "name": "Krall Laborer",
+      "type": "Cogni",
+      "areas": [
+        "verteron-destroyed-abyss-gate",
+        "verteron-scarlet-forest",
+        "verteron-verteron-fortress-ruins"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "krall-warrior",
+      "name": "Krall Warrior",
+      "type": "Cogni",
+      "areas": [
+        "verteron-krall-command-post",
+        "verteron-nahid-brigade-fortress",
+        "verteron-scarlet-forest",
+        "verteron-verteron-fortress-ruins"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "krall-warshaman",
+      "name": "Krall Warshaman",
+      "type": "Cogni",
+      "areas": [
+        "verteron-drana-processing-area",
+        "verteron-krall-command-post",
+        "verteron-verteron-fortress-ruins"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "krao-mutant",
+      "name": "Krao Mutant",
+      "type": "Varian",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "krao-seal-guardian",
+      "name": "Krao Seal Guardian",
+      "type": "Varian",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "krao-test-subject",
+      "name": "Krao Test Subject",
+      "type": "Varian",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "kuru-overseer",
+      "name": "Kuru Overseer",
+      "type": "Cogni",
+      "areas": ["altgard-immortal-isle", "verteron-eternal-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "kuru-tinkerer",
+      "name": "Kuru Tinkerer",
+      "type": "Cogni",
+      "areas": [
+        "altgard-immortal-isle",
+        "verteron-eastern-tolbas-forest",
+        "verteron-eternal-isle"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "kuru-worker",
+      "name": "Kuru Worker",
+      "type": "Cogni",
+      "areas": [
+        "altgard-immortal-isle",
+        "verteron-eastern-tolbas-forest",
+        "verteron-eternal-isle",
+        "verteron-forest-of-exiles"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "large-leaf-gravi",
+      "name": "Large Leaf Gravi",
+      "type": "Natura",
+      "areas": [
+        "altgard-purifying-forest",
+        "verteron-ellun-river-midstream",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "lesser-earth-spirit",
+      "name": "Lesser Earth Spirit",
+      "type": "Natura",
+      "areas": ["verteron-eternal-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "lesser-fire-spirit",
+      "name": "Lesser Fire Spirit",
+      "type": "Natura",
+      "areas": ["altgard-purifying-forest", "verteron-eternal-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "lesser-water-spirit",
+      "name": "Lesser Water Spirit",
+      "type": "Natura",
+      "areas": ["verteron-eternal-isle", "verteron-spirit-s-rest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "lesser-wind-spirit",
+      "name": "Lesser Wind Spirit",
+      "type": "Natura",
+      "areas": [
+        "altgard-purifying-forest",
+        "verteron-altamia-canyon",
+        "verteron-eternal-isle"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "lupyllini",
+      "name": "Lupyllini",
+      "type": "Fera",
+      "areas": [
+        "verteron-contaminated-sanctum",
+        "verteron-eastern-altamia-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "magic-gravi",
+      "name": "Magic Gravi",
+      "type": "Natura",
+      "areas": [
+        "altgard-purifying-forest",
+        "altgard-spirit-isle",
+        "verteron-garden-of-the-illusion-god",
+        "verteron-northern-tolbas-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "male-crestlich",
+      "name": "Male Crestlich",
+      "type": "Fera",
+      "areas": [
+        "verteron-ellun-river-midstream",
+        "verteron-southern-altamia-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "manduri-fighter",
+      "name": "Manduri Fighter",
+      "type": "Cogni",
+      "areas": ["altgard-black-claw-village", "verteron-crimson-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "manduri-trebuchet-worker",
+      "name": "Manduri Trebuchet Worker",
+      "type": "Cogni",
+      "areas": [
+        "altgard-black-claw-village",
+        "altgard-kumrica-s-cellar",
+        "verteron-crimson-isle",
+        "verteron-kraka-footpath",
+        "verteron-romlon-s-hideout"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "marsh-targon",
+      "name": "Marsh Targon",
+      "type": "Varian",
+      "areas": [
+        "middle-reshanta-contaminated-marsh",
+        "verteron-contaminated-marsh",
+        "verteron-ellun-river-marsh"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "modified-karnif",
+      "name": "Modified Karnif",
+      "type": "Fera",
+      "areas": [
+        "lower-reshanta-black-fragments-area",
+        "lower-reshanta-devastated-remnants",
+        "middle-reshanta-eroded-fragment-area",
+        "middle-reshanta-steel-titan-s-grave",
+        "verteron-destroyed-abyss-gate",
+        "verteron-verteron-fortress-ruins"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "modified-lupyllini",
+      "name": "Modified Lupyllini",
+      "type": "Cogni",
+      "areas": [
+        "altgard-immortal-isle",
+        "verteron-eternal-isle",
+        "verteron-kraka-footpath"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "mudthorn",
+      "name": "Mudthorn",
+      "type": "Varian",
+      "areas": ["altgard-fafnite-deposit", "altgard-impetusium-square"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "mumu-overseer",
+      "name": "Mumu Overseer",
+      "type": "Cogni",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "mumu-warrior",
+      "name": "Mumu Warrior",
+      "type": "Cogni",
+      "areas": [
+        "altgard-black-claw-village",
+        "altgard-dranactus",
+        "altgard-eastern-gribade-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "mumu-worker",
+      "name": "Mumu Worker",
+      "type": "Cogni",
+      "areas": ["altgard-battlescar-mound", "altgard-dranactus"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "mutated-aberrant-odyle-spider",
+      "name": "Mutated Aberrant Odyle Spider",
+      "type": "Fera",
+      "areas": [
+        "altgard-spirit-isle",
+        "verteron-contaminated-marsh",
+        "verteron-eastern-altamia-highland",
+        "verteron-garden-of-the-illusion-god",
+        "verteron-pilgrim-s-rest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "mutated-cadaver-insectoid",
+      "name": "Mutated Cadaver Insectoid",
+      "type": "Fera",
+      "areas": ["verteron-pilgrim-s-ridge"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "mutated-forest-guardian",
+      "name": "Mutated Forest Guardian",
+      "type": "Natura",
+      "areas": ["altgard-moslan-forest", "altgard-spirit-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "mutated-forest-spirit",
+      "name": "Mutated Forest Spirit",
+      "type": "Natura",
+      "areas": ["altgard-nameless-cemetery", "verteron-contaminated-sanctum"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "mutated-insectoid-valka",
+      "name": "Mutated Insectoid Valka",
+      "type": "Fera",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "mutated-ursus",
+      "name": "Mutated Ursus",
+      "type": "Fera",
+      "areas": ["altgard-moslan-forest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "naga-elite-priest",
+      "name": "Naga Elite Priest",
+      "type": "Cogni",
+      "areas": [
+        "lower-reshanta-sulfur-tree-island",
+        "middle-reshanta-contaminated-marsh"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "nagarant-guardian-warrior",
+      "name": "Nagarant Guardian Warrior",
+      "type": "Cogni",
+      "areas": [
+        "lower-reshanta-sulfur-tree-island",
+        "middle-reshanta-contaminated-marsh"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "nepenthes",
+      "name": "Nepenthes",
+      "type": "Natura",
+      "areas": [
+        "lower-reshanta-archipelago-of-siel-s-wings",
+        "middle-reshanta-distorted-old-growth-forest",
+        "verteron-eastern-altamia-highland",
+        "verteron-northern-tolbas-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "oculazen",
+      "name": "Oculazen",
+      "type": "Varian",
+      "areas": [
+        "altgard-impetusium-square",
+        "verteron-drana-cultivation-area",
+        "verteron-drana-processing-area"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "odyle-stone-spirit",
+      "name": "Odyle Stone Spirit",
+      "type": "Natura",
+      "areas": ["altgard-spirit-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "pagati",
+      "name": "Pagati",
+      "type": "Special",
+      "areas": [],
+      "other": ["Advance: Pet Chest"]
+    },
+    {
+      "id": "papis",
+      "name": "Papis",
+      "type": "Fera",
+      "areas": [
+        "altgard-amunta-s-hideout",
+        "altgard-eastern-gribade-highland",
+        "altgard-moslan-forest",
+        "altgard-munin-s-bridge",
+        "altgard-nameless-cemetery",
+        "altgard-safe-haven",
+        "altgard-sanctum-dumpsite",
+        "altgard-sanctum-outpost",
+        "altgard-silent-hill",
+        "altgard-southern-gribade-highland",
+        "altgard-tranein-highland",
+        "altgard-tranein-pond",
+        "altgard-uruthumheim",
+        "altgard-western-gribade-highland",
+        "verteron-anguish-hill",
+        "verteron-eastern-cantas-valley",
+        "verteron-ellun-river-midstream",
+        "verteron-garden-of-the-illusion-god",
+        "verteron-miros-post",
+        "verteron-western-cantas-valley"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "parasite-swarm",
+      "name": "Parasite Swarm",
+      "type": "Varian",
+      "areas": ["altgard-fafnite-deposit"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "phantasmal-lakshmi",
+      "name": "Phantasmal Lakshmi",
+      "type": "Cogni",
+      "areas": ["dungeons-draupnir"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "pino",
+      "name": "Pino",
+      "type": "Varian",
+      "areas": ["verteron-aullaeu-village"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "pino-worker",
+      "name": "Pino Worker",
+      "type": "Varian",
+      "areas": ["verteron-aullaeu-village"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "poison-blood",
+      "name": "Poison Blood",
+      "type": "Varian",
+      "areas": ["altgard-purifying-forest", "altgard-spirit-isle"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "potcrab",
+      "name": "Potcrab",
+      "type": "Fera",
+      "areas": [
+        "altgard-dranactus",
+        "altgard-immortal-isle",
+        "altgard-spirit-isle",
+        "verteron-altamia-canyon",
+        "verteron-collapsed-verteron-barrier-tower",
+        "verteron-contaminated-marsh",
+        "verteron-ellun-river-marsh",
+        "verteron-eternal-isle"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "predator-saraswati",
+      "name": "Predator Saraswati",
+      "type": "Cogni",
+      "areas": ["dungeons-draupnir"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "pretor-veil-administrator",
+      "name": "Pretor Veil Administrator",
+      "type": "Cogni",
+      "areas": ["other-eltnen-barrier-tower-ruins"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "rafflesia",
+      "name": "Rafflesia",
+      "type": "Natura",
+      "areas": [
+        "altgard-immortal-isle",
+        "altgard-nameless-cemetery",
+        "altgard-sanctum-outpost",
+        "altgard-southern-gribade-highland",
+        "altgard-spirit-isle",
+        "verteron-crimson-isle"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "red-spark-ignus",
+      "name": "Red Spark Ignus",
+      "type": "Natura",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "scorpion",
+      "name": "Scorpion",
+      "type": "Fera",
+      "areas": ["altgard-fafnite-deposit", "verteron-contaminated-sanctum"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "sentinel-knash",
+      "name": "Sentinel K'nash",
+      "type": "Cogni",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "silver-blade-rotan",
+      "name": "Silver Blade Rotan",
+      "type": "Varian",
+      "areas": [
+        "lower-reshanta-black-fragments-area",
+        "lower-reshanta-devastated-remnants",
+        "middle-reshanta-eroded-fragment-area",
+        "middle-reshanta-steel-titan-s-grave"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "skama",
+      "name": "Skama",
+      "type": "Fera",
+      "areas": [
+        "verteron-contaminated-marsh",
+        "verteron-ellun-river-midstream",
+        "verteron-scarlet-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "skyray",
+      "name": "Skyray",
+      "type": "Fera",
+      "areas": [
+        "altgard-idun-s-lake",
+        "altgard-tranein-pond",
+        "verteron-altamia-canyon",
+        "verteron-eastern-tolbas-forest",
+        "verteron-ellun-river-midstream",
+        "verteron-kraka-footpath",
+        "verteron-pilgrim-s-ridge",
+        "verteron-southern-altamia-highland",
+        "verteron-spirit-s-rest",
+        "verteron-western-cantas-valley"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "slime",
+      "name": "Slime",
+      "type": "Varian",
+      "areas": ["altgard-purifying-forest"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "slink",
+      "name": "Slink",
+      "type": "Fera",
+      "areas": [
+        "altgard-immortal-isle",
+        "altgard-southern-gribade-highland",
+        "altgard-tranein-highland",
+        "altgard-tranein-pond",
+        "altgard-western-gribade-highland",
+        "lower-reshanta-archipelago-of-siel-s-wings",
+        "middle-reshanta-distorted-old-growth-forest",
+        "verteron-ellun-river-midstream",
+        "verteron-eternal-isle",
+        "verteron-southern-tolbas-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "soulless-corpse-gnat",
+      "name": "Soulless Corpse Gnat",
+      "type": "Varian",
+      "areas": ["altgard-basfelt-ruins"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "sparkie",
+      "name": "Sparkie",
+      "type": "Fera",
+      "areas": [
+        "verteron-aullaeu-village",
+        "verteron-ellun-river-meadow",
+        "verteron-ellun-river-midstream",
+        "verteron-forest-of-exiles",
+        "verteron-southern-altamia-highland",
+        "verteron-western-altamia-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "spider",
+      "name": "Spider",
+      "type": "Fera",
+      "areas": [
+        "lower-reshanta-archipelago-of-siel-s-wings",
+        "middle-reshanta-distorted-old-growth-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "spirit-kings-bodyguard-warrior",
+      "name": "Spirit King's Bodyguard Warrior",
+      "type": "Natura",
+      "areas": [
+        "lower-reshanta-archipelago-of-siel-s-wings",
+        "middle-reshanta-distorted-old-growth-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "starturtle",
+      "name": "Starturtle",
+      "type": "Fera",
+      "areas": [
+        "altgard-dranactus",
+        "altgard-immortal-isle",
+        "altgard-western-gribade-highland",
+        "verteron-collapsed-verteron-barrier-tower",
+        "verteron-ellun-river-marsh",
+        "verteron-eternal-isle",
+        "verteron-kraka-footpath"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "stone-spirit",
+      "name": "Stone Spirit",
+      "type": "Natura",
+      "areas": [
+        "altgard-purifying-forest",
+        "lower-reshanta-archipelago-of-siel-s-wings",
+        "verteron-kraka-footpath"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "superior-earth-spirit",
+      "name": "Superior Earth Spirit",
+      "type": "Natura",
+      "areas": [
+        "altgard-immortal-isle",
+        "altgard-purifying-forest",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "superior-fire-spirit",
+      "name": "Superior Fire Spirit",
+      "type": "Natura",
+      "areas": [
+        "altgard-immortal-isle",
+        "altgard-purifying-forest",
+        "altgard-spirit-isle",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "superior-water-spirit",
+      "name": "Superior Water Spirit",
+      "type": "Natura",
+      "areas": [
+        "altgard-immortal-isle",
+        "altgard-purifying-forest",
+        "altgard-spirit-isle",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "superior-wind-spirit",
+      "name": "Superior Wind Spirit",
+      "type": "Natura",
+      "areas": [
+        "altgard-immortal-isle",
+        "altgard-purifying-forest",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "swamp-monster",
+      "name": "Swamp Monster",
+      "type": "Varian",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "swarm",
+      "name": "Swarm",
+      "type": "Varian",
+      "areas": [
+        "altgard-calderon-canyon",
+        "altgard-fafnite-deposit",
+        "lower-reshanta-black-fragments-area",
+        "lower-reshanta-devastated-remnants",
+        "lower-reshanta-sulfur-tree-island",
+        "middle-reshanta-contaminated-marsh",
+        "middle-reshanta-eroded-fragment-area",
+        "middle-reshanta-steel-titan-s-grave"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "swift-lugi",
+      "name": "Swift Lugi",
+      "type": "Special",
+      "areas": [],
+      "other": ["Daeva Pass shop, 10,000 coin"]
+    },
+    {
+      "id": "sylphen",
+      "name": "Sylphen",
+      "type": "Fera",
+      "areas": [
+        "altgard-battlescar-mound",
+        "verteron-contaminated-marsh",
+        "verteron-deserter-encampment",
+        "verteron-dundu-s-rest",
+        "verteron-eastern-altamia-highland",
+        "verteron-eastern-tolbas-forest",
+        "verteron-ellun-river-marsh",
+        "verteron-ellun-river-midstream",
+        "verteron-pilgrim-s-ridge",
+        "verteron-western-altamia-highland",
+        "verteron-western-cantas-valley"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "tamed-karnif",
+      "name": "Tamed Karnif",
+      "type": "Fera",
+      "areas": ["altgard-uruthumheim", "altgard-western-gribade-highland"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "tamed-zaif",
+      "name": "Tamed Zaif",
+      "type": "Fera",
+      "areas": [
+        "middle-reshanta-distorted-old-growth-forest",
+        "verteron-pilgrim-s-ridge"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "tayga",
+      "name": "Tayga",
+      "type": "Fera",
+      "areas": [
+        "altgard-black-claw-village",
+        "altgard-eastern-gribade-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "thin-agrint",
+      "name": "Thin Agrint",
+      "type": "Natura",
+      "areas": [
+        "altgard-nameless-cemetery",
+        "lower-reshanta-sulfur-tree-island",
+        "middle-reshanta-contaminated-marsh",
+        "verteron-crimson-isle"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "tog",
+      "name": "Tog",
+      "type": "Fera",
+      "areas": [
+        "altgard-sanctum-outpost",
+        "altgard-sanctum-outskirts-watch",
+        "altgard-silent-hill"
+      ],
+      "other": ["Quest reward", "Random shop", "Pet chests"]
+    },
+    {
+      "id": "ultimate-earth-spirit",
+      "name": "Ultimate Earth Spirit",
+      "type": "Natura",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "ultimate-fire-spirit",
+      "name": "Ultimate Fire Spirit",
+      "type": "Natura",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "ultimate-water-spirit",
+      "name": "Ultimate Water Spirit",
+      "type": "Natura",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "ultimate-wind-spirit",
+      "name": "Ultimate Wind Spirit",
+      "type": "Natura",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "unstable-spider",
+      "name": "Unstable Spider",
+      "type": "Fera",
+      "areas": [
+        "altgard-purifying-forest",
+        "altgard-spirit-isle",
+        "lower-reshanta-archipelago-of-siel-s-wings",
+        "verteron-crimson-isle",
+        "verteron-forest-of-exiles"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "ursus",
+      "name": "Ursus",
+      "type": "Fera",
+      "areas": [
+        "altgard-battlescar-mound",
+        "altgard-silent-hill",
+        "verteron-garden-of-the-illusion-god",
+        "verteron-kraka-footpath",
+        "verteron-night-dew-cave",
+        "verteron-pilgrim-s-ridge",
+        "verteron-southern-tolbas-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "urugugu-brawler",
+      "name": "Urugugu Brawler",
+      "type": "Cogni",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "varg-berserker",
+      "name": "Varg Berserker",
+      "type": "Cogni",
+      "areas": [
+        "altgard-black-claw-village",
+        "altgard-dranactus",
+        "middle-reshanta-distorted-old-growth-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "venomous-insect-sram",
+      "name": "Venomous Insect Sram",
+      "type": "Fera",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "vigilant-oculazen",
+      "name": "Vigilant Oculazen",
+      "type": "Varian",
+      "areas": ["altgard-dranactus"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "vivel",
+      "name": "Vivel",
+      "type": "Fera",
+      "areas": [
+        "altgard-nameless-cemetery",
+        "verteron-rock-tomb-hill",
+        "verteron-western-altamia-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "wandering-merchant-lugi",
+      "name": "Wandering Merchant Lugi",
+      "type": "Special",
+      "areas": [],
+      "other": ["Festival shop, 3,600 Centuryroot Tokens"]
+    },
+    {
+      "id": "watcher-guardite",
+      "name": "Watcher Guardite",
+      "type": "Varian",
+      "areas": ["verteron-contaminated-sanctum"],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "withered-agrint",
+      "name": "Withered Agrint",
+      "type": "Natura",
+      "areas": [
+        "lower-reshanta-sulfur-tree-island",
+        "verteron-altamia-canyon",
+        "verteron-garden-of-the-illusion-god"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "withered-branch-spider",
+      "name": "Withered Branch Spider",
+      "type": "Fera",
+      "areas": [
+        "altgard-basfelt-ruins",
+        "altgard-battlescar-mound",
+        "altgard-calderon-canyon",
+        "altgard-crypt",
+        "altgard-idun-s-lake",
+        "altgard-mahindel-cliff",
+        "altgard-mahindel-river",
+        "altgard-nameless-cemetery",
+        "altgard-purifying-forest",
+        "altgard-quai-campsite",
+        "altgard-safe-haven",
+        "altgard-silent-hill",
+        "altgard-southern-gribade-highland",
+        "altgard-tranein-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "young-kailin",
+      "name": "Young Kailin",
+      "type": "Fera",
+      "areas": [
+        "altgard-battlescar-mound",
+        "altgard-purifying-forest",
+        "altgard-sanctum-outpost",
+        "altgard-spirit-isle",
+        "altgard-tranein-highland",
+        "altgard-tranein-pond",
+        "verteron-ellun-river-midstream"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "young-slink",
+      "name": "Young Slink",
+      "type": "Fera",
+      "areas": [
+        "altgard-idun-s-lake",
+        "altgard-southern-gribade-highland",
+        "altgard-tranein-highland",
+        "altgard-tranein-pond",
+        "lower-reshanta-archipelago-of-siel-s-wings",
+        "middle-reshanta-distorted-old-growth-forest",
+        "verteron-ellun-river-midstream",
+        "verteron-southern-tolbas-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "young-tog",
+      "name": "Young Tog",
+      "type": "Fera",
+      "areas": [],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "young-ursus",
+      "name": "Young Ursus",
+      "type": "Fera",
+      "areas": [
+        "altgard-battlescar-mound",
+        "altgard-silent-hill",
+        "verteron-kraka-footpath",
+        "verteron-night-dew-cave",
+        "verteron-southern-tolbas-forest"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "zaif",
+      "name": "Zaif",
+      "type": "Fera",
+      "areas": [
+        "verteron-eastern-altamia-highland",
+        "verteron-kraka-footpath",
+        "verteron-rock-tomb-hill",
+        "verteron-southern-altamia-highland"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    },
+    {
+      "id": "zelophi",
+      "name": "Zelophi",
+      "type": "Natura",
+      "areas": [
+        "altgard-immortal-isle",
+        "lower-reshanta-archipelago-of-siel-s-wings",
+        "middle-reshanta-distorted-old-growth-forest",
+        "verteron-ellun-river-marsh",
+        "verteron-eternal-isle"
+      ],
+      "other": ["Random shop", "Pet chests"]
+    }
+  ]
+}

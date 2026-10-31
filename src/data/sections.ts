@@ -53,6 +53,12 @@ export const sections = [
     summary: "Skin sets checklist with sources and search.",
   },
   {
+    path: "pets",
+    title: "Pets",
+    summary:
+      "Pet collection checklist for levels 1 to 3, with stats per level and a map of where to farm.",
+  },
+  {
     path: "festival",
     title: "Shugo Festival",
     summary: "Games, keys, reward rolls, shop prices, and a token simulator.",

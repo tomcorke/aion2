@@ -195,5 +195,11 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
     accessNote:
       "Client shop rows retained despite one empty set-detail response; not a live availability audit.",
   },
+  metabotPets: {
+    checkedDate: "2026-10-31",
+    accessNote:
+      "Reported Global client build 0.0.4387.0. Five detail pages cut their monster list short, and the five Special pets left out list no source.",
+  },
+  allthingsPets: { checkedDate: "2026-10-31" },
   ...skinAcquisitionSourceDetails,
 };

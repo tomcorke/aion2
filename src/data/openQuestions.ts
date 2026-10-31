@@ -11,6 +11,7 @@ export const openQuestionGroups = [
   { id: "gear", title: "Upgrades, stones and material sources" },
   { id: "daevanion", title: "Daevanion builds and resets" },
   { id: "appearances", title: "Alts and appearances" },
+  { id: "pets", title: "Pets" },
 ] as const;
 
 export type OpenQuestion = {
@@ -404,5 +405,27 @@ export const openQuestions: OpenQuestion[] = [
       "Inspect the chest's Source Information and reward preview in the Global client. Treat these as optional acquisition gaps; Extract Skin is already known to cost Kina and destroy its item.",
     relatedGuideLinks: [{ to: "/skins", label: "Curated appearance sources" }],
     supportingSourceIDs: ["wikilySkyfeatherGuardian"],
+  },
+  {
+    id: "pet-stat-stacking",
+    groupId: "pets",
+    unknown:
+      "How owned pet stats add up when you hold several pets of one type, and what levels 2 and 3 cost in souls on Global, are unconfirmed. The level-2 stats for Fera, Cogni and Varian follow the Natura pattern.",
+    why: "The checklist lists each pet's stats at every level, but a type's bonus may be shared across all its pets rather than added per pet, so a total would mislead.",
+    practicalCheck:
+      "Own two pets of one type at different levels and compare the character's owned-effect totals. Note the souls shown when raising one pet to level 2 and 3.",
+    relatedGuideLinks: [{ to: "/pets", label: "Pet checklist" }],
+    supportingSourceIDs: ["metabotPets", "allthingsPets"],
+  },
+  {
+    id: "pet-unsourced-specials",
+    groupId: "pets",
+    unknown:
+      "Chonky Hamster, Little Ghost, Pumpkin Carriage, Two and White Bunny list no way to get them in the client data.",
+    why: "A pet with no recorded source cannot be called obtainable, so the checklist leaves these five out.",
+    practicalCheck:
+      "Check each pet's in-game Source Information panel, or an event or store listing, and add any route found.",
+    relatedGuideLinks: [{ to: "/pets", label: "Pet checklist" }],
+    supportingSourceIDs: ["metabotPets"],
   },
 ];

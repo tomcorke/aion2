@@ -13,6 +13,7 @@ import { Festival } from "./pages/Festival/Festival.tsx";
 import { Gear } from "./pages/Gear/Gear.tsx";
 import { Growth } from "./pages/Growth/Growth.tsx";
 import { NotFound } from "./pages/NotFound/NotFound.tsx";
+import { Pets } from "./pages/Pets/Pets.tsx";
 import { Progression } from "./pages/Progression/Progression.tsx";
 import { Routine } from "./pages/Routine/Routine.tsx";
 
@@ -28,6 +29,7 @@ const builtPages: Record<SectionPath, ReactElement> = {
   festival: <Festival />,
   gear: <Gear />,
   growth: <Growth />,
+  pets: <Pets />,
   progression: <Progression />,
   routine: <Routine />,
   skins: <Skins />,

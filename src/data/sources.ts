@@ -1,6 +1,7 @@
 import { altsSourceAdditions } from "./alts.ts";
 import { gearUpgradeSourceAdditions } from "./gearUpgrades.ts";
 import { growthSourceAdditions } from "./growth.ts";
+import { petSourceAdditions } from "./pets.ts";
 import { skinAcquisitionSourceAdditions } from "./skinAcquisitions.ts";
 import { skinCatalogueSourceAdditions } from "./skinCatalogueMetadata.ts";
 
@@ -15,6 +16,7 @@ export const sources = {
   ...altsSourceAdditions,
   ...gearUpgradeSourceAdditions,
   ...growthSourceAdditions,
+  ...petSourceAdditions,
   ...skinAcquisitionSourceAdditions,
   ...skinCatalogueSourceAdditions,
   shugoTimers: {
