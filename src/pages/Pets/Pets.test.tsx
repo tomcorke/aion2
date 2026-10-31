@@ -211,3 +211,28 @@ test("search and hiding level 3 pets narrow the list", async () => {
     screen.queryByRole("checkbox", { name: `${first.name} level 1` }),
   ).toBeNull();
 });
+
+test("select all adds to picks that a filter hides", async () => {
+  render();
+
+  await userEvent.click(
+    screen.getByRole("checkbox", { name: `Show ${first.name} on the map` }),
+  );
+  await userEvent.click(option("Cogni"));
+
+  const cogni = pets.filter(({ type }) => type === "Cogni").length;
+
+  await userEvent.click(option(`Select all shown (${cogni})`));
+
+  expect(screen.getByText(`${cogni + 1} selected`)).toBeTruthy();
+});
+
+test("a hovered row that a filter removes stops marking its areas", async () => {
+  render();
+
+  await userEvent.click(option("Hide level 3 pets"));
+  await userEvent.hover(level(first.name, 3));
+  await userEvent.click(level(first.name, 3));
+
+  expect(tiles().some((tile) => tile.dataset.lit === "true")).toBe(false);
+});

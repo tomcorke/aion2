@@ -1,4 +1,5 @@
 import {
+  petLevelSouls,
   petLevels,
   petStats,
   type Pet,
@@ -20,10 +21,12 @@ const statText = (pet: Pet, level: PetLevelNumber) =>
   petStats[pet.type][level].join(", ") || "No stat bonus";
 
 function whereFrom(pet: Pet) {
+  const count = pet.areas.length;
+  const noun = count === 1 ? "area" : "areas";
   const parts = [
-    pet.areas.length > 0 ? `${pet.areas.length} farming areas` : "",
+    ...(count > 0 ? [`${count} farming ${noun}`] : []),
     ...pet.other,
-  ].filter(Boolean);
+  ];
 
   return parts.join(" · ");
 }
@@ -76,7 +79,9 @@ export function PetChecklist({
                 onChange={() => onToggleLevel(pet.id, level)}
               />
               <span>
-                <span className={STYLES.levelName}>Level {level}</span>
+                <span className={STYLES.levelName}>
+                  Level {level} · {petLevelSouls[level]}
+                </span>
                 <span className={STYLES.stats}>{statText(pet, level)}</span>
               </span>
             </label>

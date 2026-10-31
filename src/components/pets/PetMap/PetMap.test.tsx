@@ -66,7 +66,7 @@ test("marks lit areas, the best area and the picked area", () => {
     active: "altgard-c",
   });
 
-  expect(tile(/Beta Hill/).getAttribute("data-lit")).toBe("true");
+  expect(tile(/^Beta Hill,/).getAttribute("data-lit")).toBe("true");
   expect(tile(/Alpha Fields/).getAttribute("data-lit")).toBe("false");
   expect(tile(/Alpha Fields.*best area/).getAttribute("data-best")).toBe(
     "true",
@@ -86,7 +86,7 @@ test("scales the heat by the busiest area, and only when asked", () => {
   );
 
   expect(tile(/Alpha Fields/).getAttribute("data-heat")).toBe("4");
-  expect(tile(/Beta Hill/).getAttribute("data-heat")).toBe("1");
+  expect(tile(/^Beta Hill,/).getAttribute("data-heat")).toBe("1");
   expect(tile(/Gamma Pass/).getAttribute("data-heat")).toBe("0");
 
   unmount();
@@ -104,4 +104,14 @@ test("picking a tile reports its area; dungeons show their entrance", async () =
   expect(tile(/Delta Cave/).getAttribute("title")).toBe(
     "Entrance: Beta Hill, Verteron",
   );
+});
+
+test("labels marked areas and dungeon entrances for screen readers", () => {
+  renderMap({ lit: new Set(["dungeons-d"]) });
+
+  expect(
+    tile(
+      /^Delta Cave, 0 to finish, marked for your pets, entrance Beta Hill, Verteron$/,
+    ),
+  ).toBeTruthy();
 });

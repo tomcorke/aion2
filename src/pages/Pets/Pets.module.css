@@ -3,21 +3,18 @@
   gap: 24px;
   padding: 24px var(--gutter) 0;
 
-  & p,
-  & li {
-    max-width: 76ch;
-  }
-
   & > * {
     min-width: 0;
   }
 }
 
 .note {
+  max-width: 76ch;
   color: var(--muted);
 }
 
 .limits {
+  max-width: 76ch;
   color: var(--muted);
 
   & summary {
@@ -62,17 +59,17 @@
     font-size: 1.15rem;
     font-weight: 400;
   }
+}
 
-  & button {
-    min-height: 40px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: var(--accent);
-    font: inherit;
-    text-decoration: underline;
-    cursor: pointer;
-  }
+.clear {
+  min-height: 40px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--accent);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
 }
 
 .map {

@@ -14,6 +14,16 @@ type Props = {
   onPick: (areaId: string) => void;
 };
 
+function tileLabel(area: PetArea, left: number, best: boolean, lit: boolean) {
+  const parts = [area.name, `${left} to finish`];
+
+  if (best) parts.push("best area to farm next");
+  if (lit) parts.push("marked for your pets");
+  if (area.entrance) parts.push(`entrance ${area.entrance}`);
+
+  return parts.join(", ");
+}
+
 /** A layout of the named farming zones, grouped by map. Not a scaled drawing. */
 export function PetMap({
   areas,
@@ -48,7 +58,12 @@ export function PetMap({
                       type="button"
                       className={STYLES.tile}
                       aria-pressed={active === area.id}
-                      aria-label={`${area.name}, ${left} to finish${isBest ? ", best area to farm next" : ""}`}
+                      aria-label={tileLabel(
+                        area,
+                        left,
+                        isBest,
+                        lit.has(area.id),
+                      )}
                       title={
                         area.entrance ? `Entrance: ${area.entrance}` : undefined
                       }

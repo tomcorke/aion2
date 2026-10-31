@@ -410,7 +410,7 @@ export const openQuestions: OpenQuestion[] = [
     id: "pet-stat-stacking",
     groupId: "pets",
     unknown:
-      "How owned pet stats add up when you hold several pets of one type, and what levels 2 and 3 cost in souls on Global, are unconfirmed. The level-2 stats for Fera, Cogni and Varian follow the Natura pattern.",
+      "How owned pet stats add up when you hold several pets of one type, and what levels 2 and 3 cost in souls on Global, are unconfirmed. The level-2 stats for Fera and Cogni, and the Varian sprint stat, follow the Natura pattern.",
     why: "The checklist lists each pet's stats at every level, but a type's bonus may be shared across all its pets rather than added per pet, so a total would mislead.",
     practicalCheck:
       "Own two pets of one type at different levels and compare the character's owned-effect totals. Note the souls shown when raising one pet to level 2 and 3.",

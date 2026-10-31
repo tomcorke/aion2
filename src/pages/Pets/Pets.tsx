@@ -6,6 +6,7 @@ import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
 import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
 import {
   petAreas,
+  petRegions,
   pets,
   petsLimits,
   petsReviewed,
@@ -27,7 +28,14 @@ import STYLES from "./Pets.module.css";
 
 const knownIds = new Set(pets.map(({ id }) => id));
 const areaOrder = petAreas.map(({ id }) => id);
-const areaName = (id: string) => petAreas.find((area) => area.id === id)?.name;
+const areaName = (id: string) => {
+  const area = petAreas.find((candidate) => candidate.id === id);
+  const region = petRegions.find(
+    ({ id: regionId }) => regionId === area?.region,
+  );
+
+  return area && region ? `${area.name} (${region.title})` : undefined;
+};
 
 function toggled<T>(set: ReadonlySet<T>, value: T) {
   const next = new Set(set);
@@ -58,9 +66,13 @@ export function Pets() {
   const counts = useMemo(() => countByArea(pets, levels), [levels]);
   const best = mapOptions.has("best") ? bestArea(counts, areaOrder) : undefined;
   const shown = filterPets(pets, levels, { query, types, hideMaxed, area });
-  const lit = useMemo(
-    () => areasOf(pets, hovered ? new Set([...selected, hovered]) : selected),
-    [selected, hovered],
+  // A row removed by a filter fires no mouse-leave, so ignore it once hidden.
+  const hoveredShown = shown.some(({ id }) => id === hovered)
+    ? hovered
+    : undefined;
+  const lit = areasOf(
+    pets,
+    hoveredShown ? new Set([...selected, hoveredShown]) : selected,
   );
   const owned = pets.filter(({ id }) => (levels[id] ?? 0) > 0).length;
   const maxed = pets.filter(({ id }) => isMaxed(levels, id)).length;
@@ -69,7 +81,7 @@ export function Pets() {
     <>
       <PageHero
         title="Pets"
-        lede="Every pet you can get, with a checklist for levels 1 to 3, the stats each level gives and where to farm its souls."
+        lede="Every pet with a recorded source, with a checklist for levels 1 to 3, the stats each level gives and where to farm its souls."
       />
       <div className={STYLES.body}>
         <p className={STYLES.note}>
@@ -100,7 +112,11 @@ export function Pets() {
           }
           shown={shown.length}
           selected={selected.size}
-          onSelectAll={() => setSelected(new Set(shown.map(({ id }) => id)))}
+          onSelectAll={() =>
+            setSelected(
+              (current) => new Set([...current, ...shown.map(({ id }) => id)]),
+            )
+          }
           onSelectNone={() => setSelected(new Set())}
         />
 
@@ -122,7 +138,11 @@ export function Pets() {
             {area && (
               <p role="status">
                 Listing pets that drop in <strong>{areaName(area)}</strong>.{" "}
-                <button type="button" onClick={() => setArea(undefined)}>
+                <button
+                  type="button"
+                  className={STYLES.clear}
+                  onClick={() => setArea(undefined)}
+                >
                   Show all pets
                 </button>
               </p>
