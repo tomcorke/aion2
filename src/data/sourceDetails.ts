@@ -67,7 +67,7 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   metabotEnhancement: { checkedDate: "2026-10-08" },
   metabotChecklist: { checkedDate: "2026-10-09" },
   metabotArcana: { checkedDate: "2026-10-08" },
-  metabotAbyss: { checkedDate: "2026-10-08" },
+  metabotAbyss: { checkedDate: "2026-10-16" },
   metabotManastones: { checkedDate: "2026-10-08" },
   game8Manastones: {
     checkedDate: "2026-10-08",

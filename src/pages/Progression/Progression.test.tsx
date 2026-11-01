@@ -106,6 +106,43 @@ test("links detailed mechanics to their own pages", () => {
   expect(linkTo("Pets and Genus", /Growth/)).toBe("/growth");
 });
 
+test("summarizes Abyss Point sources and weekly limit behavior", () => {
+  renderPage();
+
+  const section = screen.getByRole("region", { name: "Abyss Points" });
+
+  expect(
+    within(section).getByText(
+      /Middle Reshanta Duty scrolls give 2,000 AP each/,
+    ),
+  ).toBeDefined();
+  expect(
+    within(section).getByText(/Home-map Duty Missions give 1,000 AP each/),
+  ).toBeDefined();
+  expect(
+    within(section).getByText(/shared 5-a-day Duty counter/),
+  ).toBeDefined();
+  expect(
+    within(section).getByText(
+      /Supply Requests are also outside the weekly AP limits/,
+    ),
+  ).toBeDefined();
+  expect(
+    within(section).getByText(/Abyss monster kills count toward the PvE limit/),
+  ).toBeDefined();
+  expect(
+    within(section).getByText(
+      /guide does not give the cap values or reduced rate/,
+    ),
+  ).toBeDefined();
+  expect(
+    within(section).getByText(/Arena of Tactics pays 1,000 AP per match/),
+  ).toBeDefined();
+  expect(
+    within(section).getByText(/guide does not say whether Arena rewards count/),
+  ).toBeDefined();
+});
+
 test("contents scroll to a section without touching the route", async () => {
   renderPage();
 
@@ -153,5 +190,5 @@ test("names its sources and reviewed date in the footer", () => {
     expect(footer.textContent).toContain(sources[id].name);
 
   expect(footer.textContent).toContain("My own checks");
-  expect(footer.textContent).toMatch(/Reviewed 14 Oct/);
+  expect(footer.textContent).toMatch(/Reviewed 1 Nov/);
 });

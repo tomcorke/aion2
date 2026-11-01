@@ -12,6 +12,7 @@ test.each([
   ["officialServers", "2026-10-06"],
   ["metabotCurrencies", "2026-10-07"],
   ["metabotGear", "2026-10-08"],
+  ["metabotAbyss", "2026-10-16"],
   ["game8Manastones", "2026-10-08"],
   ["metabotChecklist", "2026-10-09"],
   ["gameTruthAlts", "2026-10-09"],

@@ -1,5 +1,5 @@
 // The Progression guide: the overall item-level ladder and practical priorities.
-// Checked against the aion2-knowledge notes (Global, EU) on 2026-10-14.
+// Checked against the aion2-knowledge notes (Global, EU) on 2026-11-01.
 import type { SourceId } from "./sources.ts";
 import { dailyDungeonRewardNote } from "./routine.ts";
 
@@ -201,6 +201,17 @@ export const progressionSections: ProgressionSection[] = [
     links: [{ to: "/growth", label: "Materials and where they come from" }],
   },
   {
+    id: "abyss-points",
+    title: "Abyss Points",
+    items: [
+      "Middle Reshanta Duty scrolls give 2,000 AP each and Lower Reshanta scrolls give 1,000. Duty scrolls do not count toward the weekly AP limits.",
+      "Home-map Duty Missions give 1,000 AP each and use the shared 5-a-day Duty counter; Spacetime Rift regional quests give 2,000 each. These quests are also outside the weekly AP limits.",
+      "Supply Requests are also outside the weekly AP limits. Abyss Corridor monsters do not count toward the weekly PvE limit.",
+      "Abyss monster kills count toward the PvE limit, and player kills count toward the PvP limit. After either limit is reached, further AP is reduced; the guide does not give the cap values or reduced rate.",
+      "Arena of Tactics pays 1,000 AP per match and 3,000 per win, plus 1–2 Silver Medals of Merit; the guide does not say whether Arena rewards count toward the weekly AP limits.",
+    ],
+  },
+  {
     id: "stigmas",
     title: "Stigmas",
     items: [
@@ -328,4 +339,4 @@ export const progressionSourceIds: SourceId[] = [
   "ownChecks",
 ];
 
-export const progressionReviewed = "2026-10-14";
+export const progressionReviewed = "2026-11-01";
