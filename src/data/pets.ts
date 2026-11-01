@@ -2,8 +2,8 @@ import catalogue from "./petCatalogue.json";
 import type { Source } from "./sources.ts";
 
 // Curated from aion2-knowledge: collections/pets.md and its pet-catalogue.json.
-// The note was reviewed 2026-10-31; the source pages were read the same day.
-export const petsReviewed = "2026-10-31";
+// The pet note and map screenshots were reviewed on 2026-11-01.
+export const petsReviewed = "2026-11-01";
 
 export const petTypes = [
   "Fera",
@@ -95,6 +95,28 @@ export const petStats: Record<PetType, Record<PetLevelNumber, string[]>> = {
 };
 
 export const petSourceAdditions = {
+  communityVerteronMap: {
+    name: "AION 2 Verteron map screenshot in a PlayNC community post",
+    covers: "In-game Verteron map screenshot used to trace the coastline",
+    url: "https://aion2.plaync.com/ko-kr/board/free/view?articleId=69244e2370242475d98d79bc",
+  },
+  communityAltgardMap: {
+    name: "AION 2 Altgard map screenshot in a PlayNC community post",
+    covers: "In-game Altgard map screenshot used to trace the coastline",
+    url: "https://aion2.plaync.com/ko-kr/board/free/view?articleId=692f28c74c9bde5d1e43d269",
+  },
+  communityLowerReshantaMap: {
+    name: "AION 2 Lower Reshanta map screenshot in a PlayNC community post",
+    covers:
+      "In-game Lower Reshanta map screenshot used to trace the island layout",
+    url: "https://aion2.plaync.com/ko-kr/board/qnanknowhow/view?articleId=6976c8396e34171f43667f70",
+  },
+  communityMiddleReshantaMap: {
+    name: "AION 2 Middle Reshanta map screenshot in a PlayNC community post",
+    covers:
+      "In-game Middle Reshanta map screenshot used to trace the island layout",
+    url: "https://aion2.plaync.com/ko-kr/board/free/view?articleId=697473ac45cf4961507b106b",
+  },
   metabotPets: {
     name: "MetaBot mounts list and pet pages",
     covers:
@@ -109,13 +131,17 @@ export const petSourceAdditions = {
 } satisfies Record<string, Source>;
 
 export const petsSources = [
+  "communityVerteronMap",
+  "communityAltgardMap",
+  "communityLowerReshantaMap",
+  "communityMiddleReshantaMap",
   "metabotPets",
   "allthingsPets",
   "metabotWings",
 ] as const;
 
 export const petsLimits = [
-  "The map is a layout of named zones, not a scaled drawing. Many pets drop only on the other faction's map.",
+  "Verteron, Altgard and Reshanta coastlines are approximations traced from in-game map screenshots. Morheim and Eltnen outlines are schematic placeholders. Pet data has no zone coordinates, so area markers remain approximate. Many pets drop only on the other faction's map.",
   "Level 2 and 3 soul costs come from guides, not from the client data. The level-2 stats for Fera and Cogni, and the Varian sprint stat, follow the confirmed Natura pattern.",
   "Morheim and Eltnen are in the client data; whether they are open on Global was not checked. Quai Campsite and Sanctum Dumpsite are placed on Altgard by inference.",
   "How stats add up when you own several pets of one type is not settled, so the page does not total them.",

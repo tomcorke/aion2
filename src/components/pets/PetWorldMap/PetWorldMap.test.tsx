@@ -2,6 +2,7 @@ import { render } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { expect, test, vi } from "vitest";
 import { petAreas } from "../../../data/pets.ts";
+import { worldMapSize, worldPoints } from "../../../data/petWorldMap.ts";
 import { PetWorldMap } from "./PetWorldMap.tsx";
 
 const [first, second, third] = petAreas;
@@ -56,6 +57,23 @@ test("marks lit, best and picked areas, naming the best and picked ones", () => 
   expect(zone(second.name).getAttribute("data-best")).toBe("true");
   expect(zone(third.name).getAttribute("data-active")).toBe("true");
   expect(container.querySelectorAll("text[class*='name']")).toHaveLength(2);
+});
+
+test("keeps named area labels inside the map's side edges", () => {
+  const leftArea = petAreas.find(
+    ({ id }) => (worldPoints.get(id)?.[0] ?? Infinity) < 110,
+  )!;
+  const rightArea = petAreas.find(
+    ({ id }) => (worldPoints.get(id)?.[0] ?? 0) > worldMapSize.width - 110,
+  )!;
+  const { zone } = renderMap({ best: leftArea.id, active: rightArea.id });
+
+  expect(
+    zone(leftArea.name).querySelector("text")?.getAttribute("text-anchor"),
+  ).toBe("start");
+  expect(
+    zone(rightArea.name).querySelector("text")?.getAttribute("text-anchor"),
+  ).toBe("end");
 });
 
 test("scales heat by the busiest area, and only when asked", () => {
