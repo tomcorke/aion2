@@ -87,8 +87,15 @@ export const sources = {
   },
   metabotDaevanion: {
     name: "MetaBot Daevanion guide",
-    covers: "Boards, node costs and Daevanion Crystal sources",
+    covers:
+      "Board unlocks, node costs and Daevanion Crystal sources; its generic five-board copy is stale",
     url: "https://metabot.gg/en/aion-2/guides/daevanion-guide",
+  },
+  metabotDaevanionPlanner: {
+    name: "MetaBot Daevanion planner",
+    covers:
+      "Six-board table and Ariel's level, node counts and completion cost from Global client build 0.0.4387.0",
+    url: "https://metabot.gg/en/aion-2/daevanion",
   },
   metabotSpiritmasterPlanner: {
     name: "MetaBot Spiritmaster Daevanion planner",
@@ -257,6 +264,17 @@ export const sources = {
     name: "MetaBot methodology",
     covers: "The Global client provenance and build of its extracted data",
     url: "https://metabot.gg/en/aion-2/methodology",
+  },
+  ncGlobal21Oct: {
+    name: "NC Global patch notice, 21 October 2026",
+    covers: "Ariel Daevanion board addition and Ariel Fragment source",
+    url: "https://steamcommunity.com/ogg/3393110/announcements/detail/670631196372241777",
+  },
+  ncGlobal28Oct: {
+    name: "NC Global patch notes, 28 October 2026",
+    covers:
+      "Guaranteed matching Ariel Fragments from Urugugu Canyon and Vakron Sky Island Hard, and Ariel Fragment morph limits",
+    url: "https://aion2.plaync.com/en-us/board/update/view?articleId=6ae19668577e8c01355e0210",
   },
   ownChecks: {
     name: "My own checks on an EU server",

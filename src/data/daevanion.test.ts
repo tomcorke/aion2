@@ -2,6 +2,7 @@ import { expect, test } from "vitest";
 
 // Expected totals and roles come from the maintained class and Spiritmaster notes.
 import {
+  arielOverview,
   daevanionClasses,
   daevanionBoards,
   daevanionVariants,
@@ -59,8 +60,32 @@ test("Azphel has shared phases and a separate crystal pool, not PvE variants", (
   ).toBe(114);
 });
 
+test("Ariel is level 45 with a separate pool and a summary only", () => {
+  expect(daevanionBoards.map(({ id }) => id)).toEqual([
+    "nezekan",
+    "zikel",
+    "vaizel",
+    "triniel",
+    "ariel",
+    "azphel",
+  ]);
+  expect(daevanionBoards.find(({ id }) => id === "ariel")).toMatchObject({
+    opensAt: 45,
+    fullCost: 232,
+    pool: "ariel",
+  });
+  expect(arielOverview).toMatchObject({
+    nodeCount: 152,
+    skillNodeCount: 0,
+    fullCost: 232,
+    currency: "Daevanion Crystal: Ariel",
+  });
+  expect(daevanionPools.ariel.description).toContain("does not share");
+  expect(arielOverview.routeNote).toContain("not yet retained");
+});
+
 test("overview assumptions and source freshness remain available to the page", () => {
-  expect(daevanionReviewed).toBe("2026-10-10");
+  expect(daevanionReviewed).toBe("2026-11-01");
   expect(daevanionCaveats.emptyBoard).toContain("empty board");
   expect(daevanionCaveats.estimates).toContain("not proven minimal");
   expect(daevanionCaveats.estimates).toContain("not a damage simulation");
@@ -145,6 +170,7 @@ test("PvE comparisons expose every retained board cost", () => {
     "zikel",
     "vaizel",
     "triniel",
+    "ariel",
     "azphel",
   ]);
   expect(daevanionVariants.map(({ id }) => id)).toEqual([

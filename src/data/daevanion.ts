@@ -1,12 +1,8 @@
 import type { SourceId } from "./sources.ts";
 
-// Global client build 0.0.4387.0. Curated from combat/daevanion-class-routes.md,
-// combat/spiritmaster-daevanion.md, combat/daevanion-retained-data.md and
-// gear/azphel-board.md in aion2-knowledge main@4cf7488.
-// Copying the notes does not advance their external source-check dates.
-// Conservative common date for the Spiritmaster and Azphel notes; the class
-// comparison was reviewed on 2026-10-11. No new external checks were made.
-export const daevanionReviewed = "2026-10-10";
+// Global client build 0.0.4387.0. Curated from the retained Daevanion notes.
+// Ariel's totals are recorded, but its complete node layout is not yet retained.
+export const daevanionReviewed = "2026-11-01";
 
 export const daevanionSources: SourceId[] = [
   "metabotGladiatorPlanner",
@@ -20,7 +16,10 @@ export const daevanionSources: SourceId[] = [
   "metabotDaevanionClassSkills",
   "metabotDaevanion",
   "metabotSpiritmasterPlanner",
+  "metabotDaevanionPlanner",
   "metabotMethodology",
+  "ncGlobal21Oct",
+  "ncGlobal28Oct",
 ];
 
 export const daevanionCaveats = {
@@ -42,6 +41,21 @@ export const daevanionPools = {
     description:
       "Azphel uses its own Azphel crystals. It never spends points from the four PvE boards.",
   },
+  ariel: {
+    boardIds: ["ariel"],
+    description:
+      "Ariel is a PvE board with its own Daevanion Crystal: Ariel currency. It does not share the four-board PvE point pool.",
+  },
+} as const;
+
+export const arielOverview = {
+  boardId: "ariel",
+  nodeCount: 152,
+  skillNodeCount: 0,
+  fullCost: 232,
+  currency: "Daevanion Crystal: Ariel",
+  routeNote:
+    "The full Ariel node layout is not yet retained, so this view shows the board totals instead of a node-by-node route.",
 } as const;
 
 export const azphelOverview = {
@@ -82,11 +96,12 @@ export const daevanionBoards = [
   { id: "zikel", name: "Zikel", opensAt: 20, fullCost: 134, pool: "pve" },
   { id: "vaizel", name: "Vaizel", opensAt: 30, fullCost: 134, pool: "pve" },
   { id: "triniel", name: "Triniel", opensAt: 40, fullCost: 168, pool: "pve" },
+  { id: "ariel", name: "Ariel", opensAt: 45, fullCost: 232, pool: "ariel" },
   { id: "azphel", name: "Azphel", opensAt: 45, fullCost: 232, pool: "azphel" },
 ] as const;
 
 export type DaevanionBoardId = (typeof daevanionBoards)[number]["id"];
-export type PveBoardId = Exclude<DaevanionBoardId, "azphel">;
+export type PveBoardId = Exclude<DaevanionBoardId, "azphel" | "ariel">;
 
 export const daevanionVariants = [
   {

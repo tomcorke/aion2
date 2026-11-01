@@ -62,3 +62,19 @@ test("routine names Daily Dungeon and reuses its qualified reward without a new 
   ).toBe(false);
   expect(progressionSourceIds).toContain("allThingsDailyDungeon");
 });
+
+test("Daevanion summary names Ariel's board, fragment source, and morph limits", () => {
+  const daevanion = progressionSections.find(({ id }) => id === "daevanion");
+  const copy = daevanion?.items?.join(" ");
+
+  expect(copy).toContain("Six boards");
+  expect(copy).toContain("152 stat nodes and no skill nodes");
+  expect(copy).toContain(
+    "232 points from its separate Daevanion Crystal: Ariel pool",
+  );
+  expect(copy).toContain("guarantee their matching bound fragment");
+  expect(copy).toContain("up to 30 times per character");
+  expect(copy).toContain("five Enhance Stones without a limit");
+  expect(progressionSourceIds).toContain("ncGlobal28Oct");
+  expect(progressionSourceIds).toContain("metabotDaevanionPlanner");
+});
