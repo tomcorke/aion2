@@ -50,8 +50,17 @@ export function NodeDetail({ view }: { view: ViewNode | undefined }) {
               <>
                 <dt>Skill role</dt>
                 <dd>{roles[view.skill.role]}</dd>
-                <dt>The skill at its normal maximum rank</dt>
+                <dt>
+                  {view.skill.tooltipLabel ??
+                    "The skill at its normal maximum rank"}
+                </dt>
                 <dd>{view.skill.maxRankTooltip}</dd>
+                {view.skill.tooltipNote && (
+                  <>
+                    <dt>Current Global tooltip status</dt>
+                    <dd>{view.skill.tooltipNote}</dd>
+                  </>
+                )}
               </>
             )}
           </dl>

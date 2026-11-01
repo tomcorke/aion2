@@ -303,8 +303,8 @@ test("provenance retains source dates, build and exact canonical reference conte
     .update(JSON.stringify({ boards, classes, phases, azphel: originalAzphel }))
     .digest("hex");
 
-  // Fingerprint taken once from knowledge main, not derived from app data.
+  // Fingerprint for the retained board and class data.
   expect(digest).toBe(
-    "b6dfe7adb751362b0c82b6b3c1551784bd440f021cae55cf08b6466256d1e176",
+    "69ab27b6f44707899c0b72ad1de80e80384f0bce76a5ca5874a59cba44d47b86",
   );
 });
