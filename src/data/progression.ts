@@ -251,7 +251,7 @@ export const progressionSections: ProgressionSection[] = [
     id: "pets",
     title: "Pets and Genus",
     items: [
-      "Pets and Genus Insight are shared by every character on the server, and pet levels add up across them.",
+      "Global guides report that Pets and Genus Insight are shared by characters on the same server, with pet levels adding up across them; this has not been confirmed in the Global client.",
       "Each pet type (Fera, Natura, Varian, Cogni) has a genus level from 1 to 10, counting every pet of that type you own. Levels grant stat bonuses and open Genus Insight slots 1 to 9.",
       "Insight slots roll stats such as HP, PvE Attack, Boss Attack and Penetration, for 4 Soul Crystals and 1,000 Kina a roll.",
       "When you visit enemy maps through a Spacetime Rift, farm a specific missing pet rather than clearing unrelated monsters.",
