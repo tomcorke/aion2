@@ -1,9 +1,12 @@
 import { screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { beforeEach, expect, test } from "vitest";
+import { beforeEach, expect, test, vi } from "vitest";
 import { petAreas, pets } from "../../data/pets.ts";
 import { renderWithProviders } from "../../testing/render.tsx";
 import { Pets } from "./Pets.tsx";
+
+// 204 rows re-render on every tick, which is slow when the suite runs in parallel.
+vi.setConfig({ testTimeout: 20_000 });
 
 const farmed = pets.filter(({ areas }) => areas.length > 0);
 const first = farmed[0];

@@ -89,6 +89,21 @@
   }
 }
 
+.hint {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.areas {
+  & summary {
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    color: var(--accent);
+    cursor: pointer;
+  }
+}
+
 .list {
   align-content: start;
 

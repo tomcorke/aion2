@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { PetChecklist } from "../../components/pets/PetChecklist/PetChecklist.tsx";
 import { PetControls } from "../../components/pets/PetControls/PetControls.tsx";
 import { PetMap } from "../../components/pets/PetMap/PetMap.tsx";
+import { PetWorldMap } from "../../components/pets/PetWorldMap/PetWorldMap.tsx";
 import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
 import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
 import {
@@ -79,6 +80,9 @@ export function Pets() {
   const owned = pets.filter(({ id }) => (levels[id] ?? 0) > 0).length;
   const maxed = pets.filter(({ id }) => isMaxed(levels, id)).length;
 
+  const pickArea = (id: string) =>
+    setArea((current) => (current === id ? undefined : id));
+
   return (
     <>
       <PageHero
@@ -151,17 +155,31 @@ export function Pets() {
                 </button>
               </p>
             )}
-            <PetMap
+            <PetWorldMap
               areas={petAreas}
               counts={counts}
               lit={lit}
               best={best}
               heat={mapOptions.has("heat")}
               active={area}
-              onPick={(id) =>
-                setArea((current) => (current === id ? undefined : id))
-              }
+              onPick={pickArea}
             />
+            <p className={STYLES.hint}>
+              Positions are approximate: the game data names zones but gives no
+              coordinates. Diamonds are party dungeons.
+            </p>
+            <details className={STYLES.areas}>
+              <summary>Areas as a list</summary>
+              <PetMap
+                areas={petAreas}
+                counts={counts}
+                lit={lit}
+                best={best}
+                heat={mapOptions.has("heat")}
+                active={area}
+                onPick={pickArea}
+              />
+            </details>
           </section>
 
           <section aria-label="Pet checklist" className={STYLES.list}>

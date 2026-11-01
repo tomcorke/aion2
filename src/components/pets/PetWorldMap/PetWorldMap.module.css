@@ -1,0 +1,92 @@
+.map {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: calc(100vh - 160px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--ground) 80%, var(--accent) 4%);
+}
+
+.land {
+  fill: color-mix(in srgb, var(--accent) 7%, var(--ground));
+  stroke: var(--line);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.region {
+  fill: var(--muted);
+  font-family: var(--f-display);
+  font-size: 17px;
+}
+
+/* The halo is the wide, quiet click target; the dot carries the colour. */
+.zone {
+  --heat: 0%;
+
+  cursor: pointer;
+
+  &[data-heat="1"] {
+    --heat: 30%;
+  }
+
+  &[data-heat="2"] {
+    --heat: 50%;
+  }
+
+  &[data-heat="3"] {
+    --heat: 75%;
+  }
+
+  &[data-heat="4"] {
+    --heat: 100%;
+  }
+
+  & .halo {
+    fill: transparent;
+    stroke: transparent;
+    stroke-width: 3;
+  }
+
+  & .dot {
+    fill: color-mix(
+      in srgb,
+      var(--accent) var(--heat),
+      color-mix(in srgb, var(--muted) 40%, var(--ground))
+    );
+    stroke: var(--ground);
+    stroke-width: 1.5;
+  }
+
+  &:hover .halo {
+    stroke: var(--ink);
+  }
+
+  /* Marked areas ring in the accent colour; the picked area is dashed. */
+  &[data-lit="true"] .halo {
+    fill: color-mix(in srgb, var(--accent) 25%, transparent);
+    stroke: var(--accent);
+  }
+
+  &[data-best="true"] .halo {
+    fill: color-mix(in srgb, var(--accent) 25%, transparent);
+    stroke: var(--accent);
+    stroke-width: 5;
+  }
+
+  &[data-active="true"] .halo {
+    stroke: var(--ink);
+    stroke-dasharray: 4 3;
+  }
+}
+
+.name {
+  fill: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  paint-order: stroke;
+  stroke: var(--ground);
+  stroke-width: 4px;
+  pointer-events: none;
+}
