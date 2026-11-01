@@ -1,23 +1,18 @@
 import type { PetRegionId } from "./pets.ts";
 
-/**
- * A drawn map of the world, not a survey. The game data gives zone names and
- * no coordinates, so each zone sits where its name and description suggest
- * (Eastern Tolbas Forest beside Aullaeu Village, Steel Titan's Grave at the
- * north of Middle Reshanta). Treat positions as approximate.
- */
-export const worldMapSize = { width: 600, height: 800 };
+/** A traced approximation of the in-game region maps; area markers stay approximate. */
+export const worldMapSize = { width: 900, height: 1000 };
 
 type Box = { x: number; y: number; width: number; height: number };
 type Spot = [x: number, y: number];
 
 // Each region's spots are 0 to 100 within its box.
 const boxes: Record<Exclude<PetRegionId, "dungeons">, Box> = {
-  verteron: { x: 24, y: 56, width: 270, height: 350 },
-  altgard: { x: 326, y: 56, width: 250, height: 350 },
-  "middle-reshanta": { x: 176, y: 462, width: 250, height: 130 },
-  "lower-reshanta": { x: 120, y: 640, width: 360, height: 130 },
-  other: { x: 24, y: 462, width: 110, height: 130 },
+  verteron: { x: 48, y: 48, width: 300, height: 360 },
+  altgard: { x: 492, y: 64, width: 376, height: 300 },
+  "middle-reshanta": { x: 510, y: 432, width: 280, height: 240 },
+  "lower-reshanta": { x: 250, y: 700, width: 400, height: 280 },
+  other: { x: 48, y: 454, width: 230, height: 200 },
 };
 
 const spots: Record<keyof typeof boxes, Record<string, Spot>> = {
@@ -31,10 +26,10 @@ const spots: Record<keyof typeof boxes, Record<string, Spot>> = {
     "pilgrim-s-rest": [50, 24],
     "destroyed-temple-site": [32, 42],
     "contaminated-sanctum": [30, 54],
-    "kraka-footpath": [58, 10],
-    "romlon-s-hideout": [72, 8],
-    "drana-cultivation-area": [84, 14],
-    "drana-processing-area": [92, 26],
+    "kraka-footpath": [58, 20],
+    "romlon-s-hideout": [64, 30],
+    "drana-cultivation-area": [82, 25],
+    "drana-processing-area": [90, 32],
     "nahid-brigade-fortress": [70, 24],
     "scarlet-forest": [82, 38],
     "garden-of-the-illusion-god": [92, 50],
@@ -49,27 +44,27 @@ const spots: Record<keyof typeof boxes, Record<string, Spot>> = {
     "spirit-s-rest": [12, 78],
     "dundu-s-rest": [6, 66],
     "miros-post": [14, 90],
-    "pamos-farm": [32, 90],
+    "pamos-farm": [34, 76],
     "collapsed-verteron-barrier-tower": [74, 68],
     "destroyed-abyss-gate": [86, 66],
-    "verteron-fortress-ruins": [92, 78],
-    "krall-command-post": [64, 82],
-    "northern-tolbas-forest": [80, 82],
-    "southern-tolbas-forest": [72, 94],
-    "eastern-tolbas-forest": [90, 92],
-    "aullaeu-village": [58, 94],
-    "deserter-encampment": [44, 96],
+    "verteron-fortress-ruins": [86, 77],
+    "krall-command-post": [68, 70],
+    "northern-tolbas-forest": [78, 72],
+    "southern-tolbas-forest": [70, 78],
+    "eastern-tolbas-forest": [82, 84],
+    "aullaeu-village": [52, 83],
+    "deserter-encampment": [40, 76],
     "forest-of-exiles": [4, 94],
     "night-dew-cave": [22, 98],
-    "crimson-isle": [100, 8],
-    "eternal-isle": [100, 38],
+    "crimson-isle": [98, 12],
+    "eternal-isle": [98, 38],
   },
   altgard: {
-    "dredgion-crash-site": [22, 10],
-    "calderon-canyon": [42, 8],
-    "galorik-s-inspection-area": [62, 10],
+    "dredgion-crash-site": [22, 14],
+    "calderon-canyon": [45, 20],
+    "galorik-s-inspection-area": [62, 20],
     "quai-campsite": [74, 20],
-    "sanctum-dumpsite": [88, 12],
+    "sanctum-dumpsite": [91, 20],
     dranactus: [92, 26],
     "munin-s-bridge": [30, 22],
     "battlescar-mound": [48, 24],
@@ -86,17 +81,17 @@ const spots: Record<keyof typeof boxes, Record<string, Spot>> = {
     uruthumheim: [52, 58],
     "mahindel-river": [94, 44],
     "mahindel-cliff": [88, 62],
-    "fafnite-deposit": [76, 68],
+    "fafnite-deposit": [70, 64],
     "basfelt-ruins": [12, 62],
     "flauke-legion-outpost": [28, 68],
     "idun-s-lake": [44, 70],
     "western-gribade-highland": [10, 78],
     "southern-gribade-highland": [32, 80],
     "eastern-gribade-highland": [56, 78],
-    "amunta-s-hideout": [22, 90],
-    "barahta-extermination-unit-outpost": [66, 84],
-    "black-claw-village": [84, 78],
-    "kumrica-s-cellar": [94, 90],
+    "amunta-s-hideout": [25, 82],
+    "barahta-extermination-unit-outpost": [64, 78],
+    "black-claw-village": [78, 72],
+    "kumrica-s-cellar": [84, 80],
     "lagta-fortress": [78, 94],
     "impetusium-square": [56, 92],
     "spirit-isle": [4, 98],
@@ -110,11 +105,11 @@ const spots: Record<keyof typeof boxes, Record<string, Spot>> = {
     "eroded-fragment-area": [50, 90],
   },
   "lower-reshanta": {
-    "devastated-remnants": [14, 30],
-    "reshanta-s-root": [50, 30],
+    "devastated-remnants": [32, 76],
+    "reshanta-s-root": [50, 52],
     "black-fragments-area": [86, 30],
-    "archipelago-of-siel-s-wings": [32, 80],
-    "sulfur-tree-island": [68, 80],
+    "archipelago-of-siel-s-wings": [68, 82],
+    "sulfur-tree-island": [15, 12],
   },
   other: {
     "eltnen-barrier-tower-ruins": [50, 16],
@@ -160,37 +155,373 @@ export const worldPoints = new Map<string, Spot>([
   }),
 ]);
 
-/** A rounded landmass wide enough to hold a region's corners. */
-function landmass({ x, y, width, height }: Box, phase: number) {
-  const steps = 56;
-  const points = Array.from({ length: steps }, (_, step) => {
-    const angle = (step / steps) * Math.PI * 2;
-    const [cos, sin] = [Math.cos(angle), Math.sin(angle)];
-    // A squarish ellipse, wobbled so it reads as coast, not a shape.
-    const wobble = 1 + 0.045 * Math.sin(3 * angle + phase);
-    const px =
-      x +
-      width / 2 +
-      width * 0.58 * wobble * Math.sign(cos) * Math.sqrt(Math.abs(cos));
-    const py =
-      y +
-      height / 2 +
-      height * 0.58 * wobble * Math.sign(sin) * Math.sqrt(Math.abs(sin));
+// Hand-traced coastlines from NCSOFT's in-game map screenshots. The source
+// views are zoomed, so these are recognizable silhouettes, not map exports.
+const coastlines: Record<keyof typeof boxes, Spot[][]> = {
+  verteron: [
+    [
+      [6, 22],
+      [13, 17],
+      [18, 9],
+      [28, 4],
+      [38, 8],
+      [46, 14],
+      [52, 10],
+      [59, 16],
+      [67, 12],
+      [74, 20],
+      [81, 18],
+      [86, 26],
+      [96, 28],
+      [100, 38],
+      [94, 46],
+      [99, 56],
+      [93, 63],
+      [96, 70],
+      [88, 74],
+      [91, 83],
+      [83, 87],
+      [79, 96],
+      [72, 93],
+      [68, 82],
+      [66, 73],
+      [61, 70],
+      [58, 81],
+      [54, 92],
+      [50, 100],
+      [45, 94],
+      [40, 91],
+      [35, 84],
+      [28, 89],
+      [24, 91],
+      [18, 92],
+      [11, 91],
+      [7, 85],
+      [12, 84],
+      [8, 76],
+      [2, 70],
+      [6, 61],
+      [0, 54],
+      [6, 47],
+      [2, 39],
+      [9, 33],
+    ],
+    [
+      [0, 18],
+      [4, 13],
+      [9, 15],
+      [8, 22],
+      [3, 26],
+    ],
+    [
+      [97, 10],
+      [100, 6],
+      [100, 19],
+      [96, 18],
+    ],
+    [
+      [95, 34],
+      [100, 31],
+      [100, 43],
+      [96, 46],
+    ],
+    [
+      [0, 90],
+      [7, 89],
+      [11, 95],
+      [8, 100],
+      [1, 100],
+    ],
+    [
+      [16, 94],
+      [23, 91],
+      [29, 96],
+      [30, 100],
+      [19, 100],
+    ],
+  ],
+  altgard: [
+    [
+      [5, 21],
+      [11, 13],
+      [22, 10],
+      [28, 2],
+      [39, 6],
+      [46, 14],
+      [53, 9],
+      [61, 16],
+      [69, 11],
+      [75, 3],
+      [83, 7],
+      [87, 16],
+      [95, 18],
+      [100, 28],
+      [95, 36],
+      [99, 44],
+      [93, 49],
+      [88, 45],
+      [86, 38],
+      [80, 35],
+      [78, 43],
+      [82, 51],
+      [90, 56],
+      [97, 63],
+      [94, 71],
+      [87, 75],
+      [89, 84],
+      [84, 93],
+      [78, 100],
+      [72, 91],
+      [69, 83],
+      [63, 81],
+      [61, 90],
+      [55, 97],
+      [49, 94],
+      [45, 86],
+      [39, 82],
+      [34, 90],
+      [27, 95],
+      [22, 88],
+      [20, 79],
+      [14, 76],
+      [9, 81],
+      [3, 75],
+      [8, 66],
+      [2, 60],
+      [7, 52],
+      [1, 45],
+      [7, 38],
+      [3, 30],
+      [10, 25],
+    ],
+    [
+      [74, 1],
+      [81, 0],
+      [80, 9],
+      [75, 12],
+    ],
+    [
+      [0, 80],
+      [4, 79],
+      [5, 88],
+      [1, 91],
+    ],
+    [
+      [0, 93],
+      [4, 90],
+      [9, 93],
+      [8, 100],
+      [2, 100],
+    ],
+    [
+      [33, 94],
+      [39, 91],
+      [45, 95],
+      [44, 100],
+      [36, 100],
+    ],
+  ],
+  "middle-reshanta": [
+    [
+      [37, 0],
+      [52, 2],
+      [60, 10],
+      [63, 23],
+      [57, 34],
+      [45, 38],
+      [33, 31],
+      [30, 15],
+    ],
+    [
+      [10, 24],
+      [21, 19],
+      [31, 24],
+      [33, 39],
+      [27, 53],
+      [15, 56],
+      [5, 46],
+      [4, 34],
+    ],
+    [
+      [42, 38],
+      [57, 35],
+      [68, 42],
+      [70, 59],
+      [62, 69],
+      [46, 66],
+      [39, 54],
+    ],
+    [
+      [72, 23],
+      [87, 27],
+      [93, 41],
+      [87, 54],
+      [75, 55],
+      [69, 42],
+    ],
+    [
+      [37, 68],
+      [50, 64],
+      [61, 72],
+      [63, 87],
+      [53, 97],
+      [40, 93],
+      [32, 82],
+    ],
+    [
+      [66, 74],
+      [75, 69],
+      [84, 74],
+      [85, 86],
+      [76, 92],
+      [67, 86],
+    ],
+    [
+      [96, 72],
+      [100, 68],
+      [100, 88],
+      [94, 91],
+    ],
+    [
+      [1, 65],
+      [4, 62],
+      [5, 74],
+      [1, 78],
+    ],
+  ],
+  "lower-reshanta": [
+    [
+      [0, 3],
+      [9, 0],
+      [21, 2],
+      [29, 8],
+      [36, 6],
+      [43, 13],
+      [43, 22],
+      [38, 28],
+      [40, 37],
+      [32, 44],
+      [23, 46],
+      [17, 41],
+      [12, 45],
+      [5, 40],
+      [1, 31],
+      [0, 18],
+    ],
+    [
+      [35, 30],
+      [46, 27],
+      [56, 32],
+      [63, 42],
+      [62, 54],
+      [56, 68],
+      [44, 72],
+      [35, 65],
+      [31, 52],
+      [30, 42],
+    ],
+    [
+      [70, 3],
+      [83, 4],
+      [92, 14],
+      [90, 28],
+      [81, 36],
+      [70, 30],
+      [66, 18],
+    ],
+    [
+      [15, 62],
+      [29, 57],
+      [41, 62],
+      [45, 74],
+      [40, 85],
+      [31, 92],
+      [20, 88],
+      [13, 78],
+    ],
+    [
+      [53, 65],
+      [66, 60],
+      [79, 66],
+      [85, 77],
+      [81, 89],
+      [70, 95],
+      [57, 90],
+      [51, 79],
+    ],
+    [
+      [88, 48],
+      [95, 44],
+      [100, 50],
+      [100, 67],
+      [94, 72],
+      [87, 66],
+    ],
+    [
+      [45, 83],
+      [51, 81],
+      [55, 87],
+      [53, 95],
+      [47, 96],
+    ],
+    [
+      [5, 49],
+      [10, 46],
+      [13, 52],
+      [11, 58],
+      [6, 56],
+    ],
+  ],
+  other: [
+    [
+      [39, 8],
+      [49, 4],
+      [59, 10],
+      [62, 19],
+      [56, 27],
+      [44, 27],
+      [37, 19],
+    ],
+    [
+      [12, 49],
+      [23, 45],
+      [34, 50],
+      [37, 59],
+      [31, 68],
+      [19, 66],
+      [12, 59],
+    ],
+    [
+      [65, 73],
+      [77, 68],
+      [89, 74],
+      [93, 84],
+      [85, 94],
+      [72, 92],
+      [64, 83],
+    ],
+  ],
+};
 
-    return `${px.toFixed(1)} ${py.toFixed(1)}`;
-  });
+const pathFor = (box: Box, shapes: Spot[][]) =>
+  shapes
+    .map((shape) => {
+      const [first, ...rest] = shape;
+      const coordinates = ([x, y]: Spot) =>
+        [box.x + (box.width * x) / 100, box.y + (box.height * y) / 100]
+          .map((value) => value.toFixed(1))
+          .join(" ");
+      const move = `M${coordinates(first)}`;
+      const lines = rest.map((spot) => `L${coordinates(spot)}`).join("");
 
-  return `M${points.join("L")}Z`;
-}
+      return `${move}${lines}Z`;
+    })
+    .join("");
 
 export const worldLand = (Object.keys(boxes) as (keyof typeof boxes)[]).map(
-  (id, index) => ({
+  (id) => ({
     id,
-    path: landmass(boxes[id], index * 1.7),
-    // Where the region's name is written, above its coast.
-    label: [
-      boxes[id].x + boxes[id].width / 2,
-      boxes[id].y - boxes[id].height * 0.08 - 16,
-    ] as Spot,
+    path: pathFor(boxes[id], coastlines[id]),
+    label: [boxes[id].x + boxes[id].width / 2, boxes[id].y - 14] as Spot,
   }),
 );

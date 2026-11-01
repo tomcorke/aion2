@@ -165,8 +165,8 @@ export function Pets() {
               onPick={pickArea}
             />
             <p className={STYLES.hint}>
-              Positions are approximate: the game data names zones but gives no
-              coordinates. Diamonds are party dungeons.
+              Coastlines are simplified traces of the in-game maps. Zone
+              positions are approximate; diamonds are party dungeons.
             </p>
             <details className={STYLES.areas}>
               <summary>Areas as a list</summary>

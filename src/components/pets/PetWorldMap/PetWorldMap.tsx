@@ -22,6 +22,13 @@ type Props = {
 const regionTitle = (id: string) =>
   petRegions.find((region) => region.id === id)?.title ?? id;
 
+const labelAnchorFor = (x: number) => {
+  if (x < 110) return "start";
+  if (x > worldMapSize.width - 110) return "end";
+
+  return "middle";
+};
+
 /**
  * A drawn map of the world with a dot per farming area. The list of areas
  * beside it is the accessible version, so the drawing is hidden from readers.
@@ -73,25 +80,25 @@ export function PetWorldMap({
             onClick={() => onPick(area.id)}
           >
             <title>{`${area.name}, ${left} to finish`}</title>
-            <circle className={STYLES.halo} cx={x} cy={y} r={14} />
+            <circle className={STYLES.halo} cx={x} cy={y} r={18} />
             {area.region === "dungeons" ? (
               <rect
                 className={STYLES.dot}
-                x={x - 6}
-                y={y - 6}
-                width={12}
-                height={12}
+                x={x - 7}
+                y={y - 7}
+                width={14}
+                height={14}
                 transform={`rotate(45 ${x} ${y})`}
               />
             ) : (
-              <circle className={STYLES.dot} cx={x} cy={y} r={7} />
+              <circle className={STYLES.dot} cx={x} cy={y} r={8} />
             )}
             {named && (
               <text
                 className={STYLES.name}
                 x={x}
                 y={y - 16}
-                textAnchor="middle"
+                textAnchor={labelAnchorFor(x)}
               >
                 {area.name}
               </text>

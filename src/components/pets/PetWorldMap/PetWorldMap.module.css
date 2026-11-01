@@ -18,7 +18,7 @@
 .region {
   fill: var(--muted);
   font-family: var(--f-display);
-  font-size: 17px;
+  font-size: 23px;
 }
 
 /* The halo is the wide, quiet click target; the dot carries the colour. */
@@ -46,7 +46,7 @@
   & .halo {
     fill: transparent;
     stroke: transparent;
-    stroke-width: 3;
+    stroke-width: 4;
   }
 
   & .dot {
@@ -56,7 +56,7 @@
       color-mix(in srgb, var(--muted) 40%, var(--ground))
     );
     stroke: var(--ground);
-    stroke-width: 1.5;
+    stroke-width: 2;
   }
 
   &:hover .halo {
@@ -72,7 +72,7 @@
   &[data-best="true"] .halo {
     fill: color-mix(in srgb, var(--accent) 25%, transparent);
     stroke: var(--accent);
-    stroke-width: 5;
+    stroke-width: 6;
   }
 
   &[data-active="true"] .halo {
@@ -83,7 +83,7 @@
 
 .name {
   fill: var(--ink);
-  font-size: 13px;
+  font-size: 18px;
   font-weight: 600;
   paint-order: stroke;
   stroke: var(--ground);
