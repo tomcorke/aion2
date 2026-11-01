@@ -15,22 +15,16 @@ const number = new Intl.NumberFormat("en-GB");
 
 type Gate = { total: number; activity: GearActivity; mode: GearMode };
 
-// Entry modes that drop this tier's gear and have a recorded total gate, lowest first.
+// Recorded gates for this tier's entry activities, lowest first.
 function gatesOf(tier: GearTier): Gate[] {
-  const tierDropIds = new Set(
-    gearDrops.filter((drop) => drop.tierId === tier.id).map(({ id }) => id),
-  );
-
   return gearActivities
     .filter((activity) => tier.entryActivityIds.includes(activity.id))
     .flatMap((activity) =>
-      activity.modes
-        .filter((mode) => mode.dropIds.some((id) => tierDropIds.has(id)))
-        .flatMap((mode) =>
-          mode.totalItemLevel === undefined
-            ? []
-            : [{ total: mode.totalItemLevel, activity, mode }],
-        ),
+      activity.modes.flatMap((mode) =>
+        mode.totalItemLevel === undefined
+          ? []
+          : [{ total: mode.totalItemLevel, activity, mode }],
+      ),
     )
     .sort((a, b) => a.total - b.total);
 }
@@ -49,10 +43,12 @@ function pieceLevelOf(tier: GearTier) {
 }
 
 function GateList({ gates }: { gates: Gate[] }) {
-  return gates.map(({ activity, mode }, index) => (
+  return gates.map(({ total, activity, mode }, index) => (
     <Fragment key={activity.id + mode.name}>
       {index > 0 && ", "}
+      <span className={STYLES.level}>{number.format(total)}</span>{" "}
       <GearName name={activity.name} /> {mode.name}
+      {mode.condition && ` (${mode.condition})`}
     </Fragment>
   ));
 }
@@ -97,9 +93,6 @@ export function GateTrack({ tier }: { tier: GearTier }) {
           <>
             <dt id={`${id}-gate`}>Opens at total item level</dt>
             <dd aria-labelledby={`${id}-gate`}>
-              <span className={STYLES.level}>
-                {number.format(gates[0].total)}
-              </span>{" "}
               <GateList gates={gates} />
             </dd>
           </>

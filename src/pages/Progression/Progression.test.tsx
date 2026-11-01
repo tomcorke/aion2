@@ -69,6 +69,20 @@ test("lists the gates in order of total item level", () => {
   ).getAllByRole("row");
 
   expect(rows[1].textContent).toMatch(/^700.*Krao Cave/);
+  expect(
+    rows.find((row) => row.textContent?.startsWith("2,600"))?.textContent,
+  ).toContain("Krao Cave and Draupnir Hard");
+  expect(
+    rows.find((row) => row.textContent?.startsWith("2,700"))?.textContent,
+  ).toContain("Urugugu Canyon and Vakron Sky Island Hard");
+  expect(
+    rows.find((row) => row.textContent?.startsWith("2,800"))?.textContent,
+  ).toContain(
+    "scheduled to return 4 November 2026; still upcoming when checked on 1 November",
+  );
+  expect(
+    rows.find((row) => row.textContent?.startsWith("3,000"))?.textContent,
+  ).toContain("Abyssal Forge: Ludra Hard");
   expect(rows.at(-1)?.textContent).toMatch(
     /^4,500.*Chalice of Muspel Advanced/,
   );

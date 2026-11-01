@@ -264,5 +264,5 @@ test("names its sources and reviewed date in the footer", () => {
   for (const id of gearSources)
     expect(footer.textContent).toContain(sources[id].name);
 
-  expect(footer.textContent).toMatch(/Reviewed 13 Oct/);
+  expect(footer.textContent).toMatch(/Reviewed 1 Nov/);
 });

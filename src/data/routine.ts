@@ -138,7 +138,7 @@ export const routineTasks: RoutineTask[] = [
     group: "weekly",
     title: "Plan available raid attempts",
     purpose:
-      "Use eligible raid attempts for higher-tier gear; Ludra opens at total item level 2,800 and can supply gear up to item level 102.",
+      "Use eligible raid attempts for higher-tier gear. Ludra Normal (2,800) and Hard (3,000) are scheduled to return on 4 November 2026; both are still upcoming as checked on 1 November 2026. Normal can supply gear up to item level 102.",
     counterIds: ["raids"],
     guide: { to: "/gear", label: "Raid gates and drops" },
     details:
@@ -223,6 +223,7 @@ export const routineSources: SourceId[] = [
   "metabotDungeons",
   "metabotContentUnlocks",
   "metabotGear",
+  "ncLudraAwakens",
   "metabotAbyss",
   "metabotCurrencies",
   "game8Abyss",
@@ -243,4 +244,4 @@ export const routineSourceAdditions = {
   },
 } satisfies Record<string, Source>;
 
-export const routineReviewed = "2026-10-13";
+export const routineReviewed = "2026-11-01";

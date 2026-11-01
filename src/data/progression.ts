@@ -67,9 +67,21 @@ export const gates: Gate[] = [
     ],
   },
   {
+    itemLevel: 2600,
+    unlocks: [
+      "Krao Cave and Draupnir Hard (four-minute boss Frenzy; three revives per player)",
+    ],
+  },
+  {
+    itemLevel: 2700,
+    unlocks: [
+      "Urugugu Canyon and Vakron Sky Island Hard (four-minute boss Frenzy; three revives per player)",
+    ],
+  },
+  {
     itemLevel: 2800,
     unlocks: [
-      "Abyssal Forge: Ludra raid (gear item level up to 102)",
+      "Abyssal Forge: Ludra Normal (scheduled to return 4 November 2026; still upcoming when checked on 1 November; gear item level up to 102)",
       "Dying Dramata's Nest",
       "Cradle of Nihility",
       "Conquest tier 4",
@@ -77,7 +89,12 @@ export const gates: Gate[] = [
   },
   {
     itemLevel: 3000,
-    unlocks: ["Hall of Illusion", "Azure Breath Island", "Conquest tier 5"],
+    unlocks: [
+      "Abyssal Forge: Ludra Hard (scheduled to return 4 November 2026; still upcoming when checked on 1 November)",
+      "Hall of Illusion",
+      "Azure Breath Island",
+      "Conquest tier 5",
+    ],
   },
   {
     itemLevel: 3500,
@@ -232,7 +249,7 @@ export const progressionSections: ProgressionSection[] = [
     items: [
       "Six boards: Nezekan, Zikel, Vaizel, Triniel, Ariel and Azphel. Ariel and Azphel open at level 45; nodes cost 1 to 4 points.",
       "Ariel is a PvE board with 152 stat nodes and no skill nodes. Completing it costs 232 points from its separate Daevanion Crystal: Ariel pool.",
-      "Expedition Hard awards Ariel Fragments. Since 28 October, Urugugu Canyon and Vakron Sky Island each guarantee their matching bound fragment.",
+      "Expedition Hard guarantees a bound Ariel Fragment matching its dungeon.",
       "Morph 100 Ariel Fragments into one bound Daevanion Crystal: Ariel, up to 30 times per character. You can also morph one fragment into five Enhance Stones without a limit.",
       "Azphel uses its own Azphel crystals, so it never takes points from the other boards. It carries HP and MP nodes as well as PvP ones.",
       "Spending points also raises your total item level.",
@@ -327,7 +344,9 @@ export const progressionSourceIds: SourceId[] = [
   "metabotSpiritmasterPlanner",
   "metabotMethodology",
   "ncGlobal21Oct",
+  "aion2BuildsGlobal21Oct",
   "ncGlobal28Oct",
+  "ncLudraAwakens",
   "metabotAbyss",
   "metabotStigma",
   "metabotWings",

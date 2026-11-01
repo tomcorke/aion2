@@ -6,7 +6,7 @@ import { dailyDungeonRewardNote } from "./routine.ts";
 // Global Season 1. Curated from knowledge/topics/gear/level-45-progression.md
 // and exploration/field-bosses.md in E:/working/aion2-knowledge.
 // This preserves the notes' review date; no external source was rechecked here.
-export const gearReviewed = "2026-10-13";
+export const gearReviewed = "2026-11-01";
 
 export const gearSources: SourceId[] = [
   "metabotGear",
@@ -16,6 +16,10 @@ export const gearSources: SourceId[] = [
   "metabotAbyss",
   "metabotMonsters",
   "allThingsDailyDungeon",
+  "ncGlobal21Oct",
+  "aion2BuildsGlobal21Oct",
+  "ncGlobal28Oct",
+  "ncLudraAwakens",
   "ownChecks",
 ];
 
@@ -397,6 +401,17 @@ export const gearRewardConditions: GearRewardCondition[] = [
   },
   { id: "raid", notes: ["4 attempts per raid each week, per character."] },
   {
+    id: "expedition-hard",
+    notes: [
+      "Each boss has a four-minute Frenzy timer; each player has three revives.",
+      "A bound Ariel Fragment matching the dungeon is guaranteed.",
+      "100 Ariel Fragments morph into one bound Daevanion Crystal: Ariel, up to 30 times per character. One fragment can also morph into five Enhance Stones without a stated limit.",
+      "Philosopher's Stone: Revelation can drop or be selected as a guaranteed reward; its drop rate is not recorded.",
+      "Expedition Hero Artwork can drop; its drop rate is not recorded. Kina rewards are higher than Normal.",
+      "The Hard-mode equipment drop table and rates are not recorded here.",
+    ],
+  },
+  {
     id: "ascension-trial",
     notes: [
       "3 entries each week, per character.",
@@ -523,6 +538,12 @@ export const gearActivities: GearActivity[] = [
         rewardConditionId: "exploration",
         pityId: "exploration",
       },
+      {
+        name: "Hard",
+        totalItemLevel: 2600,
+        dropIds: [],
+        rewardConditionId: "expedition-hard",
+      },
     ],
   },
   {
@@ -542,6 +563,12 @@ export const gearActivities: GearActivity[] = [
         dropIds: ["bakarma"],
         rewardConditionId: "exploration",
         pityId: "exploration",
+      },
+      {
+        name: "Hard",
+        totalItemLevel: 2600,
+        dropIds: [],
+        rewardConditionId: "expedition-hard",
       },
     ],
   },
@@ -601,6 +628,12 @@ export const gearActivities: GearActivity[] = [
         rewardConditionId: "exploration",
         pityId: "exploration",
       },
+      {
+        name: "Hard",
+        totalItemLevel: 2700,
+        dropIds: [],
+        rewardConditionId: "expedition-hard",
+      },
     ],
   },
   {
@@ -621,6 +654,12 @@ export const gearActivities: GearActivity[] = [
         dropIds: ["vakron"],
         rewardConditionId: "exploration",
         pityId: "exploration",
+      },
+      {
+        name: "Hard",
+        totalItemLevel: 2700,
+        dropIds: [],
+        rewardConditionId: "expedition-hard",
       },
     ],
   },
@@ -737,10 +776,20 @@ export const gearActivities: GearActivity[] = [
     kind: "Raid",
     modes: [
       {
-        name: "Raid",
+        name: "Normal",
         totalItemLevel: 2800,
         dropIds: ["abyssal", "ludra"],
         rewardConditionId: "raid",
+        condition:
+          "Scheduled to return on 4 November 2026; still upcoming when checked on 1 November 2026.",
+      },
+      {
+        name: "Hard",
+        totalItemLevel: 3000,
+        dropIds: [],
+        rewardConditionId: "raid",
+        condition:
+          "Scheduled to return on 4 November 2026; still upcoming when checked on 1 November 2026.",
       },
     ],
   },

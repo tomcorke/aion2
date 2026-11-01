@@ -267,14 +267,26 @@ export const sources = {
   },
   ncGlobal21Oct: {
     name: "NC Global patch notice, 21 October 2026",
-    covers: "Ariel Daevanion board addition and Ariel Fragment source",
+    covers:
+      "Krao Cave and Draupnir Hard mode, Ariel Daevanion board addition and Ariel Fragment source",
     url: "https://steamcommunity.com/ogg/3393110/announcements/detail/670631196372241777",
+  },
+  aion2BuildsGlobal21Oct: {
+    name: "AION 2 Builds: Global patch-notes transcription, 21 October 2026",
+    covers: "Krao Cave and Draupnir Hard entry gate at item level 2,600",
+    url: "https://aion2builds.com/updates/patch-notes-2026-10-20/",
   },
   ncGlobal28Oct: {
     name: "NC Global patch notes, 28 October 2026",
     covers:
-      "Guaranteed matching Ariel Fragments from Urugugu Canyon and Vakron Sky Island Hard, and Ariel Fragment morph limits",
+      "Urugugu Canyon and Vakron Sky Island Hard entry and encounter limits, rewards, and Ariel Fragment morph limits",
     url: "https://aion2.plaync.com/en-us/board/update/view?articleId=6ae19668577e8c01355e0210",
+  },
+  ncLudraAwakens: {
+    name: "NC: Ludra Awakens on November 4th",
+    covers:
+      "Ludra's scheduled return and Normal and Hard item-level entry requirements",
+    url: "https://lounge.plaync.com/feed/85150?country=US&locale=en-US",
   },
   ownChecks: {
     name: "My own checks on an EU server",

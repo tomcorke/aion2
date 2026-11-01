@@ -3,9 +3,11 @@ import {
   gearActivities,
   gearDrops,
   gearRewardConditions,
+  gearTiers,
   type GearActivity,
   type GearDrop,
   type GearMode,
+  type GearTier,
   type GearTierId,
 } from "../../../data/gear.ts";
 import { Diamond } from "../../trim/Diamond/Diamond.tsx";
@@ -16,6 +18,7 @@ import STYLES from "./TierDrops.module.css";
 const number = new Intl.NumberFormat("en-GB");
 
 type Row = { activity: GearActivity; mode: GearMode; drop: GearDrop };
+type RewardMode = { activity: GearActivity; mode: GearMode };
 
 const dropById = (id: string) => gearDrops.find((drop) => drop.id === id)!;
 
@@ -28,6 +31,26 @@ function rowsOf(tierId: GearTierId): Row[] {
         .map((drop) => ({ activity, mode, drop })),
     ),
   );
+}
+
+function rewardModesOf(rows: Row[], tier: GearTier): RewardMode[] {
+  const dropModes = rows
+    .filter(
+      ({ mode }, index) => rows.findIndex((row) => row.mode === mode) === index,
+    )
+    .map(({ activity, mode }) => ({ activity, mode }));
+  const rewardOnlyModes = gearActivities
+    .filter((activity) => tier.entryActivityIds.includes(activity.id))
+    .flatMap((activity) =>
+      activity.modes
+        .filter(
+          ({ dropIds, totalItemLevel }) =>
+            dropIds.length === 0 && totalItemLevel !== undefined,
+        )
+        .map((mode) => ({ activity, mode })),
+    );
+
+  return [...dropModes, ...rewardOnlyModes];
 }
 
 function DropRow({ activity, mode, drop }: Row) {
@@ -59,14 +82,13 @@ function DropRow({ activity, mode, drop }: Row) {
   );
 }
 
-function RewardRules({ rows }: { rows: Row[] }) {
+function RewardRules({ rows, tier }: { rows: Row[]; tier: GearTier }) {
   const id = useId();
+  const rewardModes = rewardModesOf(rows, tier);
 
   const used = gearRewardConditions.flatMap((condition) => {
-    const modes = rows.filter(
-      ({ mode }, index) =>
-        mode.rewardConditionId === condition.id &&
-        rows.findIndex((row) => row.mode === mode) === index,
+    const modes = rewardModes.filter(
+      ({ mode }) => mode.rewardConditionId === condition.id,
     );
 
     return modes.length > 0 ? [{ condition, modes }] : [];
@@ -104,6 +126,7 @@ function RewardRules({ rows }: { rows: Row[] }) {
 /** Every activity mode that drops gear in the selected tier, with its gate and conditions. */
 export function TierDrops({ tierId }: { tierId: GearTierId }) {
   const rows = rowsOf(tierId);
+  const tier = gearTiers.find(({ id }) => id === tierId)!;
 
   return (
     <div className={STYLES.drops}>
@@ -132,7 +155,7 @@ export function TierDrops({ tierId }: { tierId: GearTierId }) {
         </table>
       </div>
 
-      <RewardRules rows={rows} />
+      <RewardRules rows={rows} tier={tier} />
     </div>
   );
 }
