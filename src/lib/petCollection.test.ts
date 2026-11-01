@@ -7,6 +7,7 @@ import {
   filterPets,
   heatStep,
   toggleLevel,
+  toggleMax,
   validLevels,
 } from "./petCollection.ts";
 
@@ -47,6 +48,13 @@ describe("toggleLevel", () => {
     expect(toggleLevel({ a: 3 }, "a", 2)).toEqual({ a: 1 });
     expect(toggleLevel({ a: 3 }, "a", 3)).toEqual({ a: 2 });
     expect(toggleLevel({ a: 1 }, "a", 1)).toEqual({});
+  });
+});
+
+describe("toggleMax", () => {
+  test("ticking sets level 3 and unticking clears the pet", () => {
+    expect(toggleMax({ a: 1 }, "a")).toEqual({ a: 3 });
+    expect(toggleMax({ a: 3, b: 2 }, "a")).toEqual({ b: 2 });
   });
 });
 

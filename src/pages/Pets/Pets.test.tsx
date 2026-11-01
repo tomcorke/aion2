@@ -236,3 +236,21 @@ test("a hovered row that a filter removes stops marking its areas", async () => 
 
   expect(tiles().some((tile) => tile.dataset.lit === "true")).toBe(false);
 });
+
+test("the level 3 box only option leaves one box that sets or clears level 3", async () => {
+  render();
+
+  await userEvent.click(option("Level 3 box only"));
+
+  expect(screen.queryByRole("checkbox", { name: /level 1$/ })).toBeNull();
+
+  await userEvent.click(level(first.name, 3));
+
+  expect(JSON.parse(localStorage.getItem("pet-levels") ?? "{}")).toEqual({
+    [first.id]: 3,
+  });
+
+  await userEvent.click(level(first.name, 3));
+
+  expect(JSON.parse(localStorage.getItem("pet-levels") ?? "{}")).toEqual({});
+});

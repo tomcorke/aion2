@@ -33,6 +33,9 @@
     #f6dc93 100%
   );
   --rule: rgb(232 190 95 / 70%);
+  --level-1: #5b9bd5;
+  --level-2: #5fb88a;
+  --level-3: #e6bb5c;
   --orb: radial-gradient(circle at 35% 30%, #fff3c4, #d4a440 55%, #7a5313);
 
   color-scheme: dark;
@@ -64,6 +67,9 @@
     --accent: #465061;
     --gilt: linear-gradient(180deg, #667183 0%, #343d4a 55%, #727e90 100%);
     --rule: rgb(110 120 136 / 55%);
+    --level-1: #2f6fae;
+    --level-2: #2d8156;
+    --level-3: #a77a14;
 
     color-scheme: light;
   }

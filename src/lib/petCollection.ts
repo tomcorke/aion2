@@ -37,6 +37,15 @@ export function toggleLevel(levels: Levels, id: string, level: 1 | 2 | 3) {
   return updated;
 }
 
+/** Ticking the only box sets level 3; unticking clears the pet. */
+export function toggleMax(levels: Levels, id: string) {
+  const updated = { ...levels, [id]: MAX };
+
+  if (isMaxed(levels, id)) delete updated[id];
+
+  return updated;
+}
+
 export type AreaCount = { unfinished: number; unowned: number };
 
 /** For each area, the pets that drop there and are not yet at level 3. */

@@ -21,7 +21,11 @@ const pets: Pet[] = [
   },
 ];
 
-const renderList = (levels = {}, selected = new Set<string>()) => {
+const renderList = (
+  levels = {},
+  selected = new Set<string>(),
+  maxOnly = false,
+) => {
   const handlers = {
     onToggleLevel: vi.fn(),
     onToggleSelected: vi.fn(),
@@ -33,6 +37,7 @@ const renderList = (levels = {}, selected = new Set<string>()) => {
       pets={pets}
       levels={levels}
       selected={selected}
+      maxOnly={maxOnly}
       {...handlers}
     />,
   );
@@ -84,6 +89,34 @@ test("a pet level ticks every level up to its own", () => {
       }) as HTMLInputElement
     ).checked,
   ).toBe(false);
+});
+
+test("colours each marked level and the row by the highest level", () => {
+  renderList({ a: 2 });
+
+  const done = (n: number) =>
+    screen
+      .getByRole("checkbox", { name: `Aberrant Test level ${n}` })
+      .closest("label")
+      ?.getAttribute("data-done");
+
+  expect([done(1), done(2), done(3)]).toEqual(["true", "true", "false"]);
+  expect(
+    screen.getByText("Aberrant Test").closest("li")?.getAttribute("data-level"),
+  ).toBe("2");
+});
+
+test("can show a single box for level 3", () => {
+  renderList({ a: 3 }, new Set(), true);
+
+  expect(screen.queryByRole("checkbox", { name: /level [12]$/ })).toBeNull();
+  expect(
+    (
+      screen.getByRole("checkbox", {
+        name: "Aberrant Test level 3",
+      }) as HTMLInputElement
+    ).checked,
+  ).toBe(true);
 });
 
 test("reports level ticks, map selection and hover", async () => {

@@ -12,6 +12,8 @@ type Props = {
   onToggleType: (type: PetType) => void;
   hideMaxed: boolean;
   onToggleHideMaxed: () => void;
+  maxOnly: boolean;
+  onToggleMaxOnly: () => void;
   mapOptions: ReadonlySet<MapOption>;
   onToggleMapOption: (option: MapOption) => void;
   shown: number;
@@ -28,6 +30,8 @@ export function PetControls({
   onToggleType,
   hideMaxed,
   onToggleHideMaxed,
+  maxOnly,
+  onToggleMaxOnly,
   mapOptions,
   onToggleMapOption,
   shown,
@@ -57,8 +61,15 @@ export function PetControls({
             label: "Hide level 3 pets",
             pressed: hideMaxed,
           },
+          {
+            value: "maxOnly",
+            label: "Level 3 box only",
+            pressed: maxOnly,
+          },
         ]}
-        onToggle={onToggleHideMaxed}
+        onToggle={(value) =>
+          value === "maxOnly" ? onToggleMaxOnly() : onToggleHideMaxed()
+        }
       />
 
       <FilterChips

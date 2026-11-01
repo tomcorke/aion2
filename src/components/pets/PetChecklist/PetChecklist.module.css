@@ -18,6 +18,19 @@
   padding: 8px 0;
   border-bottom: 1px solid var(--line);
 
+  /* A faint wash in the colour of the highest level reached. */
+  &[data-level="1"] {
+    background: color-mix(in srgb, var(--level-1) 8%, transparent);
+  }
+
+  &[data-level="2"] {
+    background: color-mix(in srgb, var(--level-2) 8%, transparent);
+  }
+
+  &[data-level="3"] {
+    background: color-mix(in srgb, var(--level-3) 10%, transparent);
+  }
+
   &[data-selected="true"] {
     box-shadow: inset 2px 0 0 var(--accent);
   }
@@ -25,6 +38,10 @@
   @container (width > 640px) {
     grid-template-columns: 40px minmax(150px, 1fr) repeat(3, minmax(0, 1.1fr));
     gap: 8px 12px;
+
+    &[data-max-only="true"] {
+      grid-template-columns: 40px minmax(150px, 1fr) minmax(0, 1.1fr);
+    }
   }
 }
 
@@ -58,15 +75,34 @@
   gap: 10px;
   align-items: flex-start;
   min-height: 40px;
-  padding: 2px 0;
+  padding: 2px 8px;
+  border-radius: 6px;
   cursor: pointer;
+
+  /* Each level fills with its own colour once marked. */
+  &[data-done="true"] {
+    background: color-mix(in srgb, var(--step) 24%, transparent);
+    box-shadow: inset 0 0 0 1px var(--step);
+  }
+
+  &[data-step="1"] {
+    --step: var(--level-1);
+  }
+
+  &[data-step="2"] {
+    --step: var(--level-2);
+  }
+
+  &[data-step="3"] {
+    --step: var(--level-3);
+  }
 
   & input {
     flex-shrink: 0;
     width: 18px;
     height: 18px;
     margin-top: 2px;
-    accent-color: var(--accent);
+    accent-color: var(--step);
   }
 
   @container (width > 640px) {

@@ -8,6 +8,7 @@ function renderControls() {
     onQuery: vi.fn(),
     onToggleType: vi.fn(),
     onToggleHideMaxed: vi.fn(),
+    onToggleMaxOnly: vi.fn(),
     onToggleMapOption: vi.fn(),
     onSelectAll: vi.fn(),
     onSelectNone: vi.fn(),
@@ -18,6 +19,7 @@ function renderControls() {
       query=""
       types={new Set(["Cogni"])}
       hideMaxed={false}
+      maxOnly
       mapOptions={new Set(["heat"])}
       shown={12}
       selected={3}
@@ -37,6 +39,11 @@ test("shows the chosen filters and map overlays as pressed", () => {
   expect(
     screen.getByRole("button", { name: "Fera" }).getAttribute("aria-pressed"),
   ).toBe("false");
+  expect(
+    screen
+      .getByRole("button", { name: "Level 3 box only" })
+      .getAttribute("aria-pressed"),
+  ).toBe("true");
   expect(
     screen
       .getByRole("button", { name: "Heatmap of pets left" })
@@ -62,6 +69,9 @@ test("reports every control", async () => {
     screen.getByRole("button", { name: "Hide level 3 pets" }),
   );
   await userEvent.click(
+    screen.getByRole("button", { name: "Level 3 box only" }),
+  );
+  await userEvent.click(
     screen.getByRole("button", { name: "Highlight best area" }),
   );
   await userEvent.click(
@@ -71,7 +81,8 @@ test("reports every control", async () => {
 
   expect(handlers.onQuery).toHaveBeenCalledWith("a");
   expect(handlers.onToggleType).toHaveBeenCalledWith("Natura");
-  expect(handlers.onToggleHideMaxed).toHaveBeenCalled();
+  expect(handlers.onToggleHideMaxed).toHaveBeenCalledTimes(1);
+  expect(handlers.onToggleMaxOnly).toHaveBeenCalledTimes(1);
   expect(handlers.onToggleMapOption).toHaveBeenCalledWith("best");
   expect(handlers.onSelectAll).toHaveBeenCalled();
   expect(handlers.onSelectNone).toHaveBeenCalled();

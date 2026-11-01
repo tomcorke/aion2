@@ -22,6 +22,7 @@ import {
   filterPets,
   isMaxed,
   toggleLevel,
+  toggleMax,
   validLevels,
 } from "../../lib/petCollection.ts";
 import STYLES from "./Pets.module.css";
@@ -56,6 +57,7 @@ export function Pets() {
   const [query, setQuery] = useState("");
   const [types, setTypes] = useState<ReadonlySet<PetType>>(new Set());
   const [hideMaxed, setHideMaxed] = useState(false);
+  const [maxOnly, setMaxOnly] = useStoredState("pet-max-only", false);
   const [mapOptions, setMapOptions] = useState<ReadonlySet<"best" | "heat">>(
     new Set(),
   );
@@ -106,6 +108,8 @@ export function Pets() {
           onToggleType={(type) => setTypes((current) => toggled(current, type))}
           hideMaxed={hideMaxed}
           onToggleHideMaxed={() => setHideMaxed((current) => !current)}
+          maxOnly={maxOnly}
+          onToggleMaxOnly={() => setMaxOnly((current) => !current)}
           mapOptions={mapOptions}
           onToggleMapOption={(option) =>
             setMapOptions((current) => toggled(current, option))
@@ -171,10 +175,15 @@ export function Pets() {
               pets={shown}
               levels={levels}
               selected={selected}
+              maxOnly={maxOnly}
               onToggleLevel={(id, level) =>
-                setStored((current) =>
-                  toggleLevel(validLevels(current, knownIds), id, level),
-                )
+                setStored((current) => {
+                  const valid = validLevels(current, knownIds);
+
+                  return maxOnly
+                    ? toggleMax(valid, id)
+                    : toggleLevel(valid, id, level);
+                })
               }
               onToggleSelected={(id) =>
                 setSelected((current) => toggled(current, id))

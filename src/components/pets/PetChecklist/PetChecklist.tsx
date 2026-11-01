@@ -12,6 +12,8 @@ type Props = {
   pets: Pet[];
   levels: Levels;
   selected: ReadonlySet<string>;
+  // Show one box for level 3 instead of one per level.
+  maxOnly?: boolean;
   onToggleLevel: (id: string, level: PetLevelNumber) => void;
   onToggleSelected: (id: string) => void;
   onHover: (id: string | undefined) => void;
@@ -35,6 +37,7 @@ export function PetChecklist({
   pets,
   levels,
   selected,
+  maxOnly = false,
   onToggleLevel,
   onToggleSelected,
   onHover,
@@ -49,6 +52,8 @@ export function PetChecklist({
           key={pet.id}
           className={STYLES.row}
           data-selected={selected.has(pet.id)}
+          data-level={levelOf(levels, pet.id)}
+          data-max-only={maxOnly}
           onMouseEnter={() => onHover(pet.id)}
           onMouseLeave={() => onHover(undefined)}
           onFocus={() => onHover(pet.id)}
@@ -70,8 +75,13 @@ export function PetChecklist({
             </span>
           </div>
 
-          {petLevels.map((level) => (
-            <label key={level} className={STYLES.level}>
+          {(maxOnly ? petLevels.slice(-1) : petLevels).map((level) => (
+            <label
+              key={level}
+              className={STYLES.level}
+              data-step={level}
+              data-done={levelOf(levels, pet.id) >= level}
+            >
               <input
                 type="checkbox"
                 checked={levelOf(levels, pet.id) >= level}
