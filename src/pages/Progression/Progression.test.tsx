@@ -86,6 +86,21 @@ test("warns that skipping a cube locks the whole server", () => {
   ).toBeDefined();
 });
 
+test("qualifies Global pet and Genus sharing as guide-reported", () => {
+  renderPage();
+
+  const section = screen.getByRole("region", { name: "Pets and Genus" });
+
+  expect(
+    within(section).getByText(
+      /Global guides report that Pets and Genus Insight are shared by characters on the same server/,
+    ),
+  ).toBeDefined();
+  expect(
+    within(section).getByText(/not been confirmed in the Global client/),
+  ).toBeDefined();
+});
+
 test("links detailed mechanics to their own pages", () => {
   renderPage();
 
