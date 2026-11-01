@@ -150,7 +150,8 @@ export const sources = {
   },
   metabotAbyss: {
     name: "MetaBot Abyss guide",
-    covers: "Lower Reshanta gate, Abyss Points and shop prices",
+    covers:
+      "Lower Reshanta gate, Abyss Point sources and weekly limits, and shop prices",
     url: "https://metabot.gg/en/aion-2/guides/abyss-pvp-guide",
   },
   metabotStigma: {
