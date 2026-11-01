@@ -93,6 +93,13 @@ test("overview assumptions and source freshness remain available to the page", (
 
   for (const id of daevanionSources) expect(sources).toHaveProperty(id);
 
+  expect(sources.metabotHeightenedSixthSense.covers).toContain(
+    "not confirmed after the 28 October patch",
+  );
+  expect(sources.ncGlobal28Oct.covers).toContain(
+    "Heightened Sixth Sense HP changes",
+  );
+
   for (const collection of [
     daevanionClasses,
     daevanionBoards,

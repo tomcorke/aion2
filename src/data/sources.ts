@@ -155,6 +155,12 @@ export const sources = {
     covers: "Skill-role estimates for class routes",
     url: "https://metabot.gg/en/aion-2/skills/attack-preparation-chanter",
   },
+  metabotHeightenedSixthSense: {
+    name: "MetaBot Heightened Sixth Sense skill page",
+    covers:
+      "Earlier max-rank tooltip report from Global client build 0.0.4387.0; not confirmed after the 28 October patch",
+    url: "https://metabot.gg/en/aion-2/skills/heightened-sixth-sense",
+  },
   metabotAbyss: {
     name: "MetaBot Abyss guide",
     covers:
@@ -279,7 +285,7 @@ export const sources = {
   ncGlobal28Oct: {
     name: "NC Global patch notes, 28 October 2026",
     covers:
-      "Urugugu Canyon and Vakron Sky Island Hard entry and encounter limits, rewards, and Ariel Fragment morph limits",
+      "Heightened Sixth Sense HP changes at skill levels 5, 10 and 20; Urugugu Canyon and Vakron Sky Island Hard entry and encounter limits, rewards, and Ariel Fragment morph limits",
     url: "https://aion2.plaync.com/en-us/board/update/view?articleId=6ae19668577e8c01355e0210",
   },
   ncLudraAwakens: {

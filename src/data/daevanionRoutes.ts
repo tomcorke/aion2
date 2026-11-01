@@ -49,6 +49,8 @@ export type RouteSkill = {
   name: string;
   role: "core" | "damage-core" | "damage" | "utility" | "defensive";
   maxRankTooltip: string;
+  tooltipLabel?: string;
+  tooltipNote?: string;
   sourceUrl: string;
 };
 
@@ -19575,6 +19577,9 @@ export const daevanionRouteData: DaevanionRouteData = {
           role: "defensive",
           maxRankTooltip:
             "Increases the caster's Evasion by 200 and HP by 6,000. Increases Max HP by an extra 45% and restores 1,853 (+100% Attack)-2,224 HP on Evasion. Cooldown: 3s",
+          tooltipLabel: "Earlier max-rank report",
+          tooltipNote:
+            "Skill levels 5, 10, and 20 list HP effects of 1,000, 2,000, and 4,000. The current in-game tooltips at levels 5, 10, 20, and 40 have not been checked on an EU server. Treat the +6,000 HP figure above as unverified for the current Global client.",
           sourceUrl:
             "https://metabot.gg/en/aion-2/skills/heightened-sixth-sense",
         },

@@ -14,6 +14,7 @@ export const daevanionSources: SourceId[] = [
   "metabotChanterPlanner",
   "metabotSpiritmasterSkills",
   "metabotDaevanionClassSkills",
+  "metabotHeightenedSixthSense",
   "metabotDaevanion",
   "metabotSpiritmasterPlanner",
   "metabotDaevanionPlanner",
