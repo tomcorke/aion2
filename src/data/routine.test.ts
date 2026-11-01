@@ -91,6 +91,12 @@ test("weekly work covers dungeon, time, shop and crafting allowances", () => {
   expect(weekly.find((task) => task.id === "subjugation")?.details).toMatch(
     /item rewards.*unverified/i,
   );
+  expect(weekly.find((task) => task.id === "raids")?.purpose).toContain(
+    "Ludra Normal (2,800) and Hard (3,000)",
+  );
+  expect(weekly.find((task) => task.id === "raids")?.purpose).toContain(
+    "scheduled to return on 4 November 2026; both are still upcoming as checked on 1 November 2026",
+  );
   expect(
     weekly.find((task) => task.id === "membership-spiritstones")?.details,
   ).toMatch(/membership/i);

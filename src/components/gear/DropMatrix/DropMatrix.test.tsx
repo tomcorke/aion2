@@ -45,6 +45,22 @@ test("shows upper-bound levels and Exploration cube costs", () => {
   );
 });
 
+test("shows Hard gates and their documented rewards without inventing equipment drops", () => {
+  renderWithProviders(<DropMatrix />);
+
+  const krao = screen.getByRole("row", { name: /^Krao Cave/ });
+  const vakron = screen.getByRole("row", { name: /^Vakron Sky Island/ });
+
+  expect(krao.textContent).toContain("Hard 2,600");
+  expect(krao.textContent).toContain("four-minute Frenzy timer");
+  expect(krao.textContent).toContain("Philosopher's Stone: Revelation");
+  expect(vakron.textContent).toContain("Hard 2,700");
+  expect(vakron.textContent).toContain(
+    "Ariel Fragment matching the dungeon is guaranteed",
+  );
+  expect(vakron.textContent).toContain("drop rate is not recorded");
+});
+
 test("a mode's own condition sits with that mode", () => {
   renderWithProviders(<DropMatrix />);
 

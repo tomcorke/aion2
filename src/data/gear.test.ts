@@ -54,12 +54,14 @@ test("shared armor loot tables retain both modes and verified Exploration gates"
   ] as const) {
     const activity = gearActivities.find((row) => row.id === id);
 
-    expect(activity?.modes.map(({ name, dropIds }) => [name, dropIds])).toEqual(
-      [
-        ["Conquest", [dropId]],
-        ["Exploration", [dropId]],
-      ],
-    );
+    expect(
+      activity?.modes
+        .filter(({ dropIds }) => dropIds.length > 0)
+        .map(({ name, dropIds }) => [name, dropIds]),
+    ).toEqual([
+      ["Conquest", [dropId]],
+      ["Exploration", [dropId]],
+    ]);
     expect(activity?.modes[1].totalItemLevel).toBe(gate);
   }
 
@@ -90,10 +92,11 @@ test("pity uses documented runs and only Exploration has a recorded membership m
   ]) {
     const activity = gearActivities.find((row) => row.id === id);
 
-    expect(activity?.modes.map((mode) => mode.pityId)).toEqual([
-      pityId,
-      "exploration",
-    ]);
+    expect(
+      activity?.modes
+        .filter((mode) => mode.pityId !== undefined)
+        .map((mode) => mode.pityId),
+    ).toEqual([pityId, "exploration"]);
   }
 });
 
@@ -167,6 +170,56 @@ test("intermediate field, Lower Reshanta and crafted alternatives do not become 
   expect(gearPityLimitations.join(" ")).toContain(
     "Whether skipping the cube advances pity is unknown",
   );
+});
+
+test("Hard Expedition gates and rewards include only recorded loot details", () => {
+  const hardModes = [
+    "krao-cave",
+    "draupnir",
+    "urugugu-canyon",
+    "vakron-sky-island",
+  ].map((id) =>
+    gearActivities
+      .find((activity) => activity.id === id)
+      ?.modes.find(({ name }) => name === "Hard"),
+  );
+
+  expect(hardModes.map((mode) => mode?.totalItemLevel)).toEqual([
+    2600, 2600, 2700, 2700,
+  ]);
+  expect(hardModes.every((mode) => mode?.dropIds.length === 0)).toBe(true);
+  expect(
+    hardModes.every((mode) => mode?.rewardConditionId === "expedition-hard"),
+  ).toBe(true);
+
+  const rewards = gearRewardConditions
+    .find(({ id }) => id === "expedition-hard")
+    ?.notes.join(" ");
+
+  expect(rewards).toContain("four-minute Frenzy timer");
+  expect(rewards).toContain("three revives");
+  expect(rewards).toContain(
+    "bound Ariel Fragment matching the dungeon is guaranteed",
+  );
+  expect(rewards).toContain(
+    "100 Ariel Fragments morph into one bound Daevanion Crystal: Ariel",
+  );
+  expect(rewards).toContain(
+    "Philosopher's Stone: Revelation can drop or be selected as a guaranteed reward",
+  );
+  expect(rewards).toContain("equipment drop table and rates are not recorded");
+
+  expect(
+    gearActivities
+      .find(({ id }) => id === "ludra")
+      ?.modes.map(({ name, totalItemLevel }) => [name, totalItemLevel]),
+  ).toEqual([
+    ["Normal", 2800],
+    ["Hard", 3000],
+  ]);
+  expect(
+    gearActivities.find(({ id }) => id === "ludra")?.modes[1].condition,
+  ).toContain("still upcoming when checked on 1 November 2026");
 });
 
 test("field boss sources retain confirmed breastplates and their piece levels", () => {
@@ -253,11 +306,15 @@ test("curated IDs and references resolve without duplicate definitions", () => {
     "metabotAbyss",
     "metabotMonsters",
     "allThingsDailyDungeon",
+    "ncGlobal21Oct",
+    "aion2BuildsGlobal21Oct",
+    "ncGlobal28Oct",
+    "ncLudraAwakens",
     "ownChecks",
   ]);
   for (const id of gearSources) expect(sources).toHaveProperty(id);
 
-  expect(gearReviewed).toBe("2026-10-13");
+  expect(gearReviewed).toBe("2026-11-01");
 });
 
 test("Daily Dungeon keeps its client-name ID and score-qualified weekly server reward", () => {

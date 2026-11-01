@@ -72,7 +72,9 @@ test("Daevanion summary names Ariel's board, fragment source, and morph limits",
   expect(copy).toContain(
     "232 points from its separate Daevanion Crystal: Ariel pool",
   );
-  expect(copy).toContain("guarantee their matching bound fragment");
+  expect(copy).toContain(
+    "guarantees a bound Ariel Fragment matching its dungeon",
+  );
   expect(copy).toContain("up to 30 times per character");
   expect(copy).toContain("five Enhance Stones without a limit");
   expect(progressionSourceIds).toContain("ncGlobal28Oct");
