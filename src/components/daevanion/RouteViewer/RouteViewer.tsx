@@ -1,5 +1,6 @@
 import { useEffect, useId, useState } from "react";
 import {
+  arielOverview,
   azphelOverview,
   daevanionBoards,
   daevanionCaveats,
@@ -27,11 +28,68 @@ type Props = {
 
 const azphelTotal = azphelOverview.phases.at(-1)!.cumulativeCost;
 
+function routeTotal(
+  entry: DaevanionClass,
+  board: DaevanionBoardId,
+  variant: DaevanionVariantId,
+) {
+  if (board === "azphel") return azphelTotal;
+  if (board === "ariel") return arielOverview.fullCost;
+
+  return entry.routes[variant].boardCosts[board];
+}
+
+function routePath(board: DaevanionBoardId, variant: DaevanionVariantId) {
+  if (board === "azphel" || board === "ariel") return board;
+
+  return `${board}/${variant}`;
+}
+
+function boardNotes(board: DaevanionBoardId) {
+  if (board === "azphel")
+    return [
+      daevanionPools.azphel.description,
+      daevanionCaveats.emptyBoard,
+      azphelOverview.statusEffectCaveat,
+      azphelOverview.alternativeCaveat,
+    ];
+
+  if (board === "ariel") return [daevanionPools.ariel.description];
+
+  return [daevanionPools.pve.description, daevanionCaveats.emptyBoard];
+}
+
+function hasWrongVariant(
+  board: DaevanionBoardId | undefined,
+  variantId: string | undefined,
+  variant: (typeof daevanionVariants)[number] | undefined,
+) {
+  if (!board || variant) return false;
+  if (board === "azphel")
+    return ![undefined, "hp-mp-first"].includes(variantId);
+
+  return board === "ariel" ? variantId !== undefined : true;
+}
+
+function wrongVariantMessage(
+  board: DaevanionBoardId,
+  variantId: string | undefined,
+) {
+  if (board === "azphel")
+    return `Azphel has one shared route for every class; “${variantId}” does not apply.`;
+  if (board === "ariel")
+    return `Ariel has no routes; “${variantId}” does not apply.`;
+
+  return `There is no “${variantId}” route. Pick one of the three routes above.`;
+}
+
 /** Loads one class's routes; a result for an earlier class is ignored. */
-function useClassRoutes(classId: string) {
+function useClassRoutes(classId: string, enabled: boolean) {
   const [result, setResult] = useState<{ classId: string; data?: Loaded }>();
 
   useEffect(() => {
+    if (!enabled) return;
+
     let current = true;
 
     loadClassRoutes(classId).then(
@@ -42,7 +100,7 @@ function useClassRoutes(classId: string) {
     return () => {
       current = false;
     };
-  }, [classId]);
+  }, [classId, enabled]);
 
   const settled = result?.classId === classId ? result : undefined;
 
@@ -55,26 +113,28 @@ function useClassRoutes(classId: string) {
 /** Board and route tabs over the selected board's diagram, purchase order and budget. */
 export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
   const id = useId();
-  const { data, failed } = useClassRoutes(entry.id);
   const board = daevanionBoards.find(({ id }) => id === boardId);
   const azphel = board?.id === "azphel";
+  const ariel = board?.id === "ariel";
+  const { data, failed } = useClassRoutes(entry.id, !ariel);
 
-  const variant = azphel
-    ? undefined
-    : daevanionVariants.find(({ id }) => id === (variantId ?? "damage"));
-
-  const totalFor = (board: DaevanionBoardId, variant: DaevanionVariantId) =>
-    board === "azphel" ? azphelTotal : entry.routes[variant].boardCosts[board];
+  const variant =
+    azphel || ariel
+      ? undefined
+      : daevanionVariants.find(({ id }) => id === (variantId ?? "damage"));
 
   // Links only target known routes, clamping the budget to that route's total.
   const href = (
     board: DaevanionBoardId,
     variant: DaevanionVariantId = "damage",
   ) => {
-    const points = parseRouteBudget(rawPoints, totalFor(board, variant)).points;
-    const path = board === "azphel" ? board : `${board}/${variant}`;
+    const points = parseRouteBudget(
+      rawPoints,
+      routeTotal(entry, board, variant),
+    ).points;
+    const path = routePath(board, variant);
 
-    const query = points ? `?points=${points}` : "";
+    const query = board === "ariel" || !points ? "" : `?points=${points}`;
 
     return `/daevanion/${entry.id}/${path}${query}`;
   };
@@ -86,7 +146,7 @@ export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
   }));
 
   const variantTabs =
-    board && !azphel
+    board && !azphel && !ariel
       ? daevanionVariants.map(({ id, label }) => ({
           id,
           label,
@@ -94,32 +154,21 @@ export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
         }))
       : [];
 
-  const notes = azphel
-    ? [
-        daevanionPools.azphel.description,
-        daevanionCaveats.emptyBoard,
-        azphelOverview.statusEffectCaveat,
-        azphelOverview.alternativeCaveat,
-      ]
-    : [daevanionPools.pve.description, daevanionCaveats.emptyBoard];
-
-  const wrongVariant =
-    board &&
-    !variant &&
-    !(azphel && [undefined, "hp-mp-first"].includes(variantId));
+  const notes = board ? boardNotes(board.id) : [];
+  const wrongVariant = hasWrongVariant(board?.id, variantId, variant);
 
   return (
     <section aria-labelledby={id} className={STYLES.viewer}>
-      <h2 id={id}>Board routes</h2>
+      <h2 id={id}>{ariel ? "Ariel board overview" : "Board routes"}</h2>
 
       <Tabs label="Board" tabs={boardTabs} selected={board?.id}>
         {!board && (
           <p className={STYLES.missing}>
-            There is no “{boardId}” board. Pick one of the five boards above.
+            There is no “{boardId}” board. Pick one of the six boards above.
           </p>
         )}
 
-        {board && !azphel && (
+        {board && !azphel && !ariel && (
           <Tabs label="Route" tabs={variantTabs} selected={variant?.id}>
             {variant && <p>{variant.description}</p>}
           </Tabs>
@@ -127,13 +176,11 @@ export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
 
         {wrongVariant && (
           <p className={STYLES.missing}>
-            {azphel
-              ? `Azphel has one shared route for every class; “${variantId}” does not apply.`
-              : `There is no “${variantId}” route. Pick one of the three routes above.`}
+            {board && wrongVariantMessage(board.id, variantId)}
           </p>
         )}
 
-        {board && (azphel || variant) && (
+        {board && (azphel || ariel || variant) && (
           <>
             <ul className={STYLES.notes}>
               {notes.map((note) => (
@@ -144,7 +191,31 @@ export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
               ))}
             </ul>
 
-            {failed && (
+            {ariel && (
+              <>
+                <dl className={STYLES.summary}>
+                  <div>
+                    <dt>Unlocks</dt>
+                    <dd>Level {board.opensAt}</dd>
+                  </div>
+                  <div>
+                    <dt>Nodes</dt>
+                    <dd>{arielOverview.nodeCount} stat; no skill nodes</dd>
+                  </div>
+                  <div>
+                    <dt>Completion cost</dt>
+                    <dd>{arielOverview.fullCost} points</dd>
+                  </div>
+                  <div>
+                    <dt>Currency</dt>
+                    <dd>{arielOverview.currency}</dd>
+                  </div>
+                </dl>
+                <p className={STYLES.missing}>{arielOverview.routeNote}</p>
+              </>
+            )}
+
+            {!ariel && failed && (
               <div role="alert" className={STYLES.state}>
                 <p>The board routes did not load.</p>
                 {/* The browser caches a failed module import for this document,
@@ -158,13 +229,13 @@ export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
               </div>
             )}
 
-            {!failed && !data && (
+            {!ariel && !failed && !data && (
               <p role="status" className={STYLES.state}>
                 Loading the {board.name} board…
               </p>
             )}
 
-            {data && (
+            {!ariel && data && (
               <BoardView
                 key={`${board.id}/${variant?.id}`}
                 geometry={data.geometry[board.id]}

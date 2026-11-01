@@ -134,6 +134,32 @@ test("every class shares the one Azphel route", async () => {
   );
 });
 
+test("Ariel opens as a separate board summary without a node route", () => {
+  renderPage("/daevanion/spiritmaster/ariel");
+
+  expect(selectedTabs()).toEqual(["Spiritmaster", "Ariel"]);
+  expect(screen.getByText("152 stat; no skill nodes")).toBeDefined();
+  expect(screen.getByText("232 points")).toBeDefined();
+  expect(screen.getByText("Daevanion Crystal: Ariel")).toBeDefined();
+  expect(
+    screen.getByText(/full Ariel node layout is not yet retained/),
+  ).toBeDefined();
+  expect(
+    screen.queryByRole("group", { name: "Ariel board diagram" }),
+  ).toBeNull();
+  expect(screen.getByRole("tab", { name: "Cleric" }).getAttribute("href")).toBe(
+    "/daevanion/cleric/ariel",
+  );
+});
+
+test("an Ariel URL with a route segment explains that Ariel has no routes", () => {
+  renderPage("/daevanion/spiritmaster/ariel/damage");
+
+  expect(
+    screen.getByText(/Ariel has no routes; “damage” does not apply/),
+  ).toBeDefined();
+});
+
 test.each(
   daevanionClasses.flatMap((entry) =>
     (["nezekan", "zikel", "vaizel", "triniel"] as const).flatMap((board) =>
@@ -449,5 +475,5 @@ test("names its sources and reviewed date in the footer", () => {
   for (const id of daevanionSources)
     expect(footer.textContent).toContain(sources[id].name);
 
-  expect(footer.textContent).toMatch(/Reviewed 10 Oct/);
+  expect(footer.textContent).toMatch(/Reviewed 1 November/);
 });

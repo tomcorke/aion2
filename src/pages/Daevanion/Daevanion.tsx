@@ -9,6 +9,7 @@ import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
 import { Diamond } from "../../components/trim/Diamond/Diamond.tsx";
 import { Rule } from "../../components/trim/Rule/Rule.tsx";
 import {
+  arielOverview,
   azphelOverview,
   daevanionBoards,
   daevanionCaveats,
@@ -16,7 +17,9 @@ import {
   daevanionReviewed,
   daevanionSources,
   daevanionVariants,
+  type DaevanionBoardId,
   type DaevanionClass,
+  type DaevanionVariantId,
 } from "../../data/daevanion.ts";
 import { useTitle } from "../../hooks/useTitle.ts";
 import { parseRouteBudget } from "../../lib/daevanionBudget.ts";
@@ -25,6 +28,22 @@ import STYLES from "./Daevanion.module.css";
 const caveats = [daevanionCaveats.emptyBoard, daevanionCaveats.estimates];
 
 const azphelTotal = azphelOverview.phases.at(-1)!.cumulativeCost;
+
+function routeTotal(
+  target: DaevanionClass,
+  board: DaevanionBoardId | undefined,
+  variant: DaevanionVariantId,
+) {
+  if (board === "azphel") return azphelTotal;
+  if (board === "ariel") return arielOverview.fullCost;
+
+  const pve =
+    board === "zikel" || board === "vaizel" || board === "triniel"
+      ? board
+      : "nezekan";
+
+  return target.routes[variant].boardCosts[pve];
+}
 
 /** A class tab keeps only a known board and route, and clamps the budget to that class's route. */
 function classHref(
@@ -38,15 +57,13 @@ function classHref(
     (board && daevanionVariants.find(({ id }) => id === variantId)?.id) ||
     "damage";
 
-  const pve = board && board !== "azphel" ? board : "nezekan";
-  const total =
-    board === "azphel" ? azphelTotal : target.routes[variant].boardCosts[pve];
+  const total = routeTotal(target, board, variant);
 
   const { points } = parseRouteBudget(rawPoints, total);
-  const query = points ? `?points=${points}` : "";
+  const query = board === "ariel" || !points ? "" : `?points=${points}`;
   let path = "";
 
-  if (board === "azphel") path = "/azphel";
+  if (board === "azphel" || board === "ariel") path = `/${board}`;
   else if (board) path = `/${board}/${variant}`;
 
   return `/daevanion/${target.id}${path}${query}`;
@@ -77,7 +94,7 @@ export function Daevanion() {
     <>
       <PageHero
         title="Daevanion"
-        lede="Point costs and skill roles on the four PvE boards for all eight classes, and the shared Azphel route."
+        lede="Class routes on the four shared PvE boards, Ariel's PvE board overview, and the shared Azphel route."
       />
 
       <div className={STYLES.body}>

@@ -34,7 +34,7 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
       "Reported Global client build 0.0.4387.0; not a live shop or key-budget audit.",
   },
   metabotMethodology: {
-    checkedDate: "2026-10-05",
+    checkedDate: "2026-10-16",
     accessNote:
       "Provenance statement only; the original client files were not independently downloaded or audited.",
   },
@@ -93,11 +93,16 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   metabotTransferArmor: { checkedDate: "2026-10-09" },
   metabotTransferAccessory: { checkedDate: "2026-10-09" },
   metabotSyncStone: { checkedDate: "2026-10-09" },
-  // Boards: S78/S124/S126; skills: S125/S127. Retention is not a recheck.
+  // Boards: S78/S124/S126/S182/S183; skills: S125/S127. Retention is not a recheck.
   metabotDaevanion: {
-    checkedDate: "2026-10-10",
+    checkedDate: "2026-11-01",
     accessNote:
-      "Rechecked through Jina Reader; its PvP-only Azphel description conflicts with the retained client node data.",
+      "Its generic five-board copy is stale, and its PvP-only Azphel description conflicts with retained Global client node data.",
+  },
+  metabotDaevanionPlanner: {
+    checkedDate: "2026-11-01",
+    accessNote:
+      "Planner table and Spiritmaster page read; its generic five-board copy is stale. Client-derived, not a live in-game board check. The full Ariel node layout is not retained.",
   },
   metabotSpiritmasterPlanner: {
     checkedDate: "2026-10-11",
@@ -112,6 +117,8 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   metabotClericPlanner: { checkedDate: "2026-10-11" },
   metabotChanterPlanner: { checkedDate: "2026-10-11" },
   metabotSpiritmasterSkills: { checkedDate: "2026-10-10" },
+  ncGlobal21Oct: { checkedDate: "2026-11-01" },
+  ncGlobal28Oct: { checkedDate: "2026-11-01" },
   metabotDaevanionClassSkills: {
     checkedDate: "2026-10-11",
     accessNote:

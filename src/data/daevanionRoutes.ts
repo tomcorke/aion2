@@ -7,7 +7,8 @@ import type {
 
 // Checked one-off transfer from aion2-knowledge main@4cf7488:
 // combat/daevanion-data.json and combat/daevanion-retained-data.md.
-// Exact node geometry and orders; no solver, owner profiles or live source check.
+// Exact geometry for five boards and ordered routes. Ariel awaits full layout retention.
+// No solver, owner profiles or live source check.
 // Import this module dynamically through daevanionLoader, never from the overview.
 export type BoardNode = {
   key: string;
@@ -73,7 +74,7 @@ export type DaevanionRouteData = {
     sourceChecked: Record<"S124" | "S126" | "S127", string>;
   };
   phases: string[];
-  boards: Record<DaevanionBoardId, BoardGeometry>;
+  boards: Record<Exclude<DaevanionBoardId, "ariel">, BoardGeometry>;
   classes: Record<DaevanionClassId, ClassRoutes>;
   azphel: PurchaseRoute & {
     name: string;
