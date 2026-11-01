@@ -21,7 +21,8 @@ const renderCatalogue = (setId?: string) =>
 
 const nav = () => screen.getByRole("navigation", { name: "Skin sets" });
 
-const detail = () => screen.getByRole("region", { name: "Selected set" });
+const detail = () =>
+  screen.getByRole("region", { name: "Selected appearance" });
 
 const precedes = (first: Element, second: Element) =>
   (first.compareDocumentPosition(second) & Node.DOCUMENT_POSITION_FOLLOWING) !==
@@ -104,7 +105,9 @@ test("re-picking the selected row does not steal focus on a later route change",
   await userEvent.click(
     within(nav()).getByRole("link", { name: /Blazing Sun Wings/ }),
   );
-  await userEvent.click(screen.getByRole("link", { name: "Back to all sets" }));
+  await userEvent.click(
+    screen.getByRole("link", { name: "Back to all appearances" }),
+  );
 
   expect(document.activeElement).not.toBe(detail());
 });
@@ -119,7 +122,9 @@ test("a Ctrl-click that opens a row elsewhere does not steal focus later", async
   await user.keyboard("{Control>}");
   await user.click(within(nav()).getByRole("link", { name: /Ascended Daeva/ }));
   await user.keyboard("{/Control}");
-  await user.click(screen.getByRole("link", { name: "Back to all sets" }));
+  await user.click(
+    screen.getByRole("link", { name: "Back to all appearances" }),
+  );
 
   expect(document.activeElement).not.toBe(detail());
 });
@@ -128,13 +133,15 @@ test("the list comes first until an entry is selected", () => {
   renderCatalogue();
 
   expect(precedes(nav(), detail())).toBe(true);
-  expect(screen.queryByRole("link", { name: "Back to all sets" })).toBeNull();
+  expect(
+    screen.queryByRole("link", { name: "Back to all appearances" }),
+  ).toBeNull();
 });
 
 test("a selected entry's details come before the list in reading order", () => {
   renderCatalogue("blazing-sun-wings");
 
-  const back = screen.getByRole("link", { name: "Back to all sets" });
+  const back = screen.getByRole("link", { name: "Back to all appearances" });
 
   expect(precedes(detail(), nav())).toBe(true);
   expect(precedes(back, nav())).toBe(true);
@@ -156,6 +163,39 @@ test("all 314 entries are listed, covering 1,008 pieces", () => {
       0,
     ),
   ).toBe(1008);
+});
+
+test("the no-selection prompt covers full sets and standalone appearances", () => {
+  renderCatalogue();
+
+  expect(
+    within(detail()).getByText("Pick an appearance to see its details."),
+  ).toBeDefined();
+});
+
+test("an empty search says no appearances match", async () => {
+  renderCatalogue();
+
+  await userEvent.type(screen.getByRole("searchbox"), "zzq-no-appearance");
+
+  expect(
+    screen.getByText("No appearances match this search and source."),
+  ).toBeDefined();
+});
+
+test("an invalid appearance route uses neutral wording and a return link", () => {
+  renderCatalogue("not-a-real-appearance");
+
+  expect(
+    within(detail()).getByText(
+      "There is no appearance called “not-a-real-appearance”. Pick one from the list.",
+    ),
+  ).toBeDefined();
+  expect(
+    screen
+      .getByRole("link", { name: "Back to all appearances" })
+      .getAttribute("href"),
+  ).toBe("/skins");
 });
 
 test("the Source not recorded chip combines with search", async () => {
