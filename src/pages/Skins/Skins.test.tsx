@@ -49,7 +49,8 @@ const location = () =>
 
 const catalogue = () => screen.getByRole("navigation", { name: "Skin sets" });
 
-const detail = () => screen.getByRole("region", { name: "Selected set" });
+const detail = () =>
+  screen.getByRole("region", { name: "Selected appearance" });
 
 const setLink = (name: string) =>
   within(catalogue()).getByRole("link", { name: new RegExp(`^${name}`) });
@@ -75,7 +76,9 @@ test("lists outfits, accessory pairs and wings separately", async () => {
   expect(setLink("Lightpath Trace").textContent).toContain("0/7");
   expect(setLink("Twilight Loop").textContent).toContain("0/2");
   expect(setLink("Spirit Wings").textContent).toContain("0/1");
-  expect(within(detail()).getByText(/Pick a set/)).toBeDefined();
+  expect(
+    within(detail()).getByText("Pick an appearance to see its details."),
+  ).toBeDefined();
 });
 
 test("a direct set URL shows its pieces, prices and limits", async () => {
@@ -117,10 +120,14 @@ test("wing entries explain their character scope", async () => {
   expect(within(detail()).getByText(/stay with the character/)).toBeDefined();
 });
 
-test("an unknown set says so and keeps the catalogue", async () => {
+test("an unknown appearance says so and keeps the catalogue", async () => {
   await renderPage("/skins/nope");
 
-  expect(within(detail()).getByText(/no “nope” skin set/)).toBeDefined();
+  expect(
+    within(detail()).getByText(
+      "There is no appearance called “nope”. Pick one from the list.",
+    ),
+  ).toBeDefined();
   expect(setLink("Lightpath Trace")).toBeDefined();
 });
 
@@ -216,7 +223,9 @@ test("search combines with the source chip, with an empty state and clear", asyn
 
   await search("zzz");
 
-  expect(screen.getByText(/No sets match/)).toBeDefined();
+  expect(
+    screen.getByText("No appearances match this search and source."),
+  ).toBeDefined();
 
   await userEvent.click(
     screen.getAllByRole("button", { name: "Clear filters" })[0]!,

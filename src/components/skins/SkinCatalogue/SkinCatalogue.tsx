@@ -96,12 +96,14 @@ export function SkinCatalogue({ entries, pieceIds, setId }: Props) {
 
   function details() {
     if (setId === undefined)
-      return <p className={STYLES.message}>Pick a set to see its pieces.</p>;
+      return (
+        <p className={STYLES.message}>Pick an appearance to see its details.</p>
+      );
 
     if (!selected)
       return (
         <p className={STYLES.message}>
-          There is no “{setId}” skin set. Pick one from the list.
+          There is no appearance called “{setId}”. Pick one from the list.
         </p>
       );
 
@@ -136,20 +138,22 @@ export function SkinCatalogue({ entries, pieceIds, setId }: Props) {
           onPick={() => (picked.current = true)}
         />
       ) : (
-        <p className={STYLES.message}>No sets match this search and source.</p>
+        <p className={STYLES.message}>
+          No appearances match this search and source.
+        </p>
       )}
     </div>,
     <section
       key="detail"
       ref={detailRef}
       tabIndex={-1}
-      aria-label="Selected set"
+      aria-label="Selected appearance"
       className={STYLES.detail}
     >
       {details()}
       {setId !== undefined && (
         <p className={STYLES.back}>
-          <Link to="/skins">Back to all sets</Link>
+          <Link to="/skins">Back to all appearances</Link>
         </p>
       )}
     </section>,
