@@ -22,27 +22,36 @@ type TargetFilter = GrowthTarget | "all";
 
 const targetChips = [{ id: "all" as const, label: "All" }, ...growthTargets];
 
-// Search includes every fact rendered under Limits and conditions.
+// Build the search index once so each keystroke does not rebuild every row's limits.
+const searchText = new Map(
+  growthMaterials.map((material) => {
+    const limits = material.acquisition.flatMap(growthLimitsOf);
+    const fields = [
+      material.name,
+      ...material.aliases,
+      material.use,
+      ...material.acquisition.flatMap(({ name, detail = "" }) => [
+        name,
+        detail,
+      ]),
+      ...limits,
+      material.condition ?? (limits.length === 0 ? "No limit recorded." : ""),
+    ];
+
+    return [material.id, fields.map((field) => field.toLowerCase())];
+  }),
+);
+
 function matches(
   material: GrowthMaterial,
   query: string,
   target: TargetFilter,
 ) {
   const text = query.trim().toLowerCase();
-  const limits = material.acquisition.flatMap(growthLimitsOf);
-
-  const haystack = [
-    material.name,
-    ...material.aliases,
-    material.use,
-    ...material.acquisition.flatMap(({ name, detail = "" }) => [name, detail]),
-    ...limits,
-    material.condition ?? (limits.length === 0 ? "No limit recorded." : ""),
-  ];
 
   return (
     (target === "all" || material.targets.includes(target)) &&
-    haystack.some((value) => value.toLowerCase().includes(text))
+    searchText.get(material.id)?.some((value) => value.includes(text)) === true
   );
 }
 

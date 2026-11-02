@@ -86,6 +86,14 @@ test("search matches displayed limits and conditions", async () => {
   expect(itemNames()).toContain("Creature souls");
 });
 
+test("search finds the added Stigma source routes", async () => {
+  renderPage();
+
+  await search("Nightmare Trade Shop");
+
+  expect(itemNames()).toContain("Stigma Shards");
+});
+
 test("one target chip combines with search", async () => {
   renderPage();
 
@@ -186,6 +194,32 @@ test("limits come from shared counters and reward conditions, with conditions be
   ).toBeNull();
   expect(
     within(row("Creature souls")).getByText("No limit recorded."),
+  ).toBeDefined();
+});
+
+test("shows Stigma sources and leaves unrecorded limits qualified", () => {
+  renderPage();
+
+  const stigma = row("Stigma Shards");
+
+  expect(
+    within(stigma).getByText(/10,000, 15,000, 20,000 and 25,000 Abyss Points/),
+  ).toBeDefined();
+  expect(
+    within(stigma).getAllByText(/35 per character; no weekly reset is stated/),
+  ).toHaveLength(2);
+  expect(
+    within(stigma).getByText(/2 Stigma Shards per milestone/),
+  ).toBeDefined();
+  expect(within(stigma).getByText(/Unstable Stigma Shards/)).toBeDefined();
+  expect(
+    within(stigma).getByText(/from Stigma skill level 20 onward/),
+  ).toBeDefined();
+
+  const advice = screen.getByRole("complementary", { name: "Spend guidance" });
+
+  expect(
+    within(advice).getByText(/Advice: consider Stigma Shards/),
   ).toBeDefined();
 });
 

@@ -343,10 +343,10 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
     region: "Global",
     clientBuild: metabotGuideBuild,
     publishedDate: "2026-10-01",
-    updatedDate: "2026-10-15",
-    checkedDate: "2026-10-16",
+    updatedDate: "2026-10-27",
+    checkedDate: "2026-11-01",
     accessNote:
-      "Guide-reported: this is the build named by the guide, not a live Global game check.",
+      "Guide-reported, client-derived data for the named Global build; the guide was checked, but shop offers and limits were not independently checked live in game.",
   },
   // Collections, currencies, faction rules and rifts: S20/S24/S26/S29/S33,
   // S44/S45/S85/S99–S103/S113–S115/S129/S133/S136–S138/S140/S141/S145/S146.

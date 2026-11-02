@@ -192,6 +192,29 @@ test("summarizes Abyss Point sources and weekly limit behavior", () => {
   ).toBeDefined();
 });
 
+test("shows Stigma shard sources, purchase limits and guide wording", () => {
+  renderPage();
+
+  const section = screen.getByRole("region", { name: "Stigmas" });
+
+  expect(within(section).getByText(/50 per step per character/)).toBeDefined();
+  expect(
+    within(section).getAllByText(
+      /35 per character limit; no weekly reset is stated/,
+    ),
+  ).toHaveLength(2);
+  expect(
+    within(section).getByText(
+      /Superior Stigma Shards from skill level 20 onward/,
+    ),
+  ).toBeDefined();
+  expect(
+    within(section).getByText(
+      /Advice: consider Stigma Shards before ordinary consumables/,
+    ),
+  ).toBeDefined();
+});
+
 test("contents scroll to a section without touching the route", async () => {
   renderPage();
 

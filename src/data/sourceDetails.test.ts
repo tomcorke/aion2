@@ -11,7 +11,7 @@ test.each([
   ["aion2ggFestival", "2026-11-01"],
   ["metabotFestivalShop", "2026-11-02"],
   ["metabotHiddenCubes", "2026-11-02"],
-  ["metabotStigma", "2026-10-16"],
+  ["metabotStigma", "2026-11-01"],
   ["officialServers", "2026-10-06"],
   ["metabotCurrencies", "2026-10-07"],
   ["metabotGear", "2026-11-01"],
@@ -85,7 +85,11 @@ test("retains catalog metadata without conflating source and client builds", () 
   expect(sourceDetails.metabotStigma).toMatchObject({
     region: "Global",
     publishedDate: "2026-10-01",
-    updatedDate: "2026-10-15",
+    updatedDate: "2026-10-27",
+    checkedDate: "2026-11-01",
+    accessNote: expect.stringMatching(
+      /guide-reported, client-derived.*not independently checked live/i,
+    ),
   });
   expect(sourceDetails.metabotStigma?.clientBuild?.split(".")).toEqual([
     "2",
@@ -126,7 +130,7 @@ test("retains catalog metadata without conflating source and client builds", () 
   expect(sourceDetails.metabotDaevanion?.checkedDate).toBe("2026-11-01");
   expect(sourceDetails.metabotDaevanionPlanner?.checkedDate).toBe("2026-11-01");
   expect(sourceDetails.metabotStigma?.accessNote).toMatch(
-    /guide-reported.*not a live Global game check/i,
+    /client-derived.*not independently checked live in game/i,
   );
   expect(sourceDetails.metabotWings?.accessNote).toContain("S85");
   expect(sourceDetails.metabotWings?.accessNote).toContain("S138");
