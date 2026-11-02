@@ -14,7 +14,7 @@ test("reader questions have stable unique IDs, topic groups, useful checks and r
     "appearances",
     "pets",
   ]);
-  expect(openQuestions).toHaveLength(31);
+  expect(openQuestions).toHaveLength(32);
   expect(new Set(openQuestions.map(({ id }) => id)).size).toBe(
     openQuestions.length,
   );
@@ -82,6 +82,10 @@ test.each([
   ["soul-binding-cost", /Bind.*cost/i],
   ["engraving-stone-loss", /ticked.*slots.*keep.*stones/i],
   ["clash-rune-shop", /Clash Rune.*price.*stock/i],
+  [
+    "clash-rune-failure",
+    /destroy the rune or lower it by one level.*current Global behavior/,
+  ],
   ["skin-owned-stat-sharing", /owned stats.*alts/i],
   ["optional-skin-chests", /Skin Chest.*Reward Chest/i],
   [

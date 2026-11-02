@@ -329,12 +329,35 @@ export const openQuestions: OpenQuestion[] = [
       "The Global Nightmare Trade Shop's Clash Rune Chest price and stock limit have not been verified.",
     why: "A repeatable source is not a known replacement budget after the regional quest chests are spent.",
     practicalCheck:
-      "Open the Nightmare Trade Shop on Global EU and record the Phantasmal Fragment price and purchase limit. Keep the warning that a failed Clash Rune upgrade destroys it.",
+      "Open the Nightmare Trade Shop on Global EU and record the Phantasmal Fragment price and purchase limit. Keep the failure outcome unresolved until a separate spare-rune check is complete.",
     relatedGuideLinks: [
       { to: "/growth", label: "Clash Rune sources" },
-      { to: "/gear/enhancement", label: "Clash Rune failure warning" },
+      {
+        to: "/gear/enhancement",
+        label: "Clash Rune outcome and upgrade rules",
+      },
     ],
     supportingSourceIDs: ["gamerBlurbClashRunes", "destructoidClashRunes"],
+  },
+  {
+    id: "clash-rune-failure",
+    groupId: "gear",
+    unknown:
+      "A failed Clash Rune enhancement may destroy the rune or lower it by one level; current Global behavior has not been checked.",
+    why: "The owner's 12 October Global EU observation conflicts with current client-derived reports, so advice about the risk could be wrong.",
+    practicalCheck:
+      "On Global EU, check the live failure wording and make one attempt only with a spare Clash Rune. Record the result, date and client build before changing either page.",
+    relatedGuideLinks: [
+      {
+        to: "/gear/enhancement",
+        label: "Clash Rune outcome and upgrade rules",
+      },
+      { to: "/growth", label: "Clash Rune sources" },
+    ],
+    supportingSourceIDs: [
+      "metabotEnhancementCalculator",
+      "aion2TierListEnhancement",
+    ],
   },
   {
     id: "daevanion-skill-priorities",

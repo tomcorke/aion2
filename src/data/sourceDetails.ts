@@ -131,7 +131,39 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   },
   metabotEnhancement: {
     region: "Global",
-    checkedDate: "2026-10-08",
+    updatedDate: "2026-10-15",
+    checkedDate: "2026-11-02",
+    clientBuild: "0.0.4387.0",
+    accessNote:
+      "Guide-reported from Global client tables; costs and failure outcomes are not a live in-game check.",
+  },
+  metabotEnhancementCalculator: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-11-02",
+    accessNote:
+      "Client-derived curves; expected totals and percentiles are calculated from 4,000 simulated runs, not a live in-game check.",
+  },
+  metabotEnhancementMethodology: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-11-02",
+    accessNote:
+      "Explains the client-data method and distinguishes raw client values from calculated results.",
+  },
+  aion2TierListEnhancement: {
+    region: "Global",
+    updatedDate: "2026-10-12",
+    checkedDate: "2026-11-02",
+    accessNote:
+      "Guide-reported from Global client tables; its Clash Rune failure report conflicts with the owner's observation and has not been checked live.",
+  },
+  aion2DataItemLevel: {
+    region: "Global",
+    updatedDate: "2026-10-28",
+    checkedDate: "2026-11-02",
+    accessNote:
+      "Third-party analysis compared client-derived item levels with 15 Global profiles; it is not an official formula explanation.",
   },
   metabotChecklist: {
     region: "Global",
@@ -468,16 +500,23 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   metabotSubstanceMorph: {
     region: "Global",
     clientBuild: "0.0.4387.0",
-    checkedDate: "2026-10-10",
+    checkedDate: "2026-11-01",
     accessNote:
-      "Recipe table rechecked; the live server behavior and the database extraction were not independently audited.",
+      "Recipe table rechecked through the methodology page; the live server behavior and database extraction were not independently audited.",
+  },
+  metabotAmplifyStoneFragment: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-11-01",
+    accessNote:
+      "Client-listed routes and shop values; current offer availability was not checked live.",
   },
   metabotAbyssPoints: {
     region: "Global",
     clientBuild: "0.0.4387.0",
-    checkedDate: "2026-10-10",
+    checkedDate: "2026-11-02",
     accessNote:
-      "Client-derived inventory, not a live shop audit; secondary medal costs require the complete shop table.",
+      "Client-derived inventory and purchase limits, not a live shop audit.",
   },
   metabotLowerAbyssRiftStone: {
     region: "Global",

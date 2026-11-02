@@ -514,7 +514,8 @@ export const counterSourceAdditions = {
   },
   metabotAbyssPoints: {
     name: "MetaBot Abyss Points inventory",
-    covers: "Weekly Silver Medal purchases and AP cost",
+    covers:
+      "Potential Stone purchase tiers, prices and account limit; weekly Silver Medal purchases and AP cost",
     url: "https://metabot.gg/en/aion-2/currencies/abyss-points",
   },
   metabotLowerAbyssRiftStone: {

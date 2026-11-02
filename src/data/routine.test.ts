@@ -162,6 +162,17 @@ test("weekly work covers dungeon, time, shop and crafting allowances", () => {
   ).toMatch(/membership/i);
 });
 
+test("Abyss shop reminder lists Potential tiers and the full item budget", () => {
+  const details = routineTasks.find(({ id }) => id === "abyss-shop")?.details;
+
+  expect(details).toContain("2 at 25,000 AP each, 4 at 50,000");
+  expect(details).toContain("20 per account per week");
+  expect(details).toContain("550,000 AP");
+  expect(details).toContain("950,000 AP budget");
+  expect(routineSources).toContain("metabotAbyssPoints");
+  expect(routineSources).toContain("metabotEnhancementCalculator");
+});
+
 test("all stable task IDs resolve to canonical scope and limits and detailed guides", () => {
   expect(new Set(routineTasks.map((task) => task.id)).size).toBe(
     routineTasks.length,

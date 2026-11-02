@@ -223,6 +223,52 @@ test("shows Stigma sources and leaves unrecorded limits qualified", () => {
   ).toBeDefined();
 });
 
+test("shows Amplify Stone routes, Potential costs and unresolved Clash Rune failure", () => {
+  renderPage();
+
+  const fragments = row("Unique Amplify Stone Fragment");
+  const potential = row("Potential Stone: Abyss");
+  const clashRune = row("Clash Rune Chest");
+
+  expect(
+    within(fragments).getByText(/Four fragments and 2,500 Enhance Stones/),
+  ).toBeDefined();
+  for (const route of [
+    "Ascension Trial",
+    "Dungeons and monsters",
+    "Trade Shop",
+    "Season Shop",
+    "Achievements, battle pass and Monoliths",
+    "Substance Morph",
+  ])
+    expect(within(fragments).getAllByText(route).length).toBeGreaterThan(0);
+  expect(within(fragments).getByText(/500 Phantasmal Fragments/)).toBeDefined();
+  expect(
+    within(fragments).getByText(/20 per account in the client data/),
+  ).toBeDefined();
+
+  expect(
+    within(potential).getByText(
+      /10 Potential Stones and 400,000 AP for the steps/,
+    ),
+  ).toBeDefined();
+  expect(
+    within(potential).getByText(/550,000 AP.*950,000 AP total budget/),
+  ).toBeDefined();
+  expect(
+    within(potential).getByText(/2 stones at 25,000 AP each.*8 at 100,000/),
+  ).toBeDefined();
+
+  expect(
+    within(clashRune).getByText(/the current Global result is unresolved/),
+  ).toBeDefined();
+  expect(
+    within(clashRune).getByText(
+      /do not assume either destruction or a one-level drop/,
+    ),
+  ).toBeDefined();
+});
+
 test("shows Odylium as an unresolved source for Soul Crystals and Growth Pet Chests", () => {
   renderPage();
 

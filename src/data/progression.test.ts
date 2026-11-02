@@ -80,3 +80,17 @@ test("Daevanion summary names Ariel's board, fragment source, and morph limits",
   expect(progressionSourceIds).toContain("ncGlobal28Oct");
   expect(progressionSourceIds).toContain("metabotDaevanionPlanner");
 });
+
+test("Progression keeps the Clash Rune risk unresolved and shows the Potential budget", () => {
+  const copy = progressionSections
+    .flatMap(({ items }) => items ?? [])
+    .join(" ");
+
+  expect(copy).toContain("Clash Rune failure is unresolved on Global");
+  expect(copy).toContain("Do not assume a failed upgrade destroys the rune");
+  expect(copy).toContain("2 stones at 25,000 AP each");
+  expect(copy).toContain("950,000 AP");
+  expect(progressionSourceIds).toContain("metabotEnhancementCalculator");
+  expect(progressionSourceIds).toContain("aion2TierListEnhancement");
+  expect(progressionSourceIds).toContain("metabotAbyssPoints");
+});
