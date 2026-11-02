@@ -130,6 +130,12 @@ test("currencies are labelled apart from upgrade materials", () => {
     expect(within(row(name)).getByText("Currency")).toBeDefined();
 
   expect(
+    within(row("Kina")).getByText(
+      /50,000 bound Kina and 1,000 Abyss Points per mission/,
+    ),
+  ).toBeDefined();
+
+  expect(
     within(row("Enhance Stones")).getByText("Upgrade material"),
   ).toBeDefined();
   expect(within(row("Abyss Points")).getByText("Also: AP")).toBeDefined();

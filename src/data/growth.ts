@@ -765,7 +765,7 @@ export const growthMaterials: GrowthMaterial[] = [
         name: "Duty Missions",
         counterId: "duty-missions",
         detail:
-          "50,000 bound Kina per mission; unlocks at level 45. See Alts for the shared counter.",
+          "50,000 bound Kina and 1,000 Abyss Points per mission; unlocks at level 45. See Alts for the shared counter.",
         to: "/alts",
       },
       {
