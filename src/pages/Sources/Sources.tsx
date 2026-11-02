@@ -54,6 +54,12 @@ export function Sources() {
             </p>
           )}
 
+          {section && shown.length === 0 && (
+            <p className={STYLES.empty}>
+              No open questions are recorded for the {section.title} section.
+            </p>
+          )}
+
           {groups.map(({ id, title }) => (
             <section
               key={id}
