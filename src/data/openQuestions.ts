@@ -182,7 +182,7 @@ export const openQuestions: OpenQuestion[] = [
     id: "hidden-cube-level-scaling",
     groupId: "cubes",
     unknown:
-      "The size of Hidden Cube level scaling, and whether Verteron and Altgard key-only cubes scale, is not documented.",
+      "The level-scaling amounts and formula for Eltnen and Morheim, and whether Verteron and Altgard key-only cubes scale, are not documented.",
     why: "Without those values, saving keys until a higher level cannot be given a precise reward advantage.",
     practicalCheck:
       "Compare keyed cubes in the same zone at different levels, or compare decoded reward tables. Open free regular cubes without spending keys.",
