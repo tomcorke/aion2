@@ -151,18 +151,18 @@ test("a selected entry's details come before the list in reading order", () => {
   ).toBeDefined();
 });
 
-test("all 314 entries are listed, covering 1,008 pieces", () => {
+test("all 347 entries are listed, covering 1,063 appearance pieces", () => {
   renderCatalogue();
 
   const links = within(nav()).getAllByRole("link");
 
-  expect(links).toHaveLength(314);
+  expect(links).toHaveLength(347);
   expect(
     links.reduce(
       (sum, link) => sum + Number(link.children[2]!.textContent.split("/")[1]),
       0,
     ),
-  ).toBe(1008);
+  ).toBe(1063);
 });
 
 test("the no-selection prompt covers full sets and standalone appearances", () => {

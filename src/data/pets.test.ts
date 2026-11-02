@@ -137,11 +137,11 @@ test("attributes the mounts list, each pet page, and the exact guides", () => {
       url: "https://aion2maps.com/guides/pets/",
     },
     {
-      name: "NC Global pet offers, 13 October 2026",
+      name: "NC Global skin and pet offers, 13 October 2026",
       url: "https://lounge.plaync.com/feed/83799?country=US&locale=en-US",
     },
     {
-      name: "NC Global pet offers, 28 October 2026",
+      name: "NC Global skin and pet offers, 28 October 2026",
       url: "https://steamcommunity.com/app/3393110/allnews/",
     },
   ]);

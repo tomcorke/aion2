@@ -295,14 +295,14 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
     publishedDate: "2026-10-13",
     checkedDate: "2026-11-02",
     accessNote:
-      "The official notice was read directly. It lists the final Pacific maintenance cutoff in PST and the EU cutoff in CET; prices are PURPLE Store references that may vary by store. No live shop check was made.",
+      "The official skin and pet offers were read directly. The notice gives a 24 November PST / 25 November CET cutoff; prices are PURPLE Store references that may vary by store. No live shop check was made.",
   },
   ncPetOffers28Oct: {
     region: "Global",
     publishedDate: "2026-10-28",
     checkedDate: "2026-11-02",
     accessNote:
-      "The official Steam news feed's 28 October notice was read. It lists the final Pacific maintenance cutoff in PST and the EU cutoff in CET; prices are PURPLE Store references that may vary by store. No live shop check was made.",
+      "The official Steam news feed's skin and pet offers were read. It lists the final Pacific maintenance cutoff in PST and the EU cutoff as 11 November CET; prices are PURPLE Store references that may vary by store. No live shop check was made.",
   },
   patchbotGlobal28Oct: {
     region: "Global",

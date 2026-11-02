@@ -173,7 +173,7 @@ test("records the pet-offer notice dates and access limits", () => {
     region: "Global",
     publishedDate: "2026-10-13",
     checkedDate: "2026-11-02",
-    accessNote: expect.stringMatching(/cutoff in PST/),
+    accessNote: expect.stringMatching(/24 November PST.*25 November CET/),
   });
   expect(sourceDetails.ncPetOffers28Oct).toMatchObject({
     region: "Global",
@@ -181,6 +181,8 @@ test("records the pet-offer notice dates and access limits", () => {
     checkedDate: "2026-11-02",
     accessNote: expect.stringMatching(/cutoff in PST/),
   });
+  expect(sourceDetails.ncPetOffers13Oct?.accessNote).toContain("skin and pet");
+  expect(sourceDetails.ncPetOffers28Oct?.accessNote).toContain("skin and pet");
 });
 
 test("recorded access limits remain readable and do not imply unseen material was checked", () => {

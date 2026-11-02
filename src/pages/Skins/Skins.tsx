@@ -3,16 +3,15 @@ import { useMatch } from "react-router";
 import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
 import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
 import { SkinCatalogue } from "../../components/skins/SkinCatalogue/SkinCatalogue.tsx";
-import {
-  skinAcquisitionSources,
-  skinAcquisitionsReviewed,
-} from "../../data/skinAcquisitions.ts";
+import { currentGlobalSkinOfferEntries } from "../../data/currentGlobalSkinOffers.ts";
+import { skinAcquisitionSources } from "../../data/skinAcquisitions.ts";
 import {
   skinCatalogueAttribution,
   skinCatalogueLimitations,
   skinCatalogueReviewed,
+  skinCatalogueScope,
 } from "../../data/skinCatalogueMetadata.ts";
-import { skinsReviewed, skinsSources } from "../../data/skins.ts";
+import { skinsSources } from "../../data/skins.ts";
 import { useTitle } from "../../hooks/useTitle.ts";
 import { loadSkinCatalogue } from "../../lib/skinCatalogueLoader.ts";
 import STYLES from "./Skins.module.css";
@@ -20,19 +19,19 @@ import STYLES from "./Skins.module.css";
 type Catalogue = Awaited<ReturnType<typeof loadSkinCatalogue>>;
 
 const footerSources = [
-  ...new Set([...skinsSources, ...skinAcquisitionSources]),
+  ...new Set([
+    ...skinsSources,
+    ...skinAcquisitionSources,
+    ...currentGlobalSkinOfferEntries.flatMap(({ acquisitions }) =>
+      acquisitions.flatMap(({ sourceIds }) => sourceIds),
+    ),
+  ]),
 ];
 
-// A newer inventory review does not re-review the older acquisition notes.
-const reviewed = [
-  skinsReviewed,
-  skinAcquisitionsReviewed,
-  skinCatalogueReviewed,
-]
-  .sort()
-  .at(0);
+// This is the page reconciliation date; each older source keeps its own check date.
+const reviewed = skinCatalogueReviewed;
 
-const [scope, ...limitations] = skinCatalogueLimitations;
+const limitations = skinCatalogueLimitations;
 
 export function Skins() {
   useTitle("Skins");
@@ -95,10 +94,10 @@ export function Skins() {
     <>
       <PageHero
         title="Skins"
-        lede="Every non-weapon outfit, accessory, vanity piece and wing in the game files, with known routes, prices and your own checklist."
+        lede="A reference to retained non-weapon inventory and recently advertised Global looks, with recorded routes, prices and your own checklist."
       />
       <div className={STYLES.body}>
-        <p className={STYLES.note}>{scope}</p>
+        <p className={STYLES.note}>{skinCatalogueScope}</p>
         <details className={STYLES.limits}>
           <summary>What this list does not cover</summary>
           <ul>
