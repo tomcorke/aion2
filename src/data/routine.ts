@@ -103,6 +103,17 @@ export const routineTasks: RoutineTask[] = [
       "Use this reminder only when you have keys and want the available rewards. Storage caps are confirmed, but daily quantities and reset behaviour are disputed. Whether a participation package can be claimed without a key is unresolved; check the live reward preview.",
   },
   {
+    id: "invasion-keys",
+    group: "daily",
+    title: "Optional: use an Invasion key when rewards are useful",
+    purpose:
+      "Claim the additional Dimensional Invasion reward after a useful clear.",
+    counterIds: ["invasion-keys"],
+    guide: { to: "/timers", label: "Dimensional Invasion timing" },
+    details:
+      "Use this reminder only when participating and the additional reward is useful. The client-derived server scope has not been confirmed in live play; check the in-game counter.",
+  },
+  {
     id: "exploration",
     group: "weekly",
     title: "Use useful Exploration rewards",
@@ -220,6 +231,7 @@ export const routineSources: SourceId[] = [
   "redditBeginnerDps",
   "allThingsDailyDungeon",
   "metabotChecklist",
+  "metabotEvents",
   "metabotDungeons",
   "metabotContentUnlocks",
   "metabotGear",

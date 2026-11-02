@@ -44,6 +44,19 @@ test("both scopes are labelled", () => {
   expect(screen.getByText("Per character")).toBeDefined();
 });
 
+test("Invasion keys show client-listed scope without claiming verified sharing", () => {
+  renderTask("invasion-keys");
+
+  const { details, visible } = row(/Optional: use an Invasion key/);
+
+  expect(visible.textContent).toContain("Client-listed server scope");
+  expect(visible.textContent).not.toContain("Server-shared");
+  expect(visible.textContent).toContain(
+    "Dimensional Invasion Reward Keys: Client-listed: 1 per day, cap 7",
+  );
+  expect(details.textContent).toMatch(/not been confirmed in live play/i);
+});
+
 // The compact row: everything outside the closed disclosure.
 const row = (title: RegExp) => {
   const item = screen.getByRole("listitem", { name: title });
