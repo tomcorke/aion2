@@ -182,3 +182,24 @@ test("filters questions to one section and offers the full list", () => {
   ).toBe("/sources");
   expect(screen.getByRole("region", { name: "Guides and data" })).toBeDefined();
 });
+
+test("explains when a filtered section has no recorded questions", () => {
+  renderWithProviders(<Sources />, { path: "/sources?topic=sources" });
+
+  const questions = screen.getByRole("region", { name: "Open questions" });
+
+  expect(
+    within(questions).getByText(/affect the Sources section/),
+  ).toBeDefined();
+  expect(
+    within(questions).getByText(
+      "No open questions are recorded for the Sources section.",
+    ),
+  ).toBeDefined();
+  expect(
+    within(questions)
+      .getByRole("link", { name: "Show all questions" })
+      .getAttribute("href"),
+  ).toBe("/sources");
+  expect(within(questions).queryAllByRole("region")).toHaveLength(0);
+});

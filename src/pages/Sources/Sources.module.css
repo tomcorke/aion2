@@ -72,3 +72,8 @@
     color: var(--accent);
   }
 }
+
+.empty {
+  max-width: 76ch;
+  color: var(--muted);
+}
