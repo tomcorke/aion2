@@ -7,7 +7,7 @@ type Props = {
   shown: string[];
 };
 
-/** The limits of each timer on show; the board carries the clock warning. */
+/** Context and limits for timers on show; the board carries the clock warning. */
 export function TimerNotes({ shown }: Props) {
   const notes = timerVerificationNotes.filter(({ timerIds }) =>
     timerIds.some((id) => shown.includes(id)),

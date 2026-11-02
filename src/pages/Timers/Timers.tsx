@@ -45,7 +45,7 @@ export function Timers() {
         </Tabs>
       </div>
 
-      <SiteFooter sources={sources} reviewed="2026-10-14" />
+      <SiteFooter sources={sources} reviewed="2026-11-02" />
     </>
   );
 }

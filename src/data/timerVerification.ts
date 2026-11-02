@@ -13,6 +13,12 @@ export const timerVerificationNotes = [
       "Spacetime Rift slots remain provisional: public reports differ on the starting hour and the clock used. Check the live portal timer; the entry window is not the duration of the stay inside.",
   },
   {
+    id: "rift-entry",
+    timerIds: ["rift"],
+    message:
+      "At level 45 or higher, enter through your faction's portal. A system message announces each rift, and a vortex icon marks it on the map. Elyos can start the quests from Mino at the Dawn Legion Temporary Outpost in Verteron; Asmodians can start theirs from Uru at the Collapsed Chasm Region in Altgard. Accept the quests before entering. The portal stays open for 10 minutes; after entry, your stay lasts one hour.",
+  },
+  {
     id: "invasion",
     timerIds: ["invasion"],
     message:
@@ -50,6 +56,7 @@ export const timerVerificationSources: SourceId[] = [
   "couga54",
   "wikily",
   "space4GamesRifts",
+  "game8RiftQuests",
   "game8Festival",
   "ownChecks",
 ];
