@@ -25,7 +25,7 @@ export const festivalEntry = {
   scheduleCondition:
     "Check the live timer. Regional schedules and rotation details remain unresolved. The table lists individual round limits, not the duration of the whole entry opportunity.",
   levelCondition:
-    "Key availability at level 13 and full reward value at level 45 are reported but not independently verified live.",
+    "AllThingsHow reports Festival access at level 10 after a faction-specific Episode quest in chapter 2, recommended at level 13. This unlock has not been checked in the current Global client. Aion2 Guide separately reports key availability at level 13 and full reward value at level 45; those claims have not been independently verified live.",
 };
 
 export const festivalRewards = {
@@ -39,13 +39,13 @@ export const festivalRewards = {
       { game: "Not This Tile?", rank: "1st or 2nd place", picks: 6 },
     ],
     pickCondition:
-      "Guide-reported: AllThingsHow reports these rank-to-pick counts. They have not been checked in the current Global client.",
+      "AllThingsHow reports these rank-to-pick counts and one Reward Key per pick. They have not been checked in the current Global client.",
   },
   sharedTable:
     "All nine rewarded activities share one reward table across nine level brackets. This does not establish equal practical earnings; placement and selection may still matter.",
   participation: { tokens: 50, levels: "45–50", lowerBracketTokens: 40 },
   packageCondition:
-    "AllThingsHow reports one participation package for each qualifying finish: 50 tokens at levels 45–50 and 40 in lower listed brackets. The participation package and keyed additional reward package are separate. Whether participation can be claimed without a key is unresolved.",
+    "AllThingsHow reports one participation package per qualifying finish: 40 Centuryroot Tokens at levels 10–44 and 50 at level 45. MetaBot lists 50 at levels 45–50. Placement can add several keyed picks to that same finish, so completed games and keyed picks are separate counts. Whether participation can be claimed without a key is unresolved.",
   mappingCondition:
     "The live rank → card selections → reward openings → keys consumed mapping remains unresolved. One key per pick is guide-reported, not checked in the current Global client.",
   otherRewards: [

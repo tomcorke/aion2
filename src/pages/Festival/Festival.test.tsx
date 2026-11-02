@@ -67,10 +67,19 @@ test("keeps participation, card and mapping caveats in the rewards section", () 
   ])
     expect(within(section).getByText(text)).toBeDefined();
 
+  const examples = screen.getByRole("table", {
+    name: "Guide-reported rank-to-pick examples",
+  });
+
+  expect(
+    within(examples).getByRole("columnheader", {
+      name: "Keys if 1 per pick (guide)",
+    }),
+  ).toBeDefined();
   expect(rowsOf("Guide-reported rank-to-pick examples")).toEqual([
-    ["Jump Jump", "1st place", "4"],
-    ["Jump Jump", "3rd place", "3"],
-    ["Not This Tile?", "1st or 2nd place", "6"],
+    ["Jump Jump", "1st place", "4", "4"],
+    ["Jump Jump", "3rd place", "3", "3"],
+    ["Not This Tile?", "1st or 2nd place", "6", "6"],
   ]);
 
   for (const reward of festivalRewards.otherRewards)
