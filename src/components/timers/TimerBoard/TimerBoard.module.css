@@ -56,3 +56,20 @@
   font-size: 0.875rem;
   text-align: center;
 }
+
+.matching {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px 18px;
+  width: min(100%, 960px);
+  margin: 0 auto;
+  color: var(--muted);
+  font-size: 0.875rem;
+
+  & p {
+    margin: 0;
+    text-align: center;
+  }
+}
