@@ -3,7 +3,7 @@ import {
   festivalEntry,
   festivalGames,
   festivalKeys,
-  festivalOpeningModel,
+  festivalPickModel,
   festivalPurchases,
   festivalReviewed,
   festivalRewards,
@@ -65,9 +65,18 @@ test("entry guidance separates observed EU availability from round rules and lev
 });
 
 // rewards.md: S02 cards; S07/S08 packages and level summary.
-test("reward cards and participation packages do not establish a key-to-opening mapping", () => {
+test("reward cards retain guide-reported rank picks and live uncertainty", () => {
   expect(festivalRewards.cards.offered).toBe(5);
   expect(festivalRewards.cards.selections).toContain("placement");
+  expect(festivalRewards.cards.pickExamples).toEqual([
+    { game: "Jump Jump", rank: "1st place", picks: 4 },
+    { game: "Jump Jump", rank: "3rd place", picks: 3 },
+    { game: "Not This Tile?", rank: "1st or 2nd place", picks: 6 },
+  ]);
+  expect(festivalRewards.cards.pickCondition).toContain("Guide-reported");
+  expect(festivalRewards.cards.pickCondition).toContain(
+    "not been checked in the current Global client",
+  );
   expect(festivalRewards.sharedTable).toMatch(/all nine/i);
   expect(festivalRewards.sharedTable).toContain(
     "does not establish equal practical earnings",
@@ -78,6 +87,9 @@ test("reward cards and participation packages do not establish a key-to-opening 
     lowerBracketTokens: 40,
   });
   expect(festivalRewards.packageCondition).toContain("separate");
+  expect(festivalRewards.packageCondition).toContain(
+    "one participation package for each qualifying finish",
+  );
   expect(festivalRewards.packageCondition).toContain(
     "without a key is unresolved",
   );
@@ -118,31 +130,31 @@ test("membership increases storage without inventing a refill allocation or fast
 });
 
 // rewards.md: S07/S08 level-50 table, independently retained literals and mean.
-test("additional openings retain the conditional level-50 odds and 40.2 mean", () => {
-  expect(festivalOpeningModel.level).toBe(50);
-  expect(festivalOpeningModel.build).toBe("0.0.4387.0");
-  expect(festivalOpeningModel.outcomes).toEqual([
+test("keyed reward picks retain the conditional level-50 odds and 40.2 mean", () => {
+  expect(festivalPickModel.level).toBe(50);
+  expect(festivalPickModel.build).toBe("0.0.4387.0");
+  expect(festivalPickModel.outcomes).toEqual([
     { tokens: 30, probability: 0.5 },
     { tokens: 40, probability: 0.3 },
     { tokens: 60, probability: 0.17 },
     { tokens: 100, probability: 0.03 },
   ]);
   expect(
-    festivalOpeningModel.outcomes.reduce(
+    festivalPickModel.outcomes.reduce(
       (sum, { probability }) => sum + probability,
       0,
     ),
   ).toBeCloseTo(1, 12);
   expect(
-    festivalOpeningModel.outcomes.reduce(
+    festivalPickModel.outcomes.reduce(
       (sum, { tokens, probability }) => sum + tokens * probability,
       0,
     ),
   ).toBeCloseTo(40.2, 12);
-  expect(festivalOpeningModel.meanTokens).toBeCloseTo(40.2, 12);
-  expect(festivalOpeningModel.condition).toContain("level 50");
-  expect(festivalOpeningModel.condition).toContain("level 45 is an assumption");
-  expect(festivalOpeningModel.condition).toContain("not tokens per key");
+  expect(festivalPickModel.meanTokens).toBeCloseTo(40.2, 12);
+  expect(festivalPickModel.condition).toContain("level 50");
+  expect(festivalPickModel.condition).toContain("level 45 is an assumption");
+  expect(festivalPickModel.condition).toContain("not tokens per key");
 });
 
 // skin-prices.md (S06/S08): independent prices/totals, no accessories in outfits.
@@ -290,6 +302,7 @@ test("Festival footer and purchase sources resolve to the registered public sour
     "metabotEvents",
     "metabotMethodology",
     "metabotFestivalShop",
+    "allThingsHowFestival",
     "ownChecks",
   ]);
 
@@ -321,5 +334,8 @@ test("Festival footer and purchase sources resolve to the registered public sour
   );
   expect(sources.metabotMethodology.url).toBe(
     "https://metabot.gg/en/aion-2/methodology",
+  );
+  expect(sources.allThingsHowFestival.url).toBe(
+    "https://allthings.how/aion-2-every-shugo-festival-minigame-and-its-rewards/",
   );
 });

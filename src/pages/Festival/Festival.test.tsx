@@ -5,7 +5,7 @@ import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import {
   festivalEntry,
   festivalKeys,
-  festivalOpeningModel,
+  festivalPickModel,
   festivalRewards,
   festivalShopOffers,
   festivalSources,
@@ -60,11 +60,18 @@ test("keeps participation, card and mapping caveats in the rewards section", () 
 
   for (const text of [
     festivalRewards.cards.selections,
+    festivalRewards.cards.pickCondition,
     festivalRewards.sharedTable,
     festivalRewards.packageCondition,
     festivalRewards.mappingCondition,
   ])
     expect(within(section).getByText(text)).toBeDefined();
+
+  expect(rowsOf("Guide-reported rank-to-pick examples")).toEqual([
+    ["Jump Jump", "1st place", "4"],
+    ["Jump Jump", "3rd place", "3"],
+    ["Not This Tile?", "1st or 2nd place", "6"],
+  ]);
 
   for (const reward of festivalRewards.otherRewards)
     expect(within(section).getByText(reward)).toBeDefined();
@@ -97,16 +104,14 @@ test("shows the level-50 additional token odds and the 40.2 mean", () => {
 
   const section = screen.getByRole("region", { name: "Token odds" });
 
-  expect(rowsOf("Additional tokens per opening")).toEqual([
+  expect(rowsOf("Additional tokens per keyed reward pick")).toEqual([
     ["30", "50%"],
     ["40", "30%"],
     ["60", "17%"],
     ["100", "3%"],
   ]);
   expect(within(section).getByText("40.2")).toBeDefined();
-  expect(
-    within(section).getByText(festivalOpeningModel.condition),
-  ).toBeDefined();
+  expect(within(section).getByText(festivalPickModel.condition)).toBeDefined();
 });
 
 test("prices outfits, accessories and wings in separate tables with their own totals", () => {
@@ -241,7 +246,7 @@ const figure = (name: RegExp) =>
   ).textContent;
 
 describe("simulator", () => {
-  // Every draw lands in the first band: 30 tokens per opening.
+  // Every pick lands in the first band: 30 tokens per pick.
   beforeEach(() => {
     vi.spyOn(Math, "random").mockReturnValue(0);
   });
@@ -250,7 +255,7 @@ describe("simulator", () => {
     vi.restoreAllMocks();
   });
 
-  test("defaults to 100 openings, no tokens, Lightpath Trace and no participation", () => {
+  test("defaults to 100 games and picks, no tokens, Lightpath Trace and no participation", () => {
     renderAt("/festival/simulator");
 
     expect(
@@ -258,10 +263,12 @@ describe("simulator", () => {
         .getByRole("tab", { name: "Token simulator" })
         .getAttribute("aria-selected"),
     ).toBe("true");
-    expect(screen.getByRole("textbox", { name: "Openings" })).toHaveProperty(
-      "value",
-      "100",
-    );
+    expect(
+      screen.getByRole("textbox", { name: "Completed games" }),
+    ).toHaveProperty("value", "100");
+    expect(
+      screen.getByRole("textbox", { name: "Keyed reward picks" }),
+    ).toHaveProperty("value", "100");
     expect(
       screen.getByRole("textbox", { name: "Starting tokens" }),
     ).toHaveProperty("value", "0");
@@ -279,7 +286,7 @@ describe("simulator", () => {
 
   test("restores inputs from the URL, including explicit participation", () => {
     renderAt(
-      "/festival/simulator?openings=200&startTokens=10&target=spirit-wings&participation=true",
+      "/festival/simulator?finishes=100&picks=200&startTokens=10&target=spirit-wings&participation=true",
     );
 
     expect(screen.getByRole("combobox", { name: "Target" })).toHaveProperty(
@@ -288,25 +295,25 @@ describe("simulator", () => {
     );
     expect(screen.getByRole("checkbox")).toHaveProperty("checked", true);
     expect(figure(/Chance to reach 4,200/)).toBe("100%");
-    expect(figure(/Sample mean/)).toBe("16,010");
-    expect(figure(/Expected total/)).toBe("18,050");
+    expect(figure(/Sample mean/)).toBe("11,010");
+    expect(figure(/Expected total/)).toBe("13,050");
     expect(
       screen.getByText(
-        /2,000 of 2,000 sampled runs of 200 openings reached Spirit Wings/,
+        /2,000 of 2,000 sampled runs with 100 completed games and 200 keyed reward picks reached Spirit Wings/,
       ),
     ).toBeDefined();
   });
 
   test.each([
-    ["openings=1001", /Openings must be a whole number from 0 to 1,000/],
-    ["openings=1.5", /Openings must be a whole number from 0 to 1,000/],
+    ["finishes=1001", /Completed games must be a whole number from 0 to 1,000/],
+    ["picks=1.5", /Keyed reward picks must be a whole number from 0 to 1,000/],
     ["startTokens=-5", /Starting tokens must be a nonnegative safe integer/],
     [
-      "openings=1&startTokens=9007199254740991",
+      "finishes=1&picks=1&startTokens=9007199254740991",
       /Starting tokens plus the maximum modeled reward/,
     ],
     ["target=nope", /Choose a supported purchase/],
-    ["openings=1&openings=2", /appear only once/],
+    ["picks=1&picks=2", /appear only once/],
   ])("explains invalid URL input %s without results", (query, message) => {
     renderAt(`/festival/simulator?${query}`);
 
@@ -318,10 +325,10 @@ describe("simulator", () => {
   test("labels results stale while inputs change, then runs into history", async () => {
     renderAt("/festival/simulator");
 
-    const openings = screen.getByRole("textbox", { name: "Openings" });
+    const picks = screen.getByRole("textbox", { name: "Keyed reward picks" });
 
-    await userEvent.clear(openings);
-    await userEvent.type(openings, "200");
+    await userEvent.clear(picks);
+    await userEvent.type(picks, "200");
 
     expect(
       screen.getByRole("heading", { name: "Results for the previous inputs" }),
@@ -333,7 +340,7 @@ describe("simulator", () => {
     );
 
     expect(location()).toBe(
-      "/festival/simulator?openings=200&startTokens=0&target=lightpath-trace&participation=false",
+      "/festival/simulator?finishes=100&picks=200&startTokens=0&target=lightpath-trace&participation=false",
     );
     expect(screen.getByRole("heading", { name: "Results" })).toBeDefined();
     expect(figure(/Sample mean/)).toBe("6,000");
@@ -341,10 +348,9 @@ describe("simulator", () => {
     await userEvent.click(screen.getByRole("button", { name: "History back" }));
 
     expect(location()).toBe("/festival/simulator");
-    expect(screen.getByRole("textbox", { name: "Openings" })).toHaveProperty(
-      "value",
-      "100",
-    );
+    expect(
+      screen.getByRole("textbox", { name: "Keyed reward picks" }),
+    ).toHaveProperty("value", "100");
     expect(figure(/Sample mean/)).toBe("3,000");
   });
 
@@ -398,14 +404,14 @@ describe("simulator", () => {
   });
 
   test("sampling again draws a fresh sample for the same inputs", async () => {
-    renderAt("/festival/simulator?openings=1");
+    renderAt("/festival/simulator?picks=1");
 
     const draws = vi.mocked(Math.random).mock.calls.length;
 
     await userEvent.click(screen.getByRole("button", { name: "Sample again" }));
 
     expect(vi.mocked(Math.random).mock.calls).toHaveLength(draws + 2000);
-    expect(location()).toBe("/festival/simulator?openings=1");
+    expect(location()).toBe("/festival/simulator?picks=1");
   });
 
   test("keeps the model assumptions beside the inputs", () => {
@@ -413,13 +419,15 @@ describe("simulator", () => {
 
     const assumptions = screen.getByRole("list", { name: "Model assumptions" });
 
-    expect(within(assumptions).getByText(/independent draw/)).toBeDefined();
     expect(
-      within(assumptions).getByText(festivalOpeningModel.condition),
+      within(assumptions).getByText(/independent token draw/),
+    ).toBeDefined();
+    expect(
+      within(assumptions).getByText(festivalPickModel.condition),
     ).toBeDefined();
     expect(
       within(assumptions).getByText(
-        /modeling assumption, not a claim about keys/,
+        /each qualifying completed game adds one 50-token participation package/,
       ),
     ).toBeDefined();
     expect(screen.queryByText(/keys needed|days to/i)).toBeNull();

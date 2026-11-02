@@ -30,7 +30,8 @@ const renderResults = (
   renderWithProviders(
     <SimulationResults
       result={result(histogram)}
-      openings={2}
+      finishes={1}
+      picks={2}
       target="Spirit Wings"
       stale={stale}
       onResample={vi.fn()}
@@ -74,7 +75,7 @@ test("summarises the result in text without promising it", () => {
 
   expect(
     screen.getByText(
-      /500 of 2,000 sampled runs of 2 openings reached Spirit Wings \(100 tokens\).*not a guarantee/,
+      /500 of 2,000 sampled runs with 1 completed game and 2 keyed reward picks reached Spirit Wings \(100 tokens\).*not a guarantee/,
     ),
   ).toBeDefined();
   expect(
@@ -95,7 +96,8 @@ test("resampling asks for a fresh sample", async () => {
   renderWithProviders(
     <SimulationResults
       result={result([{ tokens: 100, count: 2000 }])}
-      openings={2}
+      finishes={1}
+      picks={2}
       target="x"
       stale={false}
       onResample={onResample}

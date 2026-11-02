@@ -28,7 +28,8 @@ export function parseFestivalSimulationInputs(
   const errors: FestivalSimulationErrors = {};
 
   for (const field of [
-    "openings",
+    "finishes",
+    "picks",
     "startTokens",
     "customTarget",
     "targetId",
@@ -47,6 +48,21 @@ export function parseFestivalSimulationInputs(
     const value = values[0];
 
     raw[field] = queryValue(field, value);
+  }
+
+  const legacyOpenings = query.getAll("openings");
+
+  if (legacyOpenings.length) {
+    if (legacyOpenings.length > 1) {
+      errors.finishes = "Legacy openings must appear only once in the URL.";
+    } else if (query.has("finishes") || query.has("picks")) {
+      errors.finishes = "Use finishes and picks instead of legacy openings.";
+    } else {
+      const count = queryValue("picks", legacyOpenings[0]!);
+
+      raw.finishes = count;
+      raw.picks = count;
+    }
   }
 
   const validation = validateFestivalSimulationInputs(raw);

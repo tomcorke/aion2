@@ -107,14 +107,18 @@ export const openQuestions: OpenQuestion[] = [
     id: "festival-card-key-mapping",
     groupId: "festival",
     unknown:
-      "The mapping from rank to card selections, reward openings and keys consumed remains unknown.",
-    why: "Opening odds alone cannot establish tokens per key or a verified key budget for a purchase.",
+      "AllThingsHow reports rank-to-pick counts and one key per pick, but the live Global mapping from rank to card selections and keys consumed remains unchecked.",
+    why: "Guide-reported picks and per-pick key costs do not establish live claiming behavior or a verified key budget for a purchase.",
     practicalCheck:
       "Record region, level, placement, card selections, keys before and after claiming, and each package's rewards on a live result screen.",
     relatedGuideLinks: [
       { to: "/festival/simulator", label: "Conditional opening simulator" },
     ],
-    supportingSourceIDs: ["game8Festival", "metabotEvents"],
+    supportingSourceIDs: [
+      "game8Festival",
+      "metabotEvents",
+      "allThingsHowFestival",
+    ],
   },
   {
     id: "festival-refill",

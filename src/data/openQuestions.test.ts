@@ -62,7 +62,10 @@ test.each([
   ["kaira-argo-spawns", /Kaira.*interval.*Argo/i],
   ["faction-boss-respawns", /Verteron.*respawn/i],
   ["invasion-duration-rotation", /duration.*rotation/i],
-  ["festival-card-key-mapping", /rank.*card selections.*openings.*keys/i],
+  [
+    "festival-card-key-mapping",
+    /AllThingsHow.*rank-to-pick counts.*one key per pick.*live Global.*unchecked/i,
+  ],
   ["festival-refill", /refill.*quantity.*reset/i],
   ["festival-participation-claim", /participation.*without a key/i],
   ["festival-level-mapping", /level-50.*level 45/i],

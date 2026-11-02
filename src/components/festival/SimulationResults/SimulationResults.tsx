@@ -6,7 +6,8 @@ type Result = ReturnType<typeof simulateFestival>;
 
 type Props = {
   result: Result;
-  openings: number;
+  finishes: number;
+  picks: number;
   // Purchase name, or a description of the custom target.
   target: string;
   // The form holds inputs these results were not sampled for.
@@ -95,7 +96,8 @@ function Figure({ term, value }: { term: string; value: string }) {
 /** Sampled totals as figures, a text summary and a histogram table. */
 export function SimulationResults({
   result,
-  openings,
+  finishes,
+  picks,
   target,
   stale,
   onResample,
@@ -125,8 +127,9 @@ export function SimulationResults({
       </dl>
 
       <p>
-        {number.format(hitCount)} of {number.format(trials)} sampled runs of{" "}
-        {number.format(openings)} openings reached {target} (
+        {number.format(hitCount)} of {number.format(trials)} sampled runs with{" "}
+        {number.format(finishes)} completed {finishes === 1 ? "game" : "games"}{" "}
+        and {number.format(picks)} keyed reward picks reached {target} (
         {number.format(targetTokens)} tokens). The sample mean was{" "}
         {number.format(sampleMean)} tokens against an expected{" "}
         {number.format(expectedTotal)}. Another sample will differ slightly;

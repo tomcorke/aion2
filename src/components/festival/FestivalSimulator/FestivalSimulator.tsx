@@ -13,7 +13,8 @@ import { SimulationResults } from "../SimulationResults/SimulationResults.tsx";
 import STYLES from "./FestivalSimulator.module.css";
 
 const defaultDraft: Draft = {
-  openings: String(defaults.openings),
+  finishes: String(defaults.finishes),
+  picks: String(defaults.picks),
   startTokens: String(defaults.startTokens),
   target: defaults.targetId,
   customTarget: String(defaults.customTarget),
@@ -75,7 +76,8 @@ function Simulator({
   const errors: DraftErrors = parsed.ok
     ? {}
     : {
-        openings: parsed.errors.openings,
+        finishes: parsed.errors.finishes,
+        picks: parsed.errors.picks,
         startTokens: parsed.errors.startTokens,
         target: parsed.errors.targetId,
         customTarget: parsed.errors.customTarget,
@@ -94,7 +96,8 @@ function Simulator({
       {parsed.ok && result ? (
         <SimulationResults
           result={result}
-          openings={parsed.inputs.openings}
+          finishes={parsed.inputs.finishes}
+          picks={parsed.inputs.picks}
           target={targetName(parsed.inputs.targetId)}
           stale={stale}
           onResample={() => setResult(sample())}

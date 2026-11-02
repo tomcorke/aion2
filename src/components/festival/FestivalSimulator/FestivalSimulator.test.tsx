@@ -11,7 +11,7 @@ test("samples the URL inputs on load", () => {
   vi.spyOn(Math, "random").mockReturnValue(0.999);
 
   renderWithProviders(<FestivalSimulator />, {
-    path: "/festival/simulator?openings=0&startTokens=7&target=custom&customTarget=7",
+    path: "/festival/simulator?finishes=0&picks=0&startTokens=7&target=custom&customTarget=7",
   });
 
   expect(
@@ -27,7 +27,7 @@ test("highest-band draws reach the top outcome", () => {
   vi.spyOn(Math, "random").mockReturnValue(0.999);
 
   renderWithProviders(<FestivalSimulator />, {
-    path: "/festival/simulator?openings=1",
+    path: "/festival/simulator?picks=1",
   });
 
   expect(

@@ -268,6 +268,12 @@ export const sources = {
     covers: "Reported level scaling, reward categories and regional limits",
     url: "https://aion2.run/en/systemes?s=festival-shugo",
   },
+  allThingsHowFestival: {
+    name: "AllThingsHow Shugo Festival guide",
+    covers:
+      "Guide-reported qualifying participation rewards, one key per card pick and rank-to-pick examples",
+    url: "https://allthings.how/aion-2-every-shugo-festival-minigame-and-its-rewards/",
+  },
   metabotFestivalShop: {
     name: "MetaBot Festival Shop",
     covers:

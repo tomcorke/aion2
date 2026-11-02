@@ -1,11 +1,12 @@
 import {
-  festivalOpeningModel,
+  festivalPickModel,
   festivalPurchases,
   festivalRewards,
 } from "../data/festival.ts";
 
 export type FestivalSimulationInputs = {
-  openings: number;
+  finishes: number;
+  picks: number;
   startTokens: number;
   targetId: string;
   customTarget: number;
@@ -14,7 +15,8 @@ export type FestivalSimulationInputs = {
 
 export const defaultFestivalSimulationInputs: Readonly<FestivalSimulationInputs> =
   {
-    openings: 100,
+    finishes: 100,
+    picks: 100,
     startTokens: 0,
     targetId: "lightpath-trace",
     customTarget: 0,
@@ -30,13 +32,18 @@ export type FestivalSimulationValidation =
 
 type RawInputs = Record<keyof FestivalSimulationInputs, unknown>;
 
-/** Tokens must be safe integers; openings are bounded to 0–1,000. */
+/** Counts are bounded to 0–1,000; token totals must remain safe integers. */
 export function validateFestivalSimulationInputs(
   raw: RawInputs,
 ): FestivalSimulationValidation {
   const errors: FestivalSimulationErrors = {};
 
-  for (const field of ["openings", "startTokens", "customTarget"] as const) {
+  for (const field of [
+    "finishes",
+    "picks",
+    "startTokens",
+    "customTarget",
+  ] as const) {
     if (
       typeof raw[field] !== "number" ||
       !Number.isSafeInteger(raw[field]) ||
@@ -47,8 +54,10 @@ export function validateFestivalSimulationInputs(
     }
   }
 
-  if (typeof raw.openings === "number" && raw.openings > 1000) {
-    errors.openings = "Openings must be a whole number from 0 to 1,000.";
+  for (const field of ["finishes", "picks"] as const) {
+    if (typeof raw[field] === "number" && raw[field] > 1000) {
+      errors[field] = `${field} must be a whole number from 0 to 1,000.`;
+    }
   }
 
   if (typeof raw.participation !== "boolean")
@@ -63,9 +72,10 @@ export function validateFestivalSimulationInputs(
 
   const inputs = raw as FestivalSimulationInputs;
   const maximumReward =
-    inputs.openings *
-    (Math.max(...festivalOpeningModel.outcomes.map(({ tokens }) => tokens)) +
-      (inputs.participation ? festivalRewards.participation.tokens : 0));
+    inputs.picks *
+      Math.max(...festivalPickModel.outcomes.map(({ tokens }) => tokens)) +
+    inputs.finishes *
+      (inputs.participation ? festivalRewards.participation.tokens : 0);
 
   if (inputs.startTokens > Number.MAX_SAFE_INTEGER - maximumReward) {
     return {
