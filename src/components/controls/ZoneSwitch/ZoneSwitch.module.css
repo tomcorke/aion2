@@ -10,7 +10,8 @@
 }
 
 .option {
-  min-height: 32px;
+  min-width: 40px;
+  min-height: 40px;
   padding: 0 2px;
   border: 0;
   background: transparent;
