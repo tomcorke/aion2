@@ -14,7 +14,7 @@ import STYLES from "./TimerDial.module.css";
 const RADIUS = 140;
 const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
 
-/** Counts down to the daily reset, with the arc filling as the reset cycle passes. */
+/** Counts down to the ticket-table reset, with the arc filling as the reset cycle passes. */
 export function TimerDial({ now }: { now: Date }) {
   const { zone } = usePreferences().preferences;
   const left = secondsUntilNext(now, dailyReset);
@@ -43,7 +43,7 @@ export function TimerDial({ now }: { now: Date }) {
       </svg>
 
       <div className={STYLES.readout}>
-        <span className={STYLES.caption}>Daily reset in</span>
+        <span className={STYLES.caption}>Ticket-table reset in</span>
         <span className={STYLES.countdown}>{formatCountdown(left)}</span>
         <span className={STYLES.at}>{formatAt(next, zone)}</span>
 

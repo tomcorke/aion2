@@ -19,15 +19,15 @@ export type SourceDetails = {
 
 // Hand-curated provenance retained in knowledge/topics/sources/catalog.md.
 // Checked dates are source checks, separate from publication dates and page reviews.
-// S120/S105 were actually rechecked in the retained 2026-10-14 timer audit.
+// S185/S186 were rechecked in the retained 2026-11-01 timer audit.
 // No catalogue check date is recorded for the press-kit credit or ownChecks.
 export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   shugoTimers: {
     region: "Global, Korea and Taiwan",
-    updatedDate: "2026-10-09",
-    checkedDate: "2026-10-14",
+    updatedDate: "2026-10-28",
+    checkedDate: "2026-11-01",
     accessNote:
-      "The feed's data date is 2 October; updatedAt read 9 October on the 14 October check. Public community data, not publisher confirmation; its EU reset clock conflicts with the event guide.",
+      "Public community data; its Global EU reset schedule is not publisher-confirmed, and its 16:00 Korea time reset differs from MetaBot's server-time schedule.",
   },
   // Initial Festival investigation: catalogue introduction and S01–S08.
   officialMembership: {
@@ -76,13 +76,13 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
     accessNote:
       "Provenance statement only; the original client files were not independently downloaded or audited.",
   },
-  // S120/S105 current rechecks; S104 and S109 retain their earlier checks.
+  // S186 current event schedule; other MetaBot records retain their own checks.
   metabotEvents: {
     region: "Global",
     clientBuild: "0.0.4387.0",
-    checkedDate: "2026-10-14",
+    checkedDate: "2026-11-01",
     accessNote:
-      "Schedules rechecked through Jina Reader; not a live EU check or a fresh audit of detailed opening odds. Public clock interpretations still conflict.",
+      "Reports a 16:00 server-time ticket-table reset and Wednesday weekly reset; the shared Global clock is community-confirmed, not official, and schedules were not checked live on EU.",
   },
   couga54: {
     region: "Global",
@@ -557,7 +557,7 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
     publishedDate: "2026-10-27",
     checkedDate: "2026-11-02",
     accessNote:
-      "Official Global notice; the current in-game Attendance menu and exact maintenance hour were not checked.",
+      "Official Global notice reports the current Attendance event's daily reset at 8:00 CET; the current in-game menu was not checked.",
   },
   ncOdyleEnergyBoost: {
     region: "Global",

@@ -18,7 +18,13 @@ test("leads with the timers, then links every section", () => {
 test("names the timer sources in the footer", () => {
   renderWithProviders(<Home />);
 
-  expect(screen.getByRole("contentinfo").textContent).toContain(
-    "MetaBot event schedule",
-  );
+  const footer = screen.getByRole("contentinfo").textContent;
+
+  expect(footer).toContain("MetaBot event schedule");
+  expect(footer).toContain("NC Global patch notes, 28 October 2026");
+  expect(footer).toContain("NC: Atreia's Call 28-day Attendance event");
+  expect(footer).toContain("MetaBot methodology");
+  expect(footer).toContain("Reviewed 2 November 2026");
+  expect(screen.getAllByText("Ticket-table reset in")).toHaveLength(2);
+  expect(screen.getByText(/not a confirmed EU server clock/)).toBeDefined();
 });

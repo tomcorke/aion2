@@ -65,7 +65,7 @@ test("the item-level filter hides lower bosses but keeps every fixed timer", asy
   await userEvent.click(screen.getByRole("button", { name: "86+" }));
 
   expect(names()).toEqual([
-    "Weekly reset",
+    "Wednesday weekly reset",
     "Artifact Siege",
     "Spacetime Rift",
     "Dimensional Invasion",
@@ -98,9 +98,11 @@ test("the editor hides a timer", async () => {
   renderWithProviders(<TimerBoard />);
 
   await userEvent.click(screen.getByRole("button", { name: "Edit timers" }));
-  await userEvent.click(screen.getByRole("checkbox", { name: "Weekly reset" }));
+  await userEvent.click(
+    screen.getByRole("checkbox", { name: "Wednesday weekly reset" }),
+  );
 
-  expect(spine().queryByText("Weekly reset")).toBeNull();
+  expect(spine().queryByText("Wednesday weekly reset")).toBeNull();
   expect(screen.getByRole("button", { name: "Done" })).toBeDefined();
 });
 
@@ -121,7 +123,13 @@ test("always warns that the clock is a provisional assumption", () => {
   renderWithProviders(<TimerBoard />);
 
   const warning = screen.getByText(/not a confirmed EU server clock/);
-  const firstTimer = screen.getAllByText("Weekly reset")[0];
+  const firstTimer = screen.getAllByText("Wednesday weekly reset")[0];
+
+  expect(warning.textContent).toContain("ticket-table reset");
+  expect(warning.textContent).toContain("16:00 Korea time / 07:00 UTC");
+  expect(warning.textContent).toContain(
+    "Gathering limit and current Attendance",
+  );
 
   expect(
     warning.compareDocumentPosition(firstTimer) &

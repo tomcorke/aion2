@@ -19,7 +19,7 @@ test("shows the dial, then one row per timer in order", () => {
 
   const rows = screen.getAllByRole("listitem");
 
-  expect(screen.getByText("Daily reset in")).toBeDefined();
+  expect(screen.getByText("Ticket-table reset in")).toBeDefined();
   expect(rows).toHaveLength(timers.length);
-  expect(rows[0].textContent).toContain("Weekly reset");
+  expect(rows[0].textContent).toContain("Wednesday weekly reset");
 });

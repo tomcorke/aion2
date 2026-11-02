@@ -22,8 +22,11 @@ test("ticks the timers that are shown", () => {
   renderEditor();
 
   expect(
-    (screen.getByRole("checkbox", { name: "Weekly reset" }) as HTMLInputElement)
-      .checked,
+    (
+      screen.getByRole("checkbox", {
+        name: "Wednesday weekly reset",
+      }) as HTMLInputElement
+    ).checked,
   ).toBe(true);
   expect(
     (
@@ -54,7 +57,7 @@ test("cannot move past either end", () => {
   expect(
     (
       screen.getByRole("button", {
-        name: "Move Weekly reset up",
+        name: "Move Wednesday weekly reset up",
       }) as HTMLButtonElement
     ).disabled,
   ).toBe(true);

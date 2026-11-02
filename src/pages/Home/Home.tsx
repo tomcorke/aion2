@@ -5,7 +5,8 @@ import { Rule } from "../../components/trim/Rule/Rule.tsx";
 import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
 import { TimerBoard } from "../../components/timers/TimerBoard/TimerBoard.tsx";
 import { sections } from "../../data/sections.ts";
-import { timerSources } from "../../data/timers.ts";
+import { timerReviewed } from "../../data/timers.ts";
+import { timerPageSources } from "../../data/timerVerification.ts";
 import { useTitle } from "../../hooks/useTitle.ts";
 import STYLES from "./Home.module.css";
 
@@ -36,7 +37,7 @@ export function Home() {
         ))}
       </nav>
 
-      <SiteFooter sources={timerSources} reviewed="2026-10-14" />
+      <SiteFooter sources={timerPageSources} reviewed={timerReviewed} />
     </>
   );
 }

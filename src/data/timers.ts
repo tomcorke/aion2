@@ -2,19 +2,21 @@ import { everyHours, type Slots } from "../lib/time.ts";
 import type { Faction } from "../preferences/preferences.ts";
 import type { SourceId } from "./sources.ts";
 
-// Timer facts come from the notes repo: exploration/field-bosses.md, exploration/spacetime-rifts.md,
-// events/incursion-of-the-spirits.md, events/shugo-festival/overview.md and basics/alts.md.
+// Timer facts come from notes repo topics and research/timer-verification.md (2026-11-01).
 // Slots use the site's provisional Berlin clock; timerVerification.ts retains the limits.
 
 export const timerSources: SourceId[] = [
   "shugoTimers",
   "metabotEvents",
+  "metabotMethodology",
   "metabotMonsters",
   "couga54",
   "wikily",
   "game8Festival",
   "ownChecks",
 ];
+
+export const timerReviewed = "2026-11-02";
 
 export type TimerGroup = "fixed" | "reshanta" | "field";
 
@@ -45,7 +47,7 @@ export const dailyReset: Slots = { hours: [16], minute: 0 };
 export const timerDefs: TimerDef[] = [
   {
     id: "weekly",
-    name: "Weekly reset",
+    name: "Wednesday weekly reset",
     group: "fixed",
     schedule: { kind: "slots", hours: [16], minute: 0, days: [WED] },
   },

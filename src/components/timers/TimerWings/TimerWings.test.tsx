@@ -21,7 +21,7 @@ test("lists every timer around the dial", () => {
   renderWings();
 
   expect(screen.getAllByRole("listitem")).toHaveLength(timers.length);
-  expect(screen.getByText("Daily reset in")).toBeDefined();
+  expect(screen.getByText("Ticket-table reset in")).toBeDefined();
 });
 
 test("draws one spoke per timer, dashed for untimed bosses", () => {
@@ -41,6 +41,6 @@ test("puts fixed timers on the left and bosses on the right", () => {
   const left = (name: string) =>
     screen.getByText(name).closest("[data-align]")?.getAttribute("data-align");
 
-  expect(left("Weekly reset")).toBe("end");
+  expect(left("Wednesday weekly reset")).toBe("end");
   expect(left("Guardian Lord Nahma")).toBe("start");
 });
