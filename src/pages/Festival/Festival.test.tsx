@@ -4,10 +4,12 @@ import { useLocation, useNavigate } from "react-router";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import {
   festivalEntry,
+  festivalGameCoverage,
   festivalKeys,
   festivalPickModel,
   festivalRewards,
   festivalShopOffers,
+  festivalScheduledGames,
   festivalSources,
 } from "../../data/festival.ts";
 import { sources } from "../../data/sources.ts";
@@ -37,6 +39,23 @@ test("lists the nine games with players and round limits", () => {
   ]);
   expect(rows[3]?.slice(0, 3)).toEqual(["Hidden Lugi", "2–9", "3:30"]);
   expect(rows[8]?.slice(0, 3)).toEqual(["Not This Tile?", "1–6", "3:15"]);
+});
+
+test("shows the two additional scheduled games without implying reward eligibility", () => {
+  renderPage();
+
+  const rows = rowsOf("Two scheduled games without listed reward tables");
+
+  expect(rows).toHaveLength(2);
+  expect(rows.map((row) => row[0])).toEqual(
+    festivalScheduledGames.map(({ name }) => name),
+  );
+  expect(rows[0]?.slice(1, 3)).toEqual(["Not listed", "2:30"]);
+  expect(rows[1]?.slice(1, 3)).toEqual(["3", "5:00"]);
+  expect(
+    screen.getByRole("region", { name: "Other scheduled minigames" })
+      .textContent,
+  ).toContain(festivalGameCoverage.scheduled);
 });
 
 test("explains entry separately from observed EU availability and level caveats", () => {

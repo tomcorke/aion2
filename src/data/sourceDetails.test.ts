@@ -7,6 +7,8 @@ test.each([
   ["game8Festival", "2026-10-05"],
   ["officialMembership", "2026-10-05"],
   ["metabotMethodology", "2026-11-02"],
+  ["metabotFestival", "2026-11-01"],
+  ["aion2ggFestival", "2026-11-01"],
   ["metabotFestivalShop", "2026-11-02"],
   ["metabotHiddenCubes", "2026-11-02"],
   ["metabotStigma", "2026-10-16"],
@@ -58,6 +60,18 @@ test.each([
 );
 
 test("retains catalog metadata without conflating source and client builds", () => {
+  expect(sourceDetails.metabotFestival).toMatchObject({
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-11-01",
+    accessNote: expect.stringMatching(/nine games.*without reward tables/i),
+  });
+  expect(sourceDetails.aion2ggFestival).toMatchObject({
+    region: "EU/NA Global",
+    clientBuild: ["2", "0", "9", "0"].join("."),
+    checkedDate: "2026-11-01",
+    accessNote: expect.stringMatching(/Steam build 26262663.*28 October 2026/),
+  });
   expect(sourceDetails.metabotStigma).toMatchObject({
     region: "Global",
     publishedDate: "2026-10-01",

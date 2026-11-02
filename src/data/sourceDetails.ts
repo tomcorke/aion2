@@ -4,6 +4,10 @@ import { skinAcquisitionSourceDetails } from "./skinAcquisitions.ts";
 // Keep the dotted build in parts because the linter treats it as an IP address.
 const metabotGuideBuild = ["2", "0", "3", "0"].join(".");
 
+const metabotFestivalBuild = ["0", "0", "4387", "0"].join(".");
+
+const aion2ggFestivalBuild = ["2", "0", "9", "0"].join(".");
+
 export type SourceDetails = {
   region?: string;
   clientBuild?: string;
@@ -43,6 +47,20 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
     checkedDate: "2026-10-05",
     accessNote:
       "Underlying system data is dated 2 October 2026. The recommendation was read from a versioned asset that may later disappear; regional and refill limits remain unresolved.",
+  },
+  metabotFestival: {
+    region: "Global",
+    clientBuild: metabotFestivalBuild,
+    checkedDate: "2026-11-01",
+    accessNote:
+      "Lists reward tables for nine games and separately names Nyerk Shooter and Shugo's Dilemma as scheduled without reward tables. This client data is not a live schedule or reward-eligibility check.",
+  },
+  aion2ggFestival: {
+    region: "EU/NA Global",
+    clientBuild: aion2ggFestivalBuild,
+    checkedDate: "2026-11-01",
+    accessNote:
+      "Steam build 26262663; extracted 28 October 2026. Lists eleven minigame names, not live scheduling or reward eligibility. The second Festival Key row's meaning and live validity remain unresolved.",
   },
   metabotFestivalShop: {
     region: "Global",

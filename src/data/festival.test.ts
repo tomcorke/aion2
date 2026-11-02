@@ -1,6 +1,7 @@
 import { expect, test } from "vitest";
 import {
   festivalEntry,
+  festivalGameCoverage,
   festivalGames,
   festivalKeys,
   festivalPickModel,
@@ -9,11 +10,12 @@ import {
   festivalRewards,
   festivalShopOffers,
   festivalSources,
+  festivalScheduledGames,
 } from "./festival.ts";
 import { sources } from "./sources.ts";
 
-// Authoritative literals: knowledge/topics/events/shugo-festival/games.md (S02).
-test("the nine games retain their participant limits and individual round durations", () => {
+// Authoritative literals: knowledge/topics/events/shugo-festival/games.md (S07/S202).
+test("the nine games with listed reward tables retain their limits and durations", () => {
   expect(
     festivalGames.map(({ id, name, players, duration }) => [
       id,
@@ -43,6 +45,31 @@ test("the nine games retain their participant limits and individual round durati
   expect(
     festivalGames.find(({ id }) => id === "defend-shugo-merchants")?.objective,
   ).toContain("not exploding insectoids");
+});
+
+test("the two additional scheduled games stay separate from reward-table coverage", () => {
+  expect(festivalScheduledGames).toEqual([
+    {
+      id: "nyerk-shooter",
+      name: "Nyerk Shooter",
+      minimumPlayers: null,
+      duration: "2:30",
+      objective: "Destroy falling Pangs and jump to evade the Rotan.",
+    },
+    {
+      id: "shugos-dilemma",
+      name: "Shugo's Dilemma",
+      minimumPlayers: 3,
+      duration: "5:00",
+      objective: "Gather on a platform with the exact number of players shown.",
+    },
+  ]);
+  expect(festivalGameCoverage.rewardTables).toContain("reward eligibility");
+  expect(festivalGameCoverage.scheduled).toContain("eleven minigame names");
+  expect(festivalGameCoverage.scheduled).toContain(
+    "does not by itself confirm reward eligibility",
+  );
+  expect(festivalGameCoverage.scheduled).toContain("not a live Global check");
 });
 
 // overview.md: S02 entry window, S03 level caveats, owner EU observation.
@@ -312,7 +339,9 @@ test("Festival footer and purchase sources resolve to the registered public sour
     "aion2GuideFestival",
     "officialMembership",
     "metabotEvents",
+    "metabotFestival",
     "metabotMethodology",
+    "aion2ggFestival",
     "metabotFestivalShop",
     "allThingsHowFestival",
     "ownChecks",
@@ -340,6 +369,12 @@ test("Festival footer and purchase sources resolve to the registered public sour
   );
   expect(sources.aion2GuideFestival.url).toBe(
     "https://aion2.run/en/systemes?s=festival-shugo",
+  );
+  expect(sources.metabotFestival.url).toBe(
+    "https://metabot.gg/en/aion-2/events/shugo-festival",
+  );
+  expect(sources.aion2ggFestival.url).toBe(
+    "https://aion2.gg/tools/event-timer/shugo-festival",
   );
   expect(sources.metabotFestivalShop.url).toBe(
     "https://metabot.gg/en/aion-2/shops/festival-shop-centuryroot-token",

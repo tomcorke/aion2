@@ -8,6 +8,7 @@ import { Diamond } from "../../components/trim/Diamond/Diamond.tsx";
 import { Rule } from "../../components/trim/Rule/Rule.tsx";
 import {
   festivalEntry,
+  festivalGameCoverage,
   festivalGames,
   festivalKeys,
   festivalPickModel,
@@ -16,6 +17,7 @@ import {
   festivalRewards,
   festivalShopOffers,
   festivalSources,
+  festivalScheduledGames,
   type FestivalPurchase,
 } from "../../data/festival.ts";
 import { useTitle } from "../../hooks/useTitle.ts";
@@ -99,6 +101,38 @@ function GamesTable() {
               <td>{objective}</td>
             </tr>
           ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+function ScheduledGamesTable() {
+  return (
+    <div className={STYLES.scroll}>
+      <table className={STYLES.table}>
+        <caption>Two scheduled games without listed reward tables</caption>
+        <thead>
+          <tr>
+            <th scope="col">Game</th>
+            <th scope="col">Minimum players</th>
+            <th scope="col">Round limit</th>
+            <th scope="col">Objective</th>
+          </tr>
+        </thead>
+        <tbody>
+          {festivalScheduledGames.map(
+            ({ id, name, minimumPlayers, duration, objective }) => (
+              <tr key={id}>
+                <th scope="row">{name}</th>
+                <td className={STYLES.figure}>
+                  {minimumPlayers ?? "Not listed"}
+                </td>
+                <td className={STYLES.figure}>{duration}</td>
+                <td>{objective}</td>
+              </tr>
+            ),
+          )}
         </tbody>
       </table>
     </div>
@@ -303,8 +337,16 @@ function Odds() {
 function Reference() {
   return (
     <div className={STYLES.reference}>
-      <Section id="festival-games" title="Games">
+      <Section id="festival-games" title="Games with reward tables">
+        <p>{festivalGameCoverage.rewardTables}</p>
         <GamesTable />
+      </Section>
+
+      <Rule gem />
+
+      <Section id="festival-scheduled-games" title="Other scheduled minigames">
+        <p>{festivalGameCoverage.scheduled}</p>
+        <ScheduledGamesTable />
       </Section>
 
       <Rule gem />
@@ -387,7 +429,7 @@ export function Festival() {
     <>
       <PageHero
         title="Shugo Festival"
-        lede="The nine games, how to enter, keys, token odds, shop prices and a token simulator."
+        lede="Festival games, how to enter, keys, token odds, shop prices and a token simulator."
       />
 
       <div className={STYLES.body}>
