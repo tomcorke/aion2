@@ -69,11 +69,11 @@ export const petsAttribution = [
   { name: "MetaBot mounts, pets and wings guide", url: metabotWingsGuideUrl },
   { name: "AION 2 Maps pets and mounts guide", url: aion2MapsPetsUrl },
   {
-    name: "NC Global pet offers, 13 October 2026",
+    name: "NC Global skin and pet offers, 13 October 2026",
     url: "https://lounge.plaync.com/feed/83799?country=US&locale=en-US",
   },
   {
-    name: "NC Global pet offers, 28 October 2026",
+    name: "NC Global skin and pet offers, 28 October 2026",
     url: "https://steamcommunity.com/app/3393110/allnews/",
   },
 ];
@@ -243,14 +243,15 @@ export const petSourceAdditions = {
     url: aion2MapsPetsUrl,
   },
   ncPetOffers13Oct: {
-    name: "NC Global pet offers, 13 October 2026",
-    covers: "Little Ghost and Pumpkin Carriage shop offer and sale window",
+    name: "NC Global skin and pet offers, 13 October 2026",
+    covers:
+      "Monarch of Blood, Midnight Witch, Midnight Slasher, Spider Wings, headwear and decor offers, plus Little Ghost and Pumpkin Carriage; listed prices, limits and sale window",
     url: "https://lounge.plaync.com/feed/83799?country=US&locale=en-US",
   },
   ncPetOffers28Oct: {
-    name: "NC Global pet offers, 28 October 2026",
+    name: "NC Global skin and pet offers, 28 October 2026",
     covers:
-      "Azure Flame Kumiho and Glossy Pink Puppy shop offer and sale window",
+      "Vulpine Sunshower, No-Nonsense Maid, Maid Ribbon Wings, headwear, eyewear and jewellery offers, plus Azure Flame Kumiho and Glossy Pink Puppy; listed prices, limits and sale window",
     url: "https://steamcommunity.com/app/3393110/allnews/",
   },
 } satisfies Record<string, Source>;

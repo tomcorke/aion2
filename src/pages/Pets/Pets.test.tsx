@@ -129,13 +129,17 @@ test("shows temporary shop offers without adding them to the checklist", () => {
   const footer = within(screen.getByRole("contentinfo"));
 
   expect(
-    footer.getByRole("link", { name: "NC Global pet offers, 13 October 2026" }),
+    footer.getByRole("link", {
+      name: "NC Global skin and pet offers, 13 October 2026",
+    }),
   ).toHaveProperty(
     "href",
     "https://lounge.plaync.com/feed/83799?country=US&locale=en-US",
   );
   expect(
-    footer.getByRole("link", { name: "NC Global pet offers, 28 October 2026" }),
+    footer.getByRole("link", {
+      name: "NC Global skin and pet offers, 28 October 2026",
+    }),
   ).toHaveProperty("href", "https://steamcommunity.com/app/3393110/allnews/");
 });
 

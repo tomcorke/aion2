@@ -29,7 +29,7 @@ test("only groups with entries get a heading, with their row count", () => {
     />,
   );
 
-  expect(group("Wings").textContent).toContain("28");
+  expect(group("Wings").textContent).toContain("30");
   expect(screen.queryByRole("heading", { name: "Outfits" })).toBeNull();
 });
 

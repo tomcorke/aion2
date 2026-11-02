@@ -12,16 +12,16 @@ import { validOwned } from "../lib/skinOwnership.ts";
 const entryById = (id: string) =>
   skinCatalogueEntries.find((entry) => entry.id === id)!;
 
-test("covers the complete non-weapon reference without duplicate ownership records", () => {
-  expect(skinCatalogueEntries).toHaveLength(314);
-  expect(skinCataloguePieceIds.size).toBe(1008);
-  expect(new Set(skinCatalogueEntries.map(({ id }) => id)).size).toBe(314);
+test("keeps the retained non-weapon reference and adds offers without duplicate ownership records", () => {
+  expect(skinCatalogueEntries).toHaveLength(347);
+  expect(skinCataloguePieceIds.size).toBe(1063);
+  expect(new Set(skinCatalogueEntries.map(({ id }) => id)).size).toBe(347);
   expect(
     skinCatalogueEntries.reduce(
       (count, { pieces }) => count + pieces.length,
       0,
     ),
-  ).toBe(1008);
+  ).toBe(1063);
   expect(
     Object.fromEntries(
       ["costume", "armor", "accessory", "vanity", "wing"].map((kind) => [
@@ -29,12 +29,12 @@ test("covers the complete non-weapon reference without duplicate ownership recor
         skinCatalogueEntries.filter((entry) => entry.kind === kind).length,
       ]),
     ),
-  ).toEqual({ costume: 119, armor: 43, accessory: 115, vanity: 9, wing: 28 });
+  ).toEqual({ costume: 124, armor: 43, accessory: 121, vanity: 29, wing: 30 });
   expect(
     skinCatalogueEntries
       .filter(({ kind }) => kind === "costume")
       .reduce((count, { pieces }) => count + pieces.length, 0),
-  ).toBe(809);
+  ).toBe(836);
 });
 
 test("preserves every legacy entry, label, route and all 53 saved ownership IDs", () => {

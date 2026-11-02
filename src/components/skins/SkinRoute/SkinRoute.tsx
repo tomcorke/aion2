@@ -1,9 +1,6 @@
 import type { SkinAppearancePiece } from "../../../data/skinAcquisitions.ts";
 import { skinCatalogueSourceLabels } from "../../../data/skinCatalogueMetadata.ts";
-import type {
-  SkinCatalogueAcquisition,
-  SkinCatalogueCost,
-} from "../../../data/skinCatalogueTypes.ts";
+import type { SkinCatalogueAcquisition } from "../../../data/skinCatalogueTypes.ts";
 import STYLES from "./SkinRoute.module.css";
 
 type Props = {
@@ -12,22 +9,41 @@ type Props = {
 };
 
 const number = new Intl.NumberFormat("en-GB");
+const usd = new Intl.NumberFormat("en-US", {
+  style: "currency",
+  currency: "USD",
+});
 
-const formatCosts = (costs: SkinCatalogueCost[]) =>
+const formatCosts = (costs: { currency: string; amount: number }[]) =>
   costs
-    .map(({ currency, amount }) => `${number.format(amount)} ${currency}`)
+    .map(({ currency, amount }) =>
+      currency === "USD"
+        ? usd.format(amount)
+        : `${number.format(amount)} ${currency}`,
+    )
     .join(" + ");
 
 /** One acquisition route: the pieces it covers, its exact costs, conditions and warnings. */
 export function SkinRoute({ route, pieces }: Props) {
-  const { id, name, source, pieceIds, prices, total, costs, limit } = route;
+  const {
+    id,
+    name,
+    source,
+    pieceIds,
+    prices,
+    total,
+    costs,
+    listedPrice,
+    limit,
+  } = route;
   const headingId = `route-${id}`;
   const pieceName = (pieceId: string) =>
     pieces.find((piece) => piece.id === pieceId)?.name ?? pieceId;
 
+  const allPieces = `All ${pieces.length} ${pieces.length === 1 ? "piece" : "pieces"}`;
   const coverage =
     pieceIds.length === pieces.length
-      ? `All ${pieces.length} pieces`
+      ? allPieces
       : pieceIds.map(pieceName).join(", ");
 
   return (
@@ -67,6 +83,12 @@ export function SkinRoute({ route, pieces }: Props) {
 
       {costs && (
         <p className={STYLES.figure}>{formatCosts(costs)} per attempt</p>
+      )}
+
+      {listedPrice && (
+        <p className={STYLES.figure}>
+          {formatCosts([listedPrice])} per {listedPrice.unit}
+        </p>
       )}
 
       {limit && <p>One of each piece per {limit.scope}.</p>}

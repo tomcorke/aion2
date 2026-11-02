@@ -16,6 +16,7 @@ export type SkinCatalogueSource =
   | "nightmare-shop"
   | "season-shop"
   | "pass-shop"
+  | "global-offer"
   | "unknown";
 
 export type SkinCatalogueCost = {
@@ -25,6 +26,12 @@ export type SkinCatalogueCost = {
     | "Oath Coin"
     | "Daeva Pass Shop Coin";
   amount: number;
+};
+
+export type SkinCatalogueListedPrice = {
+  amount: number;
+  currency: "USD" | "Quna";
+  unit: "piece" | "set";
 };
 
 export type SkinCatalogueAttribution = { name: string; url: string };
@@ -37,6 +44,7 @@ export type SkinCatalogueAcquisition = Omit<
   prices?: { pieceId: string; costs: SkinCatalogueCost[] }[];
   total?: SkinCatalogueCost[];
   costs?: SkinCatalogueCost[];
+  listedPrice?: SkinCatalogueListedPrice;
   sourceIds: SourceId[];
 };
 

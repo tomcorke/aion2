@@ -32,6 +32,19 @@ test("a route without a recorded price shows no price", () => {
   expect(screen.getByText(/not Skyfeather Guardian/)).toBeDefined();
 });
 
+test("a single-piece offer uses singular coverage and its stated price", () => {
+  const { pieces, acquisitions } = skinCatalogueEntries.find(
+    ({ id }) => id === "spider-wings-offer",
+  )!;
+
+  renderWithProviders(<SkinRoute route={acquisitions[0]!} pieces={pieces} />);
+
+  expect(screen.getByText("All 1 piece")).toBeDefined();
+  expect(screen.getByText("$19.99 per piece")).toBeDefined();
+  expect(screen.getByText(/purchase cap is unresolved/)).toBeDefined();
+  expect(screen.queryByText(/One of each piece per/)).toBeNull();
+});
+
 test("extraction leads with the destruction warning", () => {
   renderRoute("skyfeather-guardian", "extraction");
 

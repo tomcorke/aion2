@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import { useLocation, useNavigate } from "react-router";
 import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import { sources } from "../../data/sources.ts";
+import { currentGlobalSkinOfferEntries } from "../../data/currentGlobalSkinOffers.ts";
 import { skinAcquisitionSources } from "../../data/skinAcquisitions.ts";
 import { skinsSources } from "../../data/skins.ts";
 import { loadSkinCatalogue } from "../../lib/skinCatalogueLoader.ts";
@@ -231,7 +232,7 @@ test("search combines with the source chip, with an empty state and clear", asyn
     screen.getAllByRole("button", { name: "Clear filters" })[0]!,
   );
 
-  expect(within(catalogue()).getAllByRole("link")).toHaveLength(314);
+  expect(within(catalogue()).getAllByRole("link")).toHaveLength(347);
   expect(
     within(chips)
       .getByRole("button", { name: "All" })
@@ -350,10 +351,18 @@ test("the footer names the sources and preserves the oldest content review", asy
 
   const footer = screen.getByRole("contentinfo");
 
-  for (const id of [...skinsSources, ...skinAcquisitionSources])
+  const offerSources = currentGlobalSkinOfferEntries.flatMap(
+    ({ acquisitions }) => acquisitions.flatMap(({ sourceIds }) => sourceIds),
+  );
+
+  for (const id of [
+    ...skinsSources,
+    ...skinAcquisitionSources,
+    ...offerSources,
+  ])
     expect(footer.textContent).toContain(sources[id].name);
 
-  expect(footer.textContent).toContain("Reviewed 12 October 2026");
+  expect(footer.textContent).toContain("Reviewed 2 November 2026");
 });
 
 test("the footer links each data page used, adding the selected entry's own pages", async () => {
@@ -383,12 +392,13 @@ test("the footer links each data page used, adding the selected entry's own page
   ).toBeDefined();
 });
 
-test("the page says what the reference does not prove", async () => {
+test("the page separates retained records, notice offers and what the sources prove", async () => {
   await renderPage();
 
   expect(screen.getByText(/Weapons are not listed/)).toBeDefined();
+  expect(screen.getByText(/1,008 retained.*55 appearances/)).toBeDefined();
   expect(
-    screen.getByText(/not proof that each can be obtained now/),
+    screen.getByText(/not current stock or client-file inclusion/),
   ).toBeDefined();
 });
 
@@ -532,4 +542,36 @@ test("new ticks persist beside existing Festival ticks", async () => {
   ]);
   expect(setLink("Lightpath Trace").textContent).toContain("1/7");
   expect(within(detail()).getByText("1/7 owned")).toBeDefined();
+});
+
+test("current notice offers show source-backed prices, dates and Spider Wings uncertainty", async () => {
+  await renderPage("/skins/monarch-of-blood");
+
+  expect(within(detail()).getAllByRole("checkbox")).toHaveLength(6);
+  expect(within(detail()).getByText("$29.99 per set")).toBeDefined();
+  expect(within(detail()).getByText(/25 November CET/)).toBeDefined();
+
+  await userEvent.click(setLink("Spider Wings"));
+
+  expect(within(detail()).getByText("$19.99 per piece")).toBeDefined();
+  expect(
+    within(detail()).getByText(/purchase cap is unresolved/),
+  ).toBeDefined();
+  expect(within(detail()).queryByText(/One of each piece per/)).toBeNull();
+
+  await userEvent.click(setLink("Tears of Blood"));
+
+  expect(within(detail()).getByText("300 Quna per piece")).toBeDefined();
+  expect(within(detail()).getByText(/25 November CET/)).toBeDefined();
+});
+
+test("the current-offer source chip stays separate from the client inventory groups", async () => {
+  await renderPage();
+
+  await userEvent.click(chip("Current Global offers"));
+
+  expect(listed()).toHaveLength(33);
+  expect(listed()).toContain("Monarch of Blood");
+  expect(listed()).toContain("Maid Ribbon Wings");
+  expect(listed()).not.toContain("Lightpath Trace");
 });

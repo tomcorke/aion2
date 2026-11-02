@@ -2,6 +2,7 @@ import {
   nonFestivalSkinEntries,
   type SkinAppearancePiece,
 } from "./skinAcquisitions.ts";
+import { currentGlobalSkinOfferEntries } from "./currentGlobalSkinOffers.ts";
 import reference from "./skinCatalogueReference.json";
 import { skinCatalogueAttribution } from "./skinCatalogueMetadata.ts";
 import type {
@@ -127,6 +128,7 @@ export const skinCatalogueEntries: SkinCatalogueEntry[] = [
     ),
   })),
   ...(reference as Reference[]).map(referenceEntry),
+  ...currentGlobalSkinOfferEntries,
 ];
 
 export const skinCataloguePieceIds = new Set(
