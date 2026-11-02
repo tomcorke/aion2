@@ -40,9 +40,11 @@ export function Sources() {
 
           <p className={STYLES.intro}>
             Things these notes cannot settle yet, why each changes the advice,
-            and the smallest check that would settle it. Reviewed dates on each
-            page mark when its content was last compared with the notes, not a
-            new check of these sources.
+            and the smallest check that would settle it. The Reviewed date below
+            marks when this page&apos;s open questions and source list were last
+            compared with the knowledge notes. Each source&apos;s site check
+            date records when that source page or data was checked; it does not
+            set this page&apos;s Reviewed date.
           </p>
 
           {section && (

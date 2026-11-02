@@ -95,10 +95,17 @@ test("resolved questions and private checks stay out", () => {
   expect(within(questions).queryByText(/\[|verified by|evidence/i)).toBeNull();
 });
 
-test("states that reviewed dates are not new source checks", () => {
+test("defines this page's Reviewed date separately from source check dates", () => {
   renderWithProviders(<Sources />);
 
-  expect(screen.getByText(/not a\s+new check of these sources/)).toBeDefined();
+  expect(
+    screen.getByText(
+      /the Reviewed date below marks when this page's open questions and source list were last compared with the knowledge notes.*each source's site check date.*does not set this page's Reviewed date/i,
+    ),
+  ).toBeDefined();
+  expect(screen.getByRole("contentinfo").textContent).toContain(
+    "Reviewed 2 November 2026.",
+  );
 });
 
 test("distinguishes source page checks from live game checks", () => {
