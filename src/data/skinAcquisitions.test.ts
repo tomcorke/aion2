@@ -209,9 +209,9 @@ test("the opt-in source additions and metadata retain actual source checks", () 
 
   expect(skinAcquisitionsReviewed).toBe("2026-10-14");
   expect(skinAcquisitionSourceDetails).toMatchObject({
-    metabotSkyfeatherGuardian: { checkedDate: "2026-10-14" },
-    metabotSkyFeather: { checkedDate: "2026-10-14" },
-    metabotAbyssTradeShop: { checkedDate: "2026-10-14" },
+    metabotSkyfeatherGuardian: { checkedDate: "2026-10-16" },
+    metabotSkyFeather: { checkedDate: "2026-10-16" },
+    metabotAbyssTradeShop: { checkedDate: "2026-10-16" },
     wikilySkyfeatherGuardian: {
       checkedDate: "2026-10-14",
       accessNote: expect.stringContaining("Region unstated"),

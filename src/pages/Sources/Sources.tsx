@@ -84,29 +84,60 @@ export function Sources() {
         <section aria-labelledby="guides" className={STYLES.section}>
           <h2 id="guides">Guides and data</h2>
 
+          <p className={STYLES.intro}>
+            Site check dates mark when a source page or data was reviewed; they
+            do not mean the game was checked live.
+          </p>
+
           <ul className={STYLES.list}>
             {(Object.keys(sources) as SourceId[]).map((id) => {
               const { name, covers, url } = sources[id] as Source;
-              const { checkedDate, accessNote } = sourceDetails[id] ?? {};
+              const {
+                region = "unstated",
+                clientBuild = "unstated",
+                publishedDate,
+                updatedDate,
+                checkedDate,
+                accessNote,
+              } = sourceDetails[id] ?? {};
 
               return (
                 <li key={id} className={STYLES.item}>
                   {url ? <a href={url}>{name}</a> : name}
                   <span className={STYLES.covers}>{covers}</span>
-                  {(checkedDate || accessNote) && (
-                    <span className={STYLES.checked}>
-                      {checkedDate && (
-                        <>
-                          Checked{" "}
-                          <time dateTime={checkedDate}>
-                            {formatDate(checkedDate)}
-                          </time>
-                          .{" "}
-                        </>
-                      )}
-                      {accessNote}
-                    </span>
-                  )}
+                  <span className={STYLES.context}>
+                    Region: {region}. Client build: {clientBuild}.{" "}
+                    {publishedDate ? (
+                      <>
+                        Published{" "}
+                        <time dateTime={publishedDate}>
+                          {formatDate(publishedDate)}
+                        </time>
+                        .{" "}
+                      </>
+                    ) : null}
+                    {updatedDate ? (
+                      <>
+                        Updated{" "}
+                        <time dateTime={updatedDate}>
+                          {formatDate(updatedDate)}
+                        </time>
+                        .{" "}
+                      </>
+                    ) : null}
+                    {!publishedDate &&
+                      !updatedDate &&
+                      "Publication/update date: unstated. "}
+                    Site check date:{" "}
+                    {checkedDate ? (
+                      <time dateTime={checkedDate}>
+                        {formatDate(checkedDate)}
+                      </time>
+                    ) : (
+                      "unstated"
+                    )}
+                    .{accessNote && <> Access/context: {accessNote}</>}
+                  </span>
                 </li>
               );
             })}
@@ -126,7 +157,7 @@ export function Sources() {
         </section>
       </div>
 
-      <SiteFooter reviewed="2026-10-14" />
+      <SiteFooter reviewed="2026-11-02" />
     </>
   );
 }

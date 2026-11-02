@@ -8,7 +8,6 @@ import {
   sources,
   type SourceId,
 } from "../../data/sources.ts";
-import { formatDate } from "../../lib/time.ts";
 import { questionsForTopic } from "../../lib/questionsForTopic.ts";
 import { renderWithProviders } from "../../testing/render.tsx";
 import { Sources } from "./Sources.tsx";
@@ -102,7 +101,17 @@ test("states that reviewed dates are not new source checks", () => {
   expect(screen.getByText(/not a\s+new check of these sources/)).toBeDefined();
 });
 
-test("shows recorded check dates and access notes, and invents none", () => {
+test("distinguishes source page checks from live game checks", () => {
+  renderWithProviders(<Sources />);
+
+  expect(
+    screen.getByText(
+      /site check dates.*do not mean the game was checked live/i,
+    ),
+  ).toBeDefined();
+});
+
+test("shows source context, retained dates and access notes without filling gaps", () => {
   renderWithProviders(<Sources />);
 
   const guides = screen.getByRole("region", { name: "Guides and data" });
@@ -112,17 +121,51 @@ test("shows recorded check dates and access notes, and invents none", () => {
     const item = within(guides)
       .getAllByRole("listitem")
       .find((li) => li.firstChild!.textContent === name)!;
-    const time = item.querySelector("time");
+    const dates = [...item.querySelectorAll("time")];
     const details = sourceDetails[id];
 
-    expect(time?.getAttribute("dateTime")).toBe(details?.checkedDate);
+    expect(item.textContent).toContain(
+      `Region: ${details?.region ?? "unstated"}`,
+    );
+    expect(item.textContent).toContain(
+      `Client build: ${details?.clientBuild ?? "unstated"}`,
+    );
 
-    if (details?.checkedDate)
-      expect(time!.textContent).toBe(formatDate(details.checkedDate));
+    const expectedDates = [
+      details?.publishedDate,
+      details?.updatedDate,
+      details?.checkedDate,
+    ].filter((date): date is string => date !== undefined);
+
+    expect(dates.map((date) => date.getAttribute("dateTime"))).toEqual(
+      expectedDates,
+    );
+
+    if (!details?.publishedDate && !details?.updatedDate)
+      expect(item.textContent).toContain("Publication/update date: unstated");
+
+    if (!details?.checkedDate)
+      expect(item.textContent).toContain("Site check date: unstated");
 
     if (details?.accessNote)
       expect(item.textContent).toContain(details.accessNote);
   }
+});
+
+test("describes retained owner check context without claiming one date or build", () => {
+  renderWithProviders(<Sources />);
+
+  const item = within(screen.getByRole("region", { name: "Guides and data" }))
+    .getAllByRole("listitem")
+    .find((li) => li.firstChild!.textContent === "My own gameplay checks")!;
+
+  expect(item.textContent).toContain(
+    "Region: Global EU (some observations presumed)",
+  );
+  expect(item.textContent).toContain("Client build: unstated");
+  expect(item.textContent).toContain("owner observations dated 5–21 October");
+  expect(item.textContent).toContain("no per-check evidence log");
+  expect(item.textContent).toMatch(/no single check date/i);
 });
 
 test("open questions come before the source catalog", () => {
