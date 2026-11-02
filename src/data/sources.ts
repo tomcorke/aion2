@@ -180,7 +180,8 @@ export const sources = {
   },
   metabotStigma: {
     name: "MetaBot Stigma guide",
-    covers: "Stigma slots, point costs, specializations and point sources",
+    covers:
+      "Stigma slots, point costs, specializations, shard sources, shop prices and limits",
     url: "https://metabot.gg/en/aion-2/guides/stigma-guide",
   },
   metabotWings: {

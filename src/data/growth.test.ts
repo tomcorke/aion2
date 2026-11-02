@@ -40,7 +40,33 @@ test("boards, Stigma, pets, Arcana and wings retain distinct use and finite supp
   ).toContainEqual({ name: "Leveling" });
   expect(
     growthMaterials.find(({ id }) => id === "stigma-shards")?.use,
-  ).toContain("Stigma");
+  ).toContain("from Stigma skill level 20 onward");
+  const stigma = growthMaterials.find(({ id }) => id === "stigma-shards")!;
+  const stigmaRoutes = Object.fromEntries(
+    stigma.acquisition.map((route) => [route.name, route]),
+  );
+
+  expect(stigmaRoutes["Abyss Trade Shop"]).toMatchObject({
+    detail: expect.stringContaining("10,000, 15,000, 20,000 and 25,000"),
+    limit: "50 per price step per character.",
+  });
+  expect(stigmaRoutes["Nightmare Trade Shop"]).toMatchObject({
+    detail: expect.stringContaining("1,500 Phantasmal Fragments"),
+    limit: expect.stringContaining("no weekly reset is stated"),
+  });
+  expect(stigmaRoutes["Shugo Festival Shop"]).toMatchObject({
+    detail: expect.stringContaining("300 Centuryroot Tokens"),
+    limit: expect.stringContaining("no weekly reset is stated"),
+  });
+  expect(stigmaRoutes["Achievements"]?.detail).toContain(
+    "2 Stigma Shards per milestone",
+  );
+  expect(
+    stigmaRoutes["Party dungeons and some treasure boxes"]?.detail,
+  ).toContain("Unstable Stigma Shards");
+  expect(
+    stigmaRoutes["Special Growth Voucher: Stigma Shard (Bound)"]?.detail,
+  ).toContain("180");
   expect(
     growthMaterials.find(({ id }) => id === "soul-crystals")?.use,
   ).toContain("4 Soul Crystals and 1,000 Kina");

@@ -233,10 +233,14 @@ export const progressionSections: ProgressionSection[] = [
     title: "Stigmas",
     items: [
       "Stigma slots open at character levels 22, 27, 32 and 37, four in all.",
-      "Levelling gives 30 Stigma points by level 45: enough for four Stigmas at rank 5 and one of them at rank 10.",
-      "Ranks cost 1 point each up to rank 5, 2 up to 10, 4 up to 15 and 8 up to 20, 75 points in all. Ranks past 20 need Superior Stigma Shards.",
+      "Levelling and the third Ascension reward give 30 Stigma points by level 45: enough for four Stigmas at rank 5 and one of them at rank 10.",
+      "Ranks cost 1 point each up to rank 5, 2 up to 10, 4 up to 15 and 8 up to 20, 75 points in all. The tutorial says Stigma skills need Superior Stigma Shards from skill level 20 onward; exact costs are not given.",
       "Each Stigma switches on a specialization at ranks 5, 10, 15 and 20. These are usually worth more than the extra base damage.",
-      "More points come from the Abyss, Nightmare and Shugo Festival shops, achievements and the battle pass. Resetting a Stigma refunds its points but has its own cost.",
+      "Character levels 23–39 give 1 Stigma point each, and levels 40–45 give 2 each. From level 46, levelling gives 1 Superior Stigma Shard per level; raising a Stigma to rank 20 also gives 1.",
+      "Abyss Trade Shop shards cost 10,000, 15,000, 20,000 and 25,000 AP in four steps, with 50 per step per character. Nightmare Trade Shop shards cost 1,500 Phantasmal Fragments each, with a 35 per character limit; no weekly reset is stated.",
+      "Shugo Festival Shop shards cost 300 Centuryroot Tokens each, with a 35 per character limit; no weekly reset is stated. Achievements give 2 per milestone. The Battle Pass, Regional Quests, and Arena and battlefield trade shops are also named sources, but their quantities and limits are not given.",
+      "Party dungeons and some treasure boxes can give Unstable Stigma Shards, which convert at Substance Morph; the conversion rate is not given. The Special Growth Voucher raises total shard points to 180.",
+      "Advice: consider Stigma Shards before ordinary consumables for general progression; individual needs can differ. Resetting a Stigma refunds its points but has its own cost.",
     ],
     links: [
       { to: "/gear", label: "Power systems on Gear" },

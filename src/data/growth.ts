@@ -116,7 +116,7 @@ export const growthSpendGuidance = [
     id: "ap-priority",
     title: "AP priorities",
     items: [
-      "Consider Stigma Shards before ordinary consumables. Potential is a PvP stat investment, not a general PvE requirement.",
+      "Advice: consider Stigma Shards before ordinary consumables for general progression; individual needs can differ. Potential is a PvP stat investment, not a general PvE requirement.",
     ],
     links: [{ to: "/gear/enhancement", label: "Potential mechanics" }],
   },
@@ -578,17 +578,66 @@ export const growthMaterials: GrowthMaterial[] = [
     aliases: ["Stigma Shard"],
     kind: "material",
     targets: ["stigma"],
-    use: "Stigma skill progression. Ranks above 20 require Superior Stigma Shards; exact quantities and their acquisition were not verified.",
+    use: "Stigma skill progression. The tutorial says Superior Stigma Shards are needed from Stigma skill level 20 onward; exact costs are not given.",
     acquisition: [
-      { name: "Abyss Trade Shop" },
+      {
+        name: "Character levelling",
+        detail:
+          "1 point per level 23–39 and 2 per level 40–45. From level 46, levelling gives 1 Superior Stigma Shard per level; raising a Stigma to rank 20 also gives 1.",
+      },
+      {
+        name: "Third Ascension reward",
+        detail: "1 Stigma Shard.",
+        limit: "Once.",
+      },
+      {
+        name: "Achievements",
+        detail: "2 Stigma Shards per milestone.",
+        limit: "Several milestones; no total is given.",
+      },
+      { name: "Battle Pass", detail: "Quantity and limit not given." },
+      {
+        name: "Regional Quests",
+        detail:
+          "Named in the in-game guide text; the quests and rewards are not identified.",
+      },
+      {
+        name: "Abyss Trade Shop",
+        detail:
+          "10,000, 15,000, 20,000 and 25,000 Abyss Points across four price steps.",
+        limit: "50 per price step per character.",
+      },
+      {
+        name: "Nightmare Trade Shop",
+        detail: "1,500 Phantasmal Fragments each.",
+        limit: "35 per character; no weekly reset is stated.",
+      },
+      {
+        name: "Shugo Festival Shop",
+        detail: "300 Centuryroot Tokens each.",
+        limit: "35 per character; no weekly reset is stated.",
+      },
+      {
+        name: "Arena and battlefield trade shops",
+        detail: "Quantities and limits are not given.",
+      },
+      {
+        name: "Party dungeons and some treasure boxes",
+        detail:
+          "Can give Unstable Stigma Shards; convert them at Substance Morph, but the conversion rate is not given.",
+      },
+      {
+        name: "Special Growth Voucher: Stigma Shard (Bound)",
+        detail: "Raises total shard points to 180; has no effect above 180.",
+      },
       {
         name: "Spacetime Rift first quest",
         detail:
           "The first quest of either faction's chain rewards a Stigma Shard alongside other materials.",
+        limit: "Once per faction quest chain.",
       },
     ],
-    condition:
-      "Do not substitute ordinary shards for the separate Superior requirement. Purchase limits were not recorded.",
+    condition: "Some source quantities and limits are not given.",
     links: [{ to: "/progression", label: "Stigma priorities" }],
     sourceIds: ["game8Abyss", "metabotStigma", "game8RiftQuests"],
   },
