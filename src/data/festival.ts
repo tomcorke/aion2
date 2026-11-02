@@ -9,7 +9,9 @@ export const festivalSources: SourceId[] = [
   "aion2GuideFestival",
   "officialMembership",
   "metabotEvents",
+  "metabotFestival",
   "metabotMethodology",
+  "aion2ggFestival",
   "metabotFestivalShop",
   "allThingsHowFestival",
   "ownChecks",
@@ -470,6 +472,21 @@ export type FestivalGame = {
   objective: string;
 };
 
+export type FestivalScheduledGame = {
+  id: string;
+  name: string;
+  minimumPlayers: number | null;
+  duration: string;
+  objective: string;
+};
+
+export const festivalGameCoverage = {
+  rewardTables:
+    "MetaBot lists reward tables for these nine games. The tables describe client data, not a live check of current schedules or reward eligibility.",
+  scheduled:
+    "MetaBot lists these two games separately as scheduled minigames without reward tables. AION2.GG lists eleven minigame names in its reported EU/NA client build. A scheduled appearance does not by itself confirm reward eligibility. These client reports are not a live Global check.",
+};
+
 export const festivalGames: FestivalGame[] = [
   {
     id: "jump-jump",
@@ -540,5 +557,22 @@ export const festivalGames: FestivalGame[] = [
     duration: "3:15",
     objective:
       "Memorize tile colors and paths across eight rounds. Total score determines rank.",
+  },
+];
+
+export const festivalScheduledGames: FestivalScheduledGame[] = [
+  {
+    id: "nyerk-shooter",
+    name: "Nyerk Shooter",
+    minimumPlayers: null,
+    duration: "2:30",
+    objective: "Destroy falling Pangs and jump to evade the Rotan.",
+  },
+  {
+    id: "shugos-dilemma",
+    name: "Shugo's Dilemma",
+    minimumPlayers: 3,
+    duration: "5:00",
+    objective: "Gather on a platform with the exact number of players shown.",
   },
 ];

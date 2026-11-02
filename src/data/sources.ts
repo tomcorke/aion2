@@ -31,6 +31,17 @@ export const sources = {
       "Resets, Artifact Siege, Spacetime Rifts, Dimensional Invasions, Lower Reshanta times and conditional Festival rewards, read from the Global client",
     url: "https://metabot.gg/en/aion-2/events",
   },
+  metabotFestival: {
+    name: "MetaBot Shugo Festival data",
+    covers:
+      "Global client-listed Festival games, reward tables, and scheduled minigames",
+    url: "https://metabot.gg/en/aion-2/events/shugo-festival",
+  },
+  aion2ggFestival: {
+    name: "AION2.GG Shugo Festival timer",
+    covers: "EU/NA client-listed Festival minigame names and timer data",
+    url: "https://aion2.gg/tools/event-timer/shugo-festival",
+  },
   metabotMonsters: {
     name: "MetaBot monster database",
     covers:
