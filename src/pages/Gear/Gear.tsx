@@ -56,6 +56,27 @@ export function Gear() {
           </Link>
         </div>
 
+        <section
+          className={STYLES.comparison}
+          aria-labelledby="gear-comparison"
+        >
+          <h2 id="gear-comparison">Compare gear grades and item levels</h2>
+          <p>
+            Grade sets the Enhance cap and number of Manastone slots. Within a
+            grade, item level changes stats and enhancement price. The ranges
+            overlap: Rare item level 35 can be less useful than Epic item level
+            33, which has an extra Manastone slot and a +10 instead of +5
+            Enhance cap.
+          </p>
+          <p>
+            Amulets and belts follow their own once-per-character Substance
+            Morph path: Rare item level 13 to Epic 36 to Unique 65, with the
+            previous piece at +10. Clash Runes have separate enhancement and
+            failure rules. See{" "}
+            <Link to="/gear/enhancement">enhancement and upgrade details</Link>.
+          </p>
+        </section>
+
         <div>
           <Tabs label="Piece item level tier" tabs={tabs} selected={tier?.id}>
             {tier ? (

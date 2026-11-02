@@ -266,3 +266,38 @@ test("names its sources and reviewed date in the footer", () => {
 
   expect(footer.textContent).toMatch(/Reviewed 1 Nov/);
 });
+
+test("explains grade and item-level comparisons with the special gear rules", () => {
+  renderPage();
+
+  expect(
+    screen.getByRole("heading", {
+      name: "Compare gear grades and item levels",
+    }),
+  ).toBeDefined();
+  expect(
+    screen.getByText(
+      /Rare item level 35 can be less useful than Epic item level 33/,
+    ),
+  ).toBeDefined();
+  expect(
+    screen.getByText(
+      /Amulets and belts follow their own once-per-character Substance Morph path/,
+    ),
+  ).toBeDefined();
+  expect(
+    screen.getByText(/Clash Runes have separate enhancement and failure rules/),
+  ).toBeDefined();
+  expect(
+    screen
+      .getByRole("link", { name: "enhancement and upgrade details" })
+      .getAttribute("href"),
+  ).toBe("/gear/enhancement");
+
+  const footer = screen.getByRole("contentinfo");
+
+  expect(footer.textContent).toContain("MetaBot methodology");
+  expect(footer.textContent).toContain(
+    "MetaBot gear progression guide (Global client data)",
+  );
+});

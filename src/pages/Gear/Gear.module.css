@@ -15,6 +15,20 @@
   gap: 8px 12px;
 }
 
+.comparison {
+  display: grid;
+  gap: 8px;
+  max-width: 76ch;
+
+  p {
+    margin: 0;
+  }
+
+  a {
+    color: var(--accent);
+  }
+}
+
 .upgrades {
   display: inline-flex;
   align-items: center;
