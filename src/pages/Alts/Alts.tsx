@@ -12,6 +12,7 @@ import {
   altsSources,
   cubeWarning,
   resourceCounters,
+  serverTransferGuidance,
 } from "../../data/alts.ts";
 import { useTitle } from "../../hooks/useTitle.ts";
 import STYLES from "./Alts.module.css";
@@ -29,6 +30,20 @@ export function Alts() {
       />
 
       <div className={STYLES.body}>
+        <section aria-labelledby="alts-server-transfers">
+          <h2 id="alts-server-transfers" className={STYLES.heading}>
+            Server transfers
+          </h2>
+          <ul className={STYLES.items}>
+            {serverTransferGuidance.map((item) => (
+              <li key={item}>
+                <Diamond />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section aria-labelledby="alts-ledger">
           <h2 id="alts-ledger" className={STYLES.heading}>
             What carries over

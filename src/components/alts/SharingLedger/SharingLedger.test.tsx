@@ -44,7 +44,9 @@ test("explains that another server shares nothing", () => {
   renderWithProviders(<SharingLedger />);
 
   expect(
-    within(column("Another server")).getByText(/shares nothing with the main/),
+    within(column("Another server")).getByText(
+      /While it remains on another server.*shares nothing with the main/,
+    ),
   ).toBeDefined();
 });
 

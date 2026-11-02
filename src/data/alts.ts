@@ -390,7 +390,7 @@ export const sharingLedger: SharingEntry[] = [
     name: "An alt on another server",
     scope: "another-server",
     details:
-      "An alt on another server shares nothing with the main: storage, Kina, collections and same-server progress do not carry over. Cross-server dungeon matchmaking is not progress sharing.",
+      "While it remains on another server, an alt shares nothing with the main: storage, Kina, collections and same-server progress do not carry over. Cross-server dungeon matchmaking is not progress sharing.",
   },
 ];
 
@@ -455,6 +455,13 @@ export const altsSections: AltsSection[] = [
   },
 ];
 
+export const serverTransferGuidance = [
+  "The first Global server-transfer period ended on 28 October 2026. NC allowed one transfer per account from one origin server to a destination in the same region and faction; any number of characters could move in that transfer.",
+  "NC's transfer list covered the character's Cube inventory and Character Storage; Abyss Points and earnings, Daevanion, Arcana, Pantheon, skills and Stigmas, quests, exploration, titles and achievements; pets and Genus, Closet skins and collection points, wings, Theostones, Monolith and Empyrean Trace; content counts and tickets, Season Missions and rank points, Supply Requests, Substance Morph, crafting, and Gathering proficiency. It also listed active Membership, Daeva Pass, Attendance, friends, Market history, customization, registered styles, and item-recovery history.",
+  "Kina in a character's Cube or Character Storage moved, as did Quna and Mileage. Server Storage items and Kina stayed on the origin server; only its expansion count transferred. Used Character Slot expansions also stayed on the origin server.",
+  "NC's 28 October patch notes said the transfer period had ended and the shop tab would be removed. NC has announced no later date or future rules; check current official notices instead of planning around another transfer.",
+];
+
 export const altsSources: SourceId[] = [
   "metabotSubstanceMorph",
   "metabotManastones",
@@ -463,6 +470,7 @@ export const altsSources: SourceId[] = [
   "redditBeginnerDps",
   "mmoCodexAlts",
   "gamesGgAlts",
+  "ncServerTransfers",
   "officialServers",
   "metabotFactions",
   "game8Factions",
@@ -522,6 +530,12 @@ export const altsSourceAdditions = {
     covers:
       "Role flexibility, other-server isolation and estimated weekly play time",
     url: "https://games.gg/aion-2/guides/alts-explained-should-you-make-an-alt-in-aion-2/",
+  },
+  ncServerTransfers: {
+    name: "NC Global Server Transfer notice",
+    covers:
+      "First transfer period limits and official list of character, currency, storage, and progress records transferred",
+    url: "https://steamcommunity.com/games/3393110/announcements/detail/712288859283523637",
   },
   officialServers: {
     name: "NCSOFT Global server and matchmaking notice",
