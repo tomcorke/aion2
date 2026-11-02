@@ -15,25 +15,29 @@ import {
   type GrowthTarget,
 } from "../../data/growth.ts";
 import { useTitle } from "../../hooks/useTitle.ts";
+import { growthLimitsOf } from "../../lib/growthLimits.ts";
 import STYLES from "./Growth.module.css";
 
 type TargetFilter = GrowthTarget | "all";
 
 const targetChips = [{ id: "all" as const, label: "All" }, ...growthTargets];
 
-// Names, aliases, use and acquisition routes are searchable.
+// Search includes every fact rendered under Limits and conditions.
 function matches(
   material: GrowthMaterial,
   query: string,
   target: TargetFilter,
 ) {
   const text = query.trim().toLowerCase();
+  const limits = material.acquisition.flatMap(growthLimitsOf);
 
   const haystack = [
     material.name,
     ...material.aliases,
     material.use,
     ...material.acquisition.flatMap(({ name, detail = "" }) => [name, detail]),
+    ...limits,
+    material.condition ?? (limits.length === 0 ? "No limit recorded." : ""),
   ];
 
   return (
@@ -67,7 +71,7 @@ export function Growth() {
       <div className={STYLES.body}>
         <div className={STYLES.toolbar}>
           <SearchField
-            label="Search materials"
+            label="Search names, uses, sources, limits and conditions"
             value={query}
             onChange={setQuery}
           />
