@@ -1,9 +1,10 @@
 import type { SourceId } from "./sources.ts";
+import { timerSources } from "./timers.ts";
 
-// Retained in aion2-knowledge main@ffdb7d0, research/timer-verification.md (2026-10-14).
-// Public rechecks are not new EU in-game observations or publisher confirmation.
+// Checked against knowledge/topics/research/timer-verification.md, reviewed 2026-11-01.
+// Public schedules are not EU in-game observations or publisher confirmation.
 export const timerClockWarning =
-  "Timers use Berlin as a site assumption, not a confirmed EU server clock. The EU daily and weekly reset time remains unresolved; other reports use 07:00 UTC. Treat these countdowns as provisional and check the in-game countdown.";
+  "Berlin is a site assumption, not a confirmed EU server clock. The dial follows MetaBot's 16:00 server-time ticket-table reset; Shugo.GG reports daily and weekly resets at 16:00 Korea time / 07:00 UTC (08:00 Berlin after the 25 October change). MetaBot reports a Wednesday weekly reset at 16:00 server time. NC's 08:00 CET notices name only the Gathering limit and current Attendance event. EU timing and which counters share these schedules remain unresolved. Treat both countdown targets as provisional and check the in-game countdown.";
 
 export const timerVerificationNotes = [
   {
@@ -51,12 +52,19 @@ export const timerVerificationNotes = [
 ];
 
 export const timerVerificationSources: SourceId[] = [
+  "ncGlobal28Oct",
+  "ncAtreiasCall",
   "shugoTimers",
   "metabotEvents",
+  "metabotMethodology",
   "couga54",
   "wikily",
   "space4GamesRifts",
   "game8RiftQuests",
   "game8Festival",
   "ownChecks",
+];
+
+export const timerPageSources: SourceId[] = [
+  ...new Set([...timerSources, ...timerVerificationSources]),
 ];

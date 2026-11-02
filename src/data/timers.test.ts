@@ -1,6 +1,11 @@
 import { expect, test } from "vitest";
 import { sources } from "./sources.ts";
-import { dailyReset, timerDefs, timerSources } from "./timers.ts";
+import {
+  dailyReset,
+  timerDefs,
+  timerReviewed,
+  timerSources,
+} from "./timers.ts";
 import { resolveTimer } from "../lib/resolveTimer.ts";
 import { secondsUntilNext } from "../lib/time.ts";
 
@@ -31,6 +36,14 @@ test("bosses carry a gear item level and fixed timers do not", () => {
     if (group === "fixed") expect(itemLevel).toBeUndefined();
     else expect(itemLevel).toBeGreaterThan(0);
   }
+});
+
+test("names the weekly countdown by its reported weekday and retains the shared review date", () => {
+  expect(timerDefs.find(({ id }) => id === "weekly")).toMatchObject({
+    name: "Wednesday weekly reset",
+    schedule: { kind: "slots", hours: [16], minute: 0, days: [3] },
+  });
+  expect(timerReviewed).toBe("2026-11-02");
 });
 
 test("Abyss events expose all three reported matching-group schedules", () => {

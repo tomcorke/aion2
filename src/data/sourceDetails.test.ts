@@ -46,7 +46,7 @@ test.each([
   ["gamerBlurbClashRunes", "2026-10-12"],
   ["allThingsDailyDungeon", "2026-10-14"],
   ["metabotLowerAbyssRiftStone", "2026-10-14"],
-  ["metabotEvents", "2026-10-14"],
+  ["metabotEvents", "2026-11-01"],
   ["couga54", "2026-10-14"],
   ["metabotIntermediateSoulstone", "2026-10-15"],
   ["metabotSuperiorSoulstone", "2026-10-15"],
@@ -125,8 +125,13 @@ test("retains catalog metadata without conflating source and client builds", () 
   });
   expect(sourceDetails.shugoTimers).toMatchObject({
     region: "Global, Korea and Taiwan",
-    updatedDate: "2026-10-09",
-    checkedDate: "2026-10-14",
+    updatedDate: "2026-10-28",
+    checkedDate: "2026-11-01",
+  });
+  expect(sourceDetails.metabotEvents).toMatchObject({
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-11-01",
   });
   expect(sourceDetails.officialServers?.publishedDate).toBe("2026-10-04");
   expect(sourceDetails.metabotDaevanion?.checkedDate).toBe("2026-11-01");
@@ -201,7 +206,7 @@ test("recorded access limits remain readable and do not imply unseen material wa
     /owner observations dated 5.*21 October 2026.*no per-check evidence log/i,
   );
   expect(sourceDetails.metabotEvents?.accessNote).toMatch(
-    /schedules.*not.*live EU/i,
+    /schedules.*not.*checked live on EU/i,
   );
   expect(sourceDetails.aion2MapsPets?.accessNote).toMatch(
     /does not identify all three pets or live-check each zone/i,

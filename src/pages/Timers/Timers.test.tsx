@@ -60,6 +60,15 @@ test("shows the timer board under its title, with sources", () => {
   expect(screen.getByRole("region", { name: "Timers" })).toBeDefined();
   expect(screen.getByRole("contentinfo").textContent).toContain("couga54");
   expect(screen.getByRole("contentinfo").textContent).toContain(
+    "NC Global patch notes, 28 October 2026",
+  );
+  expect(screen.getByRole("contentinfo").textContent).toContain(
+    "NC: Atreia's Call 28-day Attendance event",
+  );
+  expect(screen.getByRole("contentinfo").textContent).toContain(
+    "MetaBot methodology",
+  );
+  expect(screen.getByRole("contentinfo").textContent).toContain(
     "Game8 Spacetime Rift quest walkthrough",
   );
   expect(screen.getByRole("contentinfo").textContent).toContain(
@@ -76,7 +85,8 @@ test("the root view keeps the saved groups", () => {
       .getByRole("tab", { name: "All timers" })
       .getAttribute("aria-selected"),
   ).toBe("true");
-  expect(shows("Weekly reset")).toBe(true);
+  expect(shows("Wednesday weekly reset")).toBe(true);
+  expect(screen.getAllByText("Ticket-table reset in")).toHaveLength(2);
   expect(shows("Executors")).toBe(false);
   expect(
     spine().getByText("Silent Dartan").closest("li")!.textContent,
@@ -96,7 +106,7 @@ test("/timers/abyss loads the Lower Reshanta view directly", () => {
   expect(shows("Executors")).toBe(true);
   expect(shows("Artifact Siege")).toBe(true);
   expect(shows("Watcher Kaira")).toBe(false);
-  expect(shows("Weekly reset")).toBe(false);
+  expect(shows("Wednesday weekly reset")).toBe(false);
   expect(document.title).toBe("Lower Reshanta timers · AION 2 Notes");
 });
 
@@ -145,5 +155,5 @@ test("an unknown view says so and shows the regular board", () => {
   render("/timers/upper");
 
   expect(screen.getByText(/no “upper” timer view/)).toBeDefined();
-  expect(shows("Weekly reset")).toBe(true);
+  expect(shows("Wednesday weekly reset")).toBe(true);
 });

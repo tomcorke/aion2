@@ -22,13 +22,13 @@ export const sources = {
   shugoTimers: {
     name: "Shugo.GG timer data",
     covers:
-      "Regional fixed schedules and the disputed EU event/reset clocks; no publisher confirmation",
+      "Community-reported Global EU daily and weekly reset schedules at 16:00 Korea time; reset and event clocks are not publisher-confirmed",
     url: "https://shugo.gg/timers.json",
   },
   metabotEvents: {
     name: "MetaBot event schedule",
     covers:
-      "Resets, Artifact Siege, Spacetime Rifts, Dimensional Invasions, Lower Reshanta times and conditional Festival rewards, read from the Global client",
+      "Global client schedule reports a 16:00 server-time ticket-table reset and Wednesday weekly reset, plus event schedules; the shared Global clock is community-confirmed, not official",
     url: "https://metabot.gg/en/aion-2/events",
   },
   metabotFestival: {
@@ -311,7 +311,7 @@ export const sources = {
   ncGlobal28Oct: {
     name: "NC Global patch notes, 28 October 2026",
     covers:
-      "Urugugu and Vakron Hard rewards and Ariel Fragment morph choices and limits; Odylium Repository and its shared Daily Dungeon entry pool; the transfer period's end and removal of its shop tab; the Instant Clear ticket's 30,000 Kina offer, 14-per-server weekly limit and announced shop move; Heightened Sixth Sense HP changes; other 28 October updates",
+      "Gathering limit daily reset at 12:00 AM PDT / 8:00 AM CET; Urugugu and Vakron Hard rewards and Ariel Fragment morph choices and limits; Odylium Repository and its shared Daily Dungeon entry pool; the transfer period's end and removal of its shop tab; the Instant Clear ticket's 30,000 Kina offer, 14-per-server weekly limit and announced shop move; Heightened Sixth Sense HP changes; other 28 October updates",
     url: "https://aion2.plaync.com/en-us/board/update/view?articleId=6ae19668577e8c01355e0210",
   },
   ncLudraAwakens: {
@@ -323,7 +323,7 @@ export const sources = {
   ncAtreiasCall: {
     name: "NC: Atreia's Call 28-day Attendance event",
     covers:
-      "Global Attendance menu and the event's 2 December 2026 CET maintenance cutoff",
+      "The current Global Attendance event's daily reset at 8:00 CET and 2 December 2026 CET maintenance cutoff",
     url: "https://steamcommunity.com/app/3393110/announcements/",
   },
   ncOdyleEnergyBoost: {

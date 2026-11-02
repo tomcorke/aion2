@@ -14,7 +14,7 @@ describe("resolveTimer", () => {
     const weekly = resolveTimer(def("weekly"), NOW, "elyos", {});
 
     expect(weekly).toMatchObject({
-      name: "Weekly reset",
+      name: "Wednesday weekly reset",
       secondsLeft: 2 * HOUR,
       respawns: false,
     });

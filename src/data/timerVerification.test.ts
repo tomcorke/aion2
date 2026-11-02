@@ -2,6 +2,7 @@ import { expect, test } from "vitest";
 import { timerDefs } from "./timers.ts";
 import {
   timerClockWarning,
+  timerPageSources,
   timerVerificationNotes,
   timerVerificationSources,
 } from "./timerVerification.ts";
@@ -9,10 +10,19 @@ import { sources } from "./sources.ts";
 
 test("the shared clock warning keeps EU resets and Berlin conditional", () => {
   expect(timerClockWarning).toMatch(/Berlin.*assumption/);
-  expect(timerClockWarning).toMatch(/EU.*reset.*unresolved/);
+  expect(timerClockWarning).toMatch(/EU timing.*remain unresolved/);
+  expect(timerClockWarning).toContain("ticket-table reset");
+  expect(timerClockWarning).toContain("Wednesday weekly reset");
+  expect(timerClockWarning).toContain("16:00 Korea time / 07:00 UTC");
+  expect(timerClockWarning).toContain("08:00 Berlin");
+  expect(timerClockWarning).toContain("Gathering limit and current Attendance");
   expect(timerClockWarning).toContain("07:00 UTC");
+  expect(timerClockWarning).toContain(
+    "Treat both countdown targets as provisional",
+  );
   expect(timerClockWarning).toMatch(/in-game countdown/);
   expect(timerClockWarning).toContain("not a confirmed EU server clock");
+  expect(timerClockWarning).not.toMatch(/one universal reset/i);
 });
 
 test.each([
@@ -51,4 +61,6 @@ test("warnings use stable IDs, actual timers and known registry sources", () => 
   }
 
   for (const id of timerVerificationSources) expect(id in sources).toBe(true);
+  for (const id of timerPageSources) expect(id in sources).toBe(true);
+  expect(new Set(timerPageSources).size).toBe(timerPageSources.length);
 });

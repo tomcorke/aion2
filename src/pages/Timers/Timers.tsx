@@ -3,8 +3,8 @@ import { Tabs } from "../../components/controls/Tabs/Tabs.tsx";
 import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
 import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
 import { TimerBoard } from "../../components/timers/TimerBoard/TimerBoard.tsx";
-import { timerSources } from "../../data/timers.ts";
-import { timerVerificationSources } from "../../data/timerVerification.ts";
+import { timerReviewed } from "../../data/timers.ts";
+import { timerPageSources } from "../../data/timerVerification.ts";
 import { useTitle } from "../../hooks/useTitle.ts";
 import STYLES from "./Timers.module.css";
 
@@ -13,8 +13,6 @@ const tabs = [
   { id: "all", label: "All timers", to: "/timers" },
   { id: "abyss", label: "Lower Reshanta", to: "/timers/abyss" },
 ];
-
-const sources = [...new Set([...timerSources, ...timerVerificationSources])];
 
 export function Timers() {
   const view = useMatch("/timers/:view")?.params.view;
@@ -45,7 +43,7 @@ export function Timers() {
         </Tabs>
       </div>
 
-      <SiteFooter sources={sources} reviewed="2026-11-02" />
+      <SiteFooter sources={timerPageSources} reviewed={timerReviewed} />
     </>
   );
 }
