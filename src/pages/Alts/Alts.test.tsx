@@ -7,18 +7,37 @@ import { Alts } from "./Alts.tsx";
 
 const renderPage = () => renderWithProviders(<Alts />, { path: "/alts" });
 
-test("orders the headings: title, ledger, cube warning, limits, then advice", () => {
+test("orders the headings: title, transfers, ledger, cube warning, limits, then advice", () => {
   renderPage();
 
   expect(screen.getByRole("heading", { level: 1, name: "Alts" })).toBeDefined();
   expect(
     screen.getAllByRole("heading", { level: 2 }).map((h) => h.textContent),
   ).toEqual([
+    "Server transfers",
     "What carries over",
     "Skipped cubes can lock the main out",
     "Limits and refills",
     ...altsSections.map(({ title }) => title),
   ]);
+});
+
+test("summarizes the ended first transfer period and what moved", () => {
+  renderPage();
+
+  const transfers = screen.getByRole("region", { name: "Server transfers" });
+
+  expect(transfers.textContent).toContain("ended on 28 October 2026");
+  expect(transfers.textContent).toContain("one transfer per account");
+  expect(transfers.textContent).toContain("same region and faction");
+  expect(transfers.textContent).toContain("any number of characters");
+  expect(transfers.textContent).toContain("Character Storage");
+  expect(transfers.textContent).toContain("Kina stayed on the origin server");
+  expect(transfers.textContent).toContain(
+    "only its expansion count transferred",
+  );
+  expect(transfers.textContent).toContain("no later date or future rules");
+  expect(transfers.textContent).toContain("check current official notices");
 });
 
 test("warns prominently that an alt skipping cubes can lock the main out", () => {

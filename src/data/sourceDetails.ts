@@ -280,7 +280,13 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
     checkedDate: "2026-10-10",
   },
   ncGlobal21Oct: { region: "Global", checkedDate: "2026-11-01" },
-  ncGlobal28Oct: { region: "Global", checkedDate: "2026-11-01" },
+  ncGlobal28Oct: { region: "Global", checkedDate: "2026-11-02" },
+  ncServerTransfers: {
+    region: "Global",
+    publishedDate: "2026-10-09",
+    updatedDate: "2026-10-26",
+    checkedDate: "2026-11-02",
+  },
   ncPetOffers13Oct: {
     region: "Global",
     publishedDate: "2026-10-13",
