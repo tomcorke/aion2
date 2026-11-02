@@ -59,6 +59,12 @@ test("shows the timer board under its title, with sources", () => {
   ).toBeDefined();
   expect(screen.getByRole("region", { name: "Timers" })).toBeDefined();
   expect(screen.getByRole("contentinfo").textContent).toContain("couga54");
+  expect(screen.getByRole("contentinfo").textContent).toContain(
+    "Game8 Spacetime Rift quest walkthrough",
+  );
+  expect(screen.getByRole("contentinfo").textContent).toContain(
+    "Reviewed 2 November 2026",
+  );
   expect(document.title).toBe("Timers · AION 2 Notes");
 });
 
