@@ -23,6 +23,8 @@ type Setup = {
   minItemLevel: number;
 };
 
+type MatchingGroup = 1 | 2 | 3;
+
 const defaultSetup: Setup = {
   order: timerDefs.map(({ id }) => id),
   hidden: [],
@@ -43,6 +45,25 @@ const factionLabels: Record<Faction, string> = {
   asmodians: "Asmodians",
 };
 
+const eventTimerIds = ["siege", "executors", "nahma"];
+
+function inView(
+  timer: { group: TimerGroup; id: string },
+  group: Props["group"],
+  matchingGroup: MatchingGroup | 0,
+  groups: TimerGroup[],
+) {
+  if (group === "abyss")
+    return (
+      (timer.group === "reshanta" || timer.id === "siege") &&
+      (matchingGroup !== 0 || !eventTimerIds.includes(timer.id))
+    );
+
+  if (group) return timer.group === group;
+
+  return groups.includes(timer.group);
+}
+
 // Saved orders drop timers that no longer exist and gain any added since.
 function fullOrder(saved: string[]) {
   const known = saved.filter((id) => timerDefs.some((def) => def.id === id));
@@ -60,7 +81,7 @@ function toggled<T>(list: T[], item: T) {
 type Props = {
   // A named group view, such as /timers/abyss. It replaces the group chips for this
   // render only; the saved groups, order, hidden timers and item level stay as they are.
-  group?: TimerGroup;
+  group?: TimerGroup | "abyss";
 };
 
 export function TimerBoard({ group }: Props) {
@@ -68,6 +89,10 @@ export function TimerBoard({ group }: Props) {
   const { preferences, update } = usePreferences();
   const [stored, setSetup] = useStoredState("timer-setup", defaultSetup);
   const [kills, setKills] = useStoredState<Kills>("timer-kills", {});
+  const [matchingGroup, setMatchingGroup] = useStoredState<MatchingGroup | 0>(
+    "abyss-matching-group",
+    0,
+  );
   const [editing, setEditing] = useState(false);
 
   const setup = { ...defaultSetup, ...stored };
@@ -75,16 +100,37 @@ export function TimerBoard({ group }: Props) {
 
   const timers = order
     .map((id) => timerDefs.find((def) => def.id === id)!)
-    .map((def) => resolveTimer(def, now, preferences.faction, kills));
+    .map((def) => {
+      const matchingSchedule =
+        group === "abyss" && matchingGroup
+          ? def.matchingGroupSchedules?.[matchingGroup - 1]
+          : undefined;
 
-  const groups = group ? [group] : setup.groups;
+      return resolveTimer(
+        matchingSchedule
+          ? { ...def, schedule: { kind: "slots", ...matchingSchedule } }
+          : def,
+        now,
+        preferences.faction,
+        kills,
+      );
+    });
 
   const shown = timers.filter(
     (t) =>
       !setup.hidden.includes(t.id) &&
-      groups.includes(t.group) &&
+      inView(t, group, matchingGroup, setup.groups) &&
       (t.itemLevel ?? Infinity) >= setup.minItemLevel,
   );
+
+  const emptyMessage = () => {
+    if (!group)
+      return "No timers to show. Turn on a timer group, pick a lower item level, or show timers under Edit timers.";
+
+    const label = group === "abyss" ? "Lower Reshanta" : groupLabels[group];
+
+    return `No ${label} timers to show: your hidden timers or item-level filter leave none. Use Edit timers or a lower item level below.`;
+  };
 
   const change = (patch: Partial<Setup>) => setSetup({ ...setup, ...patch });
   const markKill = (id: string) => setKills({ ...kills, [id]: now.getTime() });
@@ -115,6 +161,31 @@ export function TimerBoard({ group }: Props) {
     <section aria-label="Timers" className={STYLES.board}>
       <p className={STYLES.warning}>{timerClockWarning}</p>
 
+      {group === "abyss" && (
+        <div className={STYLES.matching}>
+          <p>
+            Reported times for Groups 1 / 2 / 3: Artifact Siege 21:00 / 21:05 /
+            21:10, Executors 21:30 / 21:35 / 21:40, and Nahma 21:00 / 21:05 /
+            21:10. Choose your server&apos;s matching group. Times use the
+            provisional Berlin clock. Executors at 21:40 and Nahma at 21:10 were
+            seen on one evening only; that does not confirm their recurring
+            times.
+          </p>
+          <FilterChips
+            label="Abyss matching group"
+            chips={([1, 2, 3] as const).map((value) => ({
+              value,
+              label: `Group ${value}`,
+              pressed: matchingGroup === value,
+            }))}
+            onToggle={setMatchingGroup}
+          />
+          {matchingGroup === 0 && (
+            <p role="status">Choose a group to show these event countdowns.</p>
+          )}
+        </div>
+      )}
+
       <div className={STYLES.wings}>
         <TimerWings {...layout} />
       </div>
@@ -123,11 +194,9 @@ export function TimerBoard({ group }: Props) {
         <TimerSpine {...layout} />
       </div>
 
-      {shown.length === 0 && (
+      {shown.length === 0 && !(group === "abyss" && matchingGroup === 0) && (
         <p role="status" className={STYLES.empty}>
-          {group
-            ? `No ${groupLabels[group]} timers to show: your hidden timers or item-level filter leave none. Use Edit timers or a lower item level below.`
-            : "No timers to show. Turn on a timer group, pick a lower item level, or show timers under Edit timers."}
+          {emptyMessage()}
         </p>
       )}
 

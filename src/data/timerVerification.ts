@@ -28,7 +28,7 @@ export const timerVerificationNotes = [
     id: "siege",
     timerIds: ["siege"],
     message:
-      "Artifact Siege's Monday, Thursday and Saturday 21:00 slot has not been checked live on EU. The regional clock behind that slot remains disputed.",
+      "The matching group for this EU server has not been checked. The selected Artifact Siege, Executors and Nahma times come from reported group schedules; Executors at 21:40 and Nahma at 21:10 match screenshots from one evening only, not confirmed repeating times.",
   },
   {
     id: "reshanta",

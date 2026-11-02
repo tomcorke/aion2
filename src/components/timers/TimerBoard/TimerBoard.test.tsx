@@ -170,11 +170,31 @@ function seed(setup: object = seeded) {
 
 test("a group view shows only that group, in saved order, without saving a change", () => {
   seed();
+  localStorage.setItem("abyss-matching-group", "3");
   renderWithProviders(<TimerBoard group="reshanta" />);
 
   expect(names()).toEqual(["Executors", "Guardian Lord Nahma"]);
   expect(screen.queryByRole("group", { name: "Timer groups" })).toBeNull();
   expect(JSON.parse(localStorage.getItem("timer-setup")!)).toEqual(seeded);
+});
+
+test("the Abyss view uses the reader's selected matching group", async () => {
+  localStorage.removeItem("abyss-matching-group");
+  renderWithProviders(<TimerBoard group="abyss" />);
+
+  expect(spine().queryByText("Artifact Siege")).toBeNull();
+  expect(screen.getByRole("status").textContent).toContain("Choose a group");
+
+  await userEvent.click(screen.getByRole("button", { name: "Group 2" }));
+
+  const siege = spine().getByText("Artifact Siege").closest("li")!;
+  const executors = spine().getByText("Executors").closest("li")!;
+  const nahma = spine().getByText("Guardian Lord Nahma").closest("li")!;
+
+  expect(siege.textContent).toContain("Thu 21:05");
+  expect(executors.textContent).toContain("Thu 21:35");
+  expect(nahma.textContent).toContain("Fri 21:05");
+  expect(localStorage.getItem("abyss-matching-group")).toBe("2");
 });
 
 test("a group view still honours the item-level filter", async () => {

@@ -18,7 +18,10 @@ test("the shared clock warning keeps EU resets and Berlin conditional", () => {
 test.each([
   ["rift", /starting hour.*clock/],
   ["invasion", /duration.*rotation.*unresolved/],
-  ["siege", /not.*checked live/],
+  [
+    "siege",
+    /matching group.*not been checked.*one evening.*not confirmed repeating times/,
+  ],
   ["reshanta", /one evening.*three-hour interval.*unconfirmed/],
   ["field", /Altgard.*Verteron.*extrapolation/],
   ["festival", /5 October 2026.*:00.*duration.*rotation/],

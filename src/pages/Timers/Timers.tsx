@@ -41,7 +41,7 @@ export function Timers() {
             </p>
           )}
 
-          <TimerBoard group={abyss ? "reshanta" : undefined} />
+          <TimerBoard group={abyss ? "abyss" : undefined} />
         </Tabs>
       </div>
 
