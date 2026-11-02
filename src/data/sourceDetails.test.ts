@@ -8,7 +8,7 @@ test.each([
   ["officialMembership", "2026-10-05"],
   ["metabotMethodology", "2026-11-02"],
   ["metabotFestivalShop", "2026-11-02"],
-  ["metabotHiddenCubes", "2026-10-06"],
+  ["metabotHiddenCubes", "2026-11-02"],
   ["officialServers", "2026-10-06"],
   ["metabotCurrencies", "2026-10-07"],
   ["metabotGear", "2026-10-08"],
@@ -77,6 +77,9 @@ test("recorded access limits remain readable and do not imply unseen material wa
   );
   expect(sourceDetails.metabotMethodology?.accessNote).toMatch(
     /not.*independently.*audited/,
+  );
+  expect(sourceDetails.metabotHiddenCubes?.accessNote).toContain(
+    "Global build 0.0.4387.0",
   );
   expect(sourceDetails.metabotEvents?.accessNote).toMatch(
     /schedules.*not.*live EU/i,

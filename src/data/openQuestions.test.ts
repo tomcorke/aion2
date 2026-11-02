@@ -66,7 +66,10 @@ test.each([
   ["festival-participation-claim", /participation.*without a key/i],
   ["festival-level-mapping", /level-50.*level 45/i],
   ["festival-shop-rotation", /shop.*rotate/i],
-  ["hidden-cube-level-scaling", /level scaling.*Verteron.*Altgard/i],
+  [
+    "hidden-cube-level-scaling",
+    /level-scaling amounts and formula.*Eltnen and Morheim.*Verteron and Altgard/i,
+  ],
   ["transfer-sync-requirements", /Transfer.*Sync.*source item's fate/i],
   ["soul-binding-cost", /Bind.*cost/i],
   ["engraving-stone-loss", /ticked.*slots.*keep.*stones/i],

@@ -199,9 +199,9 @@ export const progressionSections: ProgressionSection[] = [
     intro:
       "Hidden Cubes sit in the open world. They have nothing to do with the Odyle Energy Cube at the end of a dungeon.",
     items: [
-      'Gold cubes open free and give smaller rewards; open them whenever you find one. Red cubes say "Cannot open without a key."',
-      "A key raises Silentium from 1–2 to 10, plus two 50% chances of one more, and Soul Crystals from 100 to 1,000. Rare rolls such as wings and skins get double weight.",
-      "Eltnen and Morheim cubes scale their rewards with your level, by an amount nobody has published. If Silentium and Soul Crystals do not help you yet, hold your keys until about level 45.",
+      "Verteron and Altgard Hidden Cubes are all key-only. Eltnen and Morheim can spawn free regular cubes or key-only cubes.",
+      "On the standard reward table, a key raises Silentium from 1–2 to 10, plus two 50% chances of one more, and Soul Crystals from 100 to 1,000. Rare rolls such as wings and skins get double weight. Eltnen and Morheim use separate level-scaled tables, so their exact rewards can differ.",
+      "Eltnen and Morheim reward tables scale with your level. The level-by-level amounts and formula are not listed, and scaling for Verteron and Altgard key-only cubes is unconfirmed. Hold keys until the larger rewards help you.",
       "Every character gets nine keys from fixed sources: an early Hero quest, a District quest around level 32–33, and seven tiers of the achievement Who Brought the Chest?. The Season Shop sells 10 more per server at 3,000 Oath Coin each. Duty quests, the pass, the Monolith and attendance add more over time.",
     ],
   },
@@ -365,4 +365,4 @@ export const progressionSourceIds: SourceId[] = [
   "ownChecks",
 ];
 
-export const progressionReviewed = "2026-11-01";
+export const progressionReviewed = "2026-11-02";

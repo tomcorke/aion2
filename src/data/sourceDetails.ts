@@ -128,7 +128,11 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   // Collections, currencies, faction rules and rifts: S20/S24/S26/S29/S33,
   // S44/S45/S85/S99–S103/S113–S115/S129/S133/S136–S138/S140/S141/S145/S146.
   metabotWings: { checkedDate: "2026-10-11" },
-  metabotHiddenCubes: { checkedDate: "2026-10-06" },
+  metabotHiddenCubes: {
+    checkedDate: "2026-11-02",
+    accessNote:
+      "MetaBot attributes this client data to Global build 0.0.4387.0; its methodology reports the build, but the client files were not independently audited.",
+  },
   metabotDungeonPages: {
     checkedDate: "2026-10-11",
     accessNote:

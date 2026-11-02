@@ -230,6 +230,25 @@ test("keeps the EU reset clock unresolved alongside the retained reports", () =>
   expect(within(section).getByText(/07:00 UTC/)).toBeDefined();
 });
 
+test("distinguishes cube types by map and leaves unsupported scaling open", () => {
+  renderPage();
+
+  const section = screen.getByRole("region", { name: "Hidden Cubes" });
+  const copy = section.textContent;
+
+  expect(copy).toContain("Verteron and Altgard Hidden Cubes are all key-only");
+  expect(copy).toContain(
+    "Eltnen and Morheim can spawn free regular cubes or key-only cubes",
+  );
+  expect(copy).toContain("reward tables scale with your level");
+  expect(copy).toContain(
+    "The level-by-level amounts and formula are not listed",
+  );
+  expect(copy).toContain(
+    "scaling for Verteron and Altgard key-only cubes is unconfirmed",
+  );
+});
+
 test("names its sources and reviewed date in the footer", () => {
   renderPage();
 
@@ -239,5 +258,5 @@ test("names its sources and reviewed date in the footer", () => {
     expect(footer.textContent).toContain(sources[id].name);
 
   expect(footer.textContent).toContain("My own checks");
-  expect(footer.textContent).toMatch(/Reviewed 1 Nov/);
+  expect(footer.textContent).toMatch(/Reviewed 2 Nov/);
 });

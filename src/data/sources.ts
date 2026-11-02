@@ -180,7 +180,8 @@ export const sources = {
   },
   metabotHiddenCubes: {
     name: "MetaBot Hidden Cubes guide",
-    covers: "Cube types, keyed rewards, level scaling and key sources",
+    covers:
+      "Key-only cubes in Verteron and Altgard, both cube types in Eltnen and Morheim, level-scaled rewards and key sources",
     url: "https://metabot.gg/en/aion-2/guides/hidden-cubes-guide",
   },
   metabotDungeonPages: {
