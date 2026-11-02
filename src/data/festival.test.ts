@@ -58,9 +58,14 @@ test("entry guidance separates observed EU availability from round rules and lev
   expect(festivalEntry.scheduleCondition).toContain("Check the live timer");
   expect(festivalEntry.scheduleCondition).toContain("not the duration");
   expect(festivalEntry.levelCondition).toContain("level 13");
+  expect(festivalEntry.levelCondition).toContain("level 10");
+  expect(festivalEntry.levelCondition).toContain("chapter 2");
+  expect(festivalEntry.levelCondition).toContain(
+    "has not been checked in the current Global client",
+  );
   expect(festivalEntry.levelCondition).toContain("level 45");
   expect(festivalEntry.levelCondition).toContain(
-    "not independently verified live",
+    "not been independently verified live",
   );
 });
 
@@ -73,7 +78,10 @@ test("reward cards retain guide-reported rank picks and live uncertainty", () =>
     { game: "Jump Jump", rank: "3rd place", picks: 3 },
     { game: "Not This Tile?", rank: "1st or 2nd place", picks: 6 },
   ]);
-  expect(festivalRewards.cards.pickCondition).toContain("Guide-reported");
+  expect(festivalRewards.cards.pickCondition).toContain("AllThingsHow");
+  expect(festivalRewards.cards.pickCondition).toContain(
+    "one Reward Key per pick",
+  );
   expect(festivalRewards.cards.pickCondition).toContain(
     "not been checked in the current Global client",
   );
@@ -86,9 +94,13 @@ test("reward cards retain guide-reported rank picks and live uncertainty", () =>
     levels: "45–50",
     lowerBracketTokens: 40,
   });
-  expect(festivalRewards.packageCondition).toContain("separate");
+  expect(festivalRewards.packageCondition).toContain("levels 10–44");
+  expect(festivalRewards.packageCondition).toContain("50 at level 45");
+  expect(festivalRewards.packageCondition).toContain("MetaBot");
+  expect(festivalRewards.packageCondition).toContain("that same finish");
+  expect(festivalRewards.packageCondition).toContain("separate counts");
   expect(festivalRewards.packageCondition).toContain(
-    "one participation package for each qualifying finish",
+    "one participation package per qualifying finish",
   );
   expect(festivalRewards.packageCondition).toContain(
     "without a key is unresolved",

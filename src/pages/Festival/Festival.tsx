@@ -333,25 +333,31 @@ function Reference() {
           ]}
         />
 
-        <table className={STYLES.table}>
-          <caption>Guide-reported rank-to-pick examples</caption>
-          <thead>
-            <tr>
-              <th scope="col">Game</th>
-              <th scope="col">Placement</th>
-              <th scope="col">Card picks</th>
-            </tr>
-          </thead>
-          <tbody>
-            {festivalRewards.cards.pickExamples.map(({ game, rank, picks }) => (
-              <tr key={`${game}-${rank}`}>
-                <th scope="row">{game}</th>
-                <td>{rank}</td>
-                <td className={STYLES.figure}>{picks}</td>
+        <div className={STYLES.scroll}>
+          <table className={STYLES.table}>
+            <caption>Guide-reported rank-to-pick examples</caption>
+            <thead>
+              <tr>
+                <th scope="col">Game</th>
+                <th scope="col">Placement</th>
+                <th scope="col">Card picks</th>
+                <th scope="col">Keys if 1 per pick (guide)</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {festivalRewards.cards.pickExamples.map(
+                ({ game, rank, picks }) => (
+                  <tr key={`${game}-${rank}`}>
+                    <th scope="row">{game}</th>
+                    <td>{rank}</td>
+                    <td className={STYLES.figure}>{picks}</td>
+                    <td className={STYLES.figure}>{picks}</td>
+                  </tr>
+                ),
+              )}
+            </tbody>
+          </table>
+        </div>
 
         <h3>Other rewards</h3>
         <Notes items={festivalRewards.otherRewards} />
