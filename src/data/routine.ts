@@ -70,7 +70,7 @@ export const bankingReminders = [
 ];
 
 export const dailyDungeonRewardNote =
-  "In Daeva Bio-Research Base, a final score of 10,000 or more pays 10,000 Enhance Stones. Fourteen top-score runs give 140,000 a week before ticket entries.";
+  "A final score of 10,000 or more pays 10,000 Enhance Stones in Daeva Bio-Research Base; 14 top-score runs give 140,000 before ticket entries. Odylium Repository is a second choice, but its score reward remains unresolved. Both dungeons share the server's 14 weekly entries.";
 
 export const routineTasks: RoutineTask[] = [
   {
@@ -102,7 +102,7 @@ export const routineTasks: RoutineTask[] = [
     counterIds: ["daily-dungeon"],
     guide: { to: "/gear", label: "Enhance Stone sources" },
     details:
-      "A solo timed kill challenge, unlocked at level 30. Daily is the Global name, not a daily allocation: all same-server characters share the weekly entries. Two a day is pacing advice, not a refill rule. Entries are spent on entry and unused entries are lost at Wednesday reset.",
+      "A solo timed kill challenge, unlocked at level 30. Daily is the Global name, not a daily allocation: all same-server characters share the weekly entries. Two a day is pacing advice, not a refill rule. Both dungeons share the pool, and entries are spent on entry; unused entries are lost at Wednesday reset. The Unknown Fissure Challenge Ticket adds an entry. After a clear, the Daily Dungeon Instant Clear Ticket repeats that reward and still spends an attempt.",
   },
   {
     id: "conquest",
@@ -266,6 +266,7 @@ export const routineSources: SourceId[] = [
   "redditBeginnerDps",
   "allThingsDailyDungeon",
   "metabotChecklist",
+  "ncGlobal28Oct",
   "metabotEvents",
   "metabotDungeons",
   "metabotContentUnlocks",

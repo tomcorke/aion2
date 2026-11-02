@@ -57,6 +57,47 @@ test("keeps Kina scopes apart and corrects shared-progress claims", () => {
   ).toBeDefined();
 });
 
+test("keeps both Daily Dungeons and both ticket effects on the shared counter", () => {
+  renderPage();
+
+  const dailyDungeon = screen.getByRole("row", { name: /Daily Dungeon/ });
+
+  expect(dailyDungeon.textContent).toContain("Daeva Bio-Research Base");
+  expect(dailyDungeon.textContent).toContain("Odylium Repository");
+  expect(dailyDungeon.textContent).toContain("14 entries each week");
+  expect(dailyDungeon.textContent).toContain(
+    "unused entries are lost at the Wednesday reset",
+  );
+  expect(dailyDungeon.textContent).toContain(
+    "Unknown Fissure Challenge Ticket adds 1 entry",
+  );
+  expect(dailyDungeon.textContent).toContain(
+    "Instant Clear Ticket repeats its reward and still spends an attempt",
+  );
+  expect(dailyDungeon.textContent).toContain("30,000 Kina");
+  expect(dailyDungeon.textContent).toContain(
+    "current shop location is unconfirmed",
+  );
+});
+
+test("keeps existing server-wide pool claims with the Daily Dungeon update", () => {
+  renderPage();
+
+  const sharedPools = screen.getByRole("listitem", {
+    name: "Shared resource pools",
+  });
+
+  expect(sharedPools.textContent).toContain("Duty Missions");
+  expect(sharedPools.textContent).toContain("unobtained-cube allowance");
+  expect(sharedPools.textContent).toContain(
+    "Festival and Dimensional Invasion keys",
+  );
+  expect(sharedPools.textContent).toContain("not been confirmed in play");
+  expect(sharedPools.textContent).toContain(
+    "Daeva Bio-Research Base and Odylium Repository",
+  );
+});
+
 test("gives alt-count advice without a Korean profit gate", () => {
   renderPage();
 
@@ -86,7 +127,7 @@ test("ends with the page's sources and reviewed date", () => {
 
   const footer = screen.getByRole("contentinfo");
 
-  expect(footer.textContent).toContain("Reviewed 12 October 2026");
+  expect(footer.textContent).toContain("Reviewed 2 November 2026");
 
   for (const id of altsSources)
     expect(footer.textContent).toContain(sources[id].name);

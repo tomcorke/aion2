@@ -73,6 +73,26 @@ test("rows show limits, caps and scope from the shared counters", () => {
   expect(within(conquest).getByText(/unobtained-cube count/)).toBeDefined();
 });
 
+test("Daily Dungeon distinguishes its two choices and leaves Odylium rewards unresolved", () => {
+  const task = routineTasks.find(({ id }) => id === "daily-dungeon")!;
+
+  expect(task.purpose).toContain("Daeva Bio-Research Base");
+  expect(task.purpose).toContain("10,000 Enhance Stones");
+  expect(task.purpose).toContain("Odylium Repository");
+  expect(task.purpose).toContain("score reward remains unresolved");
+  expect(task.details).toContain(
+    "Unknown Fissure Challenge Ticket adds an entry",
+  );
+  expect(task.details).toContain(
+    "Instant Clear Ticket repeats that reward and still spends an attempt",
+  );
+  expect(task.details).toContain("Both dungeons share the pool");
+  expect(task.details).toContain(
+    "Two a day is pacing advice, not a refill rule",
+  );
+  expect(task.details).toContain("unused entries are lost at Wednesday reset");
+});
+
 test("guide links go to the detailed pages", () => {
   renderPage();
 

@@ -228,6 +228,17 @@ test("growth separates progression and cosmetic currencies from consumable mater
       .find(({ id }) => id === "enhance-stones")
       ?.acquisition.find(({ name }) => name === "Daily Dungeon")?.detail,
   ).toContain("10,000 or more");
+
+  for (const id of ["soul-crystals", "growth-pet-chest"]) {
+    expect(
+      growthMaterials
+        .find((material) => material.id === id)
+        ?.acquisition.some(
+          ({ name }) => name === "Daily Dungeon (Odylium Repository)",
+        ),
+    ).toBe(true);
+  }
+
   expect(
     growthMaterials.find(({ id }) => id === "potential-stones")?.use,
   ).toContain("PvP");

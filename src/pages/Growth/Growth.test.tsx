@@ -183,6 +183,25 @@ test("limits come from shared counters and reward conditions, with conditions be
   ).toBeDefined();
 });
 
+test("shows Odylium as an unresolved source for Soul Crystals and Growth Pet Chests", () => {
+  renderPage();
+
+  const crystals = row("Soul Crystals");
+  const petChests = row("Growth Pet Chest");
+
+  expect(
+    within(crystals).getByText(/reward item and score tiers remain unresolved/),
+  ).toBeDefined();
+  expect(
+    within(petChests).getByText(/No item or score tier is confirmed/),
+  ).toBeDefined();
+  expect(
+    within(crystals)
+      .getByRole("link", { name: "Daily Dungeon (Odylium Repository)" })
+      .getAttribute("href"),
+  ).toBe("/routine");
+});
+
 test("spend guidance warns about finite wing supply and links with the router", async () => {
   renderPage();
 

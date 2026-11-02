@@ -10,10 +10,11 @@ test("reader questions have stable unique IDs, topic groups, useful checks and r
     "cubes",
     "gear",
     "daevanion",
+    "dungeons",
     "appearances",
     "pets",
   ]);
-  expect(openQuestions).toHaveLength(29);
+  expect(openQuestions).toHaveLength(30);
   expect(new Set(openQuestions.map(({ id }) => id)).size).toBe(
     openQuestions.length,
   );
@@ -66,6 +67,10 @@ test.each([
   ["festival-participation-claim", /participation.*without a key/i],
   ["festival-level-mapping", /level-50.*level 45/i],
   ["festival-shop-rotation", /shop.*rotate/i],
+  [
+    "daily-dungeon-rewards",
+    /Odylium.*score rewards.*shop location.*Instant Clear Ticket/i,
+  ],
   [
     "hidden-cube-level-scaling",
     /level-scaling amounts and formula.*Eltnen and Morheim.*Verteron and Altgard/i,

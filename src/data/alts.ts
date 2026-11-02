@@ -71,7 +71,7 @@ const counterDefinitions = {
     limit: "14 entries each week",
     cap: 14,
     notes:
-      "Unlocks at level 30. Spent on entry, not completion. Unused entries are lost at the Wednesday reset; a Challenge Ticket adds 1 entry. Despite the name, this is a weekly pool.",
+      "Both dungeons unlock at level 30. The 14-entry pool is shared by all same-server characters across Daeva Bio-Research Base and Odylium Repository. Entries are spent on entry, and unused entries are lost at the Wednesday reset. The Unknown Fissure Challenge Ticket adds 1 entry. After a clear, the Daily Dungeon Instant Clear Ticket repeats its reward and still spends an attempt. NC lists it for 30,000 Kina, up to 14 per server each week; its current shop location is unconfirmed. Despite the name, this is a weekly pool.",
     guide: { to: "/gear", label: "Enhance Stone sources" },
   },
   "ascension-trial": {
@@ -320,7 +320,7 @@ export const sharingLedger: SharingEntry[] = [
     name: "Shared resource pools",
     scope: "server-pool",
     details:
-      "Duty Missions, Daily Dungeon entries and the unobtained-cube allowance belong to the server, not each character. Client data also lists Festival and Dimensional Invasion keys as server-wide; their sharing has not been confirmed in play. An alt does not multiply these pools.",
+      "Duty Missions, the unobtained-cube allowance and the 14-entry Daily Dungeon pool (shared across Daeva Bio-Research Base and Odylium Repository) belong to the server, not each character. Client data also lists Festival and Dimensional Invasion keys as server-wide; their sharing has not been confirmed in play. An alt does not multiply these pools.",
   },
   {
     id: "level-class",
@@ -467,6 +467,7 @@ export const altsSources: SourceId[] = [
   "metabotFactions",
   "game8Factions",
   "metabotChecklist",
+  "ncGlobal28Oct",
   "gameTruthAlts",
   "gamerBlurbShared",
   "ncPetSharing",
@@ -539,4 +540,4 @@ export const altsSourceAdditions = {
   },
 } satisfies Record<string, Source>;
 
-export const altsReviewed = "2026-10-12";
+export const altsReviewed = "2026-11-02";

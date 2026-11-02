@@ -115,10 +115,10 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   metabotChecklist: {
     region: "Global",
     publishedDate: "2026-10-01",
-    updatedDate: "2026-10-07",
-    checkedDate: "2026-10-09",
+    updatedDate: "2026-10-27",
+    checkedDate: "2026-11-02",
     accessNote:
-      "Guide-reported from the Global client ContentsTicket table; not a live Global check.",
+      "Guide-reported from the Global client ContentsTicket table, not a live check. The guide predates Odylium and says Instant Clear spends an attempt after a clear.",
   },
   metabotArcana: {
     region: "Global",
@@ -263,6 +263,34 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   },
   ncGlobal21Oct: { region: "Global", checkedDate: "2026-11-01" },
   ncGlobal28Oct: { region: "Global", checkedDate: "2026-11-01" },
+  patchbotGlobal28Oct: {
+    region: "Global",
+    publishedDate: "2026-10-28",
+    checkedDate: "2026-11-02",
+    accessNote: "Readable transcription of NC's official notice.",
+  },
+  metabotOdyliumRepository: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-11-02",
+    accessNote:
+      "Client-data rewards are not a live clear result; Odylium reward reports conflict.",
+  },
+  aion2MapsDailyDungeon: {
+    region: "Global",
+    clientBuild: "28 October Steam build, as reported",
+    updatedDate: "2026-10-28",
+    checkedDate: "2026-11-02",
+    accessNote:
+      "Reports comparison with the 21 October build; no live Odylium reward result was checked.",
+  },
+  aion2GlobalTicketDatabase: {
+    region: "Global",
+    updatedDate: "2026-11-01",
+    checkedDate: "2026-11-02",
+    accessNote:
+      "Client-derived shop entries do not confirm live availability or final placement after NC's announced move.",
+  },
   metabotDaevanionClassSkills: {
     region: "Global",
     clientBuild: "0.0.4387.0",

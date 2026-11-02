@@ -10,6 +10,7 @@ export const openQuestionGroups = [
   { id: "cubes", title: "Hidden Cube rewards" },
   { id: "gear", title: "Upgrades, stones and material sources" },
   { id: "daevanion", title: "Daevanion builds and resets" },
+  { id: "dungeons", title: "Daily Dungeon rewards and tickets" },
   { id: "appearances", title: "Alts and appearances" },
   { id: "pets", title: "Pets" },
 ] as const;
@@ -202,6 +203,27 @@ export const openQuestions: OpenQuestion[] = [
       "Inspect each pity reward preview and record the counter before and after claiming or skipping a cube. Skipping still spends the shared unobtained-cube count; check that allowance before testing.",
     relatedGuideLinks: [{ to: "/gear", label: "Gear pity rewards" }],
     supportingSourceIDs: ["metabotDungeons", "gamesFuzeAfter45"],
+  },
+  {
+    id: "daily-dungeon-rewards",
+    groupId: "dungeons",
+    unknown:
+      "Odylium Repository's exact score rewards and the current shop location for the Daily Dungeon Instant Clear Ticket are unresolved.",
+    why: "NC's notice describes Soul Crystals by score, while Global client-data guides list Growth Pet Chests or crystal chests. NC also announces a post-transfer shop move, but current listings do not confirm the live placement.",
+    practicalCheck:
+      "Inspect Odylium completion previews at multiple scores and the Instant Clear Ticket in the current Global shop. Record region, client build, reward names and amounts, and the ticket's menu path and limit.",
+    relatedGuideLinks: [
+      { to: "/growth", label: "Growth materials" },
+      { to: "/routine", label: "Daily Dungeon choices" },
+      { to: "/alts", label: "Shared server counters" },
+    ],
+    supportingSourceIDs: [
+      "ncGlobal28Oct",
+      "patchbotGlobal28Oct",
+      "metabotOdyliumRepository",
+      "aion2MapsDailyDungeon",
+      "aion2GlobalTicketDatabase",
+    ],
   },
   {
     id: "gear-voucher-acquisition",

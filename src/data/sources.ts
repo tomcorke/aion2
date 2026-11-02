@@ -293,7 +293,7 @@ export const sources = {
   ncGlobal28Oct: {
     name: "NC Global patch notes, 28 October 2026",
     covers:
-      "Heightened Sixth Sense HP changes at skill levels 5, 10 and 20; Urugugu Canyon and Vakron Sky Island Hard entry and encounter limits, rewards, and Ariel Fragment morph limits",
+      "Odylium Repository, its shared Daily Dungeon entry pool and score-based Soul Crystal wording; the Instant Clear ticket's 30,000 Kina offer, 14-per-server weekly limit and announced shop move; Heightened Sixth Sense HP changes; other 28 October updates",
     url: "https://aion2.plaync.com/en-us/board/update/view?articleId=6ae19668577e8c01355e0210",
   },
   ncLudraAwakens: {
