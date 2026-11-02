@@ -26,7 +26,7 @@ export function Timers() {
     <>
       <PageHero
         title="Timers"
-        lede="Resets, rifts, Lower Reshanta bosses and field boss respawns. Field bosses count from the kill you mark."
+        lede="Resets, rifts and Lower Reshanta bosses. Field boss respawns are tracked for four gear targets: Gartua, Lagta, Kashapa and Dartan. Mark a kill to start each timer."
       />
 
       <div className={STYLES.views}>
