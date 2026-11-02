@@ -1,6 +1,7 @@
 import { describe, expect, test } from "vitest";
 import {
   petAreas,
+  petsAttribution,
   petLevels,
   petRegions,
   petsSources,
@@ -76,4 +77,25 @@ test("every source the pet page names is registered", () => {
 
   for (const id of Object.keys(petSourceAdditions))
     expect(sources).toHaveProperty(id);
+});
+
+test("attributes the mounts list, each pet page, and the exact guides", () => {
+  expect(petsAttribution).toHaveLength(pets.length + 3);
+  expect(petsAttribution[0]).toEqual({
+    name: "MetaBot mounts list",
+    url: "https://metabot.gg/en/aion-2/mounts",
+  });
+  expect(
+    petsAttribution.slice(1, pets.length + 1).map(({ url }) => url),
+  ).toEqual(pets.map(({ id }) => `https://metabot.gg/en/aion-2/mounts/${id}`));
+  expect(petsAttribution.slice(-2)).toEqual([
+    {
+      name: "allthings.how pet souls guide",
+      url: "https://allthings.how/aion-2-how-to-unlock-any-pet-by-farming-pet-souls/",
+    },
+    {
+      name: "MetaBot mounts, pets and wings guide",
+      url: "https://metabot.gg/en/aion-2/guides/mounts-wings-guide",
+    },
+  ]);
 });
