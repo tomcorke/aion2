@@ -7,6 +7,7 @@ import { PageHero } from "../../components/shell/PageHero/PageHero.tsx";
 import { SiteFooter } from "../../components/shell/SiteFooter/SiteFooter.tsx";
 import {
   petAreas,
+  petShopOffers,
   petRegions,
   pets,
   petsAttribution,
@@ -123,6 +124,40 @@ export function Pets() {
             reaches level 3. The transformation lasts five minutes. Whether
             bonuses from multiple pets of the same type stack is still
             unconfirmed.
+          </p>
+        </section>
+        <section className={STYLES.shop} aria-labelledby="pet-shop-title">
+          <h2 id="pet-shop-title">Current Global shop offers</h2>
+          <p>
+            NC&apos;s notices list these temporary offers but do not identify
+            their matching entries in the 209-pet client roster. Keep them
+            separate from the 204-pet checklist; they are not counted there.
+          </p>
+          <ul className={STYLES.offerList}>
+            {petShopOffers.map((offer) => (
+              <li key={offer.name} className={STYLES.offer}>
+                <h3>{offer.name}</h3>
+                <dl>
+                  <div>
+                    <dt>Price</dt>
+                    <dd>{offer.price}</dd>
+                  </div>
+                  <div>
+                    <dt>Limit</dt>
+                    <dd>{offer.purchaseLimit}</dd>
+                  </div>
+                  <div>
+                    <dt>Sale ends</dt>
+                    <dd>{offer.saleEnds}</dd>
+                  </div>
+                </dl>
+              </li>
+            ))}
+          </ul>
+          <p className={STYLES.hint}>
+            Prices are PURPLE Store references and may vary by storefront. The
+            notices are not a live shop check; recheck this list after each sale
+            window ends and refresh or remove expired offers.
           </p>
         </section>
         <details className={STYLES.limits}>

@@ -31,6 +31,83 @@
   }
 }
 
+.shop {
+  display: grid;
+  gap: 8px;
+
+  & h2 {
+    margin: 0;
+    color: var(--accent);
+    font-family: var(--f-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+  }
+
+  & p {
+    max-width: 76ch;
+    margin: 0;
+  }
+}
+
+.offerList {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.offer {
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) minmax(0, 3fr);
+  gap: 12px 24px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+
+  & h3 {
+    margin: 0;
+    font-family: var(--f-display);
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  & dl {
+    display: grid;
+    grid-template-columns: minmax(80px, 0.7fr) minmax(120px, 0.9fr) minmax(
+        280px,
+        2fr
+      );
+    gap: 8px 20px;
+    margin: 0;
+  }
+
+  & dt {
+    color: var(--muted);
+    font-size: 0.75rem;
+  }
+
+  & dd {
+    margin: 0;
+  }
+
+  @media (width <= 900px) {
+    grid-template-columns: minmax(120px, 0.7fr) minmax(0, 2fr);
+
+    & dl {
+      grid-template-columns: minmax(80px, 0.7fr) minmax(120px, 0.9fr);
+    }
+
+    & dl > div:last-child {
+      grid-column: 1 / -1;
+    }
+  }
+
+  @media (width <= 600px) {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+  }
+}
+
 .limits {
   max-width: 76ch;
   color: var(--muted);
