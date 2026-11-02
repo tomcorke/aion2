@@ -37,9 +37,12 @@ export function RoutineTask({ task, checked, onToggle }: Props) {
       <ul className={STYLES.limits}>
         {counters.map((counter) => (
           <li key={counter.name}>
-            <span className={STYLES.scope}>{scopes[counter.scope]}</span>
+            <span className={STYLES.scope}>
+              {counter.scopeLabel ?? scopes[counter.scope]}
+            </span>
             <span>
-              {counter.name}: {counterLimit(counter)}
+              {counter.name}: {counter.limitLabel && `${counter.limitLabel}: `}
+              {counterLimit(counter)}
             </span>
           </li>
         ))}

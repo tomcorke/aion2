@@ -4,6 +4,8 @@ import type { Source, SourceId } from "./sources.ts";
 export type ResourceCounter = {
   name: string;
   scope: "character" | "server";
+  scopeLabel?: string;
+  limitLabel?: string;
   kind: "continuous" | "daily" | "weekly" | "time-budget";
   limit: string;
   cap?: number;
@@ -167,6 +169,8 @@ const counterDefinitions = {
   "invasion-keys": {
     name: "Dimensional Invasion Reward Keys",
     scope: "server",
+    scopeLabel: "Client-listed server scope",
+    limitLabel: "Client-listed",
     kind: "daily",
     limit: "1 per day",
     cap: 7,
