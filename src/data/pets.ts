@@ -68,6 +68,14 @@ export const petsAttribution = [
   { name: "allthings.how pet souls guide", url: allthingsPetsUrl },
   { name: "MetaBot mounts, pets and wings guide", url: metabotWingsGuideUrl },
   { name: "AION 2 Maps pets and mounts guide", url: aion2MapsPetsUrl },
+  {
+    name: "NC Global pet offers, 13 October 2026",
+    url: "https://lounge.plaync.com/feed/83799?country=US&locale=en-US",
+  },
+  {
+    name: "NC Global pet offers, 28 October 2026",
+    url: "https://steamcommunity.com/app/3393110/allnews/",
+  },
 ];
 
 export const petRegions: PetRegion[] = [
@@ -115,6 +123,41 @@ export const petRegions: PetRegion[] = [
 export const petLevels = [1, 2, 3] as const;
 
 export type PetLevelNumber = (typeof petLevels)[number];
+
+export const petShopOffers = [
+  {
+    name: "Little Ghost",
+    notice: "ncPetOffers13Oct",
+    price: "US$19.99",
+    purchaseLimit: "Once per server",
+    saleEnds:
+      "Before maintenance on 24 November 2026 (PST) / 25 November 2026 (CET)",
+  },
+  {
+    name: "Pumpkin Carriage",
+    notice: "ncPetOffers13Oct",
+    price: "US$19.99",
+    purchaseLimit: "Once per server",
+    saleEnds:
+      "Before maintenance on 24 November 2026 (PST) / 25 November 2026 (CET)",
+  },
+  {
+    name: "Azure Flame Kumiho",
+    notice: "ncPetOffers28Oct",
+    price: "US$19.99",
+    purchaseLimit: "Once per server",
+    saleEnds:
+      "Before maintenance on 10 November 2026 (PST) / 11 November 2026 (CET)",
+  },
+  {
+    name: "Glossy Pink Puppy",
+    notice: "ncPetOffers28Oct",
+    price: "US$19.99",
+    purchaseLimit: "Once per server",
+    saleEnds:
+      "Before maintenance on 10 November 2026 (PST) / 11 November 2026 (CET)",
+  },
+] as const;
 
 // Souls to reach each level, from guides rather than the client data.
 export const petLevelSouls: Record<PetLevelNumber, string> = {
@@ -199,6 +242,17 @@ export const petSourceAdditions = {
       "Pet sources and zone access reports, mounts, Genus Insight, collection rewards, and level-3 Empathy Candy transformation",
     url: aion2MapsPetsUrl,
   },
+  ncPetOffers13Oct: {
+    name: "NC Global pet offers, 13 October 2026",
+    covers: "Little Ghost and Pumpkin Carriage shop offer and sale window",
+    url: "https://lounge.plaync.com/feed/83799?country=US&locale=en-US",
+  },
+  ncPetOffers28Oct: {
+    name: "NC Global pet offers, 28 October 2026",
+    covers:
+      "Azure Flame Kumiho and Glossy Pink Puppy shop offer and sale window",
+    url: "https://steamcommunity.com/app/3393110/allnews/",
+  },
 } satisfies Record<string, Source>;
 
 export const petsSources = [
@@ -211,6 +265,8 @@ export const petsSources = [
   "aion2HelpGlobalRegions",
   "allthingsPets",
   "metabotWings",
+  "ncPetOffers13Oct",
+  "ncPetOffers28Oct",
 ] as const;
 
 export const petsLimits = [

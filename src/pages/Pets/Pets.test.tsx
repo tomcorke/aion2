@@ -88,6 +88,57 @@ test("explains pet uses and leaves same-type bonus stacking unconfirmed", () => 
   ).toHaveProperty("href", "https://aion2maps.com/guides/pets/");
 });
 
+test("shows temporary shop offers without adding them to the checklist", () => {
+  render();
+
+  const shop = screen.getByRole("region", {
+    name: "Current Global shop offers",
+  });
+
+  for (const name of [
+    "Little Ghost",
+    "Pumpkin Carriage",
+    "Azure Flame Kumiho",
+    "Glossy Pink Puppy",
+  ])
+    expect(within(shop).getByRole("heading", { name })).toBeTruthy();
+
+  expect(within(shop).getAllByText("US$19.99")).toHaveLength(4);
+  expect(within(shop).getAllByText("Once per server")).toHaveLength(4);
+  expect(
+    within(shop).getAllByText(
+      /24 November 2026 \(PST\).*25 November 2026 \(CET\)/,
+    ),
+  ).toHaveLength(2);
+  expect(
+    within(shop).getAllByText(
+      /10 November 2026 \(PST\).*11 November 2026 \(CET\)/,
+    ),
+  ).toHaveLength(2);
+  expect(
+    within(shop).getByText(/do not identify their matching entries/i),
+  ).toBeTruthy();
+  expect(
+    within(shop).getByText(/refresh or remove expired offers/i),
+  ).toBeTruthy();
+
+  expect(screen.getAllByRole("checkbox", { name: /level 1$/ })).toHaveLength(
+    pets.length,
+  );
+
+  const footer = within(screen.getByRole("contentinfo"));
+
+  expect(
+    footer.getByRole("link", { name: "NC Global pet offers, 13 October 2026" }),
+  ).toHaveProperty(
+    "href",
+    "https://lounge.plaync.com/feed/83799?country=US&locale=en-US",
+  );
+  expect(
+    footer.getByRole("link", { name: "NC Global pet offers, 28 October 2026" }),
+  ).toHaveProperty("href", "https://steamcommunity.com/app/3393110/allnews/");
+});
+
 test("explains map-only data, guide-reported access and the best-area count", () => {
   render();
   const map = within(screen.getByRole("region", { name: "Farming map" }));

@@ -133,6 +133,21 @@ test("only known public source IDs carry metadata; unknown dates remain omitted"
   );
 });
 
+test("records the pet-offer notice dates and access limits", () => {
+  expect(sourceDetails.ncPetOffers13Oct).toMatchObject({
+    region: "Global",
+    publishedDate: "2026-10-13",
+    checkedDate: "2026-11-02",
+    accessNote: expect.stringMatching(/cutoff in PST/),
+  });
+  expect(sourceDetails.ncPetOffers28Oct).toMatchObject({
+    region: "Global",
+    publishedDate: "2026-10-28",
+    checkedDate: "2026-11-02",
+    accessNote: expect.stringMatching(/cutoff in PST/),
+  });
+});
+
 test("recorded access limits remain readable and do not imply unseen material was checked", () => {
   expect(sourceDetails.officialMembership?.accessNote).toContain("Jina Reader");
   expect(sourceDetails.officialServers?.accessNote).toMatch(

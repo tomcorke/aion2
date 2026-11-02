@@ -3,6 +3,7 @@ import {
   petAreas,
   petsAttribution,
   petLevels,
+  petShopOffers,
   petRegions,
   petsSources,
   petStats,
@@ -95,8 +96,26 @@ test("every source the pet page names is registered", () => {
     expect(sources).toHaveProperty(id);
 });
 
+test("keeps temporary shop offers separate from the sourced checklist", () => {
+  expect(petShopOffers.map(({ name }) => name)).toEqual([
+    "Little Ghost",
+    "Pumpkin Carriage",
+    "Azure Flame Kumiho",
+    "Glossy Pink Puppy",
+  ]);
+  expect(
+    petShopOffers.every(({ name }) => !pets.some((pet) => pet.name === name)),
+  ).toBe(true);
+  expect(petShopOffers.map(({ notice }) => notice)).toEqual([
+    "ncPetOffers13Oct",
+    "ncPetOffers13Oct",
+    "ncPetOffers28Oct",
+    "ncPetOffers28Oct",
+  ]);
+});
+
 test("attributes the mounts list, each pet page, and the exact guides", () => {
-  expect(petsAttribution).toHaveLength(pets.length + 4);
+  expect(petsAttribution).toHaveLength(pets.length + 6);
   expect(petsAttribution[0]).toEqual({
     name: "MetaBot mounts list",
     url: "https://metabot.gg/en/aion-2/mounts",
@@ -104,7 +123,7 @@ test("attributes the mounts list, each pet page, and the exact guides", () => {
   expect(
     petsAttribution.slice(1, pets.length + 1).map(({ url }) => url),
   ).toEqual(pets.map(({ id }) => `https://metabot.gg/en/aion-2/mounts/${id}`));
-  expect(petsAttribution.slice(-3)).toEqual([
+  expect(petsAttribution.slice(-5)).toEqual([
     {
       name: "allthings.how pet souls guide",
       url: "https://allthings.how/aion-2-how-to-unlock-any-pet-by-farming-pet-souls/",
@@ -116,6 +135,14 @@ test("attributes the mounts list, each pet page, and the exact guides", () => {
     {
       name: "AION 2 Maps pets and mounts guide",
       url: "https://aion2maps.com/guides/pets/",
+    },
+    {
+      name: "NC Global pet offers, 13 October 2026",
+      url: "https://lounge.plaync.com/feed/83799?country=US&locale=en-US",
+    },
+    {
+      name: "NC Global pet offers, 28 October 2026",
+      url: "https://steamcommunity.com/app/3393110/allnews/",
     },
   ]);
 });
