@@ -151,7 +151,7 @@ export const progressionSections: ProgressionSection[] = [
       "Before the first gate, finish the story, Ascension and regional quests, and clear your faction's Sealed Dungeons.",
     items: [
       "Each regional quest gives a Daevanion Crystal (58 per faction); eight of them, four per faction, also give a Clash Rune Chest.",
-      "Each home-faction Sealed Dungeon pays 2 Daevanion Crystals, 2 Sealed Wing Featherdown and 15,000 bound Kina on its first clear (61 per faction). Ruins of the Ancient City of Roah, at level 45, pays 20 Featherdown.",
+      "Each home-faction Sealed Dungeon pays 2 Daevanion Crystals and 15,000 bound Kina on its first clear (61 per faction). Of those 61, 60 give 2 Sealed Wing Featherdown on their first clear; Ruins of the Ancient City of Roah, at level 45, gives 20, for 140 total.",
       "Clearing them all pays about 915,000 bound Kina. A second clear pays nothing.",
       "Sealed Dungeons in the enemy faction's maps, reached through Spacetime Rifts, pay Abyss Points, Enhance Stones and bound Kina instead of crystals and Featherdown.",
     ],
@@ -286,7 +286,7 @@ export const progressionSections: ProgressionSection[] = [
     title: "Wings",
     items: [
       "Each pair has an equipped effect and a smaller owned effect. Owned effects stack across every pair you hold and grow from +0 to +10.",
-      "Sealing Wings and Glorious Wings each cost 70 Sealed Wing Featherdown and 10 Pure Odyle at Substance Morph, once per character. Your faction's Sealed Dungeons give exactly 140 Featherdown, so missing a single dungeon leaves the second pair out of reach.",
+      "Sealing Wings and Glorious Wings each cost 70 Sealed Wing Featherdown and 10 Pure Odyle at Substance Morph, once per character. Of your faction's 61 Sealed Dungeons, 60 give 2 Featherdown each and Ruins of the Ancient City of Roah gives 20, for 140 total. Missing any one leaves the second pair out of reach.",
       "Other wings come from party dungeons, currency shops such as the Abyss Trade Shop, and Hidden Cubes.",
       "Unlocked wings stay with the character that unlocked them.",
     ],
