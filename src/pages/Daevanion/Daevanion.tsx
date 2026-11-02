@@ -1,4 +1,4 @@
-import { useLocation } from "react-router";
+import { Link, useLocation } from "react-router";
 import { Tabs } from "../../components/controls/Tabs/Tabs.tsx";
 import { AzphelRoute } from "../../components/daevanion/AzphelRoute/AzphelRoute.tsx";
 import { RouteCosts } from "../../components/daevanion/RouteCosts/RouteCosts.tsx";
@@ -98,6 +98,23 @@ export function Daevanion() {
       />
 
       <div className={STYLES.body}>
+        <section aria-label="Daevanion basics" className={STYLES.introduction}>
+          <p>
+            Daevanion is a progression track of connected nodes. Square nodes
+            raise stats, round nodes add a level to a class skill, and each
+            purchase must connect to a node you already own.
+          </p>
+          <p>
+            Nezekan opens at level 12, then Zikel at 20, Vaizel at 30 and
+            Triniel at 40. Ariel and Azphel both open at level 45. The four
+            original boards share Daevanion Crystals from leveling, Regional
+            quests, Sealed Dungeons and shops; Ariel and Azphel use separate
+            currencies. Ariel is for PvE. Azphel is PvP-focused, with HP and MP
+            nodes too. See <Link to="/growth">Growth materials</Link> for
+            sources and Ariel Fragment conversions.
+          </p>
+        </section>
+
         <ul className={STYLES.caveats}>
           {caveats.map((caveat) => (
             <li key={caveat}>

@@ -83,6 +83,10 @@ export function BoardView(props: Props) {
           {budget.points} of {route.total} points
         </p>
 
+        <p className={STYLES.note}>
+          This is a route budget for planning, not your live crystal balance.
+        </p>
+
         {budget.message && <p className={STYLES.message}>{budget.message}</p>}
 
         <p aria-live="polite">

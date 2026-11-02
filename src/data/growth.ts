@@ -501,6 +501,7 @@ export const growthMaterials: GrowthMaterial[] = [
     targets: ["daevanion"],
     use: "Points for Nezekan, Zikel, Vaizel and Triniel; these do not pay for Azphel.",
     acquisition: [
+      { name: "Leveling" },
       {
         name: "Home-faction Sealed Dungeons",
         detail: "2 each from 61 dungeons per faction.",
@@ -521,6 +522,35 @@ export const growthMaterials: GrowthMaterial[] = [
       "metabotDungeonPages",
       "ownChecks",
     ],
+  },
+  {
+    id: "ariel-fragments",
+    name: "Ariel Fragment",
+    aliases: ["Ariel Fragments"],
+    kind: "material",
+    targets: ["daevanion", "enhancement"],
+    use: "Ariel points, or a source of Enhance Stones through Substance Morph.",
+    acquisition: [
+      {
+        name: "Expedition Hard",
+        detail:
+          "Urugugu Canyon and Vakron Sky Island guarantee their matching Ariel Fragment.",
+      },
+      {
+        name: "Substance Morph: Ariel Crystal",
+        detail: "100 fragments make one bound Daevanion Crystal: Ariel.",
+        limit: "Up to 30 times per character.",
+      },
+      {
+        name: "Substance Morph: Enhance Stones",
+        detail: "One fragment makes five Enhance Stones.",
+        limit: "No limit stated.",
+      },
+    ],
+    links: [
+      { to: "/daevanion/spiritmaster/ariel", label: "Ariel board overview" },
+    ],
+    sourceIds: ["ncGlobal21Oct", "ncGlobal28Oct"],
   },
   {
     id: "azphel-crystals",

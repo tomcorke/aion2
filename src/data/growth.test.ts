@@ -31,6 +31,13 @@ test("boards, Stigma, pets, Arcana and wings retain distinct use and finite supp
   expect(
     growthMaterials.find(({ id }) => id === "azphel-crystals")?.use,
   ).toContain("separate");
+  const fragments = growthMaterials.find(({ id }) => id === "ariel-fragments");
+
+  expect(fragments?.targets).toEqual(["daevanion", "enhancement"]);
+  expect(fragments?.sourceIds).toEqual(["ncGlobal21Oct", "ncGlobal28Oct"]);
+  expect(
+    growthMaterials.find(({ id }) => id === "daevanion-crystals")?.acquisition,
+  ).toContainEqual({ name: "Leveling" });
   expect(
     growthMaterials.find(({ id }) => id === "stigma-shards")?.use,
   ).toContain("Stigma");
