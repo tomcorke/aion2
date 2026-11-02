@@ -43,6 +43,22 @@ describe("pet catalogue", () => {
 
     for (const { region } of petAreas) expect(regions).toContain(region);
   });
+
+  test("labels every region with guide-based or unknown Global access", () => {
+    for (const { access, accessNote } of petRegions) {
+      expect(["guide-global", "guide-not-global", "unknown"]).toContain(access);
+      expect(accessNote.length).toBeGreaterThan(20);
+    }
+
+    expect(
+      petRegions
+        .filter(({ access }) => access === "guide-not-global")
+        .map(({ id }) => id),
+    ).toEqual(["middle-reshanta", "other"]);
+    expect(petRegions.find(({ id }) => id === "dungeons")?.access).toBe(
+      "unknown",
+    );
+  });
 });
 
 describe("pet stats", () => {

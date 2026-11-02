@@ -77,7 +77,7 @@ export function PetControls({
         chips={[
           {
             value: "best",
-            label: "Highlight best area",
+            label: "Highlight best next area",
             pressed: mapOptions.has("best"),
           },
           {

@@ -516,9 +516,14 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   aion2MapsPets: {
     region: "Global-focused with North America West observations",
     updatedDate: "2026-10-28",
-    checkedDate: "2026-11-01",
+    checkedDate: "2026-11-02",
     accessNote:
-      "Guide reports Global client data through 28 October and North America West observations from 20 to 28 October; not a live check for this review.",
+      "Guide reports Global client data through 28 October and North America West observations from 20 to 28 October. Its three-pet access grouping does not identify all three pets or live-check each zone.",
+  },
+  aion2HelpGlobalRegions: {
+    checkedDate: "2026-11-02",
+    accessNote:
+      "Updated 23 October; editorial guide report, not an official notice or live check of each map zone.",
   },
   ownChecks: {
     region: "Global EU (some observations presumed)",

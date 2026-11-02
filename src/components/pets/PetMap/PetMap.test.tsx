@@ -50,6 +50,14 @@ test("groups areas under their map and skips empty maps", () => {
   ).toHaveLength(2);
   expect(screen.getByRole("region", { name: "Altgard" })).toBeTruthy();
   expect(screen.queryByRole("region", { name: "Lower Reshanta" })).toBeNull();
+  expect(
+    within(screen.getByRole("region", { name: "Verteron" })).getByText(
+      /guide-reported Global region/i,
+    ),
+  ).toBeTruthy();
+  expect(
+    screen.getByText(/guide lists pet sources in Krao Cave and Draupnir/i),
+  ).toBeTruthy();
 });
 
 test("names each area with the pets left to finish", () => {
@@ -59,7 +67,7 @@ test("names each area with the pets left to finish", () => {
   expect(tile(/^Gamma Pass, 0 to finish$/)).toBeTruthy();
 });
 
-test("marks lit areas, the best area and the picked area", () => {
+test("marks lit areas, the best next area and the picked area", () => {
   renderMap({
     lit: new Set(["verteron-b"]),
     best: "verteron-a",
@@ -68,9 +76,11 @@ test("marks lit areas, the best area and the picked area", () => {
 
   expect(tile(/^Beta Hill,/).getAttribute("data-lit")).toBe("true");
   expect(tile(/Alpha Fields/).getAttribute("data-lit")).toBe("false");
-  expect(tile(/Alpha Fields.*best area/).getAttribute("data-best")).toBe(
-    "true",
-  );
+  expect(
+    tile(/Alpha Fields.*highest pet count below level 3/).getAttribute(
+      "data-best",
+    ),
+  ).toBe("true");
   expect(tile(/Gamma Pass/).getAttribute("aria-pressed")).toBe("true");
 });
 

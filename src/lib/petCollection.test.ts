@@ -82,7 +82,7 @@ describe("farming areas", () => {
     expect(bestArea(countByArea(tied, {}), ["x", "y"])).toBe("x");
   });
 
-  test("has no best area once everything is maxed", () => {
+  test("has no best next area once everything is maxed", () => {
     const maxed = Object.fromEntries(pets.map(({ id }) => [id, 3 as const]));
 
     expect(bestArea(countByArea(pets, maxed), ["north"])).toBeUndefined();
