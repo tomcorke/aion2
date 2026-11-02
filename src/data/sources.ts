@@ -60,9 +60,9 @@ export const sources = {
   },
 
   metabotGear: {
-    name: "MetaBot gear progression guide",
+    name: "MetaBot gear progression guide (Global client data)",
     covers:
-      "Level 45 gear sources by item level, crafting lines and upgrade order",
+      "Gear grade comparison, level 45 gear sources by item level, crafting lines and upgrade order",
     url: "https://metabot.gg/en/aion-2/guides/gear-progression-guide",
   },
   metabotDungeons: {

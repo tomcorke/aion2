@@ -10,6 +10,7 @@ export const gearReviewed = "2026-11-01";
 
 export const gearSources: SourceId[] = [
   "metabotGear",
+  "metabotMethodology",
   "metabotDungeons",
   "metabotChecklist",
   "metabotArcana",

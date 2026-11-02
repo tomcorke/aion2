@@ -300,6 +300,7 @@ test("curated IDs and references resolve without duplicate definitions", () => {
 
   expect(gearSources).toEqual([
     "metabotGear",
+    "metabotMethodology",
     "metabotDungeons",
     "metabotChecklist",
     "metabotArcana",

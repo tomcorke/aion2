@@ -14,7 +14,7 @@ test.each([
   ["metabotStigma", "2026-10-16"],
   ["officialServers", "2026-10-06"],
   ["metabotCurrencies", "2026-10-07"],
-  ["metabotGear", "2026-10-08"],
+  ["metabotGear", "2026-11-01"],
   ["metabotAbyss", "2026-10-16"],
   ["game8Abyss", "2026-10-16"],
   ["game8Manastones", "2026-10-08"],
@@ -61,6 +61,15 @@ test.each([
 );
 
 test("retains catalog metadata without conflating source and client builds", () => {
+  expect(sourceDetails.metabotGear).toMatchObject({
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    publishedDate: "2026-10-01",
+    updatedDate: "2026-10-27",
+    checkedDate: "2026-11-01",
+    accessNote: expect.stringMatching(/not independently audited/),
+  });
+
   expect(sourceDetails.metabotFestival).toMatchObject({
     region: "Global",
     clientBuild: "0.0.4387.0",

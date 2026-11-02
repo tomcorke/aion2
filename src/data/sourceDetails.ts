@@ -104,12 +104,15 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
     accessNote:
       "Region and build unstated; the schedule says server time without settling the EU clock.",
   },
-  // Gear guides, stones and upgrade previews: S67–S87, S111–S112.
+  // Gear guides, stones and upgrade previews: S67–S87, S111–S112, S181.
   metabotGear: {
     region: "Global",
+    clientBuild: "0.0.4387.0",
     publishedDate: "2026-10-01",
-    updatedDate: "2026-10-07",
-    checkedDate: "2026-10-08",
+    updatedDate: "2026-10-27",
+    checkedDate: "2026-11-01",
+    accessNote:
+      "Gear grade and item-level data comes from the Global client; the original client files were not independently audited.",
   },
   metabotDungeons: {
     region: "Global",
