@@ -82,6 +82,22 @@ test("the Invasion key reminder stays optional and keeps its client scope qualif
   expect(routineSources).toContain("metabotEvents");
 });
 
+test("Gathering is a selected daily reminder with its official limits qualified", () => {
+  const gathering = routineTasks.find(({ id }) => id === "gathering");
+
+  expect(gathering?.group).toBe("daily");
+  expect(gathering?.title).toMatch(/^Optional:/);
+  expect(gathering?.counterIds).toEqual([]);
+  expect(gathering?.warning).toContain("requires level 45");
+  expect(gathering?.warning).toContain("1,000 gathers per server");
+  expect(gathering?.warning).toContain("08:00 CET");
+  expect(gathering?.warning).toMatch(
+    /does not explain how this count is attributed/i,
+  );
+  expect(gathering?.warning).toMatch(/players, accounts or characters/);
+  expect(routineSources).toContain("ncGlobal28Oct");
+});
+
 test("login event reminders keep separate dates, expiry context and visibility windows", () => {
   const attendance = routineEventReminders.find(
     ({ id }) => id === "atreias-call-attendance",
@@ -156,7 +172,8 @@ test("all stable task IDs resolve to canonical scope and limits and detailed gui
   for (const task of routineTasks) {
     expect(task.id).toMatch(/^[a-z]+(?:-[a-z]+)*$/);
     expect(task.purpose.length).toBeGreaterThan(0);
-    expect(task.counterIds.length).toBeGreaterThan(0);
+    if (task.id === "gathering") expect(task.counterIds).toEqual([]);
+    else expect(task.counterIds.length).toBeGreaterThan(0);
     expect(paths).toContain(`/${task.guide.to.split("/")[1]}`);
 
     for (const id of task.counterIds) {
