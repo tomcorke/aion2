@@ -20,3 +20,22 @@ test("starts on server time and switches zone", async () => {
     screen.getByRole("button", { name: "Server" }).getAttribute("aria-pressed"),
   ).toBe("false");
 });
+
+test("keeps zone buttons keyboard-accessible and saves the selected zone", async () => {
+  renderWithProviders(<ZoneSwitch />);
+
+  await userEvent.tab();
+  expect(document.activeElement).toBe(
+    screen.getByRole("button", { name: "Server" }),
+  );
+
+  await userEvent.tab();
+  const local = screen.getByRole("button", { name: "Local" });
+
+  expect(document.activeElement).toBe(local);
+
+  await userEvent.keyboard("{Enter}");
+
+  expect(local.getAttribute("aria-pressed")).toBe("true");
+  expect(JSON.parse(localStorage.getItem("preferences")!).zone).toBe("local");
+});
