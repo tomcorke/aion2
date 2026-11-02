@@ -430,6 +430,7 @@ export const altsSections: AltsSection[] = [
     title: "Start with one alt",
     items: [
       "As advice, start with one alt. Consider two or three only after the first already clears Conquest and you can handle the extra weekly work; more than three is not recommended.",
+      "If you want it to start generating Odyle Energy, take each alt through the Expedition unlock quest, which Global guides place around level 22. The exact quest step and first energy tick have not been checked in game.",
       "A main plus one alt has been estimated at 15 to 20 hours a week, not a guaranteed play-time requirement. Add another only when its useful rewards justify your time.",
       "Do not use the Korean creator estimate of roughly 1,600 Combat Power as a Global profit gate. Combat Power is also not the total item level used by dungeon unlocks.",
     ],
@@ -470,6 +471,8 @@ export const altsSources: SourceId[] = [
   "redditBeginnerDps",
   "mmoCodexAlts",
   "gamesGgAlts",
+  "aion2mapsExpeditionsOdyle",
+  "aion2mapsGlobalLaunch",
   "ncServerTransfers",
   "officialServers",
   "metabotFactions",
@@ -530,6 +533,18 @@ export const altsSourceAdditions = {
     covers:
       "Role flexibility, other-server isolation and estimated weekly play time",
     url: "https://games.gg/aion-2/guides/alts-explained-should-you-make-an-alt-in-aion-2/",
+  },
+  aion2mapsExpeditionsOdyle: {
+    name: "AION 2 Maps Expeditions and Odyle Energy guide",
+    covers:
+      "Guide-reported Expedition unlock quest for starting Odyle Energy generation, around level 22",
+    url: "https://aion2maps.com/guides/expeditions-and-odyle",
+  },
+  aion2mapsGlobalLaunch: {
+    name: "AION 2 Maps Global launch guide",
+    covers:
+      "Guide-reported recommendation to take alts to about level 22 for Odyle Energy generation",
+    url: "https://aion2maps.com/guides/welcome",
   },
   ncServerTransfers: {
     name: "NC Global Server Transfer notice",

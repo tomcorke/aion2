@@ -33,6 +33,15 @@ test("characters gain their own replenishing rewards but share the skipped-cube 
   });
 });
 
+test("alt Odyle advice keeps the reported unlock and level qualified", () => {
+  const advice = altsSections
+    .find(({ id }) => id === "how-many-alts")
+    ?.items.join(" ");
+
+  expect(advice).toMatch(/Expedition unlock quest.*around level 22/i);
+  expect(advice).toMatch(/not been checked in game/i);
+});
+
 test("daily grants bank while weekly entries and time remain separate allowances", () => {
   expect(resourceCounters["duty-missions"]).toMatchObject({
     scope: "server",
