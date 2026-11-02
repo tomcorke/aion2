@@ -13,6 +13,7 @@ import {
   petsLimits,
   petsReviewed,
   petsSources,
+  type PetRegion,
   type PetType,
 } from "../../data/pets.ts";
 import { useStoredState } from "../../hooks/useStoredState.ts";
@@ -39,6 +40,16 @@ const areaName = (id: string) => {
 
   return area && region ? `${area.name} (${region.title})` : undefined;
 };
+
+function bestAccessWarning(region?: PetRegion) {
+  if (region?.access === "guide-not-global")
+    return "Guides report this as KR/TW content; it is not a confirmed Global stop.";
+
+  if (region?.access === "unknown")
+    return "Global access is unverified; this is not a confirmed Global stop.";
+
+  return undefined;
+}
 
 function toggled<T>(set: ReadonlySet<T>, value: T) {
   const next = new Set(set);
@@ -69,6 +80,9 @@ export function Pets() {
 
   const counts = useMemo(() => countByArea(pets, levels), [levels]);
   const best = mapOptions.has("best") ? bestArea(counts, areaOrder) : undefined;
+  const bestRegionId = petAreas.find(({ id }) => id === best)?.region;
+  const bestRegion = petRegions.find(({ id }) => id === bestRegionId);
+  const bestWarning = bestAccessWarning(bestRegion);
   const shown = filterPets(pets, levels, { query, types, hideMaxed, area });
   // A row removed by a filter fires no mouse-leave, so ignore it once hidden.
   const hoveredShown = shown.some(({ id }) => id === hovered)
@@ -146,11 +160,26 @@ export function Pets() {
         <div className={STYLES.layout}>
           <section aria-label="Farming map" className={STYLES.map}>
             <h2>Where to farm</h2>
+            <p className={STYLES.hint}>
+              Best next area counts pets below level 3 in each area. Ties favor
+              more unowned pets, then map order. It does not rank the fastest or
+              easiest routes, and it ignores region access, monster level, route
+              effort, competition and respawn time.
+            </p>
+            <p className={STYLES.access}>
+              Global access is guide-reported, not checked live. Guides report
+              Verteron, Altgard and Chaotic Lower Reshanta as Global areas, and
+              Chaotic Middle Reshanta, Morheim and Eltnen as KR/TW content. Krao
+              Cave and Draupnir are listed as pet sources, but their access is
+              unverified. Treat unverified areas as map references, not
+              confirmed Global farming stops.
+            </p>
             {best && (
               <p role="status">
-                Best next area: <strong>{areaName(best)}</strong>, with{" "}
-                {counts.get(best)?.unfinished} pets still below level 3{" ("}
+                Best next area by pet count: <strong>{areaName(best)}</strong>,
+                with {counts.get(best)?.unfinished} pets below level 3{" ("}
                 {counts.get(best)?.unowned} not yet owned).
+                {bestWarning && ` ${bestWarning}`}
               </p>
             )}
             {mapOptions.has("best") && !best && (
@@ -180,8 +209,9 @@ export function Pets() {
               onPick={pickArea}
             />
             <p className={STYLES.hint}>
-              Coastlines are simplified traces of the in-game maps. Zone
-              positions are approximate; diamonds are party dungeons.
+              The map identifies zones only; it does not list target monsters,
+              monster levels or drop chances. Coastlines and zone positions are
+              approximate; diamonds are party dungeons.
             </p>
             <details className={STYLES.areas}>
               <summary>Areas as a list</summary>

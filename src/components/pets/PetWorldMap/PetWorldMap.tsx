@@ -12,7 +12,7 @@ type Props = {
   counts: Map<string, AreaCount>;
   // Areas to mark for the pets being hovered or selected.
   lit: ReadonlySet<string>;
-  // The next best area to farm, when that option is on.
+  // The area with the most pets below level 3, when highlighted.
   best?: string;
   heat: boolean;
   active?: string;

@@ -112,6 +112,12 @@
   font-size: 0.8rem;
 }
 
+.access {
+  max-width: 76ch;
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
 .areas {
   & summary {
     display: flex;

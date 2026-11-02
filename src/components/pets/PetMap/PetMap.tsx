@@ -7,7 +7,7 @@ type Props = {
   counts: Map<string, AreaCount>;
   // Areas to mark for the pets being hovered or selected.
   lit: ReadonlySet<string>;
-  // The next best area to farm, when that option is on.
+  // The area with the highest unfinished-pet count, when highlighted.
   best?: string;
   heat: boolean;
   active?: string;
@@ -17,7 +17,7 @@ type Props = {
 function tileLabel(area: PetArea, left: number, best: boolean, lit: boolean) {
   const parts = [area.name, `${left} to finish`];
 
-  if (best) parts.push("best area to farm next");
+  if (best) parts.push("highest pet count below level 3");
   if (lit) parts.push("marked for your pets");
   if (area.entrance) parts.push(`entrance ${area.entrance}`);
 
@@ -38,7 +38,7 @@ export function PetMap({
 
   return (
     <div className={STYLES.map}>
-      {petRegions.map(({ id, title }) => {
+      {petRegions.map(({ id, title, accessNote }) => {
         const inRegion = areas.filter(({ region }) => region === id);
 
         if (inRegion.length === 0) return null;
@@ -46,6 +46,7 @@ export function PetMap({
         return (
           <section key={id} aria-label={title} className={STYLES.region}>
             <h3>{title}</h3>
+            <p className={STYLES.access}>{accessNote}</p>
 
             <ul>
               {inRegion.map((area) => {
@@ -74,7 +75,7 @@ export function PetMap({
                     >
                       <span className={STYLES.name}>{area.name}</span>
                       <span className={STYLES.count} aria-hidden="true">
-                        {isBest ? "Best · " : ""}
+                        {isBest ? "Count · " : ""}
                         {left}
                       </span>
                     </button>

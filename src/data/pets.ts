@@ -2,7 +2,8 @@ import catalogue from "./petCatalogue.json";
 import type { Source } from "./sources.ts";
 
 // Curated from aion2-knowledge: collections/pets.md and its pet-catalogue.json.
-// The pet note was reviewed on 2026-11-02; map screenshots on 2026-11-01.
+// The pet note was reviewed on 2026-11-02; access guides were rechecked then.
+// No live zone-access check was made.
 export const petsReviewed = "2026-11-02";
 
 export const petTypes = [
@@ -40,6 +41,13 @@ export type PetArea = {
   entrance?: string;
 };
 
+export type PetRegion = {
+  id: PetRegionId;
+  title: string;
+  access: "guide-global" | "guide-not-global" | "unknown";
+  accessNote: string;
+};
+
 export const pets = catalogue.pets as Pet[];
 
 export const petAreas = catalogue.areas as PetArea[];
@@ -62,13 +70,46 @@ export const petsAttribution = [
   { name: "AION 2 Maps pets and mounts guide", url: aion2MapsPetsUrl },
 ];
 
-export const petRegions: { id: PetRegionId; title: string }[] = [
-  { id: "verteron", title: "Verteron" },
-  { id: "altgard", title: "Altgard" },
-  { id: "lower-reshanta", title: "Chaotic Lower Reshanta" },
-  { id: "middle-reshanta", title: "Chaotic Middle Reshanta" },
-  { id: "dungeons", title: "Party dungeons" },
-  { id: "other", title: "Morheim and Eltnen" },
+export const petRegions: PetRegion[] = [
+  {
+    id: "verteron",
+    title: "Verteron",
+    access: "guide-global",
+    accessNote: "Guide-reported Global region; access was not checked live.",
+  },
+  {
+    id: "altgard",
+    title: "Altgard",
+    access: "guide-global",
+    accessNote: "Guide-reported Global region; access was not checked live.",
+  },
+  {
+    id: "lower-reshanta",
+    title: "Chaotic Lower Reshanta",
+    access: "guide-global",
+    accessNote: "Guide-reported Global area; access was not checked live.",
+  },
+  {
+    id: "middle-reshanta",
+    title: "Chaotic Middle Reshanta",
+    access: "guide-not-global",
+    accessNote:
+      "Guide-reported KR/TW content; Global access was not checked live.",
+  },
+  {
+    id: "dungeons",
+    title: "Party dungeons",
+    access: "unknown",
+    accessNote:
+      "A guide lists pet sources in Krao Cave and Draupnir; dungeon access was not checked live.",
+  },
+  {
+    id: "other",
+    title: "Morheim and Eltnen",
+    access: "guide-not-global",
+    accessNote:
+      "Guide-reported KR/TW content; Global access was not checked live.",
+  },
 ];
 
 export const petLevels = [1, 2, 3] as const;
@@ -141,6 +182,12 @@ export const petSourceAdditions = {
       "The pet roster, creature-type bonuses, soul-dropping monsters and their zones, chest and shop sources",
     url: metabotMountsUrl,
   },
+  aion2HelpGlobalRegions: {
+    name: "Aion2Help Global content guide",
+    covers:
+      "Guide-reported Global status for Verteron, Altgard and Chaotic Lower Reshanta, and KR/TW status for Middle Reshanta, Eltnen and Morheim",
+    url: "https://aion2help.com/en/whats-coming/global/",
+  },
   allthingsPets: {
     name: "allthings.how pet souls guide",
     covers: "Souls for pet levels 2 and 3, and Natura and Varian level stats",
@@ -149,7 +196,7 @@ export const petSourceAdditions = {
   aion2MapsPets: {
     name: "AION 2 Maps pets and mounts guide",
     covers:
-      "Pet mounts, Genus Insight, collection rewards, and level-3 Empathy Candy transformation",
+      "Pet sources and zone access reports, mounts, Genus Insight, collection rewards, and level-3 Empathy Candy transformation",
     url: aion2MapsPetsUrl,
   },
 } satisfies Record<string, Source>;
@@ -160,15 +207,16 @@ export const petsSources = [
   "communityLowerReshantaMap",
   "communityMiddleReshantaMap",
   "metabotPets",
+  "aion2MapsPets",
+  "aion2HelpGlobalRegions",
   "allthingsPets",
   "metabotWings",
-  "aion2MapsPets",
 ] as const;
 
 export const petsLimits = [
   "Verteron, Altgard and Reshanta coastlines are approximations traced from in-game map screenshots. Morheim and Eltnen outlines are schematic placeholders. Pet data has no zone coordinates, so area markers remain approximate. Many pets drop only on the other faction's map.",
   "Level 2 and 3 soul costs come from guides, not from the client data. The level-2 stats for Fera and Cogni, and the Varian sprint stat, follow the confirmed Natura pattern.",
-  "Morheim and Eltnen are in the client data; whether they are open on Global was not checked. Quai Campsite and Sanctum Dumpsite are placed on Altgard by inference.",
+  "Access notes are guide-reported, not live checks. Guides report Chaotic Middle Reshanta, Morheim and Eltnen as KR/TW content; keep them as map references, not confirmed Global farming stops. Krao Cave and Draupnir are listed as pet sources, but their access was not checked live. Quai Campsite and Sanctum Dumpsite are placed on Altgard by inference.",
   "How stats add up when you own several pets of one type is not settled, so the page does not total them.",
   "Five Special pets (Chonky Hamster, Little Ghost, Pumpkin Carriage, Two and White Bunny) list no way to get them and are left out.",
 ];
