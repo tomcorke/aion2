@@ -30,6 +30,7 @@ export type TimerDef = {
   // Gear item level of the boss's best drop; bosses only.
   itemLevel?: number;
   schedule: Schedule;
+  matchingGroupSchedules?: readonly [Slots, Slots, Slots];
 };
 
 const SUN = 0;
@@ -53,6 +54,11 @@ export const timerDefs: TimerDef[] = [
     name: "Artifact Siege",
     group: "fixed",
     schedule: { kind: "slots", hours: [21], minute: 0, days: [MON, THU, SAT] },
+    matchingGroupSchedules: [
+      { hours: [21], minute: 0, days: [MON, THU, SAT] },
+      { hours: [21], minute: 5, days: [MON, THU, SAT] },
+      { hours: [21], minute: 10, days: [MON, THU, SAT] },
+    ],
   },
   {
     id: "rift",
@@ -72,6 +78,11 @@ export const timerDefs: TimerDef[] = [
     group: "reshanta",
     itemLevel: 86,
     schedule: { kind: "slots", hours: [21], minute: 10, days: [FRI, SUN] },
+    matchingGroupSchedules: [
+      { hours: [21], minute: 0, days: [FRI, SUN] },
+      { hours: [21], minute: 5, days: [FRI, SUN] },
+      { hours: [21], minute: 10, days: [FRI, SUN] },
+    ],
   },
   {
     id: "executors",
@@ -79,6 +90,11 @@ export const timerDefs: TimerDef[] = [
     group: "reshanta",
     itemLevel: 70,
     schedule: { kind: "slots", hours: [21], minute: 40, days: [MON, THU, SAT] },
+    matchingGroupSchedules: [
+      { hours: [21], minute: 30, days: [MON, THU, SAT] },
+      { hours: [21], minute: 35, days: [MON, THU, SAT] },
+      { hours: [21], minute: 40, days: [MON, THU, SAT] },
+    ],
   },
   {
     id: "gartua",

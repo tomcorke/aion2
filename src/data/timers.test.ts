@@ -33,6 +33,39 @@ test("bosses carry a gear item level and fixed timers do not", () => {
   }
 });
 
+test("Abyss events expose all three reported matching-group schedules", () => {
+  const schedules = Object.fromEntries(
+    timerDefs
+      .filter(({ id }) => ["siege", "executors", "nahma"].includes(id))
+      .map(({ id, matchingGroupSchedules }) => [
+        id,
+        matchingGroupSchedules?.map(({ hours, minute, days }) => ({
+          hours,
+          minute,
+          days,
+        })),
+      ]),
+  );
+
+  expect(schedules).toEqual({
+    siege: [
+      { hours: [21], minute: 0, days: [1, 4, 6] },
+      { hours: [21], minute: 5, days: [1, 4, 6] },
+      { hours: [21], minute: 10, days: [1, 4, 6] },
+    ],
+    executors: [
+      { hours: [21], minute: 30, days: [1, 4, 6] },
+      { hours: [21], minute: 35, days: [1, 4, 6] },
+      { hours: [21], minute: 40, days: [1, 4, 6] },
+    ],
+    nahma: [
+      { hours: [21], minute: 0, days: [5, 0] },
+      { hours: [21], minute: 5, days: [5, 0] },
+      { hours: [21], minute: 10, days: [5, 0] },
+    ],
+  });
+});
+
 test("field bosses respawn and nothing else does", () => {
   for (const { group, schedule } of timerDefs) {
     expect(schedule.kind === "respawn").toBe(group === "field");

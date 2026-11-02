@@ -84,6 +84,7 @@ test("the root view keeps the saved groups", () => {
 });
 
 test("/timers/abyss loads the Lower Reshanta view directly", () => {
+  localStorage.setItem("abyss-matching-group", "3");
   render("/timers/abyss");
 
   expect(
@@ -93,12 +94,28 @@ test("/timers/abyss loads the Lower Reshanta view directly", () => {
   ).toBe("true");
   expect(shows("Guardian Lord Nahma")).toBe(true);
   expect(shows("Executors")).toBe(true);
+  expect(shows("Artifact Siege")).toBe(true);
   expect(shows("Watcher Kaira")).toBe(false);
   expect(shows("Weekly reset")).toBe(false);
   expect(document.title).toBe("Lower Reshanta timers · AION 2 Notes");
 });
 
+test("the Lower Reshanta view asks for a group instead of assuming one", () => {
+  localStorage.removeItem("abyss-matching-group");
+  render("/timers/abyss");
+
+  expect(
+    screen.getByRole("group", { name: "Abyss matching group" }),
+  ).toBeDefined();
+  expect(screen.getByRole("status").textContent).toContain("Choose a group");
+  expect(shows("Artifact Siege")).toBe(false);
+  expect(shows("Executors")).toBe(false);
+  expect(shows("Guardian Lord Nahma")).toBe(false);
+  expect(shows("Watcher Kaira")).toBe(false);
+});
+
 test("switching views and going back keeps the saved setup and kills", async () => {
+  localStorage.setItem("abyss-matching-group", "3");
   render("/timers");
 
   await userEvent.click(screen.getByRole("tab", { name: "Lower Reshanta" }));
