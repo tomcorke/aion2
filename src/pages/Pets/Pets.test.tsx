@@ -88,6 +88,27 @@ test("explains pet uses and leaves same-type bonus stacking unconfirmed", () => 
   ).toHaveProperty("href", "https://aion2maps.com/guides/pets/");
 });
 
+test("explains map-only data, guide-reported access and the best-area count", () => {
+  render();
+  const map = within(screen.getByRole("region", { name: "Farming map" }));
+
+  expect(
+    map.getByText(/Best next area counts pets below level 3 in each area/i),
+  ).toBeTruthy();
+  expect(
+    map.getByText(/does not rank the fastest or easiest routes/i),
+  ).toBeTruthy();
+  expect(
+    map.getByText(/Global access is guide-reported, not checked live/i),
+  ).toBeTruthy();
+  expect(
+    map.getByText(/Middle Reshanta, Morheim and Eltnen as KR\/TW content/i),
+  ).toBeTruthy();
+  expect(
+    map.getByText(/map identifies zones only.*target monsters/i),
+  ).toBeTruthy();
+});
+
 test("ticks save in this browser and count toward progress", async () => {
   render();
 
@@ -179,7 +200,24 @@ test("highlights the area where the most pets are still below level 3", async ()
 
   expect(best).toHaveLength(1);
   expect(left(best[0])).toBe(Math.max(...tiles().map(left)));
-  expect(screen.getByText(/Best next area:/)).toBeTruthy();
+  expect(screen.getByText(/Best next area by pet count:/)).toBeTruthy();
+});
+
+test("marks a guide-reported KR/TW area as not a confirmed Global stop", async () => {
+  const pet = pets.find(({ name }) => name === "Elite Dratona")!;
+  const levels = Object.fromEntries(
+    pets.filter(({ id }) => id !== pet.id).map(({ id }) => [id, 3]),
+  );
+
+  localStorage.setItem("pet-levels", JSON.stringify(levels));
+  render();
+  await userEvent.click(option("Highlight best area"));
+
+  const map = within(screen.getByRole("region", { name: "Farming map" }));
+
+  expect(map.getByRole("status").textContent).toMatch(
+    /Patamor Plains \(Morheim and Eltnen\).*not a confirmed Global stop/,
+  );
 });
 
 test("the best area moves on once its pets are maxed", async () => {

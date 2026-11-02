@@ -25,6 +25,8 @@ test.each([
   ["metabotDaevanionPlanner", "2026-10-11"],
   ["ncGlobal21Oct", "2026-11-01"],
   ["ncGlobal28Oct", "2026-11-01"],
+  ["aion2MapsPets", "2026-11-02"],
+  ["aion2HelpGlobalRegions", "2026-11-02"],
   ["game8RiftQuests", "2026-10-10"],
   ["space4GamesRifts", "2026-10-10"],
   ["metabotWings", "2026-10-11"],
@@ -151,5 +153,11 @@ test("recorded access limits remain readable and do not imply unseen material wa
   );
   expect(sourceDetails.metabotEvents?.accessNote).toMatch(
     /schedules.*not.*live EU/i,
+  );
+  expect(sourceDetails.aion2MapsPets?.accessNote).toMatch(
+    /does not identify all three pets or live-check each zone/i,
+  );
+  expect(sourceDetails.aion2HelpGlobalRegions?.accessNote).toMatch(
+    /not an official notice or live check/i,
   );
 });
