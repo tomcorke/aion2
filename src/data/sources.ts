@@ -295,6 +295,18 @@ export const sources = {
       "Ludra's scheduled return and Normal and Hard item-level entry requirements",
     url: "https://lounge.plaync.com/feed/85150?country=US&locale=en-US",
   },
+  ncAtreiasCall: {
+    name: "NC: Atreia's Call 28-day Attendance event",
+    covers:
+      "Global Attendance menu and the event's 2 December 2026 CET maintenance cutoff",
+    url: "https://steamcommunity.com/app/3393110/announcements/",
+  },
+  ncOdyleEnergyBoost: {
+    name: "NC: Odyle Energy Boost event",
+    covers:
+      "Four Odyle Energy per account per day by mail through 11 November 2026 CET maintenance; seven-day mail expiry",
+    url: "https://lounge.plaync.com/feed/85150?country=US&locale=en-US",
+  },
   ownChecks: {
     name: "My own checks on an EU server",
     covers:

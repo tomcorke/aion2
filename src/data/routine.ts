@@ -10,6 +10,14 @@ import type { Source, SourceId } from "./sources.ts";
 
 export type RoutineGroup = "daily" | "weekly";
 
+export type RoutineEventReminder = {
+  id: string;
+  title: string;
+  instruction: string;
+  dateContext: string;
+  visibleThrough: string;
+};
+
 export type RoutineTask = {
   id: string;
   group: RoutineGroup;
@@ -24,7 +32,34 @@ export type RoutineTask = {
 
 // Groups organise reminders, not game refills. IDs are browser-storage keys.
 export const routineContract =
-  "Ticks are reminders saved in this browser, not synchronized clears, minutes, keys or live resource counters. Daily and weekly ticks clear only when you confirm that group's manual-clear action. They do not clear on mount, at midnight, at an assumed reset or after days offline. One checkbox records a reminder, not how many rewards you have left.";
+  "Ticks are reminders saved in this browser, not synchronized clears, minutes, keys or live resource counters. Daily and weekly ticks clear only when you confirm that group's manual-clear action. They do not clear on mount, at midnight, at an assumed reset or after days offline. Optional event reminders have separate ticks and deadlines; event timing does not set a general game reset.";
+
+export const routineEventReminders: RoutineEventReminder[] = [
+  {
+    id: "atreias-call-attendance",
+    title: "Check Atreia's Call Attendance",
+    instruction:
+      "Open In-game Menu > Attendance and check for today's event reward.",
+    dateContext:
+      "Global EU: available through before maintenance on 2 December 2026.",
+    visibleThrough: "2026-12-02",
+  },
+  {
+    id: "odyle-energy-boost-mail",
+    title: "Claim Odyle Energy Boost mail",
+    instruction:
+      "Check in-game mail for 4 Odyle Energy. One delivery is available per account each day.",
+    dateContext:
+      "Global EU: deliveries run through before maintenance on 11 November 2026. Each mail expires 7 days after receipt; this reminder stays through 18 November for mail received near the event end.",
+    visibleThrough: "2026-11-18",
+  },
+];
+
+export function activeRoutineEventReminders(today: string) {
+  return routineEventReminders.filter(
+    ({ visibleThrough }) => today <= visibleThrough,
+  );
+}
 
 export const bankingReminders = [
   `Odyle Energy, Conquest and Transcendence reward counts refill continuously, not as fixed daily allocations. Odyle Energy: ${resourceCounters["odyle-energy"].limit}, cap ${resourceCounters["odyle-energy"].cap} (${resourceCounters["odyle-energy"].membershipCap} with membership). Conquest: ${resourceCounters["conquest-rewards"].limit}, cap ${resourceCounters["conquest-rewards"].cap}. Transcendence: ${resourceCounters["transcendence-rewards"].limit}, cap ${resourceCounters["transcendence-rewards"].cap}. Spend useful rewards before caps stop the refill.`,
@@ -243,6 +278,8 @@ export const routineSources: SourceId[] = [
   "destructoidClashRunes",
   "officialMembership",
   "ownChecks",
+  "ncAtreiasCall",
+  "ncOdyleEnergyBoost",
 ];
 
 // S145; also needed by Gear's Enhance Stone source row (#27).
@@ -256,4 +293,4 @@ export const routineSourceAdditions = {
   },
 } satisfies Record<string, Source>;
 
-export const routineReviewed = "2026-11-01";
+export const routineReviewed = "2026-11-02";
