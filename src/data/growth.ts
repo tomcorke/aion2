@@ -17,6 +17,30 @@ export const growthSourceAdditions = {
     covers: "Daeva Bio-Research Base score-dependent Enhance Stone rewards",
     url: "https://allthings.how/?p=264760",
   },
+  patchbotGlobal28Oct: {
+    name: "Patchbot 28 October Global patch-notes transcription",
+    covers:
+      "Transcription of NC's Odylium reward wording and shared Daily Dungeon entry pool",
+    url: "https://patchbot.io/games/aion-2/articles/1977-notice-patch-notes-oct-27-pdt-oct-28-cet",
+  },
+  metabotOdyliumRepository: {
+    name: "MetaBot Odylium Repository data",
+    covers:
+      "Global client build 0.0.4387.0 score-reward listing for Growth Pet Chests",
+    url: "https://metabot.gg/en/aion-2/dungeons/odylium-repository",
+  },
+  aion2MapsDailyDungeon: {
+    name: "Aion 2 Maps daily and weekly guide",
+    covers:
+      "Global client report of Odylium's 10,000-score crystal-chest reward",
+    url: "https://aion2maps.com/guides/daily-and-weekly/",
+  },
+  aion2GlobalTicketDatabase: {
+    name: "AION 2 Global Database Instant Clear Ticket entry",
+    covers:
+      "Global client-data shop listing; it does not confirm live availability or final placement",
+    url: "https://aion2.gaming.tools/items/602600002?variant=632700001",
+  },
   game8RiftQuests: {
     name: "Game8 Spacetime Rift quest walkthrough",
     covers: "Faction-specific quest chains and first-quest material rewards",
@@ -553,6 +577,15 @@ export const growthMaterials: GrowthMaterial[] = [
         to: "/gear",
       },
       {
+        name: "Daily Dungeon (Odylium Repository)",
+        detail:
+          "NC's notice describes bound Soul Crystals by score, while two Global client-data guides report Growth Pet Chests or crystal chests. The reward item and score tiers remain unresolved until a live result is checked.",
+        limit:
+          "Uses the shared 14-entry weekly server pool with Daeva Bio-Research Base.",
+        counterId: "daily-dungeon",
+        to: "/routine",
+      },
+      {
         name: "Hidden Cubes",
         detail:
           "The compared tables list 100 without a key and 1,000 keyed. Eltnen and Morheim rewards scale with level by an unpublished amount.",
@@ -564,6 +597,10 @@ export const growthMaterials: GrowthMaterial[] = [
       "metabotWings",
       "metabotHiddenCubes",
       "gamerBlurbShared",
+      "ncGlobal28Oct",
+      "patchbotGlobal28Oct",
+      "metabotOdyliumRepository",
+      "aion2MapsDailyDungeon",
     ],
   },
   {
@@ -580,9 +617,24 @@ export const growthMaterials: GrowthMaterial[] = [
         rewardConditionId: "ascension-trial",
         to: "/gear",
       },
+      {
+        name: "Daily Dungeon (Odylium Repository)",
+        detail:
+          "MetaBot lists score-based Growth Pet Chests; NC's notice describes Soul Crystals by score, while Aion 2 Maps reports a crystal chest. No item or score tier is confirmed by a live result.",
+        limit:
+          "Uses the shared 14-entry weekly server pool with Daeva Bio-Research Base.",
+        counterId: "daily-dungeon",
+        to: "/routine",
+      },
     ],
     links: [{ to: "/alts", label: "Pet and Genus sharing" }],
-    sourceIds: ["metabotDungeons"],
+    sourceIds: [
+      "metabotDungeons",
+      "ncGlobal28Oct",
+      "patchbotGlobal28Oct",
+      "metabotOdyliumRepository",
+      "aion2MapsDailyDungeon",
+    ],
   },
   {
     id: "creature-souls",

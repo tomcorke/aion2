@@ -28,6 +28,13 @@ test("a question can affect multiple sections without duplicate matches", () => 
   }
 });
 
+test("shows unresolved Daily Dungeon notes on Growth, Routine and Alts", () => {
+  for (const topic of ["growth", "routine", "alts"])
+    expect(questionsForTopic(topic).map(({ id }) => id)).toContain(
+      "daily-dungeon-rewards",
+    );
+});
+
 test.each(["", "unknown", "sources", "gear/enhancement", "fest"])(
   "does not match an empty, unknown or partial section: %s",
   (topic) => {
