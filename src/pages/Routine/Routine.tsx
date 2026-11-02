@@ -77,7 +77,7 @@ export function Routine() {
     <>
       <PageHero
         title="Routine"
-        lede="Daily and weekly reminders with their limits and sharing scope, cleared only when you choose."
+        lede="Selected daily and weekly reminders; this is not an exhaustive list. Tick them when you choose."
       />
 
       <div className={STYLES.body}>

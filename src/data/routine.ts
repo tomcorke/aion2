@@ -150,6 +150,16 @@ export const routineTasks: RoutineTask[] = [
       "Use this reminder only when participating and the additional reward is useful. The client-derived server scope has not been confirmed in live play; check the in-game counter.",
   },
   {
+    id: "gathering",
+    group: "daily",
+    title: "Optional: gather useful materials",
+    purpose: "Use Gathering when you have useful materials to collect.",
+    counterIds: [],
+    guide: { to: "/sources", label: "Official Global patch notes" },
+    warning:
+      "Global: Gathering requires level 45. NC describes a daily limit of 1,000 gathers per server, resetting at 08:00 CET. The notice does not explain how this count is attributed across players, accounts or characters.",
+  },
+  {
     id: "exploration",
     group: "weekly",
     title: "Use useful Exploration rewards",

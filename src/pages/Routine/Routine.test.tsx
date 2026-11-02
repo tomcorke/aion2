@@ -99,6 +99,33 @@ test("Daily Dungeon distinguishes its two choices and leaves Odylium rewards unr
   expect(task.details).toContain("unused entries are lost at Wednesday reset");
 });
 
+test("Routine describes its selected scope and shows Gathering without an inferred counter scope", () => {
+  renderPage();
+
+  expect(
+    screen.getByText(
+      /Selected daily and weekly reminders; this is not an exhaustive list/i,
+    ),
+  ).toBeDefined();
+
+  const gathering = screen.getByRole("listitem", {
+    name: "Optional: gather useful materials",
+  });
+
+  expect(within(gathering).getByText(/requires level 45/i)).toBeDefined();
+  expect(
+    within(gathering).getByText(/1,000 gathers per server/i),
+  ).toBeDefined();
+  expect(within(gathering).getByText(/resetting at 08:00 CET/i)).toBeDefined();
+  expect(
+    within(gathering).getByText(
+      /does not explain how this count is attributed/i,
+    ),
+  ).toBeDefined();
+  expect(within(gathering).queryByText("Server-shared")).toBeNull();
+  expect(within(gathering).queryByText("Per character")).toBeNull();
+});
+
 test("guide links go to the detailed pages", () => {
   renderPage();
 
