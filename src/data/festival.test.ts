@@ -7,6 +7,7 @@ import {
   festivalPurchases,
   festivalReviewed,
   festivalRewards,
+  festivalShopOffers,
   festivalSources,
 } from "./festival.ts";
 import { sources } from "./sources.ts";
@@ -46,7 +47,7 @@ test("the nine games retain their participant limits and individual round durati
 
 // overview.md: S02 entry window, S03 level caveats, owner EU observation.
 test("entry guidance separates observed EU availability from round rules and level uncertainty", () => {
-  expect(festivalReviewed).toBe("2026-10-05");
+  expect(festivalReviewed).toBe("2026-11-02");
   expect(festivalEntry.region).toBe("Global");
   expect(festivalEntry.windowMinutes).toBe(3);
   expect(festivalEntry.instructions).toContain("beside the map");
@@ -254,6 +255,30 @@ test("purchase and ownership IDs remain unique across the separate supported cat
   for (const { category, pieces } of festivalPurchases) {
     expect(pieces).toHaveLength(pieceCounts[category]);
   }
+});
+
+test("the remaining Festival Shop offers cover the client-listed inventory", () => {
+  const ids = festivalShopOffers.map(({ id }) => id);
+  const appearancePieceCount = festivalPurchases.reduce(
+    (count, purchase) => count + purchase.pieces.length,
+    0,
+  );
+
+  expect(festivalShopOffers).toHaveLength(28);
+  expect(new Set(ids).size).toBe(28);
+  expect(appearancePieceCount + festivalShopOffers.length).toBe(49);
+  expect(
+    festivalShopOffers.filter(({ limit }) => limit !== "No limit listed"),
+  ).toHaveLength(27);
+  expect(
+    festivalShopOffers.filter(({ category }) => category === "Artwork"),
+  ).toHaveLength(19);
+  expect(
+    festivalShopOffers.find(({ id }) => id === "empathy-candy"),
+  ).toMatchObject({
+    price: 20,
+    limit: "No limit listed",
+  });
 });
 
 // Public catalog registrations resolve S01/S02/S03/S06/S07/S08 and the EU observation.

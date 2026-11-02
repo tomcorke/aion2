@@ -6,8 +6,8 @@ import { sources, type SourceId } from "./sources.ts";
 test.each([
   ["game8Festival", "2026-10-05"],
   ["officialMembership", "2026-10-05"],
-  ["metabotMethodology", "2026-10-16"],
-  ["metabotFestivalShop", "2026-10-05"],
+  ["metabotMethodology", "2026-11-02"],
+  ["metabotFestivalShop", "2026-11-02"],
   ["metabotHiddenCubes", "2026-10-06"],
   ["officialServers", "2026-10-06"],
   ["metabotCurrencies", "2026-10-07"],
