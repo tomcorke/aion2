@@ -67,6 +67,27 @@ test("lists every obtainable pet with a checklist and direct source links", () =
   expect(metaBotPetPages.every((link) => !link.hasAttribute("rel"))).toBe(true);
 });
 
+test("explains pet uses and leaves same-type bonus stacking unconfirmed", () => {
+  render();
+
+  const uses = screen.getByRole("region", { name: "Why collect pets?" });
+
+  expect(uses.textContent).toMatch(/Pets also serve as mounts/);
+  expect(uses.textContent).toMatch(/Levelling pets adds Genus Insight/);
+  expect(uses.textContent).toMatch(
+    /collection milestones award Soul Crystals and Empathy Candy/,
+  );
+  expect(uses.textContent).toMatch(/equipped after it reaches level 3/);
+  expect(uses.textContent).toMatch(/lasts five minutes/);
+  expect(uses.textContent).toMatch(/stack is still unconfirmed/);
+
+  expect(
+    within(screen.getByRole("contentinfo")).getByRole("link", {
+      name: "AION 2 Maps pets and mounts guide",
+    }),
+  ).toHaveProperty("href", "https://aion2maps.com/guides/pets/");
+});
+
 test("ticks save in this browser and count toward progress", async () => {
   render();
 
