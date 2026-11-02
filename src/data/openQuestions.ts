@@ -390,6 +390,20 @@ export const openQuestions: OpenQuestion[] = [
     supportingSourceIDs: ["metabotChecklist", "metabotAbyss", "gameTruthAlts"],
   },
   {
+    id: "global-character-slots",
+    groupId: "appearances",
+    unknown:
+      "Four starting Global character slots were confirmed in NC's launch livestream. AION 2 Maps reports a maximum of eight, but the current Global character-selection UI has not been checked; the reported maximum, expansion method, price, and per-server/account scope remain unverified.",
+    why: "The maximum number of characters and where extra slots apply affect how many alts a player can plan for.",
+    practicalCheck:
+      "Check the Global character-selection and slot-expansion screens. Record the starting and maximum slots, expansion method and price, and whether the limit applies per server or account.",
+    relatedGuideLinks: [{ to: "/alts", label: "Character slots" }],
+    supportingSourceIDs: [
+      "aion2mapsGlobalDifferences",
+      "massivelyOverPoweredLaunchSlots",
+    ],
+  },
+  {
     id: "skin-owned-stat-sharing",
     groupId: "appearances",
     unknown:

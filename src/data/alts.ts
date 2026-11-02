@@ -464,6 +464,12 @@ export const serverTransferGuidance = [
   "NC's 28 October patch notes said the transfer period had ended and the shop tab would be removed. NC has announced no later date or future rules; check current official notices instead of planning around another transfer.",
 ];
 
+export const characterSlotGuidance = [
+  "Four starting character slots were confirmed in NC's Global launch livestream.",
+  "AION 2 Maps reports a maximum of eight slots. The current Global character-selection UI has not been checked, so treat this reported maximum as unverified.",
+  "How to get extra slots, their price, and whether the limit is per server or account are unverified.",
+];
+
 export const altsSources: SourceId[] = [
   "metabotSubstanceMorph",
   "metabotManastones",
@@ -474,6 +480,8 @@ export const altsSources: SourceId[] = [
   "gamesGgAlts",
   "aion2mapsExpeditionsOdyle",
   "aion2mapsGlobalLaunch",
+  "aion2mapsGlobalDifferences",
+  "massivelyOverPoweredLaunchSlots",
   "ncServerTransfers",
   "officialServers",
   "metabotFactions",
@@ -546,6 +554,18 @@ export const altsSourceAdditions = {
     covers:
       "Guide-reported recommendation to take alts to about level 22 for Odyle Energy generation",
     url: "https://aion2maps.com/guides/welcome",
+  },
+  aion2mapsGlobalDifferences: {
+    name: "AION 2 Maps Global differences guide",
+    covers:
+      "Guide-reported maximum of eight character slots; the current Global UI, expansion method, cost, and per-server/account scope have not been checked",
+    url: "https://aion2maps.com/guides/global-differences",
+  },
+  massivelyOverPoweredLaunchSlots: {
+    name: "Massively Overpowered Global launch livestream recap",
+    covers:
+      "Four starting character slots confirmed in NC's Global launch livestream",
+    url: "https://massivelyop.com/2026/08/08/aion-2-details-changes-for-party-sizes-activities-and-founders-pack-benefits-for-its-global-release/",
   },
   ncServerTransfers: {
     name: "NC Global Server Transfer notice",

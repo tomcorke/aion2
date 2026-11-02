@@ -10,6 +10,7 @@ import {
   altsReviewed,
   altsSections,
   altsSources,
+  characterSlotGuidance,
   cubeWarning,
   resourceCounters,
   serverTransferGuidance,
@@ -30,6 +31,20 @@ export function Alts() {
       />
 
       <div className={STYLES.body}>
+        <section aria-labelledby="alts-character-slots">
+          <h2 id="alts-character-slots" className={STYLES.heading}>
+            Character slots
+          </h2>
+          <ul className={STYLES.items}>
+            {characterSlotGuidance.map((item) => (
+              <li key={item}>
+                <Diamond />
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
         <section aria-labelledby="alts-server-transfers">
           <h2 id="alts-server-transfers" className={STYLES.heading}>
             Server transfers
