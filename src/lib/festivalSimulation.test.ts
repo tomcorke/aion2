@@ -1,18 +1,19 @@
 import { expect, test } from "vitest";
 import { simulateFestival } from "./festivalSimulation.ts";
-import { festivalOpeningModel } from "../data/festival.ts";
+import { festivalPickModel } from "../data/festival.ts";
 
 const inputs = {
-  openings: 0,
+  finishes: 0,
+  picks: 0,
   startTokens: 0,
   targetId: "lightpath-trace",
   customTarget: 0,
   participation: false,
 };
 
-test("zero openings retain starting tokens with exact histogram and affordability", () => {
+test("zero finishes and picks retain starting tokens with exact histogram and affordability", () => {
   const result = simulateFestival({ ...inputs, startTokens: 5000 }, () => {
-    throw new Error("Zero openings must not draw");
+    throw new Error("Zero keyed picks must not draw");
   });
 
   expect(result).toEqual({
@@ -27,12 +28,12 @@ test("zero openings retain starting tokens with exact histogram and affordabilit
 });
 
 // Literal odds and expected mean retained in the maintained Festival reward note.
-test("a weighted draw sequence reproduces the additional-opening mean and target hits", () => {
+test("a weighted draw sequence reproduces the per-pick mean and target hits", () => {
   let draw = 0;
   const result = simulateFestival(
     {
       ...inputs,
-      openings: 1,
+      picks: 1,
       startTokens: 7,
       targetId: "custom",
       customTarget: 67,
@@ -41,7 +42,7 @@ test("a weighted draw sequence reproduces the additional-opening mean and target
   );
 
   expect(
-    festivalOpeningModel.outcomes.reduce(
+    festivalPickModel.outcomes.reduce(
       (sum, outcome) => sum + outcome.probability,
       0,
     ),
@@ -69,28 +70,34 @@ test.each([
   [0.9999999999999999, 100],
 ])("draw %s awards %s tokens at half-open boundaries", (draw, tokens) => {
   expect(
-    simulateFestival({ ...inputs, openings: 1 }, () => draw).histogram,
+    simulateFestival({ ...inputs, picks: 1 }, () => draw).histogram,
   ).toEqual([{ tokens, count: 2000 }]);
 });
 
-test("participation adds one conditional package for EACH opening", () => {
+test("each qualifying finish adds participation once, independently of keyed picks", () => {
   const result = simulateFestival(
-    { ...inputs, openings: 2, startTokens: 10, participation: true },
+    {
+      ...inputs,
+      finishes: 3,
+      picks: 2,
+      startTokens: 10,
+      participation: true,
+    },
     () => 0,
   );
 
-  expect(result.histogram).toEqual([{ tokens: 170, count: 2000 }]);
-  expect(result.sampleMean).toBe(170);
-  expect(result.expectedTotal).toBeCloseTo(190.4, 12);
+  expect(result.histogram).toEqual([{ tokens: 220, count: 2000 }]);
+  expect(result.sampleMean).toBe(220);
+  expect(result.expectedTotal).toBeCloseTo(240.4, 12);
   expect(
     simulateFestival({ ...inputs, participation: true }).expectedTotal,
   ).toBe(0);
 });
 
-test("1,000 openings use exactly 2,000 bounded trials", () => {
+test("1,000 keyed picks use exactly 2,000 bounded trials", () => {
   let draws = 0;
   const result = simulateFestival(
-    { ...inputs, openings: 1000, participation: true },
+    { ...inputs, finishes: 1000, picks: 1000, participation: true },
     () => {
       draws++;
 
@@ -105,9 +112,9 @@ test("1,000 openings use exactly 2,000 bounded trials", () => {
 });
 
 test("sampling uses the validated input snapshot even if the RNG changes the caller's object", () => {
-  const mutableInputs = { ...inputs, openings: 1 };
+  const mutableInputs = { ...inputs, picks: 1 };
   const result = simulateFestival(mutableInputs, () => {
-    mutableInputs.openings = 0;
+    mutableInputs.picks = 0;
     mutableInputs.startTokens = Number.MAX_SAFE_INTEGER;
 
     return 0;
@@ -147,8 +154,8 @@ test.each([
 test.each([NaN, Infinity, -Infinity, -0.01, 1, 2])(
   "rejects invalid random draw %s",
   (draw) => {
-    expect(() =>
-      simulateFestival({ ...inputs, openings: 1 }, () => draw),
-    ).toThrow(/Random draws/);
+    expect(() => simulateFestival({ ...inputs, picks: 1 }, () => draw)).toThrow(
+      /Random draws/,
+    );
   },
 );

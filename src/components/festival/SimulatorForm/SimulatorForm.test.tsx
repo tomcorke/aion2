@@ -6,7 +6,8 @@ import { renderWithProviders } from "../../../testing/render.tsx";
 import { SimulatorForm, type Draft } from "./SimulatorForm.tsx";
 
 const draft: Draft = {
-  openings: "100",
+  finishes: "100",
+  picks: "100",
   startTokens: "0",
   target: "lightpath-trace",
   customTarget: "0",

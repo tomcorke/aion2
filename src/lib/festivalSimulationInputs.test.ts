@@ -6,7 +6,8 @@ import {
 import { simulateFestival } from "./festivalSimulation.ts";
 
 const defaults = {
-  openings: 100,
+  finishes: 100,
+  picks: 100,
   startTokens: 0,
   targetId: "lightpath-trace",
   customTarget: 0,
@@ -53,7 +54,8 @@ test.each([
 test("rejects maximum totals that could exceed safe integer precision", () => {
   const result = validateFestivalSimulationInputs({
     ...defaults,
-    openings: 1,
+    finishes: 0,
+    picks: 1,
     startTokens: Number.MAX_SAFE_INTEGER - 99,
   });
 
@@ -67,31 +69,44 @@ test("rejects maximum totals that could exceed safe integer precision", () => {
   expect(() =>
     simulateFestival({
       ...defaults,
-      openings: 1,
+      finishes: 0,
+      picks: 1,
       startTokens: Number.MAX_SAFE_INTEGER - 99,
     }),
   ).toThrow(/maximum modeled reward/);
 });
 
-test.each([-1, 0.5, NaN, Infinity, 1001, Number.MAX_SAFE_INTEGER])(
-  "rejects invalid opening count %s before sampling",
-  (openings) => {
-    expect(() =>
-      simulateFestival({ ...defaults, openings }, () => {
-        throw new Error("Must reject before sampling");
-      }),
-    ).toThrow(/Openings|openings/);
-  },
-);
+test.each([
+  ["finishes", -1],
+  ["finishes", 0.5],
+  ["finishes", NaN],
+  ["finishes", Infinity],
+  ["finishes", 1001],
+  ["finishes", Number.MAX_SAFE_INTEGER],
+  ["picks", -1],
+  ["picks", 0.5],
+  ["picks", NaN],
+  ["picks", Infinity],
+  ["picks", 1001],
+  ["picks", Number.MAX_SAFE_INTEGER],
+])("rejects invalid %s count %s before sampling", (field, value) => {
+  expect(() =>
+    simulateFestival({ ...defaults, [field]: value }, () => {
+      throw new Error("Must reject before sampling");
+    }),
+  ).toThrow(/finishes|picks/);
+});
 
 test("safe-integer edges accept exact maximum totals and reject participation overflow", () => {
   const maximum = Number.MAX_SAFE_INTEGER;
   const input = {
     ...defaults,
-    openings: 1,
-    startTokens: maximum - 100,
+    finishes: 1,
+    picks: 1,
+    startTokens: maximum - 150,
     targetId: "custom",
     customTarget: maximum,
+    participation: true,
   };
 
   expect(validateFestivalSimulationInputs(input).ok).toBe(true);
@@ -101,17 +116,14 @@ test("safe-integer edges accept exact maximum totals and reject participation ov
     hitCount: 2000,
   });
   expect(
-    validateFestivalSimulationInputs({ ...input, participation: true }).ok,
-  ).toBe(false);
-  expect(
     validateFestivalSimulationInputs({
       ...input,
-      startTokens: maximum - 150,
+      startTokens: maximum - 99,
       participation: true,
     }).ok,
-  ).toBe(true);
+  ).toBe(false);
   expect(
-    simulateFestival({ ...input, openings: 0, startTokens: maximum }),
+    simulateFestival({ ...input, finishes: 0, picks: 0, startTokens: maximum }),
   ).toMatchObject({
     sampleMean: maximum,
     expectedTotal: maximum,

@@ -11,6 +11,7 @@ export const festivalSources: SourceId[] = [
   "metabotEvents",
   "metabotMethodology",
   "metabotFestivalShop",
+  "allThingsHowFestival",
   "ownChecks",
 ];
 
@@ -32,14 +33,21 @@ export const festivalRewards = {
     offered: 5,
     selections:
       "Five randomized reward cards are offered; the number of selections depends on match placement.",
+    pickExamples: [
+      { game: "Jump Jump", rank: "1st place", picks: 4 },
+      { game: "Jump Jump", rank: "3rd place", picks: 3 },
+      { game: "Not This Tile?", rank: "1st or 2nd place", picks: 6 },
+    ],
+    pickCondition:
+      "Guide-reported: AllThingsHow reports these rank-to-pick counts. They have not been checked in the current Global client.",
   },
   sharedTable:
     "All nine rewarded activities share one reward table across nine level brackets. This does not establish equal practical earnings; placement and selection may still matter.",
   participation: { tokens: 50, levels: "45–50", lowerBracketTokens: 40 },
   packageCondition:
-    "The participation package and keyed additional reward package are separate. The participation summary lists 50 tokens at levels 45–50 and 40 in lower listed brackets. Whether participation can be claimed without a key is unresolved.",
+    "AllThingsHow reports one participation package for each qualifying finish: 50 tokens at levels 45–50 and 40 in lower listed brackets. The participation package and keyed additional reward package are separate. Whether participation can be claimed without a key is unresolved.",
   mappingCondition:
-    "The rank → card selections → reward openings → keys consumed mapping remains unresolved. One key is not established as one additional opening.",
+    "The live rank → card selections → reward openings → keys consumed mapping remains unresolved. One key per pick is guide-reported, not checked in the current Global client.",
   otherRewards: [
     "Gear",
     "Gathering materials",
@@ -66,7 +74,7 @@ export const festivalKeys = {
     "A Festival Key is reported as needed for reward claiming. Whether the separate participation package can be claimed without a key is unresolved.",
 };
 
-export const festivalOpeningModel = {
+export const festivalPickModel = {
   level: 50,
   build: "0.0.4387.0",
   outcomes: [
@@ -77,7 +85,7 @@ export const festivalOpeningModel = {
   ],
   meanTokens: 40.2,
   condition:
-    "The detailed additional-token odds cover level 50 in reported Global client build 0.0.4387.0. Applying them unchanged at level 45 is an assumption. The mean is per additional opening, not tokens per key, and excludes participation income.",
+    "The detailed additional-token odds cover level 50 in reported Global client build 0.0.4387.0. Applying them unchanged at level 45 is an assumption. The mean is per keyed reward pick, not tokens per key, and excludes participation income.",
 };
 
 export type FestivalPurchasePiece = {

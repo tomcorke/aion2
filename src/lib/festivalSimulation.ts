@@ -1,4 +1,4 @@
-import { festivalOpeningModel, festivalRewards } from "../data/festival.ts";
+import { festivalPickModel, festivalRewards } from "../data/festival.ts";
 import {
   validateFestivalSimulationInputs,
   type FestivalSimulationInputs,
@@ -14,7 +14,7 @@ function drawTokens(random: () => number) {
     );
   }
 
-  for (const outcome of festivalOpeningModel.outcomes) {
+  for (const outcome of festivalPickModel.outcomes) {
     boundary += outcome.probability * 100;
 
     if (draw < boundary / 100) return outcome.tokens;
@@ -38,15 +38,16 @@ export function simulateFestival(
   const participationTokens = inputs.participation
     ? festivalRewards.participation.tokens
     : 0;
+  const participationTotal = inputs.finishes * participationTokens;
   const counts = new Map<number, number>();
   let rewardSum = 0;
   let hitCount = 0;
 
   for (let trial = 0; trial < 2000; trial++) {
-    let reward = 0;
+    let reward = participationTotal;
 
-    for (let opening = 0; opening < inputs.openings; opening++) {
-      reward += drawTokens(random) + participationTokens;
+    for (let pick = 0; pick < inputs.picks; pick++) {
+      reward += drawTokens(random);
     }
 
     const tokens = inputs.startTokens + reward;
@@ -68,8 +69,8 @@ export function simulateFestival(
       inputs.startTokens +
       Number(
         (
-          inputs.openings *
-          (festivalOpeningModel.meanTokens + participationTokens)
+          inputs.picks * festivalPickModel.meanTokens +
+          participationTotal
         ).toFixed(1),
       ),
     hitCount,

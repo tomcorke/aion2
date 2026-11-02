@@ -10,7 +10,7 @@ import {
   festivalEntry,
   festivalGames,
   festivalKeys,
-  festivalOpeningModel,
+  festivalPickModel,
   festivalPurchases,
   festivalReviewed,
   festivalRewards,
@@ -272,7 +272,7 @@ function Odds() {
   return (
     <Section id="festival-odds" title="Token odds">
       <table className={STYLES.table}>
-        <caption>Additional tokens per opening</caption>
+        <caption>Additional tokens per keyed reward pick</caption>
         <thead>
           <tr>
             <th scope="col">Tokens</th>
@@ -280,7 +280,7 @@ function Odds() {
           </tr>
         </thead>
         <tbody>
-          {festivalOpeningModel.outcomes.map(({ tokens, probability }) => (
+          {festivalPickModel.outcomes.map(({ tokens, probability }) => (
             <tr key={tokens}>
               <td className={STYLES.figure}>{tokens}</td>
               <td className={STYLES.figure}>{percent.format(probability)}</td>
@@ -290,14 +290,12 @@ function Odds() {
       </table>
 
       <p>
-        Mean per opening:{" "}
-        <strong className={STYLES.mean}>
-          {festivalOpeningModel.meanTokens}
-        </strong>{" "}
+        Mean per keyed reward pick:{" "}
+        <strong className={STYLES.mean}>{festivalPickModel.meanTokens}</strong>{" "}
         tokens.
       </p>
 
-      <Notes items={[festivalOpeningModel.condition]} />
+      <Notes items={[festivalPickModel.condition]} />
     </Section>
   );
 }
@@ -328,11 +326,32 @@ function Reference() {
         <Notes
           items={[
             festivalRewards.cards.selections,
+            festivalRewards.cards.pickCondition,
             festivalRewards.sharedTable,
             festivalRewards.packageCondition,
             festivalRewards.mappingCondition,
           ]}
         />
+
+        <table className={STYLES.table}>
+          <caption>Guide-reported rank-to-pick examples</caption>
+          <thead>
+            <tr>
+              <th scope="col">Game</th>
+              <th scope="col">Placement</th>
+              <th scope="col">Card picks</th>
+            </tr>
+          </thead>
+          <tbody>
+            {festivalRewards.cards.pickExamples.map(({ game, rank, picks }) => (
+              <tr key={`${game}-${rank}`}>
+                <th scope="row">{game}</th>
+                <td>{rank}</td>
+                <td className={STYLES.figure}>{picks}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
 
         <h3>Other rewards</h3>
         <Notes items={festivalRewards.otherRewards} />

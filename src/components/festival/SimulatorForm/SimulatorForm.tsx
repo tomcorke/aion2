@@ -1,6 +1,6 @@
 import type { FormEvent, ReactNode } from "react";
 import {
-  festivalOpeningModel,
+  festivalPickModel,
   festivalPurchases,
   festivalRewards,
 } from "../../../data/festival.ts";
@@ -9,7 +9,8 @@ import STYLES from "./SimulatorForm.module.css";
 
 // Form values as typed; the URL query uses the same keys.
 export type Draft = {
-  openings: string;
+  finishes: string;
+  picks: string;
   startTokens: string;
   target: string;
   customTarget: string;
@@ -28,7 +29,8 @@ type Props = {
 const number = new Intl.NumberFormat("en-GB");
 
 const labels: Record<keyof Draft, string> = {
-  openings: "Openings",
+  finishes: "Completed games",
+  picks: "Keyed reward picks",
   startTokens: "Starting tokens",
   target: "Target",
   customTarget: "Custom target tokens",
@@ -44,10 +46,10 @@ const groups = [
 const participationTokens = festivalRewards.participation.tokens;
 
 // Validation messages name the query key; show the field label instead.
-// Openings have a tighter range than the generic safe-integer message says.
+// Counts have a tighter range than the generic safe-integer message says.
 const message = (key: keyof Draft, error: string) =>
-  key === "openings" && error.includes("safe integer")
-    ? "Openings must be a whole number from 0 to 1,000."
+  (key === "finishes" || key === "picks") && error.includes("safe integer")
+    ? `${labels[key]} must be a whole number from 0 to 1,000.`
     : error.replace(key, labels[key]);
 
 function Field({
@@ -128,10 +130,11 @@ function TargetSelect({ draft, onChange }: Omit<Props, "onSubmit" | "errors">) {
 }
 
 const assumptions = [
-  "Each opening is an independent draw from the token odds on the reference tab.",
-  festivalOpeningModel.condition,
+  "Each keyed reward pick is an independent token draw from the odds on the reference tab.",
+  festivalPickModel.condition,
+  festivalRewards.cards.pickCondition,
   festivalRewards.mappingCondition,
-  `With participation on, each modeled opening is paired with one ${participationTokens}-token participation package. That pairing is a modeling assumption, not a claim about keys, claiming or daily income.`,
+  `With participation on, each qualifying completed game adds one ${participationTokens}-token participation package. This follows the guide-reported level 45–50 package; whether it can be claimed without a key is unresolved.`,
 ];
 
 /** Model inputs, with the assumptions that drive the model beside them. */
@@ -146,11 +149,19 @@ export function SimulatorForm(props: Props) {
     <div className={STYLES.inputs}>
       <form className={STYLES.form} noValidate onSubmit={submit}>
         <Field
-          name="openings"
-          hint="Additional reward openings, 0 to 1,000. Not keys or days."
-          error={errors.openings}
+          name="finishes"
+          hint="Qualifying game finishes, 0 to 1,000."
+          error={errors.finishes}
         >
-          <NumberInput name="openings" {...props} />
+          <NumberInput name="finishes" {...props} />
+        </Field>
+
+        <Field
+          name="picks"
+          hint="Keyed reward-card picks, 0 to 1,000. Each pick rolls once."
+          error={errors.picks}
+        >
+          <NumberInput name="picks" {...props} />
         </Field>
 
         <Field
@@ -188,7 +199,7 @@ export function SimulatorForm(props: Props) {
               onChange("participation", String(event.target.checked))
             }
           />
-          Add {participationTokens} participation tokens per opening
+          Add {participationTokens} participation tokens per completed game
         </label>
         {errors.participation && (
           <span className={STYLES.error}>{errors.participation}</span>
