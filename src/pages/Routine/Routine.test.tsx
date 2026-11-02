@@ -11,6 +11,7 @@ import {
 import { Routine } from "./Routine.tsx";
 
 const KEY = "routine-ticks";
+const EVENT_KEY = "routine-event-ticks";
 
 const DAY = 24 * 3600 * 1000;
 
@@ -252,6 +253,47 @@ test("blocked storage still allows ticking for this visit", async () => {
     within(group("Daily")).getByText(`1/${daily.length} done`),
   ).toBeDefined();
 });
+
+test("event reminders have separate browser ticks and a separate manual clear", async () => {
+  freezeClock(new Date("2026-11-02T12:00:00Z"));
+  localStorage.setItem(KEY, JSON.stringify([daily[0]!.id]));
+  renderPage();
+
+  await tick("Check Atreia's Call Attendance");
+  expect(JSON.parse(localStorage.getItem(EVENT_KEY)!)).toEqual([
+    "atreias-call-attendance",
+  ]);
+
+  confirmWith(true);
+  await userEvent.click(screen.getByRole("button", { name: "Clear daily" }));
+
+  expect(stored()).toEqual([]);
+  expect(JSON.parse(localStorage.getItem(EVENT_KEY)!)).toEqual([
+    "atreias-call-attendance",
+  ]);
+});
+
+test.each([
+  ["2026-11-19T12:00:00Z", true, false],
+  ["2026-12-03T12:00:00Z", false, false],
+] as const)(
+  "hides event reminder rows after their event-specific display windows",
+  (date, attendanceVisible, mailVisible) => {
+    freezeClock(new Date(date));
+    renderPage();
+
+    expect(
+      screen.queryByRole("checkbox", {
+        name: "Check Atreia's Call Attendance",
+      }) !== null,
+    ).toBe(attendanceVisible);
+    expect(
+      screen.queryByRole("checkbox", {
+        name: "Claim Odyle Energy Boost mail",
+      }) !== null,
+    ).toBe(mailVisible);
+  },
+);
 
 test("the footer names the page's sources", () => {
   renderPage();

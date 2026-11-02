@@ -207,6 +207,16 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
     accessNote:
       "Reported Global client build 0.0.4387.0. Five detail pages cut their monster list short, and the five Special pets left out list no source.",
   },
+  ncAtreiasCall: {
+    checkedDate: "2026-11-02",
+    accessNote:
+      "Official Global notice; the current in-game Attendance menu and exact maintenance hour were not checked.",
+  },
+  ncOdyleEnergyBoost: {
+    checkedDate: "2026-11-02",
+    accessNote:
+      "Official Global notice; each mail has its own expiry from receipt.",
+  },
   allthingsPets: { checkedDate: "2026-10-31" },
   ...skinAcquisitionSourceDetails,
 };

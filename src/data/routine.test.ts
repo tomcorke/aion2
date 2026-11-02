@@ -10,6 +10,8 @@ import { freezeClock, renderWithProviders } from "../testing/render.tsx";
 import { resourceCounters } from "./alts.ts";
 import {
   bankingReminders,
+  activeRoutineEventReminders,
+  routineEventReminders,
   routineContract,
   routineSources,
   routineTasks,
@@ -78,6 +80,32 @@ test("the Invasion key reminder stays optional and keeps its client scope qualif
   expect(invasion?.details).toMatch(/only when participating/i);
   expect(invasion?.details).toMatch(/client-derived.*not been confirmed/i);
   expect(routineSources).toContain("metabotEvents");
+});
+
+test("login event reminders keep separate dates, expiry context and visibility windows", () => {
+  const attendance = routineEventReminders.find(
+    ({ id }) => id === "atreias-call-attendance",
+  );
+  const odyleMail = routineEventReminders.find(
+    ({ id }) => id === "odyle-energy-boost-mail",
+  );
+
+  expect(attendance?.dateContext).toMatch(/2 December 2026/);
+  expect(odyleMail?.dateContext).toMatch(/11 November 2026/);
+  expect(odyleMail?.dateContext).toMatch(/7 days after receipt/);
+  expect(activeRoutineEventReminders("2026-11-18").map(({ id }) => id)).toEqual(
+    expect.arrayContaining([
+      "atreias-call-attendance",
+      "odyle-energy-boost-mail",
+    ]),
+  );
+  expect(activeRoutineEventReminders("2026-11-19").map(({ id }) => id)).toEqual(
+    ["atreias-call-attendance"],
+  );
+  expect(activeRoutineEventReminders("2026-12-03")).toEqual([]);
+  expect(routineSources).toEqual(
+    expect.arrayContaining(["ncAtreiasCall", "ncOdyleEnergyBoost"]),
+  );
 });
 
 test("weekly work covers dungeon, time, shop and crafting allowances", () => {
