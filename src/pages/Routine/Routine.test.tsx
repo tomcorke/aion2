@@ -55,11 +55,17 @@ test("lists every task in its group with a checkbox", () => {
   ).toBeDefined();
 });
 
-test("rows show limits, caps and scope from the shared counters", () => {
+test("rows show rewards, limits, caps and scope from the shared counters", async () => {
   renderPage();
 
   const duty = screen.getByRole("listitem", { name: /Duty Missions/ });
 
+  await userEvent.click(duty.querySelector("summary")!);
+  expect(
+    within(duty).getByText(
+      "Earn 50,000 bound Kina and 1,000 Abyss Points per mission. The bound Kina goes to the character doing it.",
+    ),
+  ).toBeDefined();
   expect(within(duty).getByText(/5 completions per day/)).toBeDefined();
   expect(within(duty).getByText(/cap 20/)).toBeDefined();
   expect(within(duty).getByText("Server-shared")).toBeDefined();

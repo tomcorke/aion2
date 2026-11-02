@@ -77,7 +77,8 @@ export const routineTasks: RoutineTask[] = [
     id: "duty-missions",
     group: "daily",
     title: "Complete useful Duty Missions",
-    purpose: "Earn 50,000 bound Kina per mission for the character doing it.",
+    purpose:
+      "Earn 50,000 bound Kina and 1,000 Abyss Points per mission. The bound Kina goes to the character doing it.",
     counterIds: ["duty-missions"],
     guide: { to: "/progression", label: "Duty Missions and Kina" },
     details:
