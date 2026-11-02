@@ -100,6 +100,26 @@ test("warns that skipping a cube locks the whole server", () => {
   ).toBeDefined();
 });
 
+test("clarifies the 140 Featherdown split in the quest and Wings sections", () => {
+  renderPage();
+
+  const dungeons = screen.getByRole("region", {
+    name: "Quests and Sealed Dungeons",
+  });
+  const wings = screen.getByRole("region", { name: "Wings" });
+
+  expect(
+    within(dungeons).getByText(
+      /Of those 61, 60 give 2 Sealed Wing Featherdown on their first clear; Ruins of the Ancient City of Roah.*gives 20, for 140 total/,
+    ),
+  ).toBeDefined();
+  expect(
+    within(wings).getByText(
+      /Of your faction's 61 Sealed Dungeons, 60 give 2 Featherdown each and Ruins of the Ancient City of Roah gives 20, for 140 total/,
+    ),
+  ).toBeDefined();
+});
+
 test("qualifies Global pet and Genus sharing as guide-reported", () => {
   renderPage();
 
