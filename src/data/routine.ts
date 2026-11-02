@@ -231,8 +231,11 @@ export const routineTasks: RoutineTask[] = [
       "Spend AP on needed progression rather than ordinary consumables; consider Stigma Shards first and medals only when pursuing Centurion appearances.",
     counterIds: ["lesser-abyssal-manastones", "silver-medals"],
     guide: { to: "/growth", label: "AP shop materials and spend priorities" },
-    details:
-      "Potential Stones are offered at 25,000 to 100,000 AP across four weekly tiers. Their exact purchase quantities are not established here. The listed 50-stone allowance is for Lesser Abyssal Manastones, not every stone variant or shop item.",
+    details: [
+      "Potential Stones have four weekly tiers: 2 at 25,000 AP each, 4 at 50,000, 6 at 75,000 and 8 at 100,000, with 20 per account per week.",
+      "One Unique item's Potential steps use 10 stones and 400,000 AP; buying 10 stones from the cheapest tiers costs 550,000 AP, for a 950,000 AP budget.",
+      "The 50-stone allowance tracked here is for Lesser Abyssal Manastones, not Potential Stones.",
+    ].join(" "),
   },
   {
     id: "morph-energy",
@@ -273,6 +276,7 @@ export const routineSources: SourceId[] = [
   "metabotSubstanceMorph",
   "metabotManastones",
   "metabotAbyssPoints",
+  "metabotEnhancementCalculator",
   "metabotLowerAbyssRiftStone",
   "redditBeginnerDps",
   "allThingsDailyDungeon",

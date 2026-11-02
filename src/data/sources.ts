@@ -82,8 +82,33 @@ export const sources = {
   },
   metabotEnhancement: {
     name: "MetaBot enhancement guide",
-    covers: "Enhancement rates, safe levels and what to save for kept gear",
+    covers:
+      "Global client enhancement costs, failure chances and pity, Amplified Enhancement tracks, Potential, and Unique Soul Binding costs",
     url: "https://metabot.gg/en/aion-2/guides/gear-enhancement-guide",
+  },
+  metabotEnhancementCalculator: {
+    name: "MetaBot Enhancement Calculator",
+    covers:
+      "Per-attempt enhancement costs and maximum attempts by step, Amplified rates and costs, Potential, and Soul Binding totals",
+    url: "https://metabot.gg/en/aion-2/enhancement",
+  },
+  metabotEnhancementMethodology: {
+    name: "MetaBot game-data methodology",
+    covers:
+      "How the Global client build and simulated enhancement costs are reported",
+    url: "https://metabot.gg/en/aion-2/methodology",
+  },
+  aion2TierListEnhancement: {
+    name: "AION 2 Tier List enhancement guide",
+    covers:
+      "Guide-reported effect of enhancement on base stats and item level, with Global client tables",
+    url: "https://aion2tierlist.com/guides/aion-2-enhancement-guide",
+  },
+  aion2DataItemLevel: {
+    name: "AION 2 Data item-level analysis",
+    covers:
+      "Global profile analysis of item-level changes across Enhance levels",
+    url: "https://aion2data.com/item-level",
   },
   metabotChecklist: {
     name: "MetaBot daily and weekly checklist",
@@ -311,7 +336,7 @@ export const sources = {
   ncGlobal28Oct: {
     name: "NC Global patch notes, 28 October 2026",
     covers:
-      "Gathering limit daily reset at 12:00 AM PDT / 8:00 AM CET; Urugugu and Vakron Hard rewards and Ariel Fragment morph choices and limits; Odylium Repository and its shared Daily Dungeon entry pool; the transfer period's end and removal of its shop tab; the Instant Clear ticket's 30,000 Kina offer, 14-per-server weekly limit and announced shop move; Heightened Sixth Sense HP changes; other 28 October updates",
+      "Crafted Dragon Lord Amplify cap increases and new Expedition-to-Crafted Transfer routes; Gathering limit daily reset; Urugugu and Vakron Hard rewards; Odylium Repository; Heightened Sixth Sense HP changes; other 28 October updates",
     url: "https://aion2.plaync.com/en-us/board/update/view?articleId=6ae19668577e8c01355e0210",
   },
   ncLudraAwakens: {

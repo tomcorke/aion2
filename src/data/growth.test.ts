@@ -187,7 +187,7 @@ test.each([
   expect(route?.detail).toContain("bound copies");
 });
 
-test("Soulstone corrections preserve Manastone recipes and the oldest topic review date", () => {
+test("Soulstone corrections preserve Manastone recipes and the Growth review date", () => {
   const alchemy = (id: string) =>
     growthMaterials
       .find((material) => material.id === id)
@@ -199,7 +199,48 @@ test("Soulstone corrections preserve Manastone recipes and the oldest topic revi
   expect(alchemy("superior-manastone")?.detail).toBe(
     "30 Intermediate stones make one Superior.",
   );
-  expect(growthReviewed).toBe("2026-10-05");
+  expect(growthReviewed).toBe("2026-11-02");
+});
+
+test("Growth shows the Unique Amplify Stone route, full Potential budget and unresolved rune outcome", () => {
+  const fragments = growthMaterials.find(
+    ({ id }) => id === "amplify-stone-fragment",
+  )!;
+  const potential = growthMaterials.find(
+    ({ id }) => id === "potential-stones",
+  )!;
+  const rune = growthMaterials.find(({ id }) => id === "clash-rune-chest")!;
+
+  expect(fragments.use).toContain(
+    "Four fragments and 2,500 Enhance Stones convert into one Unique Amplify Stone",
+  );
+  expect(fragments.acquisition.map(({ name }) => name)).toEqual(
+    expect.arrayContaining([
+      "Ascension Trial",
+      "Dungeons and monsters",
+      "Trade Shop",
+      "Season Shop",
+      "Achievements, battle pass and Monoliths",
+      "Substance Morph",
+    ]),
+  );
+  expect(
+    fragments.acquisition.find(({ name }) => name === "Season Shop")?.limit,
+  ).toContain("20 per account");
+  expect(fragments.sourceIds).toContain("metabotAmplifyStoneFragment");
+  expect(potential.use).toContain(
+    "10 Potential Stones and 400,000 AP for the steps",
+  );
+  expect(potential.use).toContain("550,000 AP");
+  expect(potential.use).toContain("950,000 AP total budget");
+  expect(potential.acquisition[0].detail).toContain(
+    "2 stones at 25,000 AP each, 4 at 50,000, 6 at 75,000 and 8 at 100,000",
+  );
+  expect(potential.acquisition[0].limit).toContain("20 per account per week");
+  expect(rune.use).toContain("the current Global result is unresolved");
+  expect(rune.condition).toContain(
+    "do not assume either destruction or a one-level drop",
+  );
 });
 
 test("material IDs and canonical source/activity references resolve without invented gap entries", () => {

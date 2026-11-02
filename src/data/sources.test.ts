@@ -23,6 +23,23 @@ test("registers the catalogue indexes and exact additional shop pages", () => {
     metabotDaevaPassShop: {
       url: "https://metabot.gg/en/aion-2/shops/pass-shop-daeva-pass-shop-coin",
     },
+    metabotAbyssPoints: {
+      covers: expect.stringMatching(/Potential Stone purchase tiers/),
+      url: "https://metabot.gg/en/aion-2/currencies/abyss-points",
+    },
+    metabotEnhancementCalculator: {
+      url: "https://metabot.gg/en/aion-2/enhancement",
+    },
+    metabotEnhancementMethodology: {
+      url: "https://metabot.gg/en/aion-2/methodology",
+    },
+    aion2TierListEnhancement: {
+      url: "https://aion2tierlist.com/guides/aion-2-enhancement-guide",
+    },
+    aion2DataItemLevel: { url: "https://aion2data.com/item-level" },
+    metabotAmplifyStoneFragment: {
+      url: "https://metabot.gg/en/aion-2/items/amplify-stone-fragment-unique-bound",
+    },
   });
 });
 

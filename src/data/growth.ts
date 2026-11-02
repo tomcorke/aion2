@@ -7,9 +7,8 @@ import {
   type GearUpgradeSourceId,
 } from "./gearUpgrades.ts";
 
-// Global Season 1. Uses maintained gear, stones, currency, wing and pet notes.
-// Preserve the oldest included topic review (Centuryroot Tokens: 2026-10-05).
-export const growthReviewed = "2026-10-05";
+// Global Season 1; Growth content reviewed against current notes and source records.
+export const growthReviewed = "2026-11-02";
 
 export const growthSourceAdditions = {
   allThingsDailyDungeon: {
@@ -62,6 +61,12 @@ export const growthSourceAdditions = {
     name: "MetaBot Substance Morph recipes",
     covers: "Global recipe inputs, limits and wing conversion",
     url: "https://metabot.gg/en/aion-2/conversion",
+  },
+  metabotAmplifyStoneFragment: {
+    name: "MetaBot Unique Amplify Stone Fragment item page",
+    covers:
+      "Client-listed fragment routes, including dungeon and monster drops, shops, achievements, battle pass and Monoliths",
+    url: "https://metabot.gg/en/aion-2/items/amplify-stone-fragment-unique-bound",
   },
 } satisfies Record<string, Source>;
 
@@ -376,7 +381,7 @@ export const growthMaterials: GrowthMaterial[] = [
     aliases: ["Clash Rune Chest"],
     kind: "material",
     targets: ["enhancement"],
-    use: "Obtain a Clash Rune. The +1 upgrade is guaranteed; later failure destroys the rune. Stop at +1 unless you can afford to lose it.",
+    use: "Obtain a Clash Rune. A failed upgrade is reported to either destroy the rune or lower it by one level; the current Global result is unresolved.",
     acquisition: [
       {
         name: "Regional quests",
@@ -390,11 +395,20 @@ export const growthMaterials: GrowthMaterial[] = [
       },
     ],
     condition:
-      "Regional quest supplies are finite. Do not apply ordinary gear's non-destructive failure rule to Clash Runes.",
+      "Regional quest supplies are finite. No current Global in-game check has settled the failure result, so do not assume either destruction or a one-level drop.",
     links: [
-      { to: "/gear/enhancement", label: "Destructive Clash Rune warning" },
+      {
+        to: "/gear/enhancement",
+        label: "Clash Rune outcome and upgrade rules",
+      },
     ],
-    sourceIds: ["destructoidClashRunes", "gamerBlurbClashRunes", "ownChecks"],
+    sourceIds: [
+      "destructoidClashRunes",
+      "gamerBlurbClashRunes",
+      "ownChecks",
+      "metabotEnhancementCalculator",
+      "aion2TierListEnhancement",
+    ],
   },
   {
     id: "enhance-stones",
@@ -460,7 +474,7 @@ export const growthMaterials: GrowthMaterial[] = [
     aliases: [],
     kind: "material",
     targets: ["amplification"],
-    use: "Fragment reward associated with Amplify Stones for Amplified Enhancement on eligible maxed Unique gear.",
+    use: "Four fragments and 2,500 Enhance Stones convert into one Unique Amplify Stone for Amplified Enhancement on eligible maxed Unique gear.",
     acquisition: [
       {
         name: "Ascension Trial",
@@ -468,11 +482,40 @@ export const growthMaterials: GrowthMaterial[] = [
         rewardConditionId: "ascension-trial",
         to: "/gear",
       },
+      {
+        name: "Dungeons and monsters",
+        detail:
+          "Client data lists dungeon and monster drops; current Global availability was not checked.",
+      },
+      {
+        name: "Trade Shop",
+        detail:
+          "Client data lists a price of 500 Phantasmal Fragments per fragment.",
+      },
+      {
+        name: "Season Shop",
+        detail: "Client data lists a price of 300 Oath Coins per fragment.",
+        limit:
+          "20 per account in the client data; current offer availability was not checked.",
+      },
+      {
+        name: "Achievements, battle pass and Monoliths",
+        detail:
+          "Listed by the client; amounts and current availability were not checked.",
+      },
+      {
+        name: "Substance Morph",
+        detail:
+          "4 Unique Amplify Stone Fragments + 2,500 Enhance Stones make 1 Unique Amplify Stone.",
+      },
     ],
-    condition:
-      "The fragment-to-stone recipe and quantities were not recorded. Check the live recipe rather than treating one fragment as one stone.",
     links: [{ to: "/gear/enhancement", label: "Amplified Enhancement" }],
-    sourceIds: ["metabotDungeons", "metabotEnhancement"],
+    sourceIds: [
+      "metabotDungeons",
+      "metabotEnhancement",
+      "metabotSubstanceMorph",
+      "metabotAmplifyStoneFragment",
+    ],
   },
   {
     id: "potential-stones",
@@ -480,18 +523,17 @@ export const growthMaterials: GrowthMaterial[] = [
     aliases: ["Potential Stones"],
     kind: "material",
     targets: ["potential"],
-    use: "Potential adds PvP stats to Unique gear and spends these stones plus AP. Save it for item levels 86 and 102 that you will keep.",
+    use: "Four Potential steps always succeed. One Unique item uses 10 Potential Stones and 400,000 AP for the steps; buying 10 stones from the lowest-priced weekly tiers costs 550,000 AP, for a 950,000 AP total budget. Potential adds PvP stats.",
     acquisition: [
       {
         name: "Abyss Trade Shop",
         detail:
-          "Potential Stones cost 25,000–100,000 AP across four weekly tiers.",
-        limit:
-          "Weekly tiers; exact quantities and shared-counter behavior were not recorded.",
+          "Four weekly tiers: 2 stones at 25,000 AP each, 4 at 50,000, 6 at 75,000 and 8 at 100,000. Buying 10 at the lowest prices costs 550,000 AP; all 20 cost 1,500,000 AP.",
+        limit: "20 per account per week in the client data.",
       },
     ],
     links: [{ to: "/gear/enhancement", label: "Potential steps and AP cost" }],
-    sourceIds: ["metabotAbyss", "metabotEnhancement"],
+    sourceIds: ["metabotAbyssPoints", "metabotEnhancementCalculator"],
   },
   {
     id: "daevanion-crystals",

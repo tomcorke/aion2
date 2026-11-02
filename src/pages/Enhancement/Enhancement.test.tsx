@@ -95,9 +95,14 @@ test("ordinary enhancement shows caps, safe range, rates and pity", () => {
   expect(ordinary.getByRole("row", { name: /^Unique/ }).textContent).toMatch(
     /\+10.*\+15/,
   );
-  expect(ordinary.getByRole("row", { name: /^\+11/ }).textContent).toContain(
-    "65%",
-  );
+  const firstRate = ordinary.getByRole("row", { name: /\+10 → \+11/ });
+
+  expect(firstRate.textContent).toContain("65%");
+  expect(firstRate.textContent).toContain("8");
+  expect(firstRate.textContent).toContain("360,000 + 9,310");
+  expect(
+    ordinary.getByText(/Kina \+ Enhance Stones per attempt/),
+  ).toBeDefined();
   expect(ordinary.getByText(/adds 5 percentage points/)).toBeDefined();
   expect(ordinary.getByText(/never loses levels/)).toBeDefined();
 });
@@ -108,11 +113,35 @@ test("Amplified Enhancement keeps its own rate table", () => {
   const amplified = within(section("Amplified Enhancement"));
 
   expect(
-    amplified.getByRole("table", { name: /Amplified Enhancement/ }),
+    amplified.getByRole("table", {
+      name: /Amplified track checkpoints by item level/,
+    }),
   ).toBeDefined();
-  expect(amplified.getByRole("row", { name: /^\+1 / }).textContent).toContain(
-    "66%",
-  );
+  expect(
+    amplified.getByRole("table", {
+      name: /28 October crafted gear cap changes/,
+    }),
+  ).toBeDefined();
+  expect(
+    amplified.getByRole("row", { name: /True and Star Dragon Lord/ })
+      .textContent,
+  ).toContain("+3");
+  expect(
+    amplified.getByRole("row", { name: /White and Dark Dragon Lord/ })
+      .textContent,
+  ).toContain("+5");
+  expect(
+    amplified.getByRole("table", { name: /rates and per-attempt costs/ }),
+  ).toBeDefined();
+  const maximumRate = amplified.getByRole("row", { name: /^\+5/ });
+
+  expect(maximumRate.textContent).toContain("20%");
+  expect(maximumRate.textContent).toContain("+1%");
+  expect(maximumRate.textContent).toContain("81");
+  expect(maximumRate.textContent).toContain("3,000,000 + 20");
+  expect(
+    amplified.getByText(/Kina \+ Amplify Stones per attempt/),
+  ).toBeDefined();
   expect(
     within(section("Ordinary enhancement")).queryByRole("table", {
       name: /Amplified/,
@@ -120,12 +149,12 @@ test("Amplified Enhancement keeps its own rate table", () => {
   ).toBeNull();
 });
 
-test("loss warnings sit beside their advice", () => {
+test("loss warnings sit beside their advice and keep Clash Rune failure unresolved", () => {
   renderAt("/gear/enhancement");
 
   expect(
     within(section("Clash Runes are different")).getByRole("note").textContent,
-  ).toMatch(/destroys the rune/);
+  ).toMatch(/Do not assume either destruction or a one-level drop/);
   expect(
     within(section("Ordinary enhancement")).queryByRole("note"),
   ).toBeNull();
@@ -221,5 +250,5 @@ test("names its sources and reviewed date in the footer", () => {
   for (const id of gearUpgradesSources)
     expect(footer.textContent).toContain(sources[id].name);
 
-  expect(footer.textContent).toMatch(/Reviewed 13 Oct/);
+  expect(footer.textContent).toMatch(/Reviewed 2 Nov/);
 });

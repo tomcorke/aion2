@@ -81,7 +81,13 @@ export const gearUpgradesSources: GearUpgradeSourceId[] = [
   "metabotSubstanceMorph",
   "metabotGear",
   "metabotEnhancement",
+  "metabotEnhancementCalculator",
+  "metabotEnhancementMethodology",
+  "aion2TierListEnhancement",
+  "aion2DataItemLevel",
   "metabotAbyss",
+  "metabotAbyssPoints",
+  "ncGlobal28Oct",
   "metabotArcana",
   "metabotDaevanion",
   "metabotSpiritmasterPlanner",
@@ -93,9 +99,8 @@ export const gearUpgradesSources: GearUpgradeSourceId[] = [
   ) as (keyof typeof gearUpgradeSourceAdditions)[]),
 ];
 
-// Global Season 1; gear/level-45-progression.md, reviewed 2026-10-13.
-// Older source checks are preserved in the knowledge catalog, not advanced here.
-export const gearUpgradesReviewed = "2026-10-13";
+// Global Season 1; gear/level-45-progression.md, reviewed 2026-11-02.
+export const gearUpgradesReviewed = "2026-11-02";
 
 export const enhancementGrades = [
   { grade: "Common", cap: 5, safeCap: 5 },
@@ -105,19 +110,107 @@ export const enhancementGrades = [
 ];
 
 export const enhancementRates = [
-  { level: 11, successPercent: 65 },
-  { level: 12, successPercent: 50 },
-  { level: 13, successPercent: 35 },
-  { level: 14, successPercent: 25 },
-  { level: 15, successPercent: 20 },
+  {
+    level: 11,
+    successPercent: 65,
+    failureBonusPercent: 5,
+    maxAttempts: 8,
+    kina: 360_000,
+    stones: 9_310,
+  },
+  {
+    level: 12,
+    successPercent: 50,
+    failureBonusPercent: 5,
+    maxAttempts: 11,
+    kina: 540_000,
+    stones: 10_610,
+  },
+  {
+    level: 13,
+    successPercent: 35,
+    failureBonusPercent: 5,
+    maxAttempts: 14,
+    kina: 860_000,
+    stones: 11_960,
+  },
+  {
+    level: 14,
+    successPercent: 25,
+    failureBonusPercent: 5,
+    maxAttempts: 16,
+    kina: 1_340_000,
+    stones: 13_360,
+  },
+  {
+    level: 15,
+    successPercent: 20,
+    failureBonusPercent: 5,
+    maxAttempts: 17,
+    kina: 1_860_000,
+    stones: 14_820,
+  },
 ];
 
 export const amplificationRates = [
-  { level: 1, successPercent: 66 },
-  { level: 2, successPercent: 50 },
-  { level: 3, successPercent: 33 },
-  { level: 4, successPercent: 25 },
-  { level: 5, successPercent: 20 },
+  {
+    level: 1,
+    successPercent: 66,
+    failureBonusPercent: 5,
+    maxAttempts: 8,
+    kina: 600_000,
+    stones: 6,
+  },
+  {
+    level: 2,
+    successPercent: 50,
+    failureBonusPercent: 4,
+    maxAttempts: 14,
+    kina: 900_000,
+    stones: 9,
+  },
+  {
+    level: 3,
+    successPercent: 33,
+    failureBonusPercent: 3,
+    maxAttempts: 24,
+    kina: 1_400_000,
+    stones: 12,
+  },
+  {
+    level: 4,
+    successPercent: 25,
+    failureBonusPercent: 2,
+    maxAttempts: 39,
+    kina: 2_000_000,
+    stones: 15,
+  },
+  {
+    level: 5,
+    successPercent: 20,
+    failureBonusPercent: 1,
+    maxAttempts: 81,
+    kina: 3_000_000,
+    stones: 20,
+  },
+];
+
+export const amplificationTracks = [
+  { itemLevel: "36–51", cap: "None" },
+  { itemLevel: "54", cap: "+1" },
+  { itemLevel: "70", cap: "+3" },
+  { itemLevel: "86", cap: "+5" },
+];
+
+export const amplificationCraftedCaps = [
+  {
+    gear: "True and Star Dragon Lord, including Splendent versions",
+    cap: "+3",
+  },
+  {
+    gear: "White and Dark Dragon Lord, including Splendent versions",
+    cap: "+5",
+  },
 ];
 
 // Stone mechanics: gear/stones.md, reviewed 2026-10-08. Shared with Growth.
@@ -205,6 +298,7 @@ export const gearUpgradeSections: GearUpgradeSection[] = [
     title: "Ordinary enhancement",
     items: [
       "Spend Enhance Stones and Kina. Every attempt through the safe cap succeeds; the grade table separates that safe range from the maximum level.",
+      "Each Enhance level raises the item's base stats and adds one item level.",
       "Beyond Unique +10, each failure adds 5 percentage points to the next attempt at that level. Ordinary gear never loses levels; failure spends materials.",
       "Enhance weapons before armor. Save late-gear resources for pieces you intend to keep.",
     ],
@@ -214,18 +308,19 @@ export const gearUpgradeSections: GearUpgradeSection[] = [
     title: "Clash Runes are different",
     items: [
       "The upgrade to +1 succeeds 100% of the time. Chances fall after +1; exact higher-level rates were not recorded.",
-      "Stop at +1 unless you can afford to lose the rune.",
+      "A failed upgrade has conflicting reports: current Global client data says a PvE rune falls one level, while the site owner's Global EU check on 12 October 2026 saw the rune destroyed.",
     ],
     warning:
-      "A failed Clash Rune upgrade destroys the rune. Ordinary gear's non-destructive failure rule does not apply.",
+      "The failure result has not been checked in the current Global game. Do not assume either destruction or a one-level drop; the outcome remains unresolved.",
     links: [{ to: "/growth", label: "Clash Rune sources" }],
   },
   {
     id: "amplification",
     title: "Amplified Enhancement",
     items: [
-      "Maxed Unique gear can gain up to five extra levels using Amplify Stones. Piece item levels 36–51 have no Amplified track.",
-      "The rate table lists each Amplified step separately from ordinary +11–15. No Amplified failure bonus is established here.",
+      "Maxed Unique gear can gain extra levels using Amplify Stones. The Global client calculator lists +1 at item level 54, +3 at 70, and +5 at 86; item levels 36–51 have no Amplified track.",
+      "Each failed Amplified attempt adds a smaller success bonus at higher levels. Failure uses the attempt's materials and does not lower the gear's level in the client tables.",
+      "After the 28 October Global update, True Dragon and Star Dragon crafted gear, including Splendent versions, can reach Amplify +3; White Dragon and Dark Dragon, including Splendent versions, can reach +5.",
     ],
     links: [{ to: "/growth", label: "Amplification materials" }],
   },
@@ -251,6 +346,7 @@ export const gearUpgradeSections: GearUpgradeSection[] = [
     title: "Enhancement Transfer",
     items: [
       "Enhancement → Transfer moves the Growth enhancement level and Soul Binding stats to another item; it is not a crafting upgrade recipe.",
+      "The 28 October Global update added Tier 3 Expedition → Tier 2 Crafted and Tier 2 Expedition → Tier 1 Crafted transfer paths. Enraged Kromede Necklace → White Dragon Lord Necklace is one listed example.",
       "Transfer Stone (Unique) (Bound) permits Unique gear. Its Weapon, Armor and Accessory variants restrict use to that category. These checked variants are bound and not tradable.",
     ],
     warning:
@@ -261,6 +357,7 @@ export const gearUpgradeSections: GearUpgradeSection[] = [
     title: "Potential",
     items: [
       "Unique gear has four always-successful Potential steps, each costing 100,000 AP plus Potential Stones: 400,000 AP and 10 Potential Stones per item. Potential adds PvP stats.",
+      "Buying 10 Potential Stones from the lowest-priced weekly tiers costs 550,000 AP, for a full 950,000 AP budget including the four steps.",
       "Save Potential for item levels 86 and 102 that you will keep.",
     ],
   },
@@ -269,9 +366,10 @@ export const gearUpgradeSections: GearUpgradeSection[] = [
     title: "Soul Binding: Bind",
     items: [
       "Bind raises four existing extra stats toward 100%; it does not choose a new effect.",
+      "For Unique gear, the client-derived total for all 10 Bind steps is 2,130,000 Kina and 408 Soul Codex (Bound).",
     ],
     warning:
-      "Exact Bind costs and whether Bind uses Soul Codex are unknown. Check the live preview; a Soul Codex drop does not establish its use.",
+      "These are Global client-data costs, not a live UI check. Confirm the preview before spending.",
   },
   {
     id: "sync",
@@ -288,18 +386,19 @@ export const gearUpgradeSections: GearUpgradeSection[] = [
     title: "Soul Binding: Reset",
     items: [
       "Reset rerolls all four Soul Binding stats, unlike Sync's single-effect reroll.",
+      "Global client data lists Rebind at 300,000 Kina and 3 Soul Codex: Reset (Bound).",
     ],
     warning:
-      "Exact Reset costs were not verified. Check the live preview before replacing useful stats.",
+      "Whether client-data Rebind is the same action as the four-stat Reset is unverified; check the live preview before rerolling useful stats.",
   },
   {
     id: "soul-fuse",
     title: "Soul Binding: Soul Fuse",
     items: [
-      "At 100% Soul Binding, Soul Fuse adds an extra effect using Philosopher's Stones.",
+      "At 100% Soul Binding, Soul Fuse adds an extra effect. Unique gear costs 2 Philosopher's Stone: Revelation and 1,000,000 Kina, with a 100% success rate in the client data.",
     ],
     warning:
-      "The extra Soul Fuse effect does not inherit through Transfer. Philosopher's Stone acquisition and exact costs are not verified; check the live preview.",
+      "The costs and success rate above are from Global client data, not a live UI check. The extra effect does not inherit through Transfer, and Philosopher's Stone acquisition is unverified; check the live preview before spending.",
   },
   {
     id: "engraving",
