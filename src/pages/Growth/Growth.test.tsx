@@ -240,6 +240,36 @@ test("spend guidance warns about finite wing supply and links with the router", 
   ).toBe("/festival");
 });
 
+test("shows Ariel Fragment sources, both morphs, and the character limit", () => {
+  renderPage();
+
+  const fragment = row("Ariel Fragment");
+
+  expect(within(fragment).getByText("Expedition Hard")).toBeDefined();
+  expect(
+    within(fragment).getByText(
+      "Urugugu Canyon and Vakron Sky Island guarantee their matching Ariel Fragment.",
+    ),
+  ).toBeDefined();
+  expect(
+    within(fragment).getByText(
+      "100 fragments make one bound Daevanion Crystal: Ariel.",
+    ),
+  ).toBeDefined();
+  expect(
+    within(fragment).getByText("Up to 30 times per character."),
+  ).toBeDefined();
+  expect(
+    within(fragment).getByText("One fragment makes five Enhance Stones."),
+  ).toBeDefined();
+  expect(within(fragment).getByText("No limit stated.")).toBeDefined();
+  expect(
+    within(fragment)
+      .getByRole("link", { name: "Ariel board overview" })
+      .getAttribute("href"),
+  ).toBe("/daevanion/spiritmaster/ariel");
+});
+
 test("the footer names the growth sources", () => {
   renderPage();
 

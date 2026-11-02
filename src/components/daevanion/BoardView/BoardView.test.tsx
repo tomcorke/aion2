@@ -53,6 +53,12 @@ const listSteps = () =>
 test("the diagram and the text list give the same purchases in the same order", () => {
   renderBoard("30");
 
+  expect(
+    screen.getByText(
+      "This is a route budget for planning, not your live crystal balance.",
+    ),
+  ).toBeDefined();
+
   const diagram = diagramSteps();
   const list = listSteps();
 

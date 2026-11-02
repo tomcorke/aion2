@@ -65,7 +65,27 @@ test("the root selects Spiritmaster, Nezekan, Damage and no points", async () =>
 
   await diagram();
 
+  const basics = screen.getByRole("region", { name: "Daevanion basics" });
+
   expect(selectedTabs()).toEqual(["Spiritmaster", "Nezekan", "Damage"]);
+  expect(basics.textContent).toContain("Square nodes raise stats");
+  expect(basics.textContent).toContain("Nezekan opens at level 12");
+  expect(basics.textContent).toContain(
+    "Zikel at 20, Vaizel at 30 and Triniel at 40",
+  );
+  expect(basics.textContent).toContain(
+    "Ariel and Azphel both open at level 45",
+  );
+  expect(basics.textContent).toContain(
+    "Regional quests, Sealed Dungeons and shops",
+  );
+  expect(basics.textContent).toContain("Ariel is for PvE");
+  expect(basics.textContent).toContain("HP and MP nodes");
+  expect(
+    within(basics)
+      .getByRole("link", { name: "Growth materials" })
+      .getAttribute("href"),
+  ).toBe("/growth");
   expect(totals()).toEqual(["409", "446", "453"]);
   expect(screen.getByRole("slider", { name: "Point budget" })).toHaveProperty(
     "value",

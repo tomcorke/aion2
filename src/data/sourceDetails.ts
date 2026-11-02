@@ -223,15 +223,15 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   metabotDaevanion: {
     region: "Global",
     publishedDate: "2026-10-01",
-    updatedDate: "2026-10-06",
-    checkedDate: "2026-10-10",
+    updatedDate: "2026-10-27",
+    checkedDate: "2026-11-01",
     accessNote:
       "Guide-reported from Global client data, not a live board check. Its generic five-board copy is stale, and its PvP-only Azphel description conflicts with retained Global client node data.",
   },
   metabotDaevanionPlanner: {
     region: "Global",
     clientBuild: "0.0.4387.0",
-    checkedDate: "2026-10-11",
+    checkedDate: "2026-11-01",
     accessNote:
       "Planner table and Spiritmaster page read; its generic five-board copy is stale. Client-derived, not a live in-game board check. The full Ariel node layout is not retained.",
   },

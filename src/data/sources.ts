@@ -310,7 +310,7 @@ export const sources = {
   ncGlobal28Oct: {
     name: "NC Global patch notes, 28 October 2026",
     covers:
-      "Odylium Repository and its shared Daily Dungeon entry pool; the transfer period's end and removal of its shop tab; the Instant Clear ticket's 30,000 Kina offer, 14-per-server weekly limit and announced shop move; Heightened Sixth Sense HP changes; other 28 October updates",
+      "Urugugu and Vakron Hard rewards and Ariel Fragment morph choices and limits; Odylium Repository and its shared Daily Dungeon entry pool; the transfer period's end and removal of its shop tab; the Instant Clear ticket's 30,000 Kina offer, 14-per-server weekly limit and announced shop move; Heightened Sixth Sense HP changes; other 28 October updates",
     url: "https://aion2.plaync.com/en-us/board/update/view?articleId=6ae19668577e8c01355e0210",
   },
   ncLudraAwakens: {

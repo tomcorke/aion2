@@ -23,8 +23,8 @@ test.each([
   ["gamesFuzeSoulBinding", "2026-10-09"],
   ["metabotTransferStone", "2026-10-09"],
   ["metabotSubstanceMorph", "2026-10-10"],
-  ["metabotDaevanion", "2026-10-10"],
-  ["metabotDaevanionPlanner", "2026-10-11"],
+  ["metabotDaevanion", "2026-11-01"],
+  ["metabotDaevanionPlanner", "2026-11-01"],
   ["ncGlobal21Oct", "2026-11-01"],
   ["ncGlobal28Oct", "2026-11-02"],
   ["ncServerTransfers", "2026-11-02"],
@@ -123,8 +123,8 @@ test("retains catalog metadata without conflating source and client builds", () 
     checkedDate: "2026-10-14",
   });
   expect(sourceDetails.officialServers?.publishedDate).toBe("2026-10-04");
-  expect(sourceDetails.metabotDaevanion?.checkedDate).toBe("2026-10-10");
-  expect(sourceDetails.metabotDaevanionPlanner?.checkedDate).toBe("2026-10-11");
+  expect(sourceDetails.metabotDaevanion?.checkedDate).toBe("2026-11-01");
+  expect(sourceDetails.metabotDaevanionPlanner?.checkedDate).toBe("2026-11-01");
   expect(sourceDetails.metabotStigma?.accessNote).toMatch(
     /guide-reported.*not a live Global game check/i,
   );

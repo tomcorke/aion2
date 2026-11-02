@@ -29,6 +29,16 @@
   }
 }
 
+.introduction {
+  display: grid;
+  gap: 8px;
+  max-width: 76ch;
+
+  & p {
+    margin: 0;
+  }
+}
+
 .panel {
   display: grid;
   gap: 32px;

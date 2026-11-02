@@ -52,6 +52,10 @@
   font-family: var(--f-mono);
 }
 
+.note {
+  color: var(--muted);
+}
+
 .message {
   padding-left: 12px;
   border-left: 2px solid var(--accent);
