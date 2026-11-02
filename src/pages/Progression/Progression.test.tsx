@@ -257,6 +257,6 @@ test("names its sources and reviewed date in the footer", () => {
   for (const id of progressionSourceIds)
     expect(footer.textContent).toContain(sources[id].name);
 
-  expect(footer.textContent).toContain("My own checks");
+  expect(footer.textContent).toContain("My own gameplay checks");
   expect(footer.textContent).toMatch(/Reviewed 2 Nov/);
 });

@@ -43,34 +43,62 @@ export const skinAcquisitionSourceAdditions = {
 export type SkinAcquisitionSourceId =
   SourceId | keyof typeof skinAcquisitionSourceAdditions;
 
-// Source checks, not build dates. S128/S38/S129/S130 were rechecked on 14 October;
-// the gear-model and random-shop-rotation checks remain S139's 12th and S132's 11th.
+// Source checks, not build dates. S128/S38 appearance rows were checked through 16 October;
+// S129/S130 remain 14 October, and the gear-model/shop-rotation checks are 12/11 October.
 export const skinAcquisitionSourceDetails = {
-  metabotSkyfeatherGuardian: { checkedDate: "2026-10-14" },
-  metabotSkyFeather: { checkedDate: "2026-10-14" },
+  metabotSkyfeatherGuardian: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-16",
+  },
+  metabotSkyFeather: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-16",
+  },
   metabotAbyssTradeShop: {
-    checkedDate: "2026-10-14",
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-16",
     accessNote:
       "Complete client shop table read; not a live purchase or rank-gate audit.",
   },
   wikilySkyfeatherGuardian: {
+    publishedDate: "2026-09-30",
+    updatedDate: "2026-10-06",
     checkedDate: "2026-10-14",
     accessNote:
       "Region unstated. Helm listing rechecked; the bound chest's origin remains unresolved.",
   },
   fextralifeSkyfeatherGuardianCloak: {
+    updatedDate: "2026-10-09",
     checkedDate: "2026-10-14",
     accessNote:
       "Grade-result odds are not odds of the specific Cloak; region unstated.",
   },
   metabotDivineCanyon: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-10-12",
     accessNote:
       "Matching gear model does not independently verify extraction panels for all seven pieces.",
   },
-  gamerBlurbBlackCloud: { checkedDate: "2026-10-11" },
+  gamerBlurbBlackCloud: {
+    publishedDate: "2026-10-08",
+    checkedDate: "2026-10-11",
+  },
 } satisfies Partial<
-  Record<SkinAcquisitionSourceId, { checkedDate: string; accessNote?: string }>
+  Record<
+    SkinAcquisitionSourceId,
+    {
+      region?: string;
+      clientBuild?: string;
+      publishedDate?: string;
+      updatedDate?: string;
+      checkedDate: string;
+      accessNote?: string;
+    }
+  >
 >;
 
 export type SkinAcquisitionSource =

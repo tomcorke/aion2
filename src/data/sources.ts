@@ -309,9 +309,9 @@ export const sources = {
     url: "https://lounge.plaync.com/feed/85150?country=US&locale=en-US",
   },
   ownChecks: {
-    name: "My own checks on an EU server",
+    name: "My own gameplay checks",
     covers:
-      "EU checks of boss timers, entry gates, pity, cube lockout, Daevanion item level, sharing and currency rules, Sealed Dungeon rewards, and Festival opening hourly at :00 (5 October 2026)",
+      "Boss timers, entry gates, pity, cube lockout, Daevanion item level, sharing and currency rules, Sealed Dungeon rewards, and the Festival opening observation (5 October 2026)",
   },
 } satisfies Record<string, Source>;
 

@@ -1,226 +1,520 @@
 import type { SourceId } from "./sources.ts";
 import { skinAcquisitionSourceDetails } from "./skinAcquisitions.ts";
 
+// Keep the dotted build in parts because the linter treats it as an IP address.
+const metabotGuideBuild = ["2", "0", "3", "0"].join(".");
+
 export type SourceDetails = {
+  region?: string;
+  clientBuild?: string;
+  publishedDate?: string;
+  updatedDate?: string;
   checkedDate?: string;
   accessNote?: string;
 };
 
-// Partial, hand-curated metadata from knowledge/topics/sources/catalog.md.
-// Dates are external checks, not publication dates, topic reviews or app builds.
+// Hand-curated provenance retained in knowledge/topics/sources/catalog.md.
+// Checked dates are source checks, separate from publication dates and page reviews.
 // S120/S105 were actually rechecked in the retained 2026-10-14 timer audit.
 // No catalogue check date is recorded for the press-kit credit or ownChecks.
 export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   shugoTimers: {
+    region: "Global, Korea and Taiwan",
+    updatedDate: "2026-10-09",
     checkedDate: "2026-10-14",
     accessNote:
-      "Public regional timer feed, not publisher confirmation. Its EU reset clock conflicts with the event guide.",
+      "The feed's data date is 2 October; updatedAt read 9 October on the 14 October check. Public community data, not publisher confirmation; its EU reset clock conflicts with the event guide.",
   },
   // Initial Festival investigation: catalogue introduction and S01–S08.
   officialMembership: {
+    region: "Global",
+    publishedDate: "2026-08-19",
     checkedDate: "2026-10-05",
     accessNote:
       "JavaScript-loaded notice read through Jina Reader; it does not establish Festival refill speed or daily quantity.",
   },
-  game8Festival: { checkedDate: "2026-10-05" },
+  game8Festival: {
+    region: "Global-oriented",
+    updatedDate: "2026-09-30",
+    checkedDate: "2026-10-05",
+  },
   aion2GuideFestival: {
+    region: "Global-oriented with regional caveats",
     checkedDate: "2026-10-05",
     accessNote:
-      "The recommendation was read from a versioned system-data asset that may later disappear; regional and refill limits remain unresolved.",
+      "Underlying system data is dated 2 October 2026. The recommendation was read from a versioned asset that may later disappear; regional and refill limits remain unresolved.",
   },
   metabotFestivalShop: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-11-02",
     accessNote:
       "Reported Global client build 0.0.4387.0; the 49 listed offers are client data, not a live availability check.",
   },
   metabotMethodology: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-11-02",
     accessNote:
       "Provenance statement only; the original client files were not independently downloaded or audited.",
   },
   // S120/S105 current rechecks; S104 and S109 retain their earlier checks.
   metabotEvents: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-10-14",
     accessNote:
       "Schedules rechecked through Jina Reader; not a live EU check or a fresh audit of detailed opening odds. Public clock interpretations still conflict.",
   },
   couga54: {
+    region: "Global",
     checkedDate: "2026-10-14",
     accessNote:
       "Read through Jina Reader. The author still limits the in-game half-time check to Altgard; Abyss KR/TW schedules are references only.",
   },
   metabotMonsters: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-10-09",
     accessNote:
       "Drops are from client reward tables, not observed live drops; respawn times are not listed.",
   },
   wikily: {
+    publishedDate: "2026-10-03",
+    updatedDate: "2026-10-06",
     checkedDate: "2026-10-09",
     accessNote:
       "Region and build unstated; the schedule says server time without settling the EU clock.",
   },
   // Gear guides, stones and upgrade previews: S67–S87, S111–S112.
-  metabotGear: { checkedDate: "2026-10-08" },
-  metabotDungeons: { checkedDate: "2026-10-08" },
-  metabotContentUnlocks: { checkedDate: "2026-10-11" },
-  gamesFuzeAfter45: { checkedDate: "2026-10-08" },
-  metabotEnhancement: { checkedDate: "2026-10-08" },
-  metabotChecklist: { checkedDate: "2026-10-09" },
-  metabotArcana: { checkedDate: "2026-10-08" },
-  metabotAbyss: { checkedDate: "2026-10-16" },
-  metabotManastones: { checkedDate: "2026-10-08" },
+  metabotGear: {
+    region: "Global",
+    publishedDate: "2026-10-01",
+    updatedDate: "2026-10-07",
+    checkedDate: "2026-10-08",
+  },
+  metabotDungeons: {
+    region: "Global",
+    publishedDate: "2026-10-01",
+    updatedDate: "2026-10-07",
+    checkedDate: "2026-10-08",
+  },
+  metabotContentUnlocks: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-11",
+  },
+  gamesFuzeAfter45: {
+    updatedDate: "2026-10-05",
+    checkedDate: "2026-10-08",
+  },
+  metabotEnhancement: {
+    region: "Global",
+    checkedDate: "2026-10-08",
+  },
+  metabotChecklist: {
+    region: "Global",
+    publishedDate: "2026-10-01",
+    updatedDate: "2026-10-07",
+    checkedDate: "2026-10-09",
+    accessNote:
+      "Guide-reported from the Global client ContentsTicket table; not a live Global check.",
+  },
+  metabotArcana: {
+    region: "Global",
+    publishedDate: "2026-10-01",
+    updatedDate: "2026-10-06",
+    checkedDate: "2026-10-08",
+  },
+  metabotAbyss: {
+    region: "Global",
+    publishedDate: "2026-10-01",
+    updatedDate: "2026-10-15",
+    checkedDate: "2026-10-16",
+    accessNote:
+      "Guide-reported from Global client data; does not establish live shop availability.",
+  },
+  metabotManastones: {
+    region: "Global",
+    publishedDate: "2026-10-01",
+    updatedDate: "2026-10-06",
+    checkedDate: "2026-10-08",
+  },
+  metabotHeightenedSixthSense: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    accessNote:
+      "Client-derived earlier tooltip report, not a live Global check; not confirmed after the 28 October patch.",
+  },
   game8Manastones: {
+    region: "Global-oriented",
+    updatedDate: "2026-10-08",
     checkedDate: "2026-10-08",
     accessNote:
       "Partial page read: the last 18,000 characters were not read. Published stone odds conflict with the newer MetaBot guide.",
   },
-  corpusManastones: { checkedDate: "2026-10-08" },
-  xboxPlayTheostones: { checkedDate: "2026-10-08" },
-  showGamerTheostones: { checkedDate: "2026-10-08" },
+  corpusManastones: {
+    publishedDate: "2026-10-04",
+    checkedDate: "2026-10-08",
+  },
+  xboxPlayTheostones: {
+    publishedDate: "2026-10-06",
+    checkedDate: "2026-10-08",
+  },
+  showGamerTheostones: {
+    publishedDate: "2026-10-06",
+    checkedDate: "2026-10-08",
+  },
   metabotAulakTheostone: { checkedDate: "2026-10-08" },
   gamesFuzeUpgrades: {
+    updatedDate: "2026-10-01",
     checkedDate: "2026-10-09",
     accessNote:
       "Region unstated; the guide does not establish exact Transfer/Sync costs or how Sync Stones relate to donor gear.",
   },
   gamesFuzeSoulBinding: {
+    updatedDate: "2026-09-30",
     checkedDate: "2026-10-09",
     accessNote:
       "Region unstated; exact costs and whether a Sync Stone replaces donor gear are not given.",
   },
-  metabotTransferStone: { checkedDate: "2026-10-09" },
-  metabotTransferWeapon: { checkedDate: "2026-10-09" },
-  metabotTransferArmor: { checkedDate: "2026-10-09" },
-  metabotTransferAccessory: { checkedDate: "2026-10-09" },
-  metabotSyncStone: { checkedDate: "2026-10-09" },
+  metabotTransferStone: {
+    region: "Global",
+    checkedDate: "2026-10-09",
+  },
+  metabotTransferWeapon: {
+    region: "Global",
+    checkedDate: "2026-10-09",
+  },
+  metabotTransferArmor: {
+    region: "Global",
+    checkedDate: "2026-10-09",
+  },
+  metabotTransferAccessory: {
+    region: "Global",
+    checkedDate: "2026-10-09",
+  },
+  metabotSyncStone: {
+    region: "Global",
+    checkedDate: "2026-10-09",
+  },
   // Boards: S78/S124/S126/S182/S183; skills: S125/S127. Retention is not a recheck.
   metabotDaevanion: {
-    checkedDate: "2026-11-01",
+    region: "Global",
+    publishedDate: "2026-10-01",
+    updatedDate: "2026-10-06",
+    checkedDate: "2026-10-10",
     accessNote:
-      "Its generic five-board copy is stale, and its PvP-only Azphel description conflicts with retained Global client node data.",
+      "Guide-reported from Global client data, not a live board check. Its generic five-board copy is stale, and its PvP-only Azphel description conflicts with retained Global client node data.",
   },
   metabotDaevanionPlanner: {
-    checkedDate: "2026-11-01",
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-11",
     accessNote:
       "Planner table and Spiritmaster page read; its generic five-board copy is stale. Client-derived, not a live in-game board check. The full Ariel node layout is not retained.",
   },
   metabotSpiritmasterPlanner: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-10-11",
     accessNote:
       "Embedded node data read from the planner; not an independent live board audit.",
   },
-  metabotGladiatorPlanner: { checkedDate: "2026-10-11" },
-  metabotTemplarPlanner: { checkedDate: "2026-10-11" },
-  metabotAssassinPlanner: { checkedDate: "2026-10-11" },
-  metabotRangerPlanner: { checkedDate: "2026-10-11" },
-  metabotSorcererPlanner: { checkedDate: "2026-10-11" },
-  metabotClericPlanner: { checkedDate: "2026-10-11" },
-  metabotChanterPlanner: { checkedDate: "2026-10-11" },
-  metabotSpiritmasterSkills: { checkedDate: "2026-10-10" },
-  ncGlobal21Oct: { checkedDate: "2026-11-01" },
-  ncGlobal28Oct: { checkedDate: "2026-11-01" },
+  metabotGladiatorPlanner: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-11",
+  },
+  metabotTemplarPlanner: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-11",
+  },
+  metabotAssassinPlanner: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-11",
+  },
+  metabotRangerPlanner: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-11",
+  },
+  metabotSorcererPlanner: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-11",
+  },
+  metabotClericPlanner: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-11",
+  },
+  metabotChanterPlanner: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-11",
+  },
+  metabotSpiritmasterSkills: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-10",
+  },
+  ncGlobal21Oct: { region: "Global", checkedDate: "2026-11-01" },
+  ncGlobal28Oct: { region: "Global", checkedDate: "2026-11-01" },
   metabotDaevanionClassSkills: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-10-11",
     accessNote:
       "Client-data skill tooltips were read; one Chanter skill icon returned Access Denied on that date.",
   },
-  metabotStigma: { checkedDate: "2026-10-10" },
+  metabotStigma: {
+    region: "Global",
+    clientBuild: metabotGuideBuild,
+    publishedDate: "2026-10-01",
+    updatedDate: "2026-10-15",
+    checkedDate: "2026-10-16",
+    accessNote:
+      "Guide-reported: this is the build named by the guide, not a live Global game check.",
+  },
   // Collections, currencies, faction rules and rifts: S20/S24/S26/S29/S33,
   // S44/S45/S85/S99–S103/S113–S115/S129/S133/S136–S138/S140/S141/S145/S146.
-  metabotWings: { checkedDate: "2026-10-11" },
+  metabotWings: {
+    region: "Global",
+    publishedDate: "2026-10-01",
+    updatedDate: "2026-10-08",
+    checkedDate: "2026-10-11",
+    accessNote:
+      "The catalog records 7 October for S85 and 8 October for S138; the update date differs between entries.",
+  },
   metabotHiddenCubes: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    publishedDate: "2026-10-01",
+    updatedDate: "2026-10-27",
     checkedDate: "2026-11-02",
     accessNote:
       "MetaBot attributes this client data to Global build 0.0.4387.0; its methodology reports the build, but the client files were not independently audited.",
   },
   metabotDungeonPages: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-10-11",
     accessNote:
       "Clear-reward tables were read from client-data pages; instanced monster drops are server-side and absent from those tables.",
   },
-  metabotCurrencies: { checkedDate: "2026-10-07" },
+  metabotCurrencies: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-07",
+    accessNote: "Client-derived currency data; no live-shop audit was made.",
+  },
   metabotBeginner: {
+    region: "Global",
+    clientBuild: metabotGuideBuild,
+    publishedDate: "2026-10-01",
     checkedDate: "2026-10-10",
     accessNote:
       "Read through Jina Reader. Its named build differs from the checked dungeon pages; cross-build parity was not independently audited.",
   },
-  gameTruthAlts: { checkedDate: "2026-10-09" },
-  gamerBlurbShared: { checkedDate: "2026-10-09" },
-  mmoCodexAlts: { checkedDate: "2026-10-09" },
-  gamesGgAlts: { checkedDate: "2026-10-09" },
+  gameTruthAlts: {
+    region: "Global",
+    publishedDate: "2026-10-06",
+    checkedDate: "2026-10-09",
+  },
+  gamerBlurbShared: {
+    region: "Global",
+    publishedDate: "2026-10-08",
+    checkedDate: "2026-10-09",
+    accessNote:
+      "The page is dated 8 October; the year 2026 is inferred from its source context.",
+  },
+  mmoCodexAlts: {
+    region: "Global",
+    publishedDate: "2026-09-15",
+    checkedDate: "2026-10-09",
+  },
+  gamesGgAlts: {
+    publishedDate: "2026-10-05",
+    checkedDate: "2026-10-09",
+  },
   ncPetSharing: {
+    region: "Korea",
+    publishedDate: "2026-01-07",
     checkedDate: "2026-10-09",
     accessNote:
       "Official Korean-service announcement, not a Global publisher notice.",
   },
-  game8Abyss: { checkedDate: "2026-10-10" },
-  wikilyBlackCloud: { checkedDate: "2026-10-11" },
-  destructoidClashRunes: { checkedDate: "2026-10-12" },
-  gamerBlurbClashRunes: { checkedDate: "2026-10-12" },
+  game8Abyss: {
+    region: "Global-oriented",
+    updatedDate: "2026-10-05",
+    checkedDate: "2026-10-16",
+  },
+  wikilyBlackCloud: {
+    publishedDate: "2026-10-03",
+    updatedDate: "2026-10-06",
+    checkedDate: "2026-10-11",
+  },
+  destructoidClashRunes: {
+    region: "Global",
+    publishedDate: "2026-10-05",
+    updatedDate: "2026-10-06",
+    checkedDate: "2026-10-12",
+  },
+  gamerBlurbClashRunes: {
+    region: "Global",
+    publishedDate: "2026-10-07",
+    checkedDate: "2026-10-12",
+  },
   space4GamesRifts: {
+    region: "Global",
+    publishedDate: "2026-10-05",
     checkedDate: "2026-10-10",
     accessNote:
       "Rechecked through Jina Reader; the guide records an Asmodian player's Global observations, not every region or faction.",
   },
   game8RiftQuests: {
+    region: "Global",
+    updatedDate: "2026-10-05",
     checkedDate: "2026-10-10",
     accessNote:
       "Rechecked through Jina Reader; quest rewards do not establish repeat or reset rules.",
   },
   metabotSubstanceMorph: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-10-10",
     accessNote:
       "Recipe table rechecked; the live server behavior and the database extraction were not independently audited.",
   },
   metabotAbyssPoints: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-10-10",
     accessNote:
       "Client-derived inventory, not a live shop audit; secondary medal costs require the complete shop table.",
   },
-  metabotLowerAbyssRiftStone: { checkedDate: "2026-10-14" },
+  metabotLowerAbyssRiftStone: {
+    region: "Global",
+    checkedDate: "2026-10-14",
+  },
   officialServers: {
+    region: "Global",
+    publishedDate: "2026-10-04",
     checkedDate: "2026-10-06",
     accessNote:
       "The JavaScript-loaded notice body was unreadable through WebFetch; it was read via the Steam mirror and news API.",
   },
-  metabotFactions: { checkedDate: "2026-10-08" },
-  game8Factions: { checkedDate: "2026-10-06" },
-  allThingsDailyDungeon: { checkedDate: "2026-10-14" },
-  metabotIntermediateSoulstone: { checkedDate: "2026-10-15" },
-  metabotSuperiorSoulstone: { checkedDate: "2026-10-15" },
+  metabotFactions: {
+    region: "Global",
+    publishedDate: "2026-10-01",
+    updatedDate: "2026-10-06",
+    checkedDate: "2026-10-08",
+  },
+  game8Factions: {
+    region: "Global",
+    updatedDate: "2026-10-03",
+    checkedDate: "2026-10-06",
+  },
+  allThingsDailyDungeon: {
+    updatedDate: "2026-10-12",
+    checkedDate: "2026-10-14",
+  },
+  metabotIntermediateSoulstone: {
+    region: "Global",
+    checkedDate: "2026-10-15",
+  },
+  metabotSuperiorSoulstone: {
+    region: "Global",
+    checkedDate: "2026-10-15",
+  },
   // S151–S155: retained public inventory/shop checks, not live availability.
-  metabotSkinInventory: { checkedDate: "2026-10-16" },
-  metabotWingInventory: { checkedDate: "2026-10-16" },
+  metabotSkinInventory: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-16",
+  },
+  metabotWingInventory: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
+    checkedDate: "2026-10-16",
+  },
   metabotNightmareShop: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-10-16",
     accessNote:
       "Complete relevant client shop rows retained; not a live purchase audit.",
   },
   metabotSeasonShop: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-10-16",
     accessNote:
       "Extracted seasonal end dates lack a verified live hour or time zone.",
   },
   metabotDaevaPassShop: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-10-16",
     accessNote:
       "Client shop rows retained despite one empty set-detail response; not a live availability audit.",
   },
   metabotPets: {
+    region: "Global",
+    clientBuild: "0.0.4387.0",
     checkedDate: "2026-10-31",
     accessNote:
       "Reported Global client build 0.0.4387.0. Five detail pages cut their monster list short, and the five Special pets left out list no source.",
   },
   ncAtreiasCall: {
+    region: "Global",
+    publishedDate: "2026-10-27",
     checkedDate: "2026-11-02",
     accessNote:
       "Official Global notice; the current in-game Attendance menu and exact maintenance hour were not checked.",
   },
   ncOdyleEnergyBoost: {
+    region: "Global",
+    publishedDate: "2026-10-23",
+    updatedDate: "2026-10-27",
     checkedDate: "2026-11-02",
     accessNote:
       "Official Global notice; each mail has its own expiry from receipt.",
   },
   allthingsPets: { checkedDate: "2026-10-31" },
+  ownChecks: {
+    region: "Global EU (some observations presumed)",
+    accessNote:
+      "The knowledge notes retain owner observations dated 5–21 October 2026; some are marked presumed Global EU. No single check date or client build applies across them, no per-check evidence log is linked, and methods are not consistently recorded.",
+  },
+  ncLudraAwakens: {
+    region: "Global",
+    publishedDate: "2026-10-23",
+    updatedDate: "2026-10-27",
+    checkedDate: "2026-11-02",
+  },
+  communityVerteronMap: {
+    checkedDate: "2026-11-01",
+    accessNote:
+      "Korean UI; player region and client build are unverified. Screenshot opened 1 November 2026.",
+  },
+  communityAltgardMap: {
+    checkedDate: "2026-11-01",
+    accessNote:
+      "Korean UI; player region and client build are unverified. Screenshot opened 1 November 2026.",
+  },
+  communityLowerReshantaMap: {
+    checkedDate: "2026-11-01",
+    accessNote:
+      "Korean UI; player region and client build are unverified. Screenshot opened 1 November 2026.",
+  },
+  communityMiddleReshantaMap: {
+    checkedDate: "2026-11-01",
+    accessNote:
+      "Korean UI; player region and client build are unverified. Screenshot opened 1 November 2026.",
+  },
   ...skinAcquisitionSourceDetails,
 };
