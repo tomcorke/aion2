@@ -8,7 +8,12 @@ import { Routine } from "../pages/Routine/Routine.tsx";
 import { Timers } from "../pages/Timers/Timers.tsx";
 import { freezeClock, renderWithProviders } from "../testing/render.tsx";
 import { resourceCounters } from "./alts.ts";
-import { bankingReminders, routineContract, routineTasks } from "./routine.ts";
+import {
+  bankingReminders,
+  routineContract,
+  routineSources,
+  routineTasks,
+} from "./routine.ts";
 import { sections } from "./sections.ts";
 
 afterEach(() => vi.useRealTimers());
@@ -62,6 +67,17 @@ test("daily reminders reuse canonical limits without converting weekly entries i
     "unobtained-cubes",
   ]);
   expect(task("conquest")?.warning).toMatch(/At 0.*no character/);
+});
+
+test("the Invasion key reminder stays optional and keeps its client scope qualified", () => {
+  const invasion = routineTasks.find((row) => row.id === "invasion-keys");
+
+  expect(invasion?.group).toBe("daily");
+  expect(invasion?.title).toMatch(/^Optional:/);
+  expect(invasion?.counterIds).toEqual(["invasion-keys"]);
+  expect(invasion?.details).toMatch(/only when participating/i);
+  expect(invasion?.details).toMatch(/client-derived.*not been confirmed/i);
+  expect(routineSources).toContain("metabotEvents");
 });
 
 test("weekly work covers dungeon, time, shop and crafting allowances", () => {
