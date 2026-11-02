@@ -67,7 +67,7 @@ test("names each area with the pets left to finish", () => {
   expect(tile(/^Gamma Pass, 0 to finish$/)).toBeTruthy();
 });
 
-test("marks lit areas, the best area and the picked area", () => {
+test("marks lit areas, the best next area and the picked area", () => {
   renderMap({
     lit: new Set(["verteron-b"]),
     best: "verteron-a",

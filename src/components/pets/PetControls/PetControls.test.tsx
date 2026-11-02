@@ -51,7 +51,7 @@ test("shows the chosen filters and map overlays as pressed", () => {
   ).toBe("true");
   expect(
     screen
-      .getByRole("button", { name: "Highlight best area" })
+      .getByRole("button", { name: "Highlight best next area" })
       .getAttribute("aria-pressed"),
   ).toBe("false");
   expect(screen.getByRole("status").textContent).toContain("3 selected");
@@ -72,7 +72,7 @@ test("reports every control", async () => {
     screen.getByRole("button", { name: "Level 3 box only" }),
   );
   await userEvent.click(
-    screen.getByRole("button", { name: "Highlight best area" }),
+    screen.getByRole("button", { name: "Highlight best next area" }),
   );
   await userEvent.click(
     screen.getByRole("button", { name: "Select all shown (12)" }),

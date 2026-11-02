@@ -27,7 +27,7 @@ const tileFor = (areaId: string) => {
   )!;
 };
 
-// Labels read "Name, 12 to finish" with an optional ", best area" suffix.
+// Labels read "Name, 12 to finish" with an optional highest-count suffix.
 const left = (tile: HTMLElement) =>
   Number(tile.getAttribute("aria-label")?.split(", ")[1].split(" ")[0]);
 
@@ -194,7 +194,7 @@ test("highlights the area where the most pets are still below level 3", async ()
 
   expect(tiles().some((tile) => tile.dataset.best === "true")).toBe(false);
 
-  await userEvent.click(option("Highlight best area"));
+  await userEvent.click(option("Highlight best next area"));
 
   const best = tiles().filter((tile) => tile.dataset.best === "true");
 
@@ -211,7 +211,7 @@ test("marks a guide-reported KR/TW area as not a confirmed Global stop", async (
 
   localStorage.setItem("pet-levels", JSON.stringify(levels));
   render();
-  await userEvent.click(option("Highlight best area"));
+  await userEvent.click(option("Highlight best next area"));
 
   const map = within(screen.getByRole("region", { name: "Farming map" }));
 
@@ -220,9 +220,9 @@ test("marks a guide-reported KR/TW area as not a confirmed Global stop", async (
   );
 });
 
-test("the best area moves on once its pets are maxed", async () => {
+test("the best next area moves on once its pets are maxed", async () => {
   render();
-  await userEvent.click(option("Highlight best area"));
+  await userEvent.click(option("Highlight best next area"));
 
   const before = tiles().find((tile) => tile.dataset.best === "true")!;
 
