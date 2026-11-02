@@ -7,19 +7,39 @@ import { Alts } from "./Alts.tsx";
 
 const renderPage = () => renderWithProviders(<Alts />, { path: "/alts" });
 
-test("orders the headings: title, transfers, ledger, cube warning, limits, then advice", () => {
+test("orders the headings: title, slots, transfers, ledger, cube warning, limits, then advice", () => {
   renderPage();
 
   expect(screen.getByRole("heading", { level: 1, name: "Alts" })).toBeDefined();
   expect(
     screen.getAllByRole("heading", { level: 2 }).map((h) => h.textContent),
   ).toEqual([
+    "Character slots",
     "Server transfers",
     "What carries over",
     "Skipped cubes can lock the main out",
     "Limits and refills",
     ...altsSections.map(({ title }) => title),
   ]);
+});
+
+test("states the confirmed starting slots and labels unverified slot details", () => {
+  renderPage();
+
+  const slots = screen.getByRole("region", { name: "Character slots" });
+
+  expect(slots.textContent).toContain(
+    "Four starting character slots were confirmed in NC's Global launch livestream.",
+  );
+  expect(slots.textContent).toContain(
+    "AION 2 Maps reports a maximum of eight slots.",
+  );
+  expect(slots.textContent).toContain(
+    "treat this reported maximum as unverified",
+  );
+  expect(slots.textContent).toContain(
+    "How to get extra slots, their price, and whether the limit is per server or account are unverified.",
+  );
 });
 
 test("summarizes the ended first transfer period and what moved", () => {
@@ -150,4 +170,14 @@ test("ends with the page's sources and reviewed date", () => {
 
   for (const id of altsSources)
     expect(footer.textContent).toContain(sources[id].name);
+
+  expect(footer.textContent).toContain(sources.aion2mapsGlobalDifferences.name);
+  expect(footer.textContent).toContain(
+    sources.massivelyOverPoweredLaunchSlots.name,
+  );
+  expect(
+    within(footer).getByRole("link", {
+      name: /open questions for this section/,
+    }),
+  ).toBeDefined();
 });

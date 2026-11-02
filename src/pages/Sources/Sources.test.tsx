@@ -202,14 +202,14 @@ test("shows the three Daevanion gaps in their own filtered group", () => {
   ).toBeNull();
 });
 
-test("an unknown topic keeps all 30 questions visible", () => {
+test("an unknown topic keeps all 31 questions visible", () => {
   renderWithProviders(<Sources />, { path: "/sources?topic=unknown" });
 
   const questions = within(
     screen.getByRole("region", { name: "Open questions" }),
   );
 
-  expect(questions.getAllByRole("listitem")).toHaveLength(30);
+  expect(questions.getAllByRole("listitem")).toHaveLength(31);
   expect(questions.queryByText(/Showing questions that affect/)).toBeNull();
 });
 

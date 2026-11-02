@@ -31,6 +31,8 @@ test.each([
   ["patchbotGlobal28Oct", "2026-11-02"],
   ["metabotOdyliumRepository", "2026-11-02"],
   ["aion2MapsDailyDungeon", "2026-11-02"],
+  ["aion2mapsGlobalDifferences", "2026-11-01"],
+  ["massivelyOverPoweredLaunchSlots", "2026-11-01"],
   ["aion2GlobalTicketDatabase", "2026-11-02"],
   ["aion2MapsPets", "2026-11-02"],
   ["aion2HelpGlobalRegions", "2026-11-02"],

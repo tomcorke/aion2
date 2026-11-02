@@ -325,6 +325,20 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
     accessNote:
       "Reports comparison with the 21 October build; no live Odylium reward result was checked.",
   },
+  aion2mapsGlobalDifferences: {
+    region: "Global",
+    updatedDate: "2026-10-31",
+    checkedDate: "2026-11-01",
+    accessNote:
+      "Reports an eight-slot maximum from Global client data. The current character-selection UI, expansion method, cost, and per-server/account scope were not checked.",
+  },
+  massivelyOverPoweredLaunchSlots: {
+    region: "Global",
+    publishedDate: "2026-08-08",
+    checkedDate: "2026-11-01",
+    accessNote:
+      "Livestream recap confirms four starting slots at launch; it does not establish the current maximum or expansion details.",
+  },
   aion2GlobalTicketDatabase: {
     region: "Global",
     updatedDate: "2026-11-01",

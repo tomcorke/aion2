@@ -14,7 +14,7 @@ test("reader questions have stable unique IDs, topic groups, useful checks and r
     "appearances",
     "pets",
   ]);
-  expect(openQuestions).toHaveLength(30);
+  expect(openQuestions).toHaveLength(31);
   expect(new Set(openQuestions.map(({ id }) => id)).size).toBe(
     openQuestions.length,
   );
@@ -84,6 +84,10 @@ test.each([
   ["clash-rune-shop", /Clash Rune.*price.*stock/i],
   ["skin-owned-stat-sharing", /owned stats.*alts/i],
   ["optional-skin-chests", /Skin Chest.*Reward Chest/i],
+  [
+    "global-character-slots",
+    /four starting Global character slots.*current Global character-selection UI.*maximum.*expansion method.*price.*per-server\/account scope remain unverified/i,
+  ],
 ])(
   "retains practical uncertainty %s from current topic notes",
   (id, meaning) => {
@@ -136,6 +140,12 @@ test.each([
     "appearances",
     /Quna.*Centuryroot Tokens.*weekly.*cap/i,
     ["/alts", "/growth"],
+  ],
+  [
+    "global-character-slots",
+    "appearances",
+    /four starting Global character slots.*maximum of eight.*remain unverified/i,
+    ["/alts"],
   ],
   [
     "eu-event-slots",
