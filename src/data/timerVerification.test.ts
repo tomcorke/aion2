@@ -20,7 +20,7 @@ test.each([
   ["invasion", /duration.*rotation.*unresolved/],
   [
     "siege",
-    /matching group.*not been checked.*one evening.*not confirmed repeating times/,
+    /reported group schedules.*not been checked.*one evening.*do not confirm repeating times/,
   ],
   ["reshanta", /one evening.*three-hour interval.*unconfirmed/],
   ["field", /Altgard.*Verteron.*extrapolation/],

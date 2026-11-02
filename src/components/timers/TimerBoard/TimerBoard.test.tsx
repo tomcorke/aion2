@@ -197,6 +197,21 @@ test("the Abyss view uses the reader's selected matching group", async () => {
   expect(localStorage.getItem("abyss-matching-group")).toBe("2");
 });
 
+test("an invalid stored group leaves Abyss event times unselected", () => {
+  localStorage.setItem("abyss-matching-group", "5");
+  renderWithProviders(<TimerBoard group="abyss" />);
+
+  expect(
+    screen
+      .getByRole("button", { name: "Group 1" })
+      .getAttribute("aria-pressed"),
+  ).toBe("false");
+  expect(screen.getByRole("status").textContent).toContain("Choose a group");
+  expect(spine().queryByText("Artifact Siege")).toBeNull();
+  expect(spine().queryByText("Executors")).toBeNull();
+  expect(spine().queryByText("Guardian Lord Nahma")).toBeNull();
+});
+
 test("a group view still honours the item-level filter", async () => {
   seed({ ...seeded, hidden: [] });
   renderWithProviders(<TimerBoard group="reshanta" />);

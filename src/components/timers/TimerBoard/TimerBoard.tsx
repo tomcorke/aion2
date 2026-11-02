@@ -64,6 +64,12 @@ function inView(
   return groups.includes(timer.group);
 }
 
+function validMatchingGroup(value: number): MatchingGroup | 0 {
+  if (value === 1 || value === 2 || value === 3) return value;
+
+  return 0;
+}
+
 // Saved orders drop timers that no longer exist and gain any added since.
 function fullOrder(saved: string[]) {
   const known = saved.filter((id) => timerDefs.some((def) => def.id === id));
@@ -94,6 +100,7 @@ export function TimerBoard({ group }: Props) {
     0,
   );
   const [editing, setEditing] = useState(false);
+  const pickedGroup = validMatchingGroup(matchingGroup);
 
   const setup = { ...defaultSetup, ...stored };
   const order = fullOrder(setup.order);
@@ -102,8 +109,8 @@ export function TimerBoard({ group }: Props) {
     .map((id) => timerDefs.find((def) => def.id === id)!)
     .map((def) => {
       const matchingSchedule =
-        group === "abyss" && matchingGroup
-          ? def.matchingGroupSchedules?.[matchingGroup - 1]
+        group === "abyss" && pickedGroup
+          ? def.matchingGroupSchedules?.[pickedGroup - 1]
           : undefined;
 
       return resolveTimer(
@@ -119,7 +126,7 @@ export function TimerBoard({ group }: Props) {
   const shown = timers.filter(
     (t) =>
       !setup.hidden.includes(t.id) &&
-      inView(t, group, matchingGroup, setup.groups) &&
+      inView(t, group, pickedGroup, setup.groups) &&
       (t.itemLevel ?? Infinity) >= setup.minItemLevel,
   );
 
@@ -176,11 +183,11 @@ export function TimerBoard({ group }: Props) {
             chips={([1, 2, 3] as const).map((value) => ({
               value,
               label: `Group ${value}`,
-              pressed: matchingGroup === value,
+              pressed: pickedGroup === value,
             }))}
             onToggle={setMatchingGroup}
           />
-          {matchingGroup === 0 && (
+          {pickedGroup === 0 && (
             <p role="status">Choose a group to show these event countdowns.</p>
           )}
         </div>
@@ -194,7 +201,7 @@ export function TimerBoard({ group }: Props) {
         <TimerSpine {...layout} />
       </div>
 
-      {shown.length === 0 && !(group === "abyss" && matchingGroup === 0) && (
+      {shown.length === 0 && !(group === "abyss" && pickedGroup === 0) && (
         <p role="status" className={STYLES.empty}>
           {emptyMessage()}
         </p>
