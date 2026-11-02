@@ -23,7 +23,9 @@ const itemNames = () =>
 
 const search = (text: string) =>
   userEvent.type(
-    screen.getByRole("searchbox", { name: "Search materials" }),
+    screen.getByRole("searchbox", {
+      name: "Search names, uses, sources, limits and conditions",
+    }),
     text,
   );
 
@@ -55,6 +57,33 @@ test("search matches names, aliases, uses and sources, ignoring case and spaces"
   await search("roah");
   expect(itemNames()).toContain("Sealed Wing Featherdown (Bound)");
   expect(itemNames()).not.toContain("Kina");
+});
+
+test("search matches displayed limits and conditions", async () => {
+  renderPage();
+
+  await search("bound and not tradable");
+  expect(itemNames()).toContain("Sealed Wing Featherdown (Bound)");
+
+  await userEvent.clear(screen.getByRole("searchbox"));
+  await search("enemy-faction clears give no featherdown");
+  expect(itemNames()).toContain("Sealed Wing Featherdown (Bound)");
+
+  await userEvent.clear(screen.getByRole("searchbox"));
+  await search("50 per character per week");
+  expect(itemNames()).toContain("Lesser Abyssal Manastone");
+
+  await userEvent.clear(screen.getByRole("searchbox"));
+  await search("7 rewards per expedition dungeon each week");
+  expect(itemNames()).toContain("Enhance Stones");
+
+  await userEvent.clear(screen.getByRole("searchbox"));
+  await search("shared on the server");
+  expect(itemNames()).toContain("Enhance Stones");
+
+  await userEvent.clear(screen.getByRole("searchbox"));
+  await search("no limit recorded");
+  expect(itemNames()).toContain("Creature souls");
 });
 
 test("one target chip combines with search", async () => {

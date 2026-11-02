@@ -1,7 +1,5 @@
 import { Link } from "react-router";
-import { resourceCounters } from "../../../data/alts.ts";
-import { counterLimit } from "../../../lib/counterLimit.ts";
-import { gearRewardConditions } from "../../../data/gear.ts";
+import { growthLimitsOf } from "../../../lib/growthLimits.ts";
 import {
   growthTargets,
   type GrowthAcquisition,
@@ -15,32 +13,8 @@ const kindLabels: Record<GrowthMaterial["kind"], string> = {
   equipment: "Equipment",
 };
 
-const scopeLabels = {
-  character: "per character",
-  server: "shared on the server",
-};
-
 const targetLabel = (id: string) =>
   growthTargets.find((target) => target.id === id)?.label;
-
-// Route limits plus the shared counter and Gear reward rules they point at, never copies.
-function limitsOf(route: GrowthAcquisition) {
-  const counter = route.counterId && resourceCounters[route.counterId];
-
-  const rules =
-    gearRewardConditions.find(({ id }) => id === route.rewardConditionId)
-      ?.notes ?? [];
-
-  return [
-    ...(route.limit ? [route.limit] : []),
-    ...(counter
-      ? [
-          `${counter.name}: ${counterLimit(counter)}, ${scopeLabels[counter.scope]}.`,
-        ]
-      : []),
-    ...rules,
-  ];
-}
 
 function Route({ route }: { route: GrowthAcquisition }) {
   return (
@@ -59,7 +33,7 @@ function Route({ route }: { route: GrowthAcquisition }) {
 
 function Limits({ material }: { material: GrowthMaterial }) {
   const limits = material.acquisition.flatMap((route) =>
-    limitsOf(route).map((text) => ({ route: route.name, text })),
+    growthLimitsOf(route).map((text) => ({ route: route.name, text })),
   );
 
   if (limits.length === 0 && !material.condition)
