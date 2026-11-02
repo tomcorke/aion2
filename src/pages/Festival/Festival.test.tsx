@@ -7,6 +7,7 @@ import {
   festivalKeys,
   festivalOpeningModel,
   festivalRewards,
+  festivalShopOffers,
   festivalSources,
 } from "../../data/festival.ts";
 import { sources } from "../../data/sources.ts";
@@ -149,12 +150,43 @@ test("prices outfits, accessories and wings in separate tables with their own to
 
   const shop = screen.getByRole("region", { name: "Shop prices" });
 
-  expect(
-    within(shop).getByText(
-      /Centuryroot Tokens, one of each piece per character/,
-    ),
-  ).toBeDefined();
+  expect(within(shop).getByText(/one per character/)).toBeDefined();
   expect(within(shop).getByText(/Recheck the live shop/)).toBeDefined();
+});
+
+test("lists client-listed non-appearance offers with their prices and limits", () => {
+  renderPage();
+
+  const table = screen.getByRole("table", {
+    name: "Other client-listed items",
+  });
+  const rows = [...table.querySelectorAll("tbody tr")].map((row) =>
+    [...row.querySelectorAll("th, td")].map((cell) => cell.textContent),
+  );
+  const offerRows = rows.filter((row) => row.length === 4);
+
+  expect(offerRows).toHaveLength(28);
+  expect(offerRows).toEqual(
+    expect.arrayContaining(
+      festivalShopOffers.map(({ name, price, limit, faction }) => [
+        name,
+        new Intl.NumberFormat("en-GB").format(price),
+        limit,
+        faction,
+      ]),
+    ),
+  );
+  expect(within(table).getByText("Progression materials")).toBeDefined();
+  expect(within(table).getByText("Consumables")).toBeDefined();
+  expect(within(table).getByText("Pets")).toBeDefined();
+  expect(within(table).getByText("Artworks")).toBeDefined();
+
+  const shop = screen.getByRole("region", { name: "Shop prices" });
+
+  expect(within(shop).getByText(/49 offers.*48 limited items/)).toBeDefined();
+  expect(
+    within(shop).getByText(/does not confirm current live availability/),
+  ).toBeDefined();
 });
 
 test("adds no simulator inputs or key budgets to the reference", () => {
@@ -173,7 +205,7 @@ test("names its sources and reviewed date in the footer", () => {
   for (const id of festivalSources)
     expect(footer.textContent).toContain(sources[id].name);
 
-  expect(footer.textContent).toContain("Reviewed 5 October 2026");
+  expect(footer.textContent).toContain("Reviewed 2 November 2026");
 });
 
 function Where() {

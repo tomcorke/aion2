@@ -29,12 +29,12 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
       "The recommendation was read from a versioned system-data asset that may later disappear; regional and refill limits remain unresolved.",
   },
   metabotFestivalShop: {
-    checkedDate: "2026-10-05",
+    checkedDate: "2026-11-02",
     accessNote:
-      "Reported Global client build 0.0.4387.0; not a live shop or key-budget audit.",
+      "Reported Global client build 0.0.4387.0; the 49 listed offers are client data, not a live availability check.",
   },
   metabotMethodology: {
-    checkedDate: "2026-10-16",
+    checkedDate: "2026-11-02",
     accessNote:
       "Provenance statement only; the original client files were not independently downloaded or audited.",
   },

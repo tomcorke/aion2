@@ -14,6 +14,7 @@ import {
   festivalPurchases,
   festivalReviewed,
   festivalRewards,
+  festivalShopOffers,
   festivalSources,
   type FestivalPurchase,
 } from "../../data/festival.ts";
@@ -155,6 +156,50 @@ function ShopTable({ caption, category }: (typeof shopTables)[number]) {
   );
 }
 
+const otherShopCategories = [
+  { id: "Progression", title: "Progression materials" },
+  { id: "Consumable", title: "Consumables" },
+  { id: "Pet", title: "Pets" },
+  { id: "Artwork", title: "Artworks" },
+] as const;
+
+function OtherShopTable() {
+  return (
+    <div className={STYLES.scroll}>
+      <table className={STYLES.table}>
+        <caption>Other client-listed items</caption>
+        <thead>
+          <tr>
+            <th scope="col">Item</th>
+            <th scope="col">Tokens</th>
+            <th scope="col">Purchase limit</th>
+            <th scope="col">Faction</th>
+          </tr>
+        </thead>
+        {otherShopCategories.map(({ id, title }) => (
+          <tbody key={id}>
+            <tr>
+              <th scope="rowgroup" colSpan={4} className={STYLES.group}>
+                {title}
+              </th>
+            </tr>
+            {festivalShopOffers
+              .filter((offer) => offer.category === id)
+              .map(({ id, name, price, limit, faction }) => (
+                <tr key={id}>
+                  <th scope="row">{name}</th>
+                  <td className={STYLES.figure}>{number.format(price)}</td>
+                  <td>{limit}</td>
+                  <td>{faction}</td>
+                </tr>
+              ))}
+          </tbody>
+        ))}
+      </table>
+    </div>
+  );
+}
+
 function Shop() {
   const { currency, limit } = festivalPurchases[0]!;
   const conditions = [...new Set(festivalPurchases.map((p) => p.condition))];
@@ -162,7 +207,10 @@ function Shop() {
   return (
     <Section id="festival-shop" title="Shop prices">
       <p>
-        Prices in {currency}, one of each piece per {limit.scope}. Outfits,
+        MetaBot lists 49 offers in reported Global client build 0.0.4387.0,
+        including 48 limited items. This client-listed inventory does not
+        confirm current live availability. Prices are in {currency}; each
+        appearance piece has a limit of one per {limit.scope}. Outfits,
         accessories and wings are bought separately.
       </p>
 
@@ -173,6 +221,8 @@ function Shop() {
           <ShopTable key={table.category} {...table} />
         ))}
       </div>
+
+      <OtherShopTable />
 
       <h3>Simulate saving for a purchase</h3>
       <p className={STYLES.links}>

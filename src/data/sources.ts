@@ -263,7 +263,8 @@ export const sources = {
   },
   metabotFestivalShop: {
     name: "MetaBot Festival Shop",
-    covers: "Outfit, accessory and wing prices and listed purchase limits",
+    covers:
+      "The 49-item client-listed Festival Shop inventory, its prices and purchase limits",
     url: "https://metabot.gg/en/aion-2/shops/festival-shop-centuryroot-token",
   },
   metabotMethodology: {

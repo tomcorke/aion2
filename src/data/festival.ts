@@ -1,8 +1,8 @@
 import type { SourceId } from "./sources.ts";
 
 // Curated from aion2-knowledge/knowledge/topics/events/shugo-festival/.
-// Source checks remain 2026-10-05; copying these notes is not a new live check.
-export const festivalReviewed = "2026-10-05";
+// Source checks are recorded per source; MetaBot's shop and methodology were rechecked 2026-11-02.
+export const festivalReviewed = "2026-11-02";
 
 export const festivalSources: SourceId[] = [
   "game8Festival",
@@ -215,6 +215,242 @@ export const festivalPurchases: FestivalPurchase[] = [
         price: 8350,
       },
     ],
+  },
+];
+
+export type FestivalShopOffer = {
+  id: string;
+  category: "Progression" | "Consumable" | "Pet" | "Artwork";
+  name: string;
+  price: number;
+  limit: string;
+  faction: "Both factions" | "Elyos" | "Asmodian";
+};
+
+export const festivalShopOffers: FestivalShopOffer[] = [
+  {
+    id: "empathy-candy",
+    category: "Consumable",
+    name: "Empathy Candy (Bound)",
+    price: 20,
+    limit: "No limit listed",
+    faction: "Both factions",
+  },
+  {
+    id: "soul-crystal-100",
+    category: "Consumable",
+    name: "Soul Crystal (Bound) ×100",
+    price: 50,
+    limit: "30 per character per month",
+    faction: "Both factions",
+  },
+  {
+    id: "daevanion-crystal-50",
+    category: "Progression",
+    name: "Daevanion Crystal (Bound)",
+    price: 50,
+    limit: "10 per character",
+    faction: "Both factions",
+  },
+  {
+    id: "daevanion-crystal-100",
+    category: "Progression",
+    name: "Daevanion Crystal (Bound)",
+    price: 100,
+    limit: "10 per character",
+    faction: "Both factions",
+  },
+  {
+    id: "daevanion-crystal-200",
+    category: "Progression",
+    name: "Daevanion Crystal (Bound)",
+    price: 200,
+    limit: "15 per character",
+    faction: "Both factions",
+  },
+  {
+    id: "stigma-shard",
+    category: "Progression",
+    name: "Stigma Shard (Bound)",
+    price: 300,
+    limit: "35 per character",
+    faction: "Both factions",
+  },
+  {
+    id: "daevanion-crystal-400",
+    category: "Progression",
+    name: "Daevanion Crystal (Bound)",
+    price: 400,
+    limit: "15 per character",
+    faction: "Both factions",
+  },
+  {
+    id: "radiant-odyle",
+    category: "Progression",
+    name: "Radiant Odyle (Bound)",
+    price: 1000,
+    limit: "3 per character per month",
+    faction: "Both factions",
+  },
+  {
+    id: "artwork-cantas-valley",
+    category: "Artwork",
+    name: "Artwork: Cantas Valley (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Elyos",
+  },
+  {
+    id: "artwork-ellun-river-marsh",
+    category: "Artwork",
+    name: "Artwork: Ellun River Marsh (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Elyos",
+  },
+  {
+    id: "artwork-tolbas-forest",
+    category: "Artwork",
+    name: "Artwork: Tolbas Forest (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Elyos",
+  },
+  {
+    id: "artwork-ellun-river-midstream",
+    category: "Artwork",
+    name: "Artwork: Ellun River Midstream (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Elyos",
+  },
+  {
+    id: "artwork-dawn-legion-base",
+    category: "Artwork",
+    name: "Artwork: Dawn Legion Base (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Elyos",
+  },
+  {
+    id: "artwork-pilgrims-ridge",
+    category: "Artwork",
+    name: "Artwork: Pilgrim's Ridge (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Elyos",
+  },
+  {
+    id: "artwork-verteron-fortress-ruins",
+    category: "Artwork",
+    name: "Artwork: Verteron Fortress Ruins (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Elyos",
+  },
+  {
+    id: "artwork-zumion-stone-gate",
+    category: "Artwork",
+    name: "Artwork: Zumion Stone Gate (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Elyos",
+  },
+  {
+    id: "artwork-shugo-alchemist",
+    category: "Artwork",
+    name: "Artwork: Shugo Alchemist (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Both factions",
+  },
+  {
+    id: "artwork-dredgion-crash-site",
+    category: "Artwork",
+    name: "Artwork: Dredgion Crash Site (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Asmodian",
+  },
+  {
+    id: "artwork-nameless-cemetery",
+    category: "Artwork",
+    name: "Artwork: Nameless Cemetery (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Asmodian",
+  },
+  {
+    id: "artwork-sanctum-outpost",
+    category: "Artwork",
+    name: "Artwork: Sanctum Outpost (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Asmodian",
+  },
+  {
+    id: "artwork-moslan-forest",
+    category: "Artwork",
+    name: "Artwork: Moslan Forest (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Asmodian",
+  },
+  {
+    id: "artwork-quai-campsite",
+    category: "Artwork",
+    name: "Artwork: Quai Campsite (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Asmodian",
+  },
+  {
+    id: "artwork-calderon-canyon",
+    category: "Artwork",
+    name: "Artwork: Calderon Canyon (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Asmodian",
+  },
+  {
+    id: "artwork-archon-underground-fortress-door",
+    category: "Artwork",
+    name: "Artwork: Archon Underground Fortress Door (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Asmodian",
+  },
+  {
+    id: "artwork-safe-haven",
+    category: "Artwork",
+    name: "Artwork: Safe Haven (Bound)",
+    price: 2000,
+    limit: "1 per character",
+    faction: "Asmodian",
+  },
+  {
+    id: "wandering-merchant-lugi",
+    category: "Pet",
+    name: "Pet: Wandering Merchant Lugi",
+    price: 3600,
+    limit: "1 per character",
+    faction: "Both factions",
+  },
+  {
+    id: "artwork-ardus-shrine",
+    category: "Artwork",
+    name: "Artwork: Ardus Shrine (Bound)",
+    price: 10000,
+    limit: "1 per character",
+    faction: "Elyos",
+  },
+  {
+    id: "artwork-impetusium",
+    category: "Artwork",
+    name: "Artwork: Impetusium (Bound)",
+    price: 10000,
+    limit: "1 per character",
+    faction: "Asmodian",
   },
 ];
 
