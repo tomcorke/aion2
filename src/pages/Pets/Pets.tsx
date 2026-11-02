@@ -9,6 +9,7 @@ import {
   petAreas,
   petRegions,
   pets,
+  petsAttribution,
   petsLimits,
   petsReviewed,
   petsSources,
@@ -211,7 +212,11 @@ export function Pets() {
           </section>
         </div>
       </div>
-      <SiteFooter sources={[...petsSources]} reviewed={petsReviewed} />
+      <SiteFooter
+        sources={[...petsSources]}
+        reviewed={petsReviewed}
+        attribution={petsAttribution}
+      />
     </>
   );
 }

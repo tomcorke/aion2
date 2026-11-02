@@ -44,6 +44,22 @@ export const pets = catalogue.pets as Pet[];
 
 export const petAreas = catalogue.areas as PetArea[];
 
+const metabotMountsUrl = "https://metabot.gg/en/aion-2/mounts";
+const allthingsPetsUrl =
+  "https://allthings.how/aion-2-how-to-unlock-any-pet-by-farming-pet-souls/";
+const metabotWingsGuideUrl =
+  "https://metabot.gg/en/aion-2/guides/mounts-wings-guide";
+
+export const petsAttribution = [
+  { name: "MetaBot mounts list", url: metabotMountsUrl },
+  ...pets.map(({ id, name }) => ({
+    name: `MetaBot ${name}`,
+    url: `${metabotMountsUrl}/${id}`,
+  })),
+  { name: "allthings.how pet souls guide", url: allthingsPetsUrl },
+  { name: "MetaBot mounts, pets and wings guide", url: metabotWingsGuideUrl },
+];
+
 export const petRegions: { id: PetRegionId; title: string }[] = [
   { id: "verteron", title: "Verteron" },
   { id: "altgard", title: "Altgard" },
@@ -121,12 +137,12 @@ export const petSourceAdditions = {
     name: "MetaBot mounts list and pet pages",
     covers:
       "The pet roster, creature-type bonuses, soul-dropping monsters and their zones, chest and shop sources",
-    url: "https://metabot.gg/en/aion-2/mounts",
+    url: metabotMountsUrl,
   },
   allthingsPets: {
     name: "allthings.how pet souls guide",
     covers: "Souls for pet levels 2 and 3, and Natura and Varian level stats",
-    url: "https://allthings.how/aion-2-how-to-unlock-any-pet-by-farming-pet-souls/",
+    url: allthingsPetsUrl,
   },
 } satisfies Record<string, Source>;
 

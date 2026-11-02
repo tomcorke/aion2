@@ -38,7 +38,7 @@ const option = (name: string) => screen.getByRole("button", { name });
 
 beforeEach(() => localStorage.clear());
 
-test("lists every obtainable pet with a checklist for levels 1 to 3", () => {
+test("lists every obtainable pet with a checklist and direct source links", () => {
   render();
 
   expect(screen.getAllByRole("checkbox", { name: /level 1$/ })).toHaveLength(
@@ -50,6 +50,21 @@ test("lists every obtainable pet with a checklist for levels 1 to 3", () => {
   expect(
     screen.getByText(`0/${pets.length} owned · 0 at level 3`),
   ).toBeTruthy();
+
+  const footer = within(screen.getByRole("contentinfo"));
+  const metaBotPetPages = footer
+    .getAllByRole("link", { name: /^MetaBot / })
+    .filter((link) =>
+      link
+        .getAttribute("href")
+        ?.startsWith("https://metabot.gg/en/aion-2/mounts"),
+    );
+
+  expect(metaBotPetPages).toHaveLength(205);
+  expect(
+    footer.getByRole("link", { name: "MetaBot Fossa" }).getAttribute("href"),
+  ).toBe("https://metabot.gg/en/aion-2/mounts/fossa");
+  expect(metaBotPetPages.every((link) => !link.hasAttribute("rel"))).toBe(true);
 });
 
 test("ticks save in this browser and count toward progress", async () => {
