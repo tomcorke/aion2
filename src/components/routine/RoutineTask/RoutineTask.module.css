@@ -50,7 +50,8 @@
 }
 
 .scope {
-  flex: none;
+  flex: 0 1 auto;
+  min-width: 0;
   color: var(--accent);
   font-size: 0.7rem;
   text-transform: uppercase;
