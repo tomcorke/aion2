@@ -97,6 +97,20 @@ export function Pets() {
           the left to mark its farming areas on the map; hovering a pet marks
           them too.
         </p>
+        <section className={STYLES.uses} aria-labelledby="pet-uses-title">
+          <h2 id="pet-uses-title">Why collect pets?</h2>
+          <p>
+            Pets also serve as mounts. Levelling pets adds Genus Insight to
+            their Genus board, and collection milestones award Soul Crystals and
+            Empathy Candy.
+          </p>
+          <p>
+            Use Empathy Candy to transform into a pet you have equipped after it
+            reaches level 3. The transformation lasts five minutes. Whether
+            bonuses from multiple pets of the same type stack is still
+            unconfirmed.
+          </p>
+        </section>
         <details className={STYLES.limits}>
           <summary>What this list does not cover</summary>
           <ul>

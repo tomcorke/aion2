@@ -2,8 +2,8 @@ import catalogue from "./petCatalogue.json";
 import type { Source } from "./sources.ts";
 
 // Curated from aion2-knowledge: collections/pets.md and its pet-catalogue.json.
-// The pet note and map screenshots were reviewed on 2026-11-01.
-export const petsReviewed = "2026-11-01";
+// The pet note was reviewed on 2026-11-02; map screenshots on 2026-11-01.
+export const petsReviewed = "2026-11-02";
 
 export const petTypes = [
   "Fera",
@@ -49,6 +49,7 @@ const allthingsPetsUrl =
   "https://allthings.how/aion-2-how-to-unlock-any-pet-by-farming-pet-souls/";
 const metabotWingsGuideUrl =
   "https://metabot.gg/en/aion-2/guides/mounts-wings-guide";
+const aion2MapsPetsUrl = "https://aion2maps.com/guides/pets/";
 
 export const petsAttribution = [
   { name: "MetaBot mounts list", url: metabotMountsUrl },
@@ -58,6 +59,7 @@ export const petsAttribution = [
   })),
   { name: "allthings.how pet souls guide", url: allthingsPetsUrl },
   { name: "MetaBot mounts, pets and wings guide", url: metabotWingsGuideUrl },
+  { name: "AION 2 Maps pets and mounts guide", url: aion2MapsPetsUrl },
 ];
 
 export const petRegions: { id: PetRegionId; title: string }[] = [
@@ -144,6 +146,12 @@ export const petSourceAdditions = {
     covers: "Souls for pet levels 2 and 3, and Natura and Varian level stats",
     url: allthingsPetsUrl,
   },
+  aion2MapsPets: {
+    name: "AION 2 Maps pets and mounts guide",
+    covers:
+      "Pet mounts, Genus Insight, collection rewards, and level-3 Empathy Candy transformation",
+    url: aion2MapsPetsUrl,
+  },
 } satisfies Record<string, Source>;
 
 export const petsSources = [
@@ -154,6 +162,7 @@ export const petsSources = [
   "metabotPets",
   "allthingsPets",
   "metabotWings",
+  "aion2MapsPets",
 ] as const;
 
 export const petsLimits = [

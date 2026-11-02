@@ -13,6 +13,24 @@
   color: var(--muted);
 }
 
+.uses {
+  display: grid;
+  gap: 8px;
+  max-width: 76ch;
+
+  & h2 {
+    margin: 0;
+    color: var(--accent);
+    font-family: var(--f-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+  }
+
+  & p {
+    margin: 0;
+  }
+}
+
 .limits {
   max-width: 76ch;
   color: var(--muted);

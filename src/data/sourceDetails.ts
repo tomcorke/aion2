@@ -485,6 +485,13 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
       "Official Global notice; each mail has its own expiry from receipt.",
   },
   allthingsPets: { checkedDate: "2026-10-31" },
+  aion2MapsPets: {
+    region: "Global-focused with North America West observations",
+    updatedDate: "2026-10-28",
+    checkedDate: "2026-11-01",
+    accessNote:
+      "Guide reports Global client data through 28 October and North America West observations from 20 to 28 October; not a live check for this review.",
+  },
   ownChecks: {
     region: "Global EU (some observations presumed)",
     accessNote:

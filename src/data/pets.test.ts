@@ -80,7 +80,7 @@ test("every source the pet page names is registered", () => {
 });
 
 test("attributes the mounts list, each pet page, and the exact guides", () => {
-  expect(petsAttribution).toHaveLength(pets.length + 3);
+  expect(petsAttribution).toHaveLength(pets.length + 4);
   expect(petsAttribution[0]).toEqual({
     name: "MetaBot mounts list",
     url: "https://metabot.gg/en/aion-2/mounts",
@@ -88,7 +88,7 @@ test("attributes the mounts list, each pet page, and the exact guides", () => {
   expect(
     petsAttribution.slice(1, pets.length + 1).map(({ url }) => url),
   ).toEqual(pets.map(({ id }) => `https://metabot.gg/en/aion-2/mounts/${id}`));
-  expect(petsAttribution.slice(-2)).toEqual([
+  expect(petsAttribution.slice(-3)).toEqual([
     {
       name: "allthings.how pet souls guide",
       url: "https://allthings.how/aion-2-how-to-unlock-any-pet-by-farming-pet-souls/",
@@ -96,6 +96,10 @@ test("attributes the mounts list, each pet page, and the exact guides", () => {
     {
       name: "MetaBot mounts, pets and wings guide",
       url: "https://metabot.gg/en/aion-2/guides/mounts-wings-guide",
+    },
+    {
+      name: "AION 2 Maps pets and mounts guide",
+      url: "https://aion2maps.com/guides/pets/",
     },
   ]);
 });

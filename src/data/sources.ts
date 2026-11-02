@@ -178,6 +178,12 @@ export const sources = {
       "Wing effects and sources, wing recipes, pet genus bonuses and Genus Insight",
     url: "https://metabot.gg/en/aion-2/guides/mounts-wings-guide",
   },
+  aion2MapsPets: {
+    name: "AION 2 Maps pets and mounts guide",
+    covers:
+      "Pet mounts, Genus Insight, collection rewards, and level-3 Empathy Candy transformation",
+    url: "https://aion2maps.com/guides/pets/",
+  },
   metabotHiddenCubes: {
     name: "MetaBot Hidden Cubes guide",
     covers:
