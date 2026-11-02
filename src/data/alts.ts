@@ -157,13 +157,14 @@ const counterDefinitions = {
   "festival-keys": {
     name: "Shugo Festival Reward Keys",
     scope: "server",
+    scopeLabel: "Client-listed per-server; not live-verified",
+    limitLabel: "Client-listed",
     kind: "daily",
-    limit:
-      "Client data lists 3 per day; daily quantity and reset behaviour remain unverified",
+    limit: "3 per day; refill amount and reset remain unverified",
     cap: 12,
     membershipCap: 21,
     notes:
-      "Global membership confirms storage caps, not daily allocations. Refill reports conflict. Global client data lists server sharing; that scope has not been confirmed in play.",
+      "MetaBot's Global client data lists server sharing, but this has not been verified in live play. AION2.GG's 28 October Global-client extract also reports a same-named per-character row (28/32, +4 per day) beside a server-shared row (12/21, +3 per day); whether this is a separate pool or duplicate/legacy data is unresolved. The sharing claim and refill reports remain unverified. The official 12/21 limits are storage caps, not evidence of shared keys or refill.",
     guide: { to: "/festival", label: "Festival keys and rewards" },
   },
   "invasion-keys": {

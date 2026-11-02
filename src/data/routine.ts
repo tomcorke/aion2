@@ -136,7 +136,7 @@ export const routineTasks: RoutineTask[] = [
     counterIds: ["festival-keys"],
     guide: { to: "/festival", label: "Festival games, keys and rewards" },
     details:
-      "Use this reminder only when you have keys and want the available rewards. Storage caps are confirmed, but daily quantities and reset behaviour are disputed. Whether a participation package can be claimed without a key is unresolved; check the live reward preview.",
+      "Use this reminder only when you have keys and want the available rewards. The client-listed per-server scope is not live-verified, and the AION2.GG per-character row may be a separate pool or duplicate/legacy data. Storage caps do not establish a shared pool. Refill quantity and reset remain unresolved. Whether a participation package can be claimed without a key is also unresolved; check the live reward preview.",
   },
   {
     id: "invasion-keys",
@@ -279,6 +279,7 @@ export const routineSources: SourceId[] = [
   "gamerBlurbClashRunes",
   "destructoidClashRunes",
   "officialMembership",
+  "aion2ggFestival",
   "ownChecks",
   "ncAtreiasCall",
   "ncOdyleEnergyBoost",

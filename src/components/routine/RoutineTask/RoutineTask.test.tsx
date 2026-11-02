@@ -57,6 +57,27 @@ test("Invasion keys show client-listed scope without claiming verified sharing",
   expect(details.textContent).toMatch(/not been confirmed in live play/i);
 });
 
+test("Festival keys qualify the listed scope and keep the row conflict unresolved", () => {
+  renderTask("festival");
+
+  const { details, visible } = row(/Optional: use Festival keys/);
+
+  expect(visible.textContent).toContain(
+    "Client-listed per-server; not live-verified",
+  );
+  expect(visible.textContent).toContain(
+    "Shugo Festival Reward Keys: Client-listed: 3 per day; refill amount and reset remain unverified",
+  );
+  expect(visible.textContent).toContain("cap 12 (21 with membership)");
+  expect(details.textContent).toMatch(/duplicate\/legacy data is unresolved/i);
+  expect(details.textContent).toMatch(
+    /storage caps do not establish a shared pool/i,
+  );
+  expect(details.textContent).toMatch(
+    /per-character row \(28\/32, \+4 per day\)/i,
+  );
+});
+
 // The compact row: everything outside the closed disclosure.
 const row = (title: RegExp) => {
   const item = screen.getByRole("listitem", { name: title });
