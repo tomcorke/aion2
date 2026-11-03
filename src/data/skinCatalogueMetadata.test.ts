@@ -3,9 +3,11 @@ import { expect, test } from "vitest";
 import {
   skinCatalogueAttribution,
   skinCatalogueBuild,
+  skinCatalogueExtractionScope,
   skinCatalogueKindLabels,
   skinCatalogueLimitations,
   skinCatalogueReviewed,
+  skinCatalogueRouteSourceIds,
   skinCatalogueScope,
   skinCatalogueSourceAdditions,
   skinCatalogueSourceChecked,
@@ -40,7 +42,21 @@ test("supplies small labels and specific source pages without images or raw prov
   expect(skinCatalogueSourceLabels["global-offer"]).toBe(
     "Current Global offers",
   );
-  expect(Object.keys(skinCatalogueSourceAdditions)).toHaveLength(5);
+  expect(Object.keys(skinCatalogueSourceAdditions)).toHaveLength(10);
+  expect(skinCatalogueRouteSourceIds).toEqual([
+    "aion2ggKnashSkinItems",
+    "aion2ggFieldBossSkinItems",
+    "aion2ggUruguguSkinItems",
+    "aion2ggVakronSkinItems",
+    "metabotTranscendentChest",
+  ]);
+  expect(skinCatalogueExtractionScope).toContain(
+    "client-derived Global EU/NA data",
+  );
+  expect(skinCatalogueExtractionScope).toContain(
+    "only the Skyfeather Guardian Breastplate panel",
+  );
+  expect(skinCatalogueExtractionScope).toContain("not exhaustive");
   expect(skinCatalogueAttribution.map(({ url }) => url)).toEqual([
     "https://metabot.gg/en/aion-2/skins",
     "https://metabot.gg/en/aion-2/wings",

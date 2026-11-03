@@ -7,8 +7,10 @@ import { currentGlobalSkinOfferEntries } from "../../data/currentGlobalSkinOffer
 import { skinAcquisitionSources } from "../../data/skinAcquisitions.ts";
 import {
   skinCatalogueAttribution,
+  skinCatalogueExtractionScope,
   skinCatalogueLimitations,
   skinCatalogueReviewed,
+  skinCatalogueRouteSourceIds,
   skinCatalogueScope,
 } from "../../data/skinCatalogueMetadata.ts";
 import { skinsSources } from "../../data/skins.ts";
@@ -22,6 +24,7 @@ const footerSources = [
   ...new Set([
     ...skinsSources,
     ...skinAcquisitionSources,
+    ...skinCatalogueRouteSourceIds,
     ...currentGlobalSkinOfferEntries.flatMap(({ acquisitions }) =>
       acquisitions.flatMap(({ sourceIds }) => sourceIds),
     ),
@@ -98,6 +101,7 @@ export function Skins() {
       />
       <div className={STYLES.body}>
         <p className={STYLES.note}>{skinCatalogueScope}</p>
+        <p className={STYLES.note}>{skinCatalogueExtractionScope}</p>
         <details className={STYLES.limits}>
           <summary>What this list does not cover</summary>
           <ul>

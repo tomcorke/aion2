@@ -95,6 +95,139 @@ test("set summaries never become piece-level acquisition claims", () => {
   expect(entryById("snowy-sheer").pieces).toHaveLength(6);
 });
 
+test("selected field-boss extraction records cover only their matching armor slots", () => {
+  const cases = [
+    ["hidden-escaper", "K'nash", "Hidden Escaper"],
+    ["forest-guardian", "Gartua", "Forest Guardian"],
+    ["anguished-darkness", "Dartan", "Anguished Darkness"],
+    ["forgotten-recon-team", "Kashapa", "Forgotten Recon Team"],
+    ["draconic-rage", "High Commander Lagta", "Draconic Rage"],
+  ] as const;
+  const slots = [
+    "Breastplate",
+    "Greaves",
+    "Helm",
+    "Pauldrons",
+    "Gloves",
+    "Boots",
+    "Cloak",
+  ];
+
+  for (const [entryId, gearSet, appearance] of cases) {
+    const entry = entryById(entryId);
+    const route = entry.acquisitions.find(
+      ({ source }) => source === "extraction",
+    )!;
+    const routePieces = entry.pieces.filter(({ id }) =>
+      route.pieceIds.includes(id),
+    );
+
+    expect(route.name).toContain(appearance);
+    expect(routePieces.flatMap(({ aliases = [] }) => aliases).sort()).toEqual(
+      [...slots].sort(),
+    );
+
+    for (const slot of slots) {
+      const piece = routePieces.find(({ aliases = [] }) =>
+        aliases.includes(slot),
+      )!;
+
+      expect(route.condition).toContain(`${gearSet} ${slot} → ${piece.name}`);
+    }
+  }
+});
+
+test("accessory and dungeon routes retain exact item names and exclusions", () => {
+  const cases = [
+    [
+      "appearance-dewy-forest-earrings",
+      "Gartua Earrings",
+      "Dewy Forest (Earrings)",
+    ],
+    [
+      "appearance-moon-circle-earrings",
+      "Dartan Earrings",
+      "Moon Circle (Earrings)",
+    ],
+    [
+      "appearance-wind-droplet-earrings",
+      "Kashapa Earrings",
+      "Wind Droplet (Earrings)",
+    ],
+    [
+      "appearance-temple-guardian-earrings",
+      "High Commander Lagta Earrings",
+      "Temple Guardian (Earrings)",
+    ],
+    [
+      "appearance-auldor-s-feather-necklace",
+      "Divine Canyon Necklace",
+      "Auldor's Feather (Necklace)",
+    ],
+    [
+      "appearance-auldor-s-feather-earrings",
+      "Divine Canyon Earrings",
+      "Auldor's Feather (Earrings)",
+    ],
+    [
+      "appearance-dusk-grove-necklace",
+      "Aulamus Necklace",
+      "Dusk Grove (Necklace)",
+    ],
+    [
+      "appearance-dusk-grove-earrings",
+      "Aulamus Earrings",
+      "Dusk Grove (Earrings)",
+    ],
+  ] as const;
+
+  for (const [entryId, item, appearance] of cases) {
+    const entry = entryById(entryId);
+    const route = entry.acquisitions.find(
+      ({ source }) => source === "extraction",
+    )!;
+
+    expect(route.pieceIds).toEqual(entry.pieces.map(({ id }) => id));
+    expect(route.condition).toContain(`${item} → ${appearance}`);
+  }
+
+  const moonCircleNecklace = entryById("appearance-moon-circle-necklace");
+
+  expect(moonCircleNecklace.acquisitions).toEqual([]);
+  expect(moonCircleNecklace.unknownPieceIds).toEqual(
+    moonCircleNecklace.pieces.map(({ id }) => id),
+  );
+  expect(
+    entryById("appearance-moon-circle-earrings").acquisitions[0]?.condition,
+  ).toContain("Dartan Necklace is not listed as an obtainable boss drop");
+});
+
+test("Urugugu, Vakron and Transcendent routes retain their source limits", () => {
+  const guardian = entryById("skyfeather-guardian").acquisitions.find(
+    ({ source }) => source === "extraction",
+  )!;
+  const ruinous = entryById("ruinous-devourer").acquisitions.find(
+    ({ source }) => source === "extraction",
+  )!;
+  const dragon = entryById("howling-dragon").acquisitions.find(
+    ({ source }) => source === "extraction",
+  )!;
+
+  expect(guardian.condition).toContain(
+    "only the Breastplate Source Information panel",
+  );
+  expect(guardian.condition).not.toContain("Kromede");
+  expect(ruinous.pieceIds).toHaveLength(7);
+  expect(ruinous.condition).toContain("Vakron, Thamon and Tiere");
+  expect(ruinous.condition).toContain("Vakron Guard has no Extract Skin entry");
+  expect(dragon.pieceIds).toHaveLength(7);
+  expect(dragon.condition).toContain(
+    "Transcendent Armor Selection Chest (Bound)",
+  );
+  expect(dragon.condition).toContain("no current pass tier or live offer");
+  expect(dragon.sourceIds).toContain("metabotTranscendentChest");
+});
+
 test.each([
   [
     "awakened",

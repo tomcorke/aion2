@@ -132,14 +132,32 @@ test("Guardian routes retain their own piece coverage, costs and loss warnings",
   expect(route("extraction")?.condition).toContain("Divine Canyon");
   expect(route("extraction")?.condition).toContain("Urugugu Canyon");
   expect(route("extraction")?.condition).toContain(
-    "other six pieces are inferred",
+    "The owner has directly observed only the Breastplate Source Information panel",
   );
+
+  for (const slot of [
+    "Breastplate",
+    "Greaves",
+    "Helm",
+    "Pauldrons",
+    "Gloves",
+    "Boots",
+    "Cloak",
+  ]) {
+    expect(route("extraction")?.condition).toContain(
+      `Divine Canyon ${slot} → Skyfeather Guardian (${slot})`,
+    );
+  }
+
+  expect(route("extraction")?.condition).not.toContain("inferred");
+
   expect(route("extraction")?.warnings?.join(" ")).toContain(
-    "costs Kina and always destroys the gear item",
+    "consumes the gear and may fail",
   );
   expect(route("extraction")?.warnings?.join(" ")).toContain(
     "exact Kina cost is not recorded",
   );
+  expect(route("extraction")?.sourceIds).toContain("aion2ggUruguguSkinItems");
   expect(route("extraction")?.prices).toBeUndefined();
   expect(route("extraction")?.costs).toBeUndefined();
   expect(route("bound-skin-chest")?.pieceIds).toEqual([
