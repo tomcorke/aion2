@@ -9,11 +9,12 @@ import STYLES from "./BoardDiagram.module.css";
 type Props = {
   name: string;
   nodes: ViewNode[];
-  // Node keys in purchase order.
+  // Node keys in route order.
   steps: string[];
   start: string;
   selected: string | null;
   onSelect: (key: string) => void;
+  traversal: boolean;
 };
 
 // One SVG unit is one CSS pixel at natural size, so every tap target is 44px.
@@ -32,7 +33,7 @@ const key = (row: number, col: number) => `${row},${col}`;
 const neighbours = (row: number, col: number) =>
   Object.values(moves).map(([dr, dc]) => key(row + dr, col + dc));
 
-/** Each purchase joins an orthogonal neighbour bought earlier, or Start. */
+/** Each step joins an orthogonal neighbour from an earlier step, or Start. */
 function routeEdges(steps: string[], start: string) {
   const owned = new Set([start]);
 
@@ -82,6 +83,7 @@ export function BoardDiagram({
   start,
   selected,
   onSelect,
+  traversal,
 }: Props) {
   const [zoomed, setZoomed] = useState(false);
   const refs = useRef(new Map<string, SVGGElement>());
@@ -216,10 +218,21 @@ export function BoardDiagram({
       </div>
 
       <figcaption className={STYLES.legend}>
-        The square is Start and numbers give the purchase order. Diamonds are
-        targets and circles are connectors; filled shapes fit the budget, and an
-        outer ring marks the next purchase. Small dots are nodes this route
-        skips. Select a node, or use the arrow keys, for its details. On a small
+        {traversal ? (
+          <>
+            The square is Start and numbers give the traversal order. Every
+            other node is included; filled nodes fit the budget, and an outer
+            ring marks the next node in the traversal.
+          </>
+        ) : (
+          <>
+            The square is Start and numbers give the purchase order. Diamonds
+            are targets and circles are connectors; filled shapes fit the
+            budget, and an outer ring marks the next purchase. Small dots are
+            nodes this route skips.
+          </>
+        )}{" "}
+        Select a node, or use the arrow keys, for its details. On a small
         screen, scroll the board sideways; zoom doubles its size.
       </figcaption>
     </figure>

@@ -27,6 +27,7 @@ const view = (overrides: Partial<ViewNode> = {}): ViewNode => ({
   step: 3,
   phase: "HP and MP",
   cumulativeCost: 3,
+  traversal: false,
   target: true,
   bought: false,
   next: false,
@@ -54,6 +55,7 @@ test("a node the route skips says so", () => {
 test.each([
   [{ bought: true }, "target, within budget"],
   [{ next: true }, "target, next purchase"],
+  [{ next: true, traversal: true }, "target, next node in traversal"],
   [{}, "target, beyond budget"],
   [{ target: false, node: node({ cost: 3 }) }, "connector, beyond budget"],
 ])("a route node states its role and budget status", (overrides, tail) => {

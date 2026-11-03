@@ -19,6 +19,28 @@ import STYLES from "./RouteViewer.module.css";
 
 type Loaded = Awaited<ReturnType<typeof loadClassRoutes>>;
 
+function selectedRoute(
+  data: Loaded,
+  board: DaevanionBoardId,
+  variant: DaevanionVariantId | undefined,
+) {
+  if (board === "azphel")
+    return { route: data.azphel, phases: data.azphel.phases, skillMap: {} };
+
+  if (board === "ariel")
+    return { route: data.ariel, phases: data.ariel.phases, skillMap: {} };
+
+  if (!variant) return undefined;
+
+  const classBoard = data.classRoutes.boards[board];
+
+  return {
+    route: classBoard.routes[variant],
+    phases: data.phases,
+    skillMap: classBoard.skills,
+  };
+}
+
 type Props = {
   entry: DaevanionClass;
   boardId: string;
@@ -78,7 +100,7 @@ function wrongVariantMessage(
   if (board === "azphel")
     return `Azphel has one shared route for every class; “${variantId}” does not apply.`;
   if (board === "ariel")
-    return `Ariel has no routes; “${variantId}” does not apply.`;
+    return `Ariel has one full-board traversal; “${variantId}” does not apply.`;
 
   return `There is no “${variantId}” route. Pick one of the three routes above.`;
 }
@@ -116,7 +138,7 @@ export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
   const board = daevanionBoards.find(({ id }) => id === boardId);
   const azphel = board?.id === "azphel";
   const ariel = board?.id === "ariel";
-  const { data, failed } = useClassRoutes(entry.id, !ariel);
+  const { data, failed } = useClassRoutes(entry.id, true);
 
   const variant =
     azphel || ariel
@@ -134,7 +156,7 @@ export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
     ).points;
     const path = routePath(board, variant);
 
-    const query = board === "ariel" || !points ? "" : `?points=${points}`;
+    const query = !points ? "" : `?points=${points}`;
 
     return `/daevanion/${entry.id}/${path}${query}`;
   };
@@ -156,10 +178,14 @@ export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
 
   const notes = board ? boardNotes(board.id) : [];
   const wrongVariant = hasWrongVariant(board?.id, variantId, variant);
+  const routeData =
+    data && board && (azphel || ariel || variant)
+      ? selectedRoute(data, board.id, variant?.id)
+      : undefined;
 
   return (
     <section aria-labelledby={id} className={STYLES.viewer}>
-      <h2 id={id}>{ariel ? "Ariel board overview" : "Board routes"}</h2>
+      <h2 id={id}>{ariel ? "Ariel board traversal" : "Board routes"}</h2>
 
       <Tabs label="Board" tabs={boardTabs} selected={board?.id}>
         {!board && (
@@ -211,11 +237,11 @@ export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
                     <dd>{arielOverview.currency}</dd>
                   </div>
                 </dl>
-                <p className={STYLES.missing}>{arielOverview.routeNote}</p>
+                <p className={STYLES.missing}>{arielOverview.traversalNote}</p>
               </>
             )}
 
-            {!ariel && failed && (
+            {failed && (
               <div role="alert" className={STYLES.state}>
                 <p>The board routes did not load.</p>
                 {/* The browser caches a failed module import for this document,
@@ -229,27 +255,22 @@ export function RouteViewer({ entry, boardId, variantId, rawPoints }: Props) {
               </div>
             )}
 
-            {!ariel && !failed && !data && (
+            {!failed && !data && (
               <p role="status" className={STYLES.state}>
                 Loading the {board.name} board…
               </p>
             )}
 
-            {!ariel && data && (
+            {data && routeData && (
               <BoardView
                 key={`${board.id}/${variant?.id}`}
                 geometry={data.geometry[board.id]}
-                route={
-                  azphel
-                    ? data.azphel
-                    : data.classRoutes.boards[board.id].routes[variant!.id]
-                }
-                phases={azphel ? data.azphel.phases : data.phases}
-                skillMap={
-                  azphel ? {} : data.classRoutes.boards[board.id].skills
-                }
+                route={routeData.route}
+                phases={routeData.phases}
+                skillMap={routeData.skillMap}
                 skills={data.classRoutes.skills}
                 rawPoints={rawPoints}
+                traversal={ariel}
               />
             )}
           </>

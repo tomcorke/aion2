@@ -13,6 +13,7 @@ type Props = {
   phases: string[];
   selected: string | null;
   onSelect: (key: string) => void;
+  traversal: boolean;
 };
 
 /** The route as an ordered text list, grouped by phase; each entry selects its node. */
@@ -22,6 +23,7 @@ export function PurchaseList({
   phases,
   selected,
   onSelect,
+  traversal,
 }: Props) {
   const id = useId();
   const byKey = new Map(nodes.map((view) => [view.node.key, view]));
@@ -39,8 +41,12 @@ export function PurchaseList({
 
   return (
     <section aria-labelledby={id} className={STYLES.list}>
-      <h3 id={id}>Purchase order</h3>
-      <p>Every purchase starts from Start or a node bought earlier.</p>
+      <h3 id={id}>{traversal ? "Traversal order" : "Purchase order"}</h3>
+      <p>
+        {traversal
+          ? "Every node in the traversal joins Start or a node visited earlier."
+          : "Every purchase starts from Start or a node bought earlier."}
+      </p>
 
       {groups.map((group) => (
         <section key={group.name} aria-label={group.name}>

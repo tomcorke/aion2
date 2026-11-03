@@ -1,8 +1,7 @@
 import type { SourceId } from "./sources.ts";
 
 // Global client build 0.0.4387.0. Curated from the retained Daevanion notes.
-// Ariel's totals are recorded, but its complete node layout is not yet retained.
-export const daevanionReviewed = "2026-11-01";
+export const daevanionReviewed = "2026-11-03";
 
 export const daevanionSources: SourceId[] = [
   "metabotGladiatorPlanner",
@@ -55,8 +54,8 @@ export const arielOverview = {
   skillNodeCount: 0,
   fullCost: 232,
   currency: "Daevanion Crystal: Ariel",
-  routeNote:
-    "The full Ariel node layout is not yet retained, so this view shows the board totals instead of a node-by-node route.",
+  traversalNote:
+    "The numbered order is a connected traversal for viewing every node; it does not rank stats or recommend an upgrade priority.",
 } as const;
 
 export const azphelOverview = {

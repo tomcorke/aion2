@@ -116,6 +116,7 @@ test("shared geometry has canonical identifiers, actual nodes and full costs", (
     "zikel",
     "vaizel",
     "triniel",
+    "ariel",
     "azphel",
   ]);
   expect(
@@ -129,6 +130,7 @@ test("shared geometry has canonical identifiers, actual nodes and full costs", (
     [89, 134, 20],
     [89, 134, 30],
     [117, 168, 40],
+    [153, 232, 45],
     [153, 232, 45],
   ]);
 
@@ -147,6 +149,43 @@ test("shared geometry has canonical identifiers, actual nodes and full costs", (
       board.nodes.every((node) => node.key === `${node.row},${node.col}`),
     ).toBe(true);
   }
+});
+
+test("Ariel retains every stat node in one connected full-board traversal", () => {
+  const board = daevanionRouteData.boards.ariel;
+  const route = daevanionRouteData.ariel;
+  const paid = board.nodes.filter((node) => node.type !== "Start");
+  const grades = paid.reduce<Record<string, number>>((counts, node) => {
+    counts[node.grade ?? ""] = (counts[node.grade ?? ""] ?? 0) + 1;
+
+    return counts;
+  }, {});
+
+  expect(board.name).toBe("Ariel");
+  expect(board.level).toBe(45);
+  expect(board.start).toBe("8,8");
+  expect(board.nodes).toHaveLength(153);
+  expect(paid).toHaveLength(152);
+  expect(
+    paid.every(
+      (node) => node.type === "Stat" && node.label && node.stats.length > 0,
+    ),
+  ).toBe(true);
+  expect({
+    Common: grades.Common,
+    Rare: grades.Rare,
+    Legend: grades.Legend,
+    Unique: grades.Unique,
+  }).toEqual({ Common: 104, Rare: 24, Legend: 16, Unique: 8 });
+  expect(route.name).toBe("Full board traversal");
+  expect(route.phases).toEqual(["Board traversal"]);
+  expect(route.total).toBe(232);
+  expect(route.phaseEnd).toEqual([232]);
+  expect(route.steps).toHaveLength(152);
+  expect(route.targets.toSorted()).toEqual(
+    paid.map((node) => node.key).toSorted(),
+  );
+  checkOrder(board, route);
 });
 
 describe.each(daevanionClasses)("$name retained class data", (overview) => {
@@ -285,26 +324,35 @@ test("provenance retains source dates, build and exact canonical reference conte
   expect(daevanionRouteData.provenance).toEqual({
     region: "Global",
     clientBuild: "0.0.4387.0",
-    knowledgeCommit: "4cf748853f2555ce184cf8bcefdf18cd4af90180",
+    knowledgeCommit: "af6877549d5fe34bbc1d29b102f80966b8a00cda",
     sourceChecked: {
       S124: "2026-10-10",
       S126: "2026-10-11",
       S127: "2026-10-11",
+      S211: "2026-11-03",
     },
   });
   expect(Object.keys(daevanionRouteData.classes)).toEqual(
     Object.keys(expected),
   );
-  const { boards, classes, phases, azphel } = daevanionRouteData;
+  const { boards, classes, phases, ariel, azphel } = daevanionRouteData;
   const originalAzphel = Object.fromEntries(
     Object.entries(azphel).filter(([key]) => key !== "variantId"),
   );
   const digest = createHash("sha256")
-    .update(JSON.stringify({ boards, classes, phases, azphel: originalAzphel }))
+    .update(
+      JSON.stringify({
+        boards,
+        classes,
+        phases,
+        ariel,
+        azphel: originalAzphel,
+      }),
+    )
     .digest("hex");
 
   // Fingerprint for the retained board and class data.
   expect(digest).toBe(
-    "69ab27b6f44707899c0b72ad1de80e80384f0bce76a5ca5874a59cba44d47b86",
+    "5f4a0326813f5942a39e8aedc2ff2d2f1e8450eb3ce5486c91d64893f62c29e1",
   );
 });

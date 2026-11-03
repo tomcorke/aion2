@@ -60,7 +60,7 @@ function classHref(
   const total = routeTotal(target, board, variant);
 
   const { points } = parseRouteBudget(rawPoints, total);
-  const query = board === "ariel" || !points ? "" : `?points=${points}`;
+  const query = !points ? "" : `?points=${points}`;
   let path = "";
 
   if (board === "azphel" || board === "ariel") path = `/${board}`;
@@ -94,7 +94,7 @@ export function Daevanion() {
     <>
       <PageHero
         title="Daevanion"
-        lede="Class routes on the four shared PvE boards, Ariel's PvE board overview, and the shared Azphel route."
+        lede="Class routes on the four shared PvE boards, an interactive Ariel board traversal, and the shared Azphel route."
       />
 
       <div className={STYLES.body}>
