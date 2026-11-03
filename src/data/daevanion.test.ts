@@ -60,7 +60,7 @@ test("Azphel has shared phases and a separate crystal pool, not PvE variants", (
   ).toBe(114);
 });
 
-test("Ariel is level 45 with a separate pool and a summary only", () => {
+test("Ariel is level 45 with a separate pool and a full board traversal", () => {
   expect(daevanionBoards.map(({ id }) => id)).toEqual([
     "nezekan",
     "zikel",
@@ -81,11 +81,11 @@ test("Ariel is level 45 with a separate pool and a summary only", () => {
     currency: "Daevanion Crystal: Ariel",
   });
   expect(daevanionPools.ariel.description).toContain("does not share");
-  expect(arielOverview.routeNote).toContain("not yet retained");
+  expect(arielOverview.traversalNote).toContain("does not rank stats");
 });
 
 test("overview assumptions and source freshness remain available to the page", () => {
-  expect(daevanionReviewed).toBe("2026-11-01");
+  expect(daevanionReviewed).toBe("2026-11-03");
   expect(daevanionCaveats.emptyBoard).toContain("empty board");
   expect(daevanionCaveats.estimates).toContain("not proven minimal");
   expect(daevanionCaveats.estimates).toContain("not a damage simulation");

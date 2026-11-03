@@ -15,6 +15,7 @@ export async function loadClassRoutes(classId: string) {
     classId: entry.id,
     geometry: data.boards,
     classRoutes: data.classes[entry.id],
+    ariel: data.ariel,
     azphel: data.azphel,
     phases: data.phases,
     provenance: data.provenance,

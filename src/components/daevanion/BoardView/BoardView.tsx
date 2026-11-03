@@ -19,10 +19,18 @@ type Props = {
   skillMap: Record<string, number>;
   skills: RouteSkill[];
   rawPoints: string | null;
+  traversal?: boolean;
 };
 
 function buildNodes(props: Props, bought: number): ViewNode[] {
-  const { geometry, route, phases, skillMap, skills } = props;
+  const {
+    geometry,
+    route,
+    phases,
+    skillMap,
+    skills,
+    traversal = false,
+  } = props;
   const steps = new Map(route.steps.map((step, index) => [step.node, index]));
   const targets = new Set(route.targets);
 
@@ -38,6 +46,7 @@ function buildNodes(props: Props, bought: number): ViewNode[] {
         (skill ? `${skill.name} +${node.skillLevels} rank` : "Skill node"),
       skill,
       step: index === undefined ? null : index + 1,
+      traversal,
       phase: step ? phases[step.phase] : null,
       cumulativeCost: step?.cumulativeCost ?? null,
       target: targets.has(node.key),
@@ -49,13 +58,19 @@ function buildNodes(props: Props, bought: number): ViewNode[] {
 
 /** The selected route: budget scrubber, summary, diagram, node detail and text order. */
 export function BoardView(props: Props) {
-  const { geometry, route, rawPoints } = props;
+  const { geometry, route, rawPoints, traversal = false } = props;
   const [, setSearchParams] = useSearchParams();
   const [selected, setSelected] = useState<string | null>(null);
   const budget = getRouteBudget(route, rawPoints);
   const nodes = buildNodes(props, budget.purchases.length);
   const nextView = nodes.find((view) => view.next);
   const selectedView = nodes.find((view) => view.node.key === selected);
+  const summaryVerb = traversal ? "Visits" : "Buys";
+  const orderItem = traversal ? "node" : "purchase";
+  const nextLabel = traversal ? "Next in traversal" : "Next";
+  const completeLabel = traversal
+    ? "The full traversal fits this budget."
+    : "The whole route fits this budget.";
 
   // Scrubbing replaces the entry, so Back returns to the previous route, not every point.
   const setPoints = (points: number) =>
@@ -90,10 +105,10 @@ export function BoardView(props: Props) {
         {budget.message && <p className={STYLES.message}>{budget.message}</p>}
 
         <p aria-live="polite">
-          {`Buys the first ${plural(budget.purchases.length, "purchase")} of ${route.steps.length} for ${plural(budget.spent, "point")}, with ${budget.leftover} left over. `}
+          {`${summaryVerb} the first ${plural(budget.purchases.length, orderItem)} of ${route.steps.length} for ${plural(budget.spent, "point")}, with ${budget.leftover} left over. `}
           {nextView
-            ? `Next: ${nextView.name} (${position(nextView.node).toLowerCase()}) costs ${plural(budget.nextCost!, "point")}, ${budget.nextCost! - budget.leftover} more than you have left.`
-            : "The whole route fits this budget."}
+            ? `${nextLabel}: ${nextView.name} (${position(nextView.node).toLowerCase()}) costs ${plural(budget.nextCost!, "point")}, ${budget.nextCost! - budget.leftover} more than you have left.`
+            : completeLabel}
         </p>
       </div>
 
@@ -104,9 +119,10 @@ export function BoardView(props: Props) {
         start={geometry.start}
         selected={selected}
         onSelect={setSelected}
+        traversal={traversal}
       />
 
-      <NodeDetail view={selectedView} />
+      <NodeDetail view={selectedView} traversal={traversal} />
 
       <PurchaseList
         nodes={nodes}
@@ -114,6 +130,7 @@ export function BoardView(props: Props) {
         phases={props.phases}
         selected={selected}
         onSelect={setSelected}
+        traversal={traversal}
       />
     </div>
   );

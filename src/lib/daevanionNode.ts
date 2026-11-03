@@ -5,8 +5,9 @@ export type ViewNode = {
   node: BoardNode;
   name: string;
   skill?: RouteSkill;
-  // One-based purchase order; null when the route never buys the node.
+  // One-based route order; null when the route skips the node.
   step: number | null;
+  traversal: boolean;
   phase: string | null;
   cumulativeCost: number | null;
   target: boolean;
@@ -31,7 +32,8 @@ export function describeNode(view: ViewNode) {
   let status = "beyond budget";
 
   if (view.bought) status = "within budget";
-  else if (view.next) status = "next purchase";
+  else if (view.next)
+    status = view.traversal ? "next node in traversal" : "next purchase";
 
   return `${head}, step ${view.step}, ${view.target ? "target" : "connector"}, ${status}`;
 }

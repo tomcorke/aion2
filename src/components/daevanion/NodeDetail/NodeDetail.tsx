@@ -14,7 +14,13 @@ const roles = {
 } as const;
 
 /** The selected node's details, read out as they change. */
-export function NodeDetail({ view }: { view: ViewNode | undefined }) {
+export function NodeDetail({
+  view,
+  traversal,
+}: {
+  view: ViewNode | undefined;
+  traversal: boolean;
+}) {
   return (
     <section
       aria-label="Selected node"
@@ -41,7 +47,11 @@ export function NodeDetail({ view }: { view: ViewNode | undefined }) {
               <>
                 <dt>Phase</dt>
                 <dd>{view.phase}</dd>
-                <dt>Route spend after this purchase</dt>
+                <dt>
+                  {traversal
+                    ? "Route spend through this node"
+                    : "Route spend after this purchase"}
+                </dt>
                 <dd>{view.cumulativeCost} points</dd>
               </>
             )}
@@ -74,8 +84,8 @@ export function NodeDetail({ view }: { view: ViewNode | undefined }) {
         </>
       ) : (
         <p className={STYLES.note}>
-          Select a node on the board or in the purchase order to see its
-          details.
+          Select a node on the board or in the{" "}
+          {traversal ? "traversal list" : "purchase order"} to see its details.
         </p>
       )}
     </section>
