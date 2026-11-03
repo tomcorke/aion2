@@ -67,6 +67,36 @@ export const skinCatalogueSourceAdditions = {
       "Piece-specific Daeva Pass Shop Coin appearance offers and limits; not a live shop audit",
     url: "https://metabot.gg/en/aion-2/shops/pass-shop-daeva-pass-shop-coin",
   },
+  aion2ggKnashSkinItems: {
+    name: "AION2.GG K'nash item pages",
+    covers:
+      "Client-derived matching-slot K'nash to Hidden Escaper extraction mappings and listed Sentinel K'nash drops",
+    url: "https://aion2.gg/database/items/k-nash-breastplate-210140081",
+  },
+  aion2ggFieldBossSkinItems: {
+    name: "AION2.GG field-boss item pages",
+    covers:
+      "Client-derived item-to-skin mappings and listed field-boss sources for Gartua, Dartan, Kashapa and High Commander Lagta gear",
+    url: "https://aion2.gg/database/items/gartua-breastplate-210130061",
+  },
+  aion2ggUruguguSkinItems: {
+    name: "AION2.GG Urugugu and Transcendent item pages",
+    covers:
+      "Client-derived Divine Canyon and Aulamus item-to-skin mappings, reward-cube sources, and Transcendent armor mappings",
+    url: "https://aion2.gg/database/items/divine-canyon-breastplate-210140043",
+  },
+  aion2ggVakronSkinItems: {
+    name: "AION2.GG Vakron item pages",
+    covers:
+      "Client-derived matching-slot Vakron to Ruinous Devourer mappings and listed reward-cube sources",
+    url: "https://aion2.gg/database/items/vakron-breastplate-210130052",
+  },
+  metabotTranscendentChest: {
+    name: "MetaBot Transcendent Armor Selection Chest",
+    covers:
+      "Client-derived chest selection and Battle Pass source label; no current tier or live offer identified",
+    url: "https://metabot.gg/en/aion-2/items/transcendent-armor-selection-chest-bound",
+  },
 } satisfies Record<string, Source>;
 
 export const skinCatalogueAttribution: SkinCatalogueAttribution[] = [
@@ -92,3 +122,14 @@ export const skinCatalogueLimitations = [
   "Random-shop prices, cube and ranking requirements, complete recipes and alternate extraction panels are not fully audited. Unknown costs are not zero.",
   "Client shop tables and dated offer notices are not a live availability check. Older acquisition sources retain their original check dates.",
 ];
+
+export const skinCatalogueExtractionScope =
+  "Selected item-level routes use client-derived Global EU/NA data, mostly build 2.0.9.0 / Steam build 26262663 (extracted 28 October 2026; checked 2 November). They are not live extraction tests: the owner has observed only the Skyfeather Guardian Breastplate panel. Extract Skin consumes gear and may fail. This selected pass is not exhaustive and excludes weapons. Later-marked sources are not established as open in EU/NA; the Transcendent chest has no identified current pass tier or live offer.";
+
+export const skinCatalogueRouteSourceIds = [
+  "aion2ggKnashSkinItems",
+  "aion2ggFieldBossSkinItems",
+  "aion2ggUruguguSkinItems",
+  "aion2ggVakronSkinItems",
+  "metabotTranscendentChest",
+] as const;

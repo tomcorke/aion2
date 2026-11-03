@@ -270,11 +270,16 @@ export const nonFestivalSkinEntries: SkinAcquisitionEntry[] = [
         name: "Extract Skin from Divine Canyon armor",
         pieceIds: guardianPieces.map(({ id }) => id),
         condition:
-          "Divine Canyon gear drops in the Urugugu Canyon party dungeon. The Breastplate's Source Information names Extract Skin from Divine Canyon Breastplate; the other six pieces are inferred from their matching models, not individually checked extraction panels.",
+          "Client-derived Global EU/NA item-use records list these matching-slot mappings: Divine Canyon Breastplate → Skyfeather Guardian (Breastplate), Divine Canyon Greaves → Skyfeather Guardian (Greaves), Divine Canyon Helm → Skyfeather Guardian (Helm), Divine Canyon Pauldrons → Skyfeather Guardian (Pauldrons), Divine Canyon Gloves → Skyfeather Guardian (Gloves), Divine Canyon Boots → Skyfeather Guardian (Boots), Divine Canyon Cloak → Skyfeather Guardian (Cloak). The seven pieces are listed in Urugugu Canyon Conquest reward-cube rolls from Divine Auldor, Guardian Captain Raur and Judge Urahum. The owner has directly observed only the Breastplate Source Information panel; the other six mappings are not live observations.",
         warnings: [
-          "Extract Skin costs Kina and always destroys the gear item. The exact Kina cost is not recorded.",
+          "Extract Skin consumes the gear and may fail. The owner reports it always destroys the item and costs Kina; the exact Kina cost is not recorded.",
         ],
-        sourceIds: ["metabotDivineCanyon", "metabotMethodology", "ownChecks"],
+        sourceIds: [
+          "aion2ggUruguguSkinItems",
+          "metabotDivineCanyon",
+          "metabotMethodology",
+          "ownChecks",
+        ],
       },
       {
         id: "bound-skin-chest",

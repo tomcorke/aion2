@@ -48,9 +48,7 @@ test("a single-piece offer uses singular coverage and its stated price", () => {
 test("extraction leads with the destruction warning", () => {
   renderRoute("skyfeather-guardian", "extraction");
 
-  expect(
-    screen.getByText(/costs Kina and always destroys the gear item/),
-  ).toBeDefined();
+  expect(screen.getByText(/consumes the gear and may fail/)).toBeDefined();
 });
 
 test("combine costs are per attempt, not a price table", () => {

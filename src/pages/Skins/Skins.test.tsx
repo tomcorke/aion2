@@ -5,6 +5,7 @@ import { afterEach, beforeEach, expect, test, vi } from "vitest";
 import { sources } from "../../data/sources.ts";
 import { currentGlobalSkinOfferEntries } from "../../data/currentGlobalSkinOffers.ts";
 import { skinAcquisitionSources } from "../../data/skinAcquisitions.ts";
+import { skinCatalogueRouteSourceIds } from "../../data/skinCatalogueMetadata.ts";
 import { skinsSources } from "../../data/skins.ts";
 import { loadSkinCatalogue } from "../../lib/skinCatalogueLoader.ts";
 import { renderWithProviders } from "../../testing/render.tsx";
@@ -358,6 +359,7 @@ test("the footer names the sources and preserves the oldest content review", asy
   for (const id of [
     ...skinsSources,
     ...skinAcquisitionSources,
+    ...skinCatalogueRouteSourceIds,
     ...offerSources,
   ])
     expect(footer.textContent).toContain(sources[id].name);
@@ -397,6 +399,9 @@ test("the page separates retained records, notice offers and what the sources pr
 
   expect(screen.getByText(/Weapons are not listed/)).toBeDefined();
   expect(screen.getByText(/1,008 retained.*55 appearances/)).toBeDefined();
+  expect(
+    screen.getByText(/Selected item-level routes use client-derived/),
+  ).toBeDefined();
   expect(
     screen.getByText(/not current stock or client-file inclusion/),
   ).toBeDefined();
@@ -501,12 +506,50 @@ test("Guardian routes show their own piece coverage and the extraction warning",
   ).toBeDefined();
   expect(
     within(route("Extract Skin from Divine Canyon armor")).getByText(
-      /costs Kina and always destroys the gear item/,
+      /consumes the gear and may fail/,
+    ),
+  ).toBeDefined();
+  expect(
+    within(route("Extract Skin from Divine Canyon armor")).getByText(
+      /Divine Canyon Breastplate → Skyfeather Guardian \(Breastplate\)/,
     ),
   ).toBeDefined();
   expect(within(detail()).queryByRole("link", { name: /Festival/ })).toBeNull();
   expect(
     within(detail()).getByRole("link", { name: /carries over/ }),
+  ).toBeDefined();
+});
+
+test("client-derived boss routes name their exact items and link their sources", async () => {
+  await renderPage("/skins/hidden-escaper");
+
+  const route = within(detail()).getByRole("region", {
+    name: "K'nash armor pieces → Hidden Escaper",
+  });
+
+  expect(
+    within(route).getByText(/K'nash Breastplate →.*Breastplate/),
+  ).toBeDefined();
+  expect(within(route).getByText(/Sentinel K'nash/)).toBeDefined();
+  expect(
+    within(route).getByText(/consumes the source gear and may fail/),
+  ).toBeDefined();
+  expect(
+    within(screen.getByRole("contentinfo")).getByRole("link", {
+      name: "AION2.GG K'nash item pages",
+    }),
+  ).toBeDefined();
+});
+
+test("Dartan Necklace stays without a boss drop route", async () => {
+  await renderPage("/skins/appearance-moon-circle-necklace");
+
+  expect(within(detail()).queryByText("Extract Skin")).toBeNull();
+  expect(
+    within(detail()).getByText(/How to get this is not recorded yet/),
+  ).toBeDefined();
+  expect(
+    within(detail()).getByText(/Open acquisition questions/),
   ).toBeDefined();
 });
 
