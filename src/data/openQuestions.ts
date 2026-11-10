@@ -204,7 +204,7 @@ export const openQuestions: OpenQuestion[] = [
       "What each Exploration and Conquest pity reward contains, and whether a skipped cube advances pity, remain unconfirmed.",
     why: "Known pity thresholds do not tell you which item to expect or whether an unclaimed reward helps reach it.",
     practicalCheck:
-      "Inspect each pity reward preview and record the counter before and after claiming or skipping a cube. Skipping still spends the shared unobtained-cube count; check that allowance before testing.",
+      "Inspect each pity reward preview and record the counter before and after claiming or skipping a cube. Skipping still spends that character's unobtained-cube count; check that allowance before testing.",
     relatedGuideLinks: [{ to: "/gear", label: "Gear pity rewards" }],
     supportingSourceIDs: ["metabotDungeons", "gamesFuzeAfter45"],
   },

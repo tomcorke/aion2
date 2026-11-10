@@ -68,7 +68,9 @@ test("daily reminders reuse canonical limits without converting weekly entries i
     "transcendence-rewards",
     "unobtained-cubes",
   ]);
-  expect(task("conquest")?.warning).toMatch(/At 0.*no character/);
+  expect(task("conquest")?.warning).toMatch(
+    /At 0, only that character loses entry/,
+  );
 });
 
 test("the Invasion key reminder stays optional and keeps its client scope qualified", () => {

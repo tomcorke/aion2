@@ -68,11 +68,11 @@ export function Alts() {
 
         <section aria-labelledby="alts-cubes" className={STYLES.warning}>
           <h2 id="alts-cubes" className={STYLES.heading}>
-            Skipped cubes can lock the main out
+            Skipped cubes lock only that character out
           </h2>
           <p>{cubeWarning}</p>
           <p className={STYLES.muted}>
-            {cubes.name}: {cubes.limit}, shared by the whole server.
+            {cubes.name}: {cubes.limit}, per character.
           </p>
         </section>
 

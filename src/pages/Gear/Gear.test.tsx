@@ -155,7 +155,9 @@ test("tier rows show source, mode, slots, levels and conditions", () => {
   const rules = within(screen.getByRole("region", { name: "Reward rules" }));
 
   expect(
-    rules.getByText(/locks for every character on that server/),
+    rules.getByText(
+      /only that character loses entry to Conquest and Transcendence/,
+    ),
   ).toBeDefined();
 });
 
@@ -219,7 +221,7 @@ test("material-only rows keep their reward conditions", () => {
   );
   expect(row(/^Deus Research Base/)).toContain("refills by 1 every 12 hours");
   expect(row(/^Deus Research Base/)).toContain(
-    "locks for every character on that server",
+    "only that character loses entry to Conquest and Transcendence",
   );
   expect(row(/^Ascension Trial/)).toContain(
     "Reward amounts rise with difficulty and final score.",
@@ -264,7 +266,7 @@ test("names its sources and reviewed date in the footer", () => {
   for (const id of gearSources)
     expect(footer.textContent).toContain(sources[id].name);
 
-  expect(footer.textContent).toMatch(/Reviewed 1 Nov/);
+  expect(footer.textContent).toMatch(/Reviewed 10 Nov/);
 });
 
 test("explains grade and item-level comparisons with the special gear rules", () => {

@@ -7,7 +7,7 @@ import {
 } from "./alts.ts";
 import { sections } from "./sections.ts";
 
-test("characters gain their own replenishing rewards but share the skipped-cube pool", () => {
+test("characters have their own replenishing rewards and skipped-cube allowance", () => {
   expect(resourceCounters["odyle-energy"]).toMatchObject({
     scope: "character",
     kind: "continuous",
@@ -27,7 +27,7 @@ test("characters gain their own replenishing rewards but share the skipped-cube 
     limit: "1 every 12 hours",
   });
   expect(resourceCounters["unobtained-cubes"]).toMatchObject({
-    scope: "server",
+    scope: "character",
     kind: "weekly",
     cap: 10,
   });
@@ -126,7 +126,7 @@ test("the ledger keeps corrected character ownership apart from shared appearanc
   expect(entry("unbound-kina")?.details).toMatch(/Conquest.*Server Storage/i);
   expect(entry("pets-genus")?.details).toMatch(/Korean.*Global/i);
   expect(entry("another-server")?.scope).toBe("another-server");
-  expect(cubeWarning).toMatch(/At 0.*no character.*Wednesday/i);
+  expect(cubeWarning).toMatch(/At 0, only that character.*Wednesday/i);
 });
 
 test("Middle and Upper Abyss guides use the delivered Timers route until the Abyss view lands", () => {

@@ -6,7 +6,7 @@ import { dailyDungeonRewardNote } from "./routine.ts";
 // Global Season 1. Curated from knowledge/topics/gear/level-45-progression.md
 // and exploration/field-bosses.md in E:/working/aion2-knowledge.
 // This preserves the notes' review date; no external source was rechecked here.
-export const gearReviewed = "2026-11-01";
+export const gearReviewed = "2026-11-10";
 
 export const gearSources: SourceId[] = [
   "metabotGear",
@@ -371,9 +371,9 @@ export const gearPityLimitations = [
 ];
 
 const CUBE_SKIP_WARNING =
-  "Clearing and exiting without taking the Odyle Energy Cube lowers the server's weekly unobtained-cube count from 10. At 0, Conquest and Transcendence entry locks for every character on that server until the weekly reset.";
+  "Each character has its own weekly unobtained-cube count of 10. Clearing and exiting without taking the Odyle Energy Cube lowers only that character's count. At 0, only that character loses entry to Conquest and Transcendence until the Wednesday reset. Other characters and players are unaffected.";
 
-// S76/S98 counters; cube warning confirmed in the EU client on 2026-10-12.
+// S76/S98 counters; per-character cube scope corrected by the owner on 2026-11-10.
 export const gearRewardConditions: GearRewardCondition[] = [
   {
     id: "field-boss",

@@ -35,8 +35,8 @@ test("keeps server reward pools apart from shared progress, with their limits", 
     within(pools).getByText(/Duty Missions: 5 completions per day, cap 20/),
   ).toBeDefined();
   expect(
-    within(pools).getByText(/Unobtained cubes.*10 each week/),
-  ).toBeDefined();
+    within(pools).queryByText(/Unobtained cubes.*10 each week/),
+  ).toBeNull();
   expect(within(pools).queryByText(/Odyle Energy:/)).toBeNull();
 });
 

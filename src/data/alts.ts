@@ -245,13 +245,13 @@ const counterDefinitions = {
   },
   "unobtained-cubes": {
     name: "Unobtained cubes: Conquest and Transcendence",
-    scope: "server",
+    scope: "character",
     kind: "weekly",
     limit: "10 each week; each skipped cube lowers the remaining count",
     cap: 10,
     notes:
-      "At 0, no character on the server can enter either mode until the Wednesday reset.",
-    guide: { to: "/alts", label: "Shared cube lockout" },
+      "At 0, only that character loses entry to Conquest and Transcendence until the Wednesday reset.",
+    guide: { to: "/alts", label: "Per-character cube lockout" },
   },
 } satisfies Record<string, ResourceCounter>;
 
@@ -261,7 +261,7 @@ export const resourceCounters: Record<CounterId, ResourceCounter> =
   counterDefinitions;
 
 export const cubeWarning =
-  "Every character must open the Odyle Energy Cube before leaving a Conquest or Transcendence clear. Skipping it lowers the server's weekly unobtained-cube count from 10. At 0, no character on that server can enter either mode until the Wednesday reset. An alt skipping cubes can lock the main out.";
+  "Every character must open the Odyle Energy Cube before leaving a Conquest or Transcendence clear. Each character has its own weekly unobtained-cube count of 10. Skipping a cube lowers only that character's remaining count. At 0, only that character loses entry to Conquest and Transcendence until the Wednesday reset. Other characters and players are unaffected.";
 
 export const refillClockNote =
   "Client data reports daily refills at 16:00 server time and weekly resets on Wednesday at the same time. The EU reset clock remains unresolved; other reports give 07:00 UTC. Trust the in-game countdown rather than treating these times as a verified EU deadline.";
@@ -321,7 +321,7 @@ export const sharingLedger: SharingEntry[] = [
     name: "Shared resource pools",
     scope: "server-pool",
     details:
-      "Duty Missions, the unobtained-cube allowance and the 14-entry Daily Dungeon pool (shared across Daeva Bio-Research Base and Odylium Repository) belong to the server, not each character. Client data also lists Festival and Dimensional Invasion keys as server-wide; their sharing has not been confirmed in play. An alt does not multiply these pools.",
+      "Duty Missions and the 14-entry Daily Dungeon pool (shared across Daeva Bio-Research Base and Odylium Repository) belong to the server, not each character. Client data also lists Festival and Dimensional Invasion keys as server-wide; their sharing has not been confirmed in play. An alt does not multiply these pools.",
   },
   {
     id: "level-class",
@@ -591,4 +591,4 @@ export const altsSourceAdditions = {
   },
 } satisfies Record<string, Source>;
 
-export const altsReviewed = "2026-11-02";
+export const altsReviewed = "2026-11-10";

@@ -310,4 +310,4 @@ export const routineSourceAdditions = {
   },
 } satisfies Record<string, Source>;
 
-export const routineReviewed = "2026-11-02";
+export const routineReviewed = "2026-11-10";

@@ -17,7 +17,7 @@ test("orders the headings: title, slots, transfers, ledger, cube warning, limits
     "Character slots",
     "Server transfers",
     "What carries over",
-    "Skipped cubes can lock the main out",
+    "Skipped cubes lock only that character out",
     "Limits and refills",
     ...altsSections.map(({ title }) => title),
   ]);
@@ -60,18 +60,18 @@ test("summarizes the ended first transfer period and what moved", () => {
   expect(transfers.textContent).toContain("check current official notices");
 });
 
-test("warns prominently that an alt skipping cubes can lock the main out", () => {
+test("warns that skipping cubes locks out only the character using its allowance", () => {
   renderPage();
 
   const warning = screen.getByRole("region", {
-    name: "Skipped cubes can lock the main out",
+    name: "Skipped cubes lock only that character out",
   });
 
   expect(
-    within(warning).getByText(/An alt skipping cubes can lock the main out/),
+    within(warning).getByText(/Other characters and players are unaffected/),
   ).toBeDefined();
   expect(
-    within(warning).getByText(/no character on that server can enter/),
+    within(warning).getByText(/At 0, only that character loses entry/),
   ).toBeDefined();
   expect(within(warning).getByText(/10 each week/)).toBeDefined();
 });
@@ -127,7 +127,7 @@ test("keeps existing server-wide pool claims with the Daily Dungeon update", () 
   });
 
   expect(sharedPools.textContent).toContain("Duty Missions");
-  expect(sharedPools.textContent).toContain("unobtained-cube allowance");
+  expect(sharedPools.textContent).not.toContain("unobtained-cube allowance");
   expect(sharedPools.textContent).toContain(
     "Festival and Dimensional Invasion keys",
   );
@@ -166,7 +166,7 @@ test("ends with the page's sources and reviewed date", () => {
 
   const footer = screen.getByRole("contentinfo");
 
-  expect(footer.textContent).toContain("Reviewed 2 November 2026");
+  expect(footer.textContent).toContain("Reviewed 10 November 2026");
 
   for (const id of altsSources)
     expect(footer.textContent).toContain(sources[id].name);

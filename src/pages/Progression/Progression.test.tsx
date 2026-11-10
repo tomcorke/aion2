@@ -88,7 +88,7 @@ test("lists the gates in order of total item level", () => {
   );
 });
 
-test("warns that skipping a cube locks the whole server", () => {
+test("warns that skipping a cube locks out only that character", () => {
   renderPage();
 
   const section = screen.getByRole("region", {
@@ -96,8 +96,12 @@ test("warns that skipping a cube locks the whole server", () => {
   });
 
   expect(
-    within(section).getByText(/At 0, no character on that server can enter/),
+    within(section).getByText(/At 0, only that character loses entry/),
   ).toBeDefined();
+  expect(section.textContent).toContain("its own unobtained-cube count of 10");
+  expect(section.textContent).toContain(
+    "Other characters and players are unaffected",
+  );
 });
 
 test("clarifies the 140 Featherdown split in the quest and Wings sections", () => {
@@ -281,5 +285,5 @@ test("names its sources and reviewed date in the footer", () => {
     expect(footer.textContent).toContain(sources[id].name);
 
   expect(footer.textContent).toContain("My own gameplay checks");
-  expect(footer.textContent).toMatch(/Reviewed 2 Nov/);
+  expect(footer.textContent).toMatch(/Reviewed 10 Nov/);
 });

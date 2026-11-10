@@ -135,7 +135,7 @@ export const progressionSections: ProgressionSection[] = [
     id: "rules",
     title: "Rules that matter most",
     items: [
-      "Always open the Odyle Energy Cube before leaving a Conquest or Transcendence run. Skipping it lowers the server's weekly unobtained-cube count, and at 0 nobody on the server can enter either until the Wednesday reset.",
+      "Always open the Odyle Energy Cube before leaving a Conquest or Transcendence run. Skipping it lowers that character's weekly unobtained-cube count. At 0, only that character loses entry to both modes until the Wednesday reset; other characters and players are unaffected.",
       "Clear every Sealed Dungeon in your own faction's maps. They pay Daevanion Crystals and the Featherdown both crafted wings need, and their clear rewards do not repeat.",
       "Gates read your total item level; compare upgrades by each piece's item level.",
       "Spend Odyle Energy and reward counts before they reach their caps; a full counter stops refilling.",
@@ -189,7 +189,7 @@ export const progressionSections: ProgressionSection[] = [
       "Conquest reward count: 1 every 8 hours, up to 21. Transcendence: 1 every 12 hours, up to 14. Exploration: 7 rewards per dungeon each week. All per character.",
       "Krao Cave and Urugugu Canyon Exploration cubes cost only 20 Odyle Energy and pay Enhance Stones, a cheap use for spare energy.",
       "Duty Missions bank up to 20 (5 a day, shared by the server); Nightmare banks up to 14 (2 a day, per character) and spends an entry only on a clear.",
-      "The unobtained-cube count starts each week at 10 and is shared by every character on the server. Clearing and leaving without opening the cube lowers it. At 0, no character on that server can enter Conquest or Transcendence until the Wednesday reset.",
+      "Each character starts the week with its own unobtained-cube count of 10. Clearing and leaving without opening the cube lowers only that character's count. At 0, only that character loses entry to Conquest and Transcendence until the Wednesday reset. Other characters and players are unaffected.",
     ],
     links: [{ to: "/routine", label: "Track the counters on Routine" }],
   },
@@ -311,9 +311,9 @@ export const progressionSections: ProgressionSection[] = [
     title: "Alts",
     items: [
       "Most reward counters belong to each character, so an alt brings its own Odyle Energy, Conquest and Transcendence counts, Nightmare, Ascension Trial, Subjugation, Exploration, raids and Abyss time.",
-      "Duty Missions, Daily Dungeon and the unobtained-cube count are shared by the server, so leave them to your main. Global client data lists Shugo Festival and Dimensional Invasion keys as server-wide too, but that has not been confirmed in play.",
+      "Duty Missions and Daily Dungeon are shared by the server, so leave them to your main. Global client data lists Shugo Festival and Dimensional Invasion keys as server-wide too, but that has not been confirmed in play.",
       "An alt that clears Conquest earns unbound Kina it can pass to the main through Server Storage. Soul Bound gear cannot be equipped on an alt.",
-      "An alt that skips cubes costs the main runs, so every character opens its cubes.",
+      "The unobtained-cube count is per character. An alt skipping cubes spends only its own allowance and cannot lock the main out.",
     ],
     links: [{ to: "/alts", label: "What each character shares on Alts" }],
   },
@@ -372,4 +372,4 @@ export const progressionSourceIds: SourceId[] = [
   "ownChecks",
 ];
 
-export const progressionReviewed = "2026-11-02";
+export const progressionReviewed = "2026-11-10";

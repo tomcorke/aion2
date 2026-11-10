@@ -75,7 +75,7 @@ test("rows show rewards, limits, caps and scope from the shared counters", async
   expect(
     within(conquest).getByText(/cap 560 \(840 with membership\)/),
   ).toBeDefined();
-  expect(within(conquest).getAllByText("Per character")).toHaveLength(2);
+  expect(within(conquest).getAllByText("Per character")).toHaveLength(3);
   expect(within(conquest).getByText(/unobtained-cube count/)).toBeDefined();
 });
 

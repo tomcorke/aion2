@@ -100,8 +100,8 @@ test("the row shows each counter's scope and limit without opening details", () 
   expect(visible.textContent).toContain(
     "Conquest reward count: 1 every 8 hours, cap 21",
   );
-  expect(within(visible).getAllByText("Per character")).toHaveLength(2);
-  expect(within(visible).getAllByText("Server-shared")).toHaveLength(1);
+  expect(within(visible).getAllByText("Per character")).toHaveLength(3);
+  expect(within(visible).queryByText("Server-shared")).toBeNull();
 });
 
 test.each(routineTasks.filter(({ warning }) => warning).map(({ id }) => id))(

@@ -100,11 +100,11 @@ test("pity uses documented runs and only Exploration has a recorded membership m
   }
 });
 
-test("reward conditions retain server-wide cube loss and distinguish known cube costs", () => {
+test("reward conditions retain per-character cube loss and distinguish known cube costs", () => {
   expect(
     gearRewardConditions.find(({ id }) => id === "conquest")?.notes.join(" "),
   ).toContain(
-    "At 0, Conquest and Transcendence entry locks for every character on that server",
+    "At 0, only that character loses entry to Conquest and Transcendence",
   );
 
   const cubes = gearActivities.flatMap(({ id, modes }) =>
@@ -315,7 +315,7 @@ test("curated IDs and references resolve without duplicate definitions", () => {
   ]);
   for (const id of gearSources) expect(sources).toHaveProperty(id);
 
-  expect(gearReviewed).toBe("2026-11-01");
+  expect(gearReviewed).toBe("2026-11-10");
 });
 
 test("Daily Dungeon keeps its client-name ID and score-qualified weekly server reward", () => {
