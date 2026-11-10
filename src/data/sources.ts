@@ -360,7 +360,7 @@ export const sources = {
   ownChecks: {
     name: "My own gameplay checks",
     covers:
-      "Boss timers, entry gates, pity, cube lockout, Daevanion item level, sharing and currency rules, Sealed Dungeon rewards, and the Festival opening observation (5 October 2026)",
+      "Boss timers, entry gates, pity, cube lockout, Daevanion item level, sharing and currency rules, Sealed Dungeon rewards, Festival opening observation, and the Meteor's Benediction Helm source panel (9 November 2026)",
   },
 } satisfies Record<string, Source>;
 

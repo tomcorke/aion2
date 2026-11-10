@@ -584,6 +584,13 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
     accessNote:
       "Client shop rows retained despite one empty set-detail response; not a live availability audit.",
   },
+  globalClientSkinRoutes: {
+    region: "Global",
+    clientBuild: "Steam build 26429009",
+    checkedDate: "2026-11-09",
+    accessNote:
+      "Data-only extraction of the already-installed client. Exact Item.ExtractionSkins keys were joined to Skin.Name and ItemGetRoute; monster routes were cross-checked with NpcLoot. No AION2.GG page or API was used and no game client was downloaded. This records client-listed routes, not current live availability or a live extraction test.",
+  },
   metabotPets: {
     region: "Global",
     clientBuild: "0.0.4387.0",
@@ -622,7 +629,7 @@ export const sourceDetails: Partial<Record<SourceId, SourceDetails>> = {
   ownChecks: {
     region: "Global EU (some observations presumed)",
     accessNote:
-      "The knowledge notes retain owner observations dated 5–21 October 2026; some are marked presumed Global EU. No single check date or client build applies across them, no per-check evidence log is linked, and methods are not consistently recorded.",
+      "The knowledge notes retain owner observations dated 5–21 October 2026 and the Meteor's Benediction Helm source panel screenshot from 9 November 2026. Earlier observations vary in region and method; there is no per-check evidence log, so no single check date or client build applies across them.",
   },
   ncLudraAwakens: {
     region: "Global",

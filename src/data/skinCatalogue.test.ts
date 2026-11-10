@@ -1,5 +1,6 @@
 // @vitest-environment node
 import { expect, test } from "vitest";
+import clientRouteData from "./skinCatalogueClientRoutes.json";
 import {
   skinCatalogueEntries,
   skinCataloguePieceIds,
@@ -78,7 +79,6 @@ test("reuses all 21 canonical Festival prices and retains all 80 known shop offe
 
 test("set summaries never become piece-level acquisition claims", () => {
   for (const id of [
-    "kromedes-desire",
     "dreamy-day-uniform",
     "promise-legion",
     "leather-crop-fit",
@@ -97,6 +97,7 @@ test("set summaries never become piece-level acquisition claims", () => {
 
 test("selected field-boss extraction records cover only their matching armor slots", () => {
   const cases = [
+    ["meteors-benediction", "Barthien", "Meteor's Benediction"],
     ["hidden-escaper", "K'nash", "Hidden Escaper"],
     ["forest-guardian", "Gartua", "Forest Guardian"],
     ["anguished-darkness", "Dartan", "Anguished Darkness"],
@@ -127,6 +128,13 @@ test("selected field-boss extraction records cover only their matching armor slo
       [...slots].sort(),
     );
 
+    if (entryId === "meteors-benediction") {
+      expect(route.sourceIds).toEqual(["globalClientSkinRoutes"]);
+      expect(route.condition).toContain(
+        "All seven pieces are listed as drops from level 45 Executioner Barthien.",
+      );
+    }
+
     for (const slot of slots) {
       const piece = routePieces.find(({ aliases = [] }) =>
         aliases.includes(slot),
@@ -135,6 +143,32 @@ test("selected field-boss extraction records cover only their matching armor slo
       expect(route.condition).toContain(`${gearSet} ${slot} → ${piece.name}`);
     }
   }
+});
+
+test("keeps Meteor's Benediction source-panel routes on its Helm only", () => {
+  const entry = entryById("meteors-benediction");
+  const helm = entry.pieces.find(({ aliases }) => aliases?.includes("Helm"))!;
+  const helmRoutes = entry.acquisitions.filter(({ pieceIds }) =>
+    pieceIds.includes(helm.id),
+  );
+
+  expect(helmRoutes.map(({ source }) => source).sort()).toEqual([
+    "chest",
+    "chest",
+    "extraction",
+    "random-shop",
+  ]);
+  expect(helmRoutes.map(({ name }) => name)).toContain("Reward Chest");
+  expect(helmRoutes.map(({ name }) => name)).toContain(
+    "Skin Chest (10 times) (Bound)",
+  );
+  expect(
+    entry.acquisitions.filter(({ source }) => source === "extraction")[0],
+  ).toMatchObject({
+    pieceIds: entry.pieces.map(({ id }) => id),
+    sourceIds: ["globalClientSkinRoutes"],
+  });
+  expect(entry.unknownPieceIds).toEqual([]);
 });
 
 test("accessory and dungeon routes retain exact item names and exclusions", () => {
@@ -226,6 +260,57 @@ test("Urugugu, Vakron and Transcendent routes retain their source limits", () =>
   );
   expect(dragon.condition).toContain("no current pass tier or live offer");
   expect(dragon.sourceIds).toContain("metabotTranscendentChest");
+});
+
+test("adds local item and drop routes for every previously unsourced direct match", () => {
+  const expectedPieceIds = new Set(
+    clientRouteData.mappings.map(({ pieceId }) => pieceId),
+  );
+  const knownMeteorPieceIds = entryById("meteors-benediction").pieces.map(
+    ({ id }) => id,
+  );
+  const routedPieceIds = new Set(
+    skinCatalogueEntries.flatMap(({ acquisitions }) =>
+      acquisitions
+        .filter(({ sourceIds }) => sourceIds.includes("globalClientSkinRoutes"))
+        .flatMap(({ pieceIds }) => pieceIds),
+    ),
+  );
+  const unknownPieceIds = skinCatalogueEntries.flatMap(
+    ({ unknownPieceIds }) => unknownPieceIds,
+  );
+
+  expect(clientRouteData.mappings).toHaveLength(604);
+  expect(expectedPieceIds).toHaveLength(513);
+  expect(routedPieceIds).toEqual(
+    new Set([...expectedPieceIds, ...knownMeteorPieceIds]),
+  );
+  expect(routedPieceIds).toHaveLength(520);
+  expect(unknownPieceIds).toHaveLength(337);
+
+  const routeGroupIds = new Set(
+    clientRouteData.routeGroups.map(({ id }) => id),
+  );
+
+  for (const group of clientRouteData.routeGroups) {
+    for (const sourceId of group.sources)
+      expect(sourceId in clientRouteData.sources).toBe(true);
+  }
+
+  for (const mapping of clientRouteData.mappings) {
+    expect(routeGroupIds.has(mapping.routeGroupId)).toBe(true);
+
+    const entry = entryById(mapping.entryId);
+    const acquisition = entry.acquisitions.find(
+      ({ sourceIds, pieceIds, condition }) =>
+        sourceIds.includes("globalClientSkinRoutes") &&
+        pieceIds.includes(mapping.pieceId) &&
+        condition.includes(mapping.itemName),
+    );
+
+    expect(acquisition).toBeDefined();
+    expect(acquisition?.condition).toContain(mapping.itemName);
+  }
 });
 
 test.each([

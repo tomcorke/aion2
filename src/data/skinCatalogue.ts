@@ -3,6 +3,7 @@ import {
   type SkinAppearancePiece,
 } from "./skinAcquisitions.ts";
 import { currentGlobalSkinOfferEntries } from "./currentGlobalSkinOffers.ts";
+import clientRouteData from "./skinCatalogueClientRoutes.json";
 import reference from "./skinCatalogueReference.json";
 import { skinCatalogueAttribution } from "./skinCatalogueMetadata.ts";
 import type {
@@ -33,6 +34,123 @@ type Reference = {
   pieces: SkinAppearancePiece[];
   offers: Offer[];
 };
+
+type ClientRouteSource =
+  | {
+      type: "monster";
+      id: number;
+      name: string;
+      level: number;
+      subtype: string;
+    }
+  | {
+      type: "dungeon";
+      id: number;
+      name: string;
+      difficulty: string;
+    };
+
+type ClientRouteGroup = {
+  id: string;
+  sources: string[];
+  regions: { map: string; subzone: string }[];
+  summary: string;
+};
+
+type ClientRouteMapping = {
+  entryId: string;
+  pieceId: string;
+  itemId: number;
+  itemName: string;
+  routeGroupId: string;
+};
+
+type ClientRouteData = {
+  mappings: ClientRouteMapping[];
+  routeGroups: ClientRouteGroup[];
+  sources: Record<string, ClientRouteSource>;
+};
+
+const clientRoutes = clientRouteData as ClientRouteData;
+const clientRouteGroups = new Map(
+  clientRoutes.routeGroups.map((group) => [group.id, group]),
+);
+
+function clientSourceLabel(source: ClientRouteSource) {
+  if (source.type === "monster")
+    return `${source.name} (level ${source.level})`;
+
+  return source.difficulty === "None"
+    ? source.name
+    : `${source.name} (${source.difficulty})`;
+}
+
+function clientRouteTitle(group: ClientRouteGroup) {
+  const sources = group.sources.map((id) => clientRoutes.sources[id]);
+  const monsters = sources.filter(
+    (source): source is Extract<ClientRouteSource, { type: "monster" }> =>
+      source.type === "monster",
+  );
+  const dungeons = sources.filter(
+    (source): source is Extract<ClientRouteSource, { type: "dungeon" }> =>
+      source.type === "dungeon",
+  );
+  const areas = [...new Set(group.regions.map(({ map }) => map))];
+  let monsterTitle = monsters.map(({ name }) => name).join(", ");
+
+  if (monsters.length > 10) {
+    const areaLabel = areas.length > 0 ? ` in ${areas.join(", ")}` : "";
+
+    monsterTitle = `${monsters.length} monsters${areaLabel}`;
+  }
+
+  const dungeonTitle = dungeons.map(clientSourceLabel).join(", ");
+
+  return `Gear from ${[monsterTitle, dungeonTitle].filter(Boolean).join("; ")}`;
+}
+
+function clientRouteAcquisition(
+  group: ClientRouteGroup,
+  mappings: ClientRouteMapping[],
+  pieces: SkinAppearancePiece[],
+): SkinCatalogueAcquisition {
+  const pieceNames = new Map(pieces.map(({ id, name }) => [id, name]));
+  const mappingLabels = mappings.map(
+    ({ itemName, pieceId }) =>
+      `${itemName} → ${pieceNames.get(pieceId) ?? pieceId}`,
+  );
+
+  return {
+    id: `client-item-extraction-${group.id}`,
+    source: "extraction",
+    name: clientRouteTitle(group),
+    pieceIds: [...new Set(mappings.map(({ pieceId }) => pieceId))],
+    condition: `Extract Skin maps these gear items to the matching appearances: ${mappingLabels.join("; ")}. Item routes list these sources: ${group.summary}.`,
+    warnings: ["Extract Skin consumes the source gear and may fail."],
+    sourceIds: ["globalClientSkinRoutes"],
+  };
+}
+
+function clientExtractionAcquisitions(
+  entry: Reference,
+): SkinCatalogueAcquisition[] {
+  const byGroup = new Map<string, ClientRouteMapping[]>();
+
+  for (const mapping of clientRoutes.mappings) {
+    if (mapping.entryId !== entry.id) continue;
+
+    const group = byGroup.get(mapping.routeGroupId) ?? [];
+
+    group.push(mapping);
+    byGroup.set(mapping.routeGroupId, group);
+  }
+
+  return [...byGroup].flatMap(([groupId, mappings]) => {
+    const group = clientRouteGroups.get(groupId);
+
+    return group ? [clientRouteAcquisition(group, mappings, entry.pieces)] : [];
+  });
+}
 
 function attribution(ids: SourceId[]) {
   return [...new Set(ids)].flatMap((id) => {
@@ -77,6 +195,13 @@ const armorItems = (setName: string) =>
   Object.fromEntries(armorSlots.map((slot) => [slot, `${setName} ${slot}`]));
 
 const extractionDefinitions: Record<string, ExtractionDefinition> = {
+  "meteors-benediction": {
+    name: "Barthien armor pieces to Meteor's Benediction",
+    sourceItems: armorItems("Barthien"),
+    sourceNote:
+      "All seven pieces are listed as drops from level 45 Executioner Barthien.",
+    sourceIds: ["globalClientSkinRoutes"],
+  },
   "hidden-escaper": {
     name: "K'nash armor pieces → Hidden Escaper",
     sourceItems: armorItems("K'nash"),
@@ -184,6 +309,38 @@ const extractionDefinitions: Record<string, ExtractionDefinition> = {
   },
 };
 
+const observedAcquisitions: Record<string, SkinCatalogueAcquisition[]> = {
+  "meteors-benediction": [
+    {
+      id: "meteor-helm-random-shop",
+      source: "random-shop",
+      name: "Black Cloud Merchants",
+      pieceIds: ["meteors-benediction-helm"],
+      condition:
+        "Listed in the in-game Source Information panel for the Helm. Price and stock details are not recorded.",
+      sourceIds: ["ownChecks"],
+    },
+    {
+      id: "meteor-helm-reward-chest",
+      source: "chest",
+      name: "Reward Chest",
+      pieceIds: ["meteors-benediction-helm"],
+      condition:
+        "Listed in the in-game Source Information panel for the Helm; the chest identity and origin are unknown.",
+      sourceIds: ["ownChecks"],
+    },
+    {
+      id: "meteor-helm-skin-chest",
+      source: "chest",
+      name: "Skin Chest (10 times) (Bound)",
+      pieceIds: ["meteors-benediction-helm"],
+      condition:
+        "Listed in the in-game Source Information panel for the Helm; the chest's origin and other piece contents are unknown.",
+      sourceIds: ["ownChecks"],
+    },
+  ],
+};
+
 function extractionAcquisitions(entry: Reference): SkinCatalogueAcquisition[] {
   const definition = extractionDefinitions[entry.id];
 
@@ -206,7 +363,7 @@ function extractionAcquisitions(entry: Reference): SkinCatalogueAcquisition[] {
       source: "extraction",
       name: definition.name,
       pieceIds: mappings.map(({ piece }) => piece.id),
-      condition: `Client-derived Global EU/NA item-use records list these matching-slot Extract Skin mappings: ${mappings
+      condition: `Client records list these matching-slot Extract Skin mappings: ${mappings
         .map(({ item, piece }) => `${item} → ${piece.name}`)
         .join("; ")}. ${definition.sourceNote}`,
       warnings: ["Extract Skin consumes the source gear and may fail."],
@@ -239,8 +396,15 @@ function shopAcquisitions(offers: Offer[]): SkinCatalogueAcquisition[] {
 
 function referenceEntry(entry: Reference): SkinCatalogueEntry {
   const { id, kind, name, pieces, offers } = entry;
-  const extractions = extractionAcquisitions(entry);
-  const acquisitions = [...shopAcquisitions(offers), ...extractions];
+  const extractions = [
+    ...extractionAcquisitions(entry),
+    ...clientExtractionAcquisitions(entry),
+  ];
+  const acquisitions = [
+    ...shopAcquisitions(offers),
+    ...(observedAcquisitions[id] ?? []),
+    ...extractions,
+  ];
   const unknownPieceIds = pieces
     .filter(
       (piece) =>
@@ -274,7 +438,7 @@ function referenceEntry(entry: Reference): SkinCatalogueEntry {
   };
 }
 
-// One-off projection of canonical e4b7db0, with no assets, set-source inference or runtime knowledge-repo dependency.
+// Hand-curated from the retained inventory, with no assets or set-source inference.
 export const skinCatalogueEntries: SkinCatalogueEntry[] = [
   ...skinEntries.map((entry): SkinCatalogueEntry => ({
     ...entry,

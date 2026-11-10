@@ -5,8 +5,8 @@ import type {
   SkinCatalogueSource,
 } from "./skinCatalogueTypes.ts";
 
-// Canonical knowledge e4b7db0; inventory review and external checks are separate retained fields.
-export const skinCatalogueReviewed = "2026-11-02";
+// Inventory review and external source checks are separate retained fields.
+export const skinCatalogueReviewed = "2026-11-09";
 export const skinCatalogueSourceChecked = "2026-11-01";
 export const skinCatalogueBuild =
   "Global 0.0.4387.0, as reported by MetaBot.GG";
@@ -73,6 +73,11 @@ export const skinCatalogueSourceAdditions = {
       "Client-derived matching-slot K'nash to Hidden Escaper extraction mappings and listed Sentinel K'nash drops",
     url: "https://aion2.gg/database/items/k-nash-breastplate-210140081",
   },
+  globalClientSkinRoutes: {
+    name: "Installed Global AION 2 client (Steam build 26429009)",
+    covers:
+      "Local exact item-to-skin mappings and direct monster, party-dungeon, and raid routes for 513 previously unsourced pieces plus the seven Meteor's Benediction mappings; client-listed routes do not confirm live availability",
+  },
   aion2ggFieldBossSkinItems: {
     name: "AION2.GG field-boss item pages",
     covers:
@@ -121,10 +126,11 @@ export const skinCatalogueLimitations = [
   "A set's source category does not verify every piece's route. Pieces without a recorded route remain listed with that gap.",
   "Random-shop prices, cube and ranking requirements, complete recipes and alternate extraction panels are not fully audited. Unknown costs are not zero.",
   "Client shop tables and dated offer notices are not a live availability check. Older acquisition sources retain their original check dates.",
+  "The local client extraction audit did not join 72 catalogue pieces to a unique Skin label. Larger monster drop lists are summarized by count, monster type and map area.",
 ];
 
 export const skinCatalogueExtractionScope =
-  "Selected item-level routes use client-derived Global EU/NA data, mostly build 2.0.9.0 / Steam build 26262663 (extracted 28 October 2026; checked 2 November). They are not live extraction tests: the owner has observed only the Skyfeather Guardian Breastplate panel. Extract Skin consumes gear and may fail. This selected pass is not exhaustive and excludes weapons. Later-marked sources are not established as open in EU/NA; the Transcendent chest has no identified current pass tier or live offer.";
+  "A data-only extraction of the installed Global client (Steam build 26429009, checked 9 November 2026) added exact item-to-skin mappings and direct monster, party-dungeon, or raid routes for 513 pieces with no previously recorded acquisition. Together with 64 earlier extraction records, 577 of the catalogue's 1,063 pieces now have an item-level extraction route. Exact Item.ExtractionSkins keys were joined to Skin.Name; 991 catalogue pieces matched a unique Skin appearance, while 72 did not join and remain un-inferred. Larger monster lists are summarized by count, monster type, and map area. 337 pieces still carry the site's source-not-recorded marker. These are client-listed routes, not live availability checks; later-marked sources are not established as open in EU/NA. The owner has observed the Skyfeather Guardian Breastplate and Meteor's Benediction Helm panels. Extract Skin consumes gear and may fail. The Transcendent chest has no identified current pass tier or live offer.";
 
 export const skinCatalogueRouteSourceIds = [
   "aion2ggKnashSkinItems",
@@ -132,4 +138,5 @@ export const skinCatalogueRouteSourceIds = [
   "aion2ggUruguguSkinItems",
   "aion2ggVakronSkinItems",
   "metabotTranscendentChest",
+  "globalClientSkinRoutes",
 ] as const;

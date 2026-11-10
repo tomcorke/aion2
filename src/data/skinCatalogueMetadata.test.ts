@@ -16,7 +16,7 @@ import {
 
 test("records the actual reference build, review and source-check dates separately", () => {
   expect(skinCatalogueBuild).toContain("Global 0.0.4387.0");
-  expect(skinCatalogueReviewed).toBe("2026-11-02");
+  expect(skinCatalogueReviewed).toBe("2026-11-09");
   expect(skinCatalogueSourceChecked).toBe("2026-11-01");
   expect(skinCatalogueScope).toContain("1,008 retained");
   expect(skinCatalogueScope).toContain("55 appearances");
@@ -42,21 +42,24 @@ test("supplies small labels and specific source pages without images or raw prov
   expect(skinCatalogueSourceLabels["global-offer"]).toBe(
     "Current Global offers",
   );
-  expect(Object.keys(skinCatalogueSourceAdditions)).toHaveLength(10);
+  expect(Object.keys(skinCatalogueSourceAdditions)).toHaveLength(11);
   expect(skinCatalogueRouteSourceIds).toEqual([
     "aion2ggKnashSkinItems",
     "aion2ggFieldBossSkinItems",
     "aion2ggUruguguSkinItems",
     "aion2ggVakronSkinItems",
     "metabotTranscendentChest",
+    "globalClientSkinRoutes",
   ]);
+  expect(skinCatalogueExtractionScope).toContain("installed Global client");
   expect(skinCatalogueExtractionScope).toContain(
-    "client-derived Global EU/NA data",
+    "Skyfeather Guardian Breastplate and Meteor's Benediction Helm panels",
   );
+  expect(skinCatalogueExtractionScope).toContain("Steam build 26429009");
+  expect(skinCatalogueExtractionScope).toContain("513 pieces");
   expect(skinCatalogueExtractionScope).toContain(
-    "only the Skyfeather Guardian Breastplate panel",
+    "not live availability checks",
   );
-  expect(skinCatalogueExtractionScope).toContain("not exhaustive");
   expect(skinCatalogueAttribution.map(({ url }) => url)).toEqual([
     "https://metabot.gg/en/aion-2/skins",
     "https://metabot.gg/en/aion-2/wings",

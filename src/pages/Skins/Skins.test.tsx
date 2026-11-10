@@ -347,7 +347,7 @@ test("ownership is explained as browser-local", async () => {
   expect(screen.getByText(/only in this browser/)).toBeDefined();
 });
 
-test("the footer names the sources and preserves the oldest content review", async () => {
+test("the footer names its sources and current review date", async () => {
   await renderPage();
 
   const footer = screen.getByRole("contentinfo");
@@ -364,7 +364,7 @@ test("the footer names the sources and preserves the oldest content review", asy
   ])
     expect(footer.textContent).toContain(sources[id].name);
 
-  expect(footer.textContent).toContain("Reviewed 2 November 2026");
+  expect(footer.textContent).toContain("Reviewed 9 November 2026");
 });
 
 test("the footer links each data page used, adding the selected entry's own pages", async () => {
@@ -400,7 +400,12 @@ test("the page separates retained records, notice offers and what the sources pr
   expect(screen.getByText(/Weapons are not listed/)).toBeDefined();
   expect(screen.getByText(/1,008 retained.*55 appearances/)).toBeDefined();
   expect(
-    screen.getByText(/Selected item-level routes use client-derived/),
+    screen.getByText(/A data-only extraction of the installed Global client/),
+  ).toBeDefined();
+  expect(
+    screen.getByText(
+      /337 pieces still carry the site's source-not-recorded marker/,
+    ),
   ).toBeDefined();
   expect(
     screen.getByText(/not current stock or client-file inclusion/),

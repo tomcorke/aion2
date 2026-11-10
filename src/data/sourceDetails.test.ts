@@ -62,6 +62,7 @@ test.each([
   ["metabotNightmareShop", "2026-10-16"],
   ["metabotSeasonShop", "2026-10-16"],
   ["metabotDaevaPassShop", "2026-10-16"],
+  ["globalClientSkinRoutes", "2026-11-09"],
 ] satisfies [SourceId, string][])(
   "%s retains its actual catalogue check %s, not a note review date",
   (id, date) => {
@@ -90,6 +91,14 @@ test("retains catalog metadata without conflating source and client builds", () 
     clientBuild: ["2", "0", "9", "0"].join("."),
     checkedDate: "2026-11-01",
     accessNote: expect.stringMatching(/Steam build 26262663.*28 October 2026/),
+  });
+  expect(sourceDetails.globalClientSkinRoutes).toMatchObject({
+    region: "Global",
+    clientBuild: "Steam build 26429009",
+    checkedDate: "2026-11-09",
+    accessNote: expect.stringMatching(
+      /already-installed client.*NpcLoot.*no AION2.GG.*not current live availability/i,
+    ),
   });
   expect(sourceDetails.metabotStigma).toMatchObject({
     region: "Global",
@@ -153,13 +162,16 @@ test("retains catalog metadata without conflating source and client builds", () 
 
 test("only known public source IDs carry metadata; unknown dates remain omitted", () => {
   expect(sourceDetails.ownChecks?.checkedDate).toBeUndefined();
+  expect(sourceDetails.ownChecks?.accessNote).toContain(
+    "Meteor's Benediction Helm source panel screenshot from 9 November 2026",
+  );
 
   for (const [id, detail] of Object.entries(sourceDetails)) {
     expect(id in sources).toBe(true);
     const source = sources[id as SourceId];
 
     if ("url" in source) expect(source.url).toMatch(/^https:\/\//);
-    else expect(id).toBe("ownChecks");
+    else expect(["ownChecks", "globalClientSkinRoutes"]).toContain(id);
 
     if (detail.checkedDate)
       expect(isMatch(detail.checkedDate, "yyyy-MM-dd")).toBe(true);
@@ -212,7 +224,7 @@ test("recorded access limits remain readable and do not imply unseen material wa
     clientBuild: "0.0.4387.0",
   });
   expect(sourceDetails.ownChecks?.accessNote).toMatch(
-    /owner observations dated 5.*21 October 2026.*no per-check evidence log/i,
+    /observations dated 5.*21 October 2026.*Meteor's Benediction Helm source panel screenshot from 9 November 2026/i,
   );
   expect(sourceDetails.metabotEvents?.accessNote).toMatch(
     /schedules.*not.*checked live on EU/i,
